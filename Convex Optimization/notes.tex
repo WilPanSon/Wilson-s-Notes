@@ -589,7 +589,13 @@
 \begin{proof}
     For $x\in C$, $I_C(y)\geq I_C(x)+g^T(y-x)$ for all $y\in C$ then we have \[
     0 \geq 0 + g^T(y-x)
-    .\] 
-    
+    .\]
 \end{proof}
+\begin{defn}
+    Subgradient Method: $x_{t+1}\leftarrow x_t-\eta g_x$ for some $g_x\in \partial f(x)$
+    \begin{enumerate}
+        \item Subgradients are in general not descent directions
+        \item The min norm subgradient is a descent direction
+    \end{enumerate}
+\end{defn}
 \end{document}
