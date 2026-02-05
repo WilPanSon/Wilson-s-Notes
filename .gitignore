@@ -26,8 +26,27 @@
 .vscode/
 *.code-workspace
 
-# PDFs (optional - uncomment if you don't want to track PDFs)
-# *.pdf
+# Homework directories - exclude all homework
+**/HW*/
+**/HW*/**
+**/S26*/
+**/S26*/**
+
+# PDFs - only track notes.pdf, exclude all other PDFs
+*.pdf
+!**/notes.pdf
+
+# TEX files - only track notes.tex, exclude all other TEX files
+*.tex
+!**/notes.tex
+!**/auto-commit.sh
+!**/file-watcher.sh
+!**/setup-github.sh
+
+# Other non-notes files
+*.png
+*.csv
+*.py
 
 # Temporary files
 *~
