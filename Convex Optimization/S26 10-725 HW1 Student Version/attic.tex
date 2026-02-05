@@ -1,0 +1,165 @@
+\newpage
+\section{Implications of Smoothness and Strong Convexity (20 points) THIS SHOULD GO TO HW2}
+
+Let $f$ be convex and twice continuously differentiable.
+
+\begin{enumerate}
+\item \textbf{(10 pts)} Show that the following statements are equivalent. 
+\begin{enumerate}
+\item $\nabla f$ is Lipschitz with constant $\beta$;
+\item $(\nabla f(x) - \nabla f(y))^T(x-y) \leq \beta \|x-y\|_2^2$ for all
+  $x,y$; 
+\item $\nabla^2 f(x) \preceq \beta I$ for all $x$;
+\item $f(y) \leq f(x) + \nabla f(x)^T (y-x) + \frac{\beta}{2} \|y-x\|_2^2$
+  for all $x,y$.
+\end{enumerate}
+Your solution should have 5 parts, where you prove (a) $\Rightarrow$ (b), (b)
+$\Rightarrow$ (c), (c) $\Rightarrow$ (d), (d) $\Rightarrow$ (b), and (c)
+$\Rightarrow$ (a). 
+
+\begin{soln}
+(a) $\Rightarrow$ (b). From the $L$-Lipschitz condition, we know
+that for all $x, y$: 
+$$ \|\nabla f(x) - \nabla f(y)\|_2\leq L\|x - y\|_2$$
+and by the Cauchy-Schwarz inequality, we have:
+$$
+(\nabla f(x) - \nabla f(y))^T(x - y) 
+\leq \|\nabla f(x) - \nabla f(y)\|_2\|x - y\|_2
+\leq L\|x - y\|_2^2.
+$$
+
+(b) $\Rightarrow$ (c). Let $h$ be any unit vector, i.e., $\|h\|_2 = 1$. Consider
+the directional derivative of $\nabla f(x)$ at $h$: 
+$$
+\nabla^2 f(x) h =
+\lim_{t\rightarrow 0}\frac{\nabla f(x+th) - \nabla f(x)}{t}.
+$$ 
+Taking inner product of both sides in the above equation with $h$ leads to
+\begin{align*}
+h^T\nabla^2 f(x) h 
+&= \lim_{t\rightarrow 0}\frac{h^T(\nabla f(x+th) - \nabla f(x))}{t} \\
+&= \lim_{t\rightarrow 0}\frac{th^T(\nabla f(x+th) - \nabla f(x))}{t^2} \\
+&\leq \lim_{t\rightarrow 0}\frac{L\|th\|_2^2}{t^2} \\
+&= L.
+\end{align*}
+Now choosing $h$ to be the eigenvector corresponding to the largest eigenvalue 
+of $\nabla^2 f(x)$, we get
+$$
+\lambda_1(\nabla^2 f(x))\leq L,
+$$
+which implies that $\nabla^2 f(x)\preceq LI$.
+
+(c) $\Rightarrow$ (d). By Taylor expansion with Lagrange form of the remainder: 
+\begin{align*}
+f(y) &= f(x) + \nabla f(x)^T(y-x) + \frac{1}{2}(y-x)^T\nabla^2 f(\lambda x + 
+(1-\lambda)y) (y-x) \\
+&\leq f(x) + \nabla f(x)^T(y-x) + \frac{L}{2}\|y-x\|_2^2, 
+\end{align*}
+where $\lambda \in(0, 1)$ and the last inequality is due to $\nabla^2 f(x)
+\preceq LI$, for all $x$.
+
+(d) $\Rightarrow$ (b). By iv, we have that the following two inequalities hold 
+simultaneously: 
+$$
+f(y) \leq f(x) + \nabla f(x)^T(y-x) + \frac{L}{2}\|y-x\|_2^2,
+$$
+and
+$$
+f(x) \leq f(y) + \nabla f(y)^T(x-y) + \frac{L}{2}\|y-x\|_2^2.
+$$
+Simply adding these two inequalities leads to ii.
+
+(c) $\Rightarrow$ (a). Applying the integral form of the mean-value theorem, we
+have for all $x, y$:
+$$
+\nabla f(y) - \nabla f(x) = \int_0^1 \nabla^2 f(x + t(y-x))(y-x)~dt.
+$$
+Taking the norm of both sides above, 
+\begin{align*}
+\|\nabla f(y) - \nabla f(x)\|_2 &= \|\int_0^1 \nabla^2 f(x + t(y-x))(y-x)~dt\|_2 \\
+& \leq \int_0^1 \|\nabla^2 f(x + t(y-x))(y-x)\|_2~dt \\
+& \leq \int_0^1 \|\nabla^2 f(x + t(y-x))\|_2\|(y-x)\|_2~dt \\
+& \leq L\|y-x\|_2\int_0^1~dt \\
+& = L\|y-x\|_2.
+\end{align*}
+
+\end{soln}
+
+\bigskip
+\noindent
+\item \textbf{(10 pts)} Show that the following statements are equivalent. 
+\begin{enumerate}
+\item $f$ is strongly convex with constant $\alpha$;
+\item $(\nabla f(x) - \nabla f(y))^T(x-y) \geq \alpha \|x-y\|_2^2$ for all
+  $x,y$;
+\item $\nabla^2 f(x) \succeq \alpha I$ for all $x$;
+\item $f(y) \geq f(x) + \nabla f(x)^T (y-x) + \frac{\alpha}{2}
+  \|y-x\|_2^2$ for all $x,y$.
+\end{enumerate}
+Your solution should have 4 parts, where you prove (a) $\Rightarrow$ (b), (b)
+$\Rightarrow$ (c), (c) $\Rightarrow$ (d), and (d) $\Rightarrow$ (a).
+
+\begin{soln}
+     (a) $\Rightarrow$ (b). Since $f(x)$ is $m$-strongly convex, we have
+for all $x, y$: 
+$$
+f(y) - \frac{m}{2}\|y\|_2^2 \geq f(x) - \frac{m}{2}\|x\|_2^2 + (\nabla f(x) -
+mx)^T(y-x),
+$$
+and
+$$
+f(x) - \frac{m}{2}\|x\|_2^2 \geq f(y) - \frac{m}{2}\|y\|_2^2 + (\nabla f(y) -
+my)^T(x-y).
+$$
+Adding the above two inequalities, after some algebra, we have
+$$
+m\|x -y\|_2^2 \leq (\nabla f(x) - \nabla f(y))^T(x - y).
+$$
+
+(b) $\Rightarrow$ (c). Let $h$ be any unit vector. Consider the directional
+derivative of $\nabla f(x)$ at $h$: 
+$$
+\nabla^2 f(x) h = \lim_{t\rightarrow 0}\frac{\nabla f(x+th) - \nabla f(x)}{t}.
+$$
+Taking the inner product of both sides above with $h$ leads to
+\begin{align*}
+h^T\nabla^2 f(x) h 
+&= \lim_{t\rightarrow 0}\frac{h^T(\nabla f(x+th) - \nabla f(x))}{t}\\ 
+&= \lim_{t\rightarrow 0}\frac{th^T(\nabla f(x+th) - \nabla f(x))}{t^2} \\
+&\geq \lim_{t\rightarrow 0}\frac{m\|th\|_2^2}{t^2} \\
+&= m.
+\end{align*}
+Now choosing $h$ to be the eigenvector corresponding to the smallest eigenvalue
+of $\nabla^2 f(x)$, we get
+$$
+\lambda_n(\nabla^2 f(x))\geq m,
+$$
+which implies that $\nabla^2 f(x)\succeq mI$.
+
+(c) $\Rightarrow$ (d). Again, using a Taylor expansion with Lagrange form for
+the remainder, we have
+\begin{align*}
+f(y) &= f(x) + \nabla f(x)^T(y-x) + \frac{1}{2}(y-x)^T\nabla^2 f(\lambda x +
+       (1-\lambda)y) (y-x) \\
+&\geq f(x) + \nabla f(x)^T(y-x) + \frac{m}{2}\|y-x\|_2^2,
+\end{align*}
+where $\lambda\in(0, 1)$ and the last inequality is due to $\nabla^2 f(x)\succeq
+mI$, for all $x$. 
+
+(d) $\Rightarrow$ (a). To show that $f(x)$ is $m$-strongly convex, we need to show
+that for all $x, y$:
+$$
+f(y) - \frac{m}{2}\|y\|_2^2 \geq f(x) - \frac{m}{2}\|x\|_2^2 + (\nabla f(x) -
+mx)^T(y-x).
+$$
+Starting from 
+$$
+f(y) \geq f(x) + \nabla f(x)^T(y-x) + \frac{m}{2}\|y-x\|_2^2,
+$$
+subtract $\frac{m}{2}\|y\|_2^2$ from the both sides of the above
+inequality. After some algebraic manipulation we arrive at the desired
+inequality.   
+
+\end{soln}
+
+\end{enumerate}

@@ -1,0 +1,445 @@
+ \documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, enumerate, graphicx}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{bm}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{float}
+\usepackage{graphics}
+\setlength{\marginparwidth}{2.15cm}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{epsfig}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{mleftright}  
+\usepackage{dsfont}
+\usepackage[normalem]{ulem}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows, automata}
+\usepackage{pgfplots}
+\usepackage[font=scriptsize]{subcaption}
+\usepackage{float}
+\usepackage[]{algorithm2e}
+\usepackage{environ}
+\usepackage{bbm}
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{url}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{lipsum}
+\usepackage{lastpage}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{multicol}
+\usepackage{pdfpages}
+\usepackage{tabularx}
+\usepackage{comment}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{marvosym}
+\usepackage{wrapfig}
+\usepackage{datetime}
+\usepackage[many]{tcolorbox}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wasysym}
+\usepackage{cancel}
+
+\usepackage{listings}
+\usepackage{color}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbR}{\R}
+\newcommand{\blackcircle}{\tikz\draw[black,fill=black] (0,0) circle (1ex);}
+\renewcommand{\circle}{\tikz\draw[black] (0,0) circle (1ex);}
+\newcommand{\eMLE}{\widehat{\theta}_{\text{MLE}}}
+
+\newtheorem{lemma}[]{Lemma}
+\usepackage{amsmath}
+
+
+
+% SOLUTION environment
+\NewEnviron{soln}{
+    \leavevmode\color{red}\ignorespaces 
+    % \textbf{Solution} \BODY 
+}{}
+
+% QUESTION AUTHORS environment
+\NewEnviron{qauthor}{
+\leavevmode\color{blue}\ignorespaces \textbf{Author} \BODY}{}
+
+% TO ONLY SHOW HOMEWORK QUESTIONS, include following (else comment out):
+\makeatletter
+\newcommand{\removelatexerror}{\let\@latex@error\@gobble}
+\makeatother
+
+\newcommand{\argmax}{\mathop{\mathrm{argmax}}}
+\newcommand{\argmin}{\mathop{\mathrm{argmin}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Code highlighting with listings         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+\definecolor{light-gray}{gray}{0.95}
+
+\newcommand{\MYhref}[3][blue]{\href{#2}{\color{#1}{#3}}}%
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstdefinelanguage{Shell}{
+  keywords={tar, cd, make},
+  %keywordstyle=\color{bluekeywords}\bfseries,
+  alsoletter={+},
+  ndkeywords={python, py, javac, java, gcc, c, g++, cpp, .txt, octave, m, .tar},
+  %ndkeywordstyle=\color{bluekeywords}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]",
+  backgroundcolor = \color{light-gray}
+}
+
+\lstset{columns=fixed, basicstyle=\ttfamily,
+    backgroundcolor=\color{light-gray},xleftmargin=0.5cm,frame=tlbr,framesep=4pt,framerule=0pt,
+    showstringspaces=false}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom box for highlights               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define box and box title style
+\tikzstyle{mybox} = [fill=blue!10, very thick,
+    rectangle, rounded corners, inner sep=1em, inner ysep=1em]
+
+% \newcommand{\notebox}[1]{
+% \begin{tikzpicture}
+% \node [mybox] (box){%
+%     \begin{minipage}{\textwidth}
+%     #1
+%     \end{minipage}
+% };
+% \end{tikzpicture}%
+% }
+
+\NewEnviron{notebox}{
+\begin{tikzpicture}
+\node [mybox] (box){
+    \begin{minipage}{\textwidth}
+        \BODY
+    \end{minipage}
+};
+\end{tikzpicture}
+}
+
+\begin{document}
+\section*{}
+\begin{center}
+  \centerline{\textsc{\LARGE  Homework 1}}
+  \vspace{0.5em}
+  \vspace{1em}
+  \textsc{\large CMU 10-725: Convex Optimization} \\
+  \vspace{0.5em}
+%\url{https://piazza.com/cmu/spring2023/10725/home} \\
+  \vspace{0.5em}
+  \centerline{OUT: Tuesday, Sept 3, 2024}
+  \vspace{0.5em}
+  \centerline{DUE: Tuesday, Sept 17, 2024, 11:59pm}
+\end{center}
+
+\section*{START HERE: Instructions}
+\begin{itemize}
+\item \textbf{Collaboration policy:} Collaboration on solving the homework is allowed, after you have thought about the problems on your own. To remind you, many questions in this HW have solutions that are very easy to find online (and many are from previous versions of this course). It is also OK to get clarification (but not solutions) from books or online resources, again after you have thought about the problems on your own. There are two requirements: first, cite your collaborators fully and completely (e.g., ``Jane explained to me what is asked in Question 2.1''). Second, write your solution {\em independently}: close the book and all of your notes, and send collaborators out of the room, so that the solution comes from you only.  
+
+\item\textbf{Submitting your work:} 
+
+\begin{itemize}
+
+\item \textbf{Gradescope:} For the written problems such as short answer, multiple choice, derivations, proofs, or plots, we will be using the Gradescope.  The best way to format your homework is by using the Latex template released in the handout and writing your solutions in Latex. However, submissions can be handwritten onto the template, but should be labeled and clearly legible. If your writing is not legible, you will not be awarded marks. \\
+Regrade requests can be made after the homework grades are released, however this gives the TA the opportunity to regrade your entire paper, meaning if additional mistakes are found then points will be deducted. 
+
+\item \textbf{Programming: }You should submit all code used to solve the programming aspect of the homework to the corresponding 'Programming' submission slot on Gradescope. If you do not do this, you will not get any credit for any of the programming section irrespective of the plots and values submitted to the 'Written' submission slot.
+\end{itemize}
+
+\end{itemize}
+
+\clearpage
+
+
+\section{Convex sets - Canary}
+In this problem you want to prove that some commonly used sets are convex. 
+
+\subsection{The polytope (5 points)} 
+
+A $d$-dimensional polytope $\mathcal{P}$ is a set in $\mathbb{R}^d$, defined as the set of points $x \in \mathbb{R}^d$  satisfying the following constraints:  For an integer $m > 0$, for $m$ vectors $a_1, \cdots, a_m \in \mathbb{R}^d$ and $m$ values $b_i \in \mathbb{R}$: 
+\begin{align}
+\forall i \in [m ]: \langle a_i , x \rangle \leq b_i
+\end{align}
+
+
+Show that $\mathcal{P}$ is a convex set. 
+
+Use this to show that the $\ell_1$ ball: $\{ x \in \mathbb{R}^d \mid \| x \|_1 \leq 1\}$ is a convex set.
+
+\subsection{The unit ball (5 points)} \label{sec:problem123}
+A $d$-dimensional unit ball $\mathcal{B}$ is a set in $\mathbb{R}^d$ , defined as the set of points  $x \in \mathbb{R}^d$  satisfying the following constraints: 
+$$\sum_{i \in [d]} x_i^2 \leq 1$$
+
+Where $x_i$ is the $i$-th coordinate of $x$. 
+
+Show that $\mathcal{B}$ is a convex set. 
+
+
+(Hint: You can use the following fact: For any value $a, b \in \mathbb{R}$, $2ab \leq a^2 + b^2$. Now, use the basic definition for convex set and apply this inequality $d$ times on each coordinate) 
+
+\subsection{The linear transformation (5 points)}
+
+Suppose $\mathcal{D}$ is a convex set in $\mathbb{R}^d$ and $A \in \mathbb{R}^{d \times d}$ is a matrix and $b \in \mathbb{R}^d$ is a vector.
+
+Show that the following set is also convex:
+$$\{ x \in \mathbb{R}^d \mid A x + b \in \mathcal{D} \}$$
+
+
+\subsection{Ellipsoid (5 points)}
+
+Use the previous two subproblems to show that an Ellipsoid is convex: An Ellipsoid $\mathcal{E}$ in $\mathbb{R}^d$ is a set defined as: for some matrix $A$ in $\mathbb{R}^{d \times d}$ and vector $b \in \mathbb{R}^d$: 
+\begin{align}
+\mathcal{E} = \{ x \in \mathbb{R}^d \mid (x - b)^{\top} A^{\top} A (x - b) \leq 1 \}.
+\end{align}
+
+
+\newpage
+\section{Convex functions - Vinay}
+In this problem you want to show  that some commonly used functions are convex.   You can use the basic definition or the alternative definition mentioned in class in the second lecture. 
+
+
+\subsection{1-d convex function (10 points)}
+
+\textbf{(1 Point each bullet point)} Show that the following functions ($\mathbb{R} \to \mathbb{R}$) are convex functions:
+\begin{itemize}
+    \item $f(x) = x$
+    \item $f(x) = e^x$
+    \item $f(x) = x \log x$ ($x > 0$)
+    \item $f(x) = \log(1 + e^x)$
+    \item $f(x) = \text{ReLU}(x)$
+    \item $f(x) = (\text{ReLU}(x) )^c$ for any $c \geq 1.$
+\end{itemize}
+Show that the following functions are not convex functions:
+\begin{itemize}
+    \item $f(x) = \sin (x)$
+    \item $f(x)  = \cos (x)$
+    \item $f(x) = x \sin (x)$
+    \item $f(x) = x e^x.$
+\end{itemize}
+
+
+\subsection{The linear transformation (5 points)}
+
+Suppose $f$ is a convex function over $\mathbb{R}^d$, show that for any positive integer $d'$, any matrix $A \in \mathbb{R}^{d \times d'}$ and any vector $b \in \mathbb{R}^{d}$, $g(x) := f(Ax + b)$ is a convex function over $\mathbb{R}^{d'}$ as well. 
+
+\subsection{The non-negative summation (5 points)}  
+
+Suppose $f_1, \cdots, f_m$ are convex functions over $\mathbb{R}^d$, show that for any $\lambda_1, \cdots, \lambda_m \geq 0$, 
+$$f(x) := \sum_{i \in [m]}\lambda_i f_i(x)$$
+
+
+is a convex function over  $\mathbb{R}^d$. 
+
+
+Give a counter example that $f_1(x) \times f_2( x) \times \cdots \times f_m(x)$ is not a convex function. 
+
+\subsection{The max operation (5 points)}
+
+Suppose $f_1, \cdots, f_m$ are convex functions over $\mathbb{R}^d$, show that
+$$f(x) = \max \left\{ f_1(x), \cdots, f_m(x) \right\}$$
+
+
+is a convex function over  $\mathbb{R}^d$. 
+
+
+What about  $g(x) = \min \left\{ f_1(x), \cdots, f_m(x) \right\}$?
+
+\subsection{Logistic Regression (5 points)} 
+
+The objective function in the logistic regression problem is of the form
+\[
+f(x) = \sum_{i\in[m]} -\log\left(\frac{1}{1+\exp\{-y_i \langle a_i, x\rangle\}}\right),
+\]
+where $x, a_1, \dots, a_m \in \bbR^d$.
+%
+Prove that $f(x)$ is convex.
+
+
+\newpage
+\section{Characterizations of Convexity (10 points) (Owen)}
+Throughout this question suppose that your function $f$ is twice differentiable on $\mathbb{R}^d$. 
+In lecture we discussed three characterizations of convexity. In this question we will explore some of these characterizations.
+
+\begin{enumerate}
+\item \textbf{(3 pts)} (TA: Owen) Show that if $f$ is convex and differentiable, then it must 
+satisfy the condition that for any pair $x,y \in \mathbb{R}^d$, 
+\begin{align*}
+f(y) \geq f(x) + \nabla f(x)^T (y - x). 
+\end{align*}
+You can use the following directional-derivative characterization of the gradient
+\begin{align*}
+\nabla f(x)^T v = \lim_{t \rightarrow 0} \frac{f(x + t v) - f(x)}{t}. 
+\end{align*}
+
+
+\item \textbf{(4 pts)} (TA: Owen) Show that if $f$ is differentiable, and has monotone gradient (i.e., we have that $(\nabla f(x) - \nabla f(y1))^{T}(x-y) \geq 0$), then it is convex by the first-order characterization, i.e. satisfies that for any $x,y,$\begin{align*}
+f(y) \geq f(x) +  \nabla f(x)^T (y - x). 
+\end{align*}
+
+The fundamental theorem of calculus is useful to recall: for any nice (continuously differentiable on $[0,1]$) function, $\int_{0}^1 f'(t) dt = f(1) - f(0)$. 
+
+Particularly, an expression you might find useful to play with (try to bound it or re-express it using the fundamental theorem etc.) is,
+\begin{align*}
+I_1 &:= \int_0^1 \frac{d}{dt} f( (1-t)x + ty) dt.
+\end{align*}
+
+
+\item \textbf{(3 pts)} (TA: Owen) Show that if $f$ is convex then the fact that $\nabla^2 f(x) \succeq 0$ for every $x$, implies that $f$ has monotone gradient. 
+
+Once again, the fundamental theorem might be useful. This time try playing with the expression,
+\begin{align*}
+I_2 &:= \int_0^1 \frac{\partial^2}{\partial t^2} f( (1-t)x + ty) dt. 
+\end{align*}
+
+\end{enumerate}
+
+\newpage
+\section{Optimization with CVX (20 points) (Daniel)}
+CVX is a framework for disciplined convex programming: it's rarely
+the fastest tool for the job, but it's widely applicable, and so it's a great
+tool to be comfortable with. In this exercise we will set up the CVX
+environment and solve a convex optimization problem.
+
+Generally speaking, for homeworks in this class, your solution to programming-based problems should include plots and whatever explanation necessary to answer the questions asked. In addition, your full code should be submitted to the Homework 1 Gradescope submission slot otherwise you will not get credit for the programming section.
+
+CVX variants are available for each of the major numerical programming
+languages. There are some minor syntactic and functional differences between the
+variants but all provide essentially the same functionality.  Download the CVX
+variant of your choosing: 
+\begin{itemize}
+\item Matlab: \url{http://cvxr.com/cvx/}
+\item Python: \url{http://www.cvxpy.org/}
+\item R: \url{https://cvxr.rbind.io}
+\item Julia: \url{https://github.com/JuliaOpt/Convex.jl}
+\end{itemize}
+and consult the documentation to understand the basic functionality. Make sure 
+that you can solve the least squares problem $\min_\beta \; \|y-X\beta\|_2^2$
+for an arbitrary vector $y$ and matrix $X$. Check your answer by comparing with
+the closed-form solution $(X^T X)^{-1} X^T y$. 
+
+\textbf{Note:} There are certain quirks of CVX that may result in you getting strange errors even if your code is technically correct. We recommend setting your solver to the Splitting Conic Solver (SCS) and sticking to CVX specific functions such as \lstinline{sum_squares} if you encounter such errors when attempting the problems below.
+
+\bigskip
+\noindent
+Given labels $y \in \{-1,1\}^n$, and a feature matrix $X \in
+\R^{n\times p}$ with rows $x_1,\ldots x_n$, recall the support vector machine 
+(SVM) problem
+\begin{alignat*}{2}
+&\min_{\beta,\beta_0,\xi} \quad
+&& \frac{1}{2} \|\beta\|_2^2 + C \sum_{i=1}^n \xi_i \\ 
+&\text{subject to} \quad && \xi_i \geq 0, \; i=1,\ldots n \\
+& && y_i(x_i^T \beta + \beta_0) \geq 1-\xi_i, \;
+i=1,\ldots n.
+\end{alignat*}  
+\begin{enumerate}
+\item \textbf{(5 pts)} (TA: Daniel) Load the training data in {\tt xy\_train.csv}.  This is a matrix of $n=200$
+  row and 3 columns.  The first two columns give the first $p=2$ features, and
+  the third column gives the labels.  Using CVX, solve the SVM problem with
+  $C=1$.  Report the optimal criterion value, and the optimal coefficients
+  $\beta \in \R^2$ and intercept $\beta_0 \in \R$.  
+
+\item \textbf{(5 pts)} (TA: Daniel) Recall that the SVM solution defines a hyperplane
+  $$
+  \beta_0 + \beta^T x = 0,
+  $$
+  which serves as the decision boundary for the SVM classifier.  Plot the
+  training data and color the points from the two classes differently.  Draw 
+  the decision boundary on top.  
+
+\item \textbf{(5 pts)} (TA: Daniel) Now define \smash{$\widetilde{X} \in \R^{n \times p}$} to have rows
+  $\widetilde{x}_i=y_i x_i$, $i=1,\ldots,n$, and solve using CVX the problem  
+  \begin{alignat*}{2}
+    &\max_w \quad && -\frac{1}{2} w^T \widetilde{X} \widetilde{X}^T w + 1^T w \\   
+    &\text{subject to} \quad && 0 \leq w \leq C1, \; w^T y = 0,
+  \end{alignat*}  
+  (Above, we use 1 to denote the vector of all 1s.)  Report the optimal
+  criterion value; it should match that from part (1).  Also report
+  \smash{$\widetilde{X}^T w$} at the optimal $w$; this should mach the optimal
+  $\beta$ from part (1).  Note: this is not a coincidence, and is an example of
+  {\it duality}, as we will study in detail later in the course. 
+
+\item \textbf{(5 pts)} (TA: Daniel) Investigate many values of the cost parameter $C=2^a$, as $a$ varies from
+  $-5$ to $5$.  For each one, solve the SVM problem, form the decision boundary,
+  and calculate the misclassification error on the test data in {\tt
+    xy\_test.csv}.  Make a plot of misclassification error (y-axis) versus $C$
+  (x-axis, which you will probably want to put a log scale). 
+
+\end{enumerate}
+
+\textbf{Important: }Remember that you \textbf{MUST} submit all code used in this part to the Programming submission slot on Gradescope otherwise you will not get credit for this section.
+
+
+\newpage
+
+\section{Collaboration Questions}
+
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item Did you receive any help whatsoever from anyone in solving this assignment? 
+        \begin{soln} Yes / No. \end{soln} 
+        \item If you answered `yes', give full details (e.g. “Jane Doe explained to me what is asked in Question 3.4”)\\
+        \begin{tcolorbox}[fit,height=4cm, width=15cm, blank, borderline={1pt}{-2pt},nobeforeafter]
+        
+        \begin{soln}
+        \end{soln}
+        
+        \end{tcolorbox}
+        
+    \end{enumerate}
+    
+    
+    \item 
+    \begin{enumerate}
+        \item Did you give any help whatsoever to anyone in solving this assignment? 
+        \item If you answered `yes', give full details (e.g. “I pointed Joe Smith to section 2.3 since he didn’t know how to proceed with Question 2”)\\
+        \begin{tcolorbox}[fit,height=4cm, width=15cm, blank, borderline={1pt}{-2pt},nobeforeafter]
+        
+        \end{tcolorbox}
+        
+    \end{enumerate}
+    
+    \item 
+    \begin{enumerate}
+        \item Did you find or come across code that implements any part of this assignment? 
+        
+        \item If you answered `yes', give full details (book \& page, URL \& location within the page, etc.).\\
+        \begin{tcolorbox}[fit,height=4cm, width=15cm, blank, borderline={1pt}{-2pt},nobeforeafter]
+        
+        \end{tcolorbox}
+        
+    \end{enumerate}
+\end{enumerate}
+
+
+\end{document}

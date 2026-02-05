@@ -1,0 +1,37 @@
+# LaTeX build artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PDFs (optional - uncomment if you don't want to track PDFs)
+# *.pdf
+
+# Temporary files
+*~
+.#*
+\#*#
+.*.swp
+.*.swo
