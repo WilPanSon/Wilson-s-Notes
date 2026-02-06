@@ -3,9 +3,9 @@
 # Auto-commit script for notes
 # This script commits and pushes changes to GitHub
 
-# Log to a file for debugging (optional)
-# LOG_FILE="$HOME/auto-commit.log"
-# echo "[$(date '+%Y-%m-%d %H:%M:%S')] Auto-commit triggered" >> "$LOG_FILE"
+# Log to a file for debugging
+LOG_FILE="$HOME/auto-commit.log"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Auto-commit triggered" >> "$LOG_FILE"
 
 cd "$(dirname "$0")"
 
@@ -28,20 +28,26 @@ git add -A
 
 # Create commit with timestamp
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
-git commit -m "Auto-update: $TIMESTAMP" 2>/dev/null
+if ! git commit -m "Auto-update: $TIMESTAMP" >> "$LOG_FILE" 2>&1; then
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Warning: Commit failed or no changes to commit" >> "$LOG_FILE"
+    exit 0
+fi
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Commit successful" >> "$LOG_FILE"
 
 # Check if remote is configured
 if git remote get-url origin >/dev/null 2>&1; then
     # Get current branch name
     BRANCH=$(git branch --show-current 2>/dev/null || echo "main")
     
-    # Push to GitHub (don't suppress errors, but don't fail if push fails)
-    git push origin "$BRANCH" 2>&1 || {
-        # If push fails, it's okay - might be network issue or auth issue
-        # The commit is still made locally
+    # Push to GitHub
+    if git push origin "$BRANCH" >> "$LOG_FILE" 2>&1; then
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Push successful" >> "$LOG_FILE"
+    else
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Warning: Push failed (check log for details)" >> "$LOG_FILE"
+        # Don't fail - commit is still made locally
         exit 0
-    }
+    fi
 else
-    echo "GitHub remote not configured. Run: git remote add origin <your-repo-url>"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Warning: GitHub remote not configured" >> "$LOG_FILE"
     exit 0
 fi

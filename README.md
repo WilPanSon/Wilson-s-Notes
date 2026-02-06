@@ -21,18 +21,27 @@ Follow the prompts to enter your GitHub repository URL.
 
 ### 3. Set Up Auto-Commit on Save
 
-#### Option A: Using VS Code/Cursor Extension (Recommended)
+#### Option A: Simple File Watcher (Recommended - No Dependencies)
 
-1. Install the "Run on Save" extension in VS Code/Cursor:
-   - Open Extensions (Cmd+Shift+X)
-   - Search for "Run on Save" by emeraldwalk
-   - Install it
+Start the file watcher that monitors your notes files:
 
-2. The settings are already configured in `.vscode/settings.json`
+```bash
+./start-auto-commit.sh
+```
 
-3. The auto-commit script will run automatically when you save `.tex`, `.md`, or `.txt` files
+This will start a background process that watches for changes to `notes.tex` and `notes.pdf` files and automatically commits and pushes them to GitHub.
 
-#### Option B: Using File Watcher Script
+**To stop the watcher:**
+```bash
+pkill -f simple-file-watcher.sh
+```
+
+**To check logs:**
+```bash
+tail -f ~/auto-commit.log
+```
+
+#### Option B: Using fswatch (Alternative)
 
 1. Make sure `fswatch` is installed (macOS):
    ```bash
@@ -97,6 +106,10 @@ git push
 
 ## Troubleshooting
 
-- **Auto-commit not working?** Make sure the "Run on Save" extension is installed and enabled
+- **Auto-commit not working?** 
+  - Make sure the file watcher is running: `pgrep -f simple-file-watcher.sh`
+  - If not running, start it: `./start-auto-commit.sh`
+  - Check the log file: `tail -f ~/auto-commit.log`
 - **Push fails?** Check that your GitHub remote is configured: `git remote -v`
 - **Permission errors?** Make sure your GitHub credentials are set up (use SSH keys or GitHub CLI)
+- **File watcher not starting?** Make sure the scripts are executable: `chmod +x *.sh`
