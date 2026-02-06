@@ -3,6 +3,10 @@
 # Auto-commit script for notes
 # This script commits and pushes changes to GitHub
 
+# Log to a file for debugging (optional)
+# LOG_FILE="$HOME/auto-commit.log"
+# echo "[$(date '+%Y-%m-%d %H:%M:%S')] Auto-commit triggered" >> "$LOG_FILE"
+
 cd "$(dirname "$0")"
 
 # Check if git is initialized
@@ -31,9 +35,10 @@ if git remote get-url origin >/dev/null 2>&1; then
     # Get current branch name
     BRANCH=$(git branch --show-current 2>/dev/null || echo "main")
     
-    # Push to GitHub
-    git push origin "$BRANCH" 2>/dev/null || {
-        echo "Warning: Could not push to GitHub. Make sure remote is configured."
+    # Push to GitHub (don't suppress errors, but don't fail if push fails)
+    git push origin "$BRANCH" 2>&1 || {
+        # If push fails, it's okay - might be network issue or auth issue
+        # The commit is still made locally
         exit 0
     }
 else
