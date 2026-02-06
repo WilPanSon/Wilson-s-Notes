@@ -1,6 +1,6 @@
 # Notes Repository
 
-This repository contains my academic notes and homework assignments.
+This repository contains my academic notes.
 
 ## Quick Setup
 
