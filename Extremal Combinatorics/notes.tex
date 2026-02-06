@@ -894,8 +894,77 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     \Pr[|d(w')-d(w)|\geq \epsilon]\leq e^{-c_\epsilon n}
     .\] 
 \end{lem}
+\newpage
+\section{Feb 6}
+\begin{defn}
+    Partition $\mathcal{P}'$ is a refinement of partition $\mathcal{P}$ if each $w'\in \mathcal{P}'$ is a sub-word of some word in $\mathcal{P}$  
+\end{defn}
 \begin{thm}
     (Regularity Lemma for Binary Words)\\
     For all $\epsilon>0$, every word $w\in \{0,1\}^n$ can be partitioned into $\leq M(\epsilon)$ many sub-words $w^{(1)},...,w^{(m)}$ (i.e. $w=w^{(1)}...w^{(m)}$). So that the total length of $w^{(i)}$'s that are $\epsilon$-irregular is at most $\epsilon n.$  
 \end{thm}
+\begin{proof}
+    For a partition $\mathcal{P}$ of $w$ into sub-words $\mathcal{P}= \{w^{(1)},...,w^{(m)}\}$ we define $f(\mathcal{P})=\sum_{w'\in \mathcal{P}}d(w)^2|w'|/|w|$.\\
+    Alternatively, we pick a symbol of $w$ at random, say $i\in [n]$ uniformly, then pick another symbol at random from the same part as $1$'st, say $j$ is picked. 
+    \[
+    \Pr[w_i=w_j]=\sum_{w'\in \mathcal{P}}\frac{|w'|}{|w|}(d(w')^2+(1-d(w'))^2)=2 f(\mathcal{P})+\sum_{w'}\frac{|w'|}{|w|}-2\sum_{w'}d(w')\frac{|w'|}{|w|}=2f(\mathcal{P})+1-2d(w)
+    .\] 
+    \begin{lem}
+        If $\mathcal{P}'$ is a refinement of $\mathcal{P}$ then \[
+        f(\mathcal{P}')=f(\mathcal{P})+\sum_{w'\in \mathcal{P}'} \left( d(w')-d(\mathrm{parent}(w')) \right)^2 \frac{|w'|}{|w|}
+        .\] 
+    \end{lem}
+    \begin{proof}
+        Expanding the second term we have \[
+        \sum_{w'\in \mathcal{P'}}d(w')\frac{|w'|}{|w|}-2d(w')d(\mathrm{parent}(w'))+d(\mathrm{parent}(w'))^2\frac{|w'|}{|w|}=\sum_1+\sum_2+\sum_3
+        .\] 
+        We have $\sum_1 = f(\mathcal{P}')$ and
+        \begin{align*}
+        \sum_2 &= \sum_{\tilde{w}\in \mathcal{P}}\sum_{\substack{w'\in \mathcal{P'} \\ \mathrm{parent}(w')=\tilde{w}}} \left( -2d(w')d(\tilde{w})\frac{|w'|}{|w|} \right)\\
+        &= \sum_{\tilde{w}\in \mathcal{P}}-2d(\tilde{w})\frac{1}{|w|}\sum_{\substack{w'\in \mathcal{P'} \\ \mathrm{parent}(w')=\tilde{w}}}d(w')|w'|\\
+        &= \sum_{\tilde{w}\in \mathcal{P}}-2d(\tilde{w})\frac{1}{|w|} \cdot d(\tilde{w})|\tilde{w}|\\
+        &= \sum_{\tilde{w}\in \mathcal{P}}-2d(\tilde{w})^2\frac{|\tilde{w}|}{|w|}\\
+        &= -2f(\mathcal{P})
+        \end{align*} 
+        Then for the third sum 
+        \begin{align*}
+            \sum_3 &=\sum_{\tilde{w}\in \mathcal{P}}\sum_{\substack{w'\in \mathcal{P'} \\ \mathrm{parent}(w')=\tilde{w}}} d(\tilde{w})^2 \frac{|w'|}{|w|}\\
+            &=\sum_{\tilde{w}\in \mathcal{P}}d(\tilde{w})^2 \frac{|\tilde{w}|}{|w|}=f(\mathcal{P})
+        \end{align*}
+        So we have $\sum_1+\sum_2+\sum_3=f(\mathcal{P}')-f(\mathcal{P})$
+    \end{proof}
+    \noindent Start with the trivial partition (i.e. $\mathcal{P}= \{w\}$) and repeat while $\sum_{w'\in \mathcal{P} \\ w' \text{ is } \epsilon\text{-irregular}} |w'|\leq \epsilon |w|$.\\
+    For $w'\in \mathcal{P}$ that is $\epsilon$-irregular, find a way to write as $w'=w^{(1)}w^{(2)}w^{(3)}$ where $|d(w^{(2)})-d(w^{(1)})|\geq \epsilon$ and $|w^{(2)}|\geq \epsilon |w'|$
+    Replace $w'$ with the three words $w^{(1)},w^{(2)},w^{(3)}$ to obtain a new partition of $w$, call it $\mathcal{P}'$. Repeat with $\mathcal{P}$ replaced by $\mathcal{P}'$.\\\\
+    To analyze this algorithm, if we drop some words we have \[
+    f(\mathcal{P}')\geq f(\mathcal{P})+\sum_{\substack{w'\in \mathcal{P}' \\ w' \text{ is } \epsilon\text{-irregular}}}\sum_{w^{(2)}}(d(w^{(2)}-d(w')))\frac{|w^{(2)}|}{|w|}\geq f(\mathcal{P})+\sum_{\substack{w'\in \mathcal{P}' \\ w' \text{ is } \epsilon\text{-irregular}}}\epsilon^2 \frac{\epsilon |w'|}{|w|}=f(\mathcal{P})+\epsilon^4
+    .\] 
+    Note: $f(\mathcal{P})\leq 1$ for any partition $\mathcal{P}$.\\
+    So the number of steps in the algorithm is $\leq \frac{1}{\epsilon^4}$. The theorem holds with $M(\epsilon)=3^{1/\epsilon^4}$
+\end{proof}
+\begin{eg}
+    Define a twin in a word $w\in \{0,1\}^n$ is a pair of subsequences $x,y\in w$ that are disjoint (no symbol in both $x$ and $y$) and are equal as word. \\
+    We define \[
+    t(w)=\text{the length of longest pair twins in $w$} \text{ and } t(n)=\min_{w\in \{0,1\}^n} t(w)
+    .\] 
+    We have the trivial bounds $\frac{n}{4}\leq t(n)\leq \frac{n}{2}$. \\
+    \begin{thm}
+        \[
+        t(n)\geq \left( \frac{1}{2}-o(1) \right)n
+        .\] 
+    \end{thm}
+    \begin{proof}
+        Pick small $\epsilon>0$ and cut $w$ into $\epsilon$-regular words $t\leq \epsilon n$ junk symbols. Enough $t(w)\geq \left( \frac{1}{2}-c\epsilon \right)|w|$ for $\epsilon$-regular $w.$\\
+        Cut $w$ into $\frac{1}{\epsilon}$ equally long sub-words $w^{(1)},...,w^{(m)}$ where $m=\frac{1}{\epsilon}$. \\
+        The first twin is 0's from $w^{(1)}+$ 1's from $w^{(2)}+$ 0's from $w^{(3)}$...\\
+        The second twin is 1's from $w^{(1)}+$ 0's from $w^{(2)}+$ 1's from $w^{(3)}$...\\
+        Choose twins then \[
+        | \text{\# 0's in }w^{(i)}|-| \text{\# 1's in }w^{(2)}|\leq \epsilon |w^{(1)}|
+        .\] 
+        So, \# symbols not in either of the twins is less than or equal to \[
+        \epsilon|w|( \text{1's in } w^{(1)})+\epsilon|w|( \text{1's in } w^{(2)})+\sum_{i}4\epsilon |w^{(i)}|
+        .\] 
+    \end{proof}
+
+\end{eg}
 \end{document}
