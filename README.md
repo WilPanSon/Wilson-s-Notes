@@ -21,25 +21,28 @@ Follow the prompts to enter your GitHub repository URL.
 
 ### 3. Set Up Auto-Commit on Save
 
-#### Option A: Simple File Watcher (Recommended - No Dependencies)
+#### Automatic Setup (Recommended)
 
-Start the file watcher that monitors your notes files:
+The file watcher **automatically starts** when you open this workspace in VS Code/Cursor! 
+
+The configuration is already set up in `.vscode/tasks.json` to run on folder open. When you open the workspace, you'll see a notification that the file watcher has started.
+
+**Manual control:**
+
+- **Start watcher manually:** Run the task "Start Auto-commit File Watcher" (Cmd+Shift+P → "Tasks: Run Task")
+- **Stop watcher:** Run the task "Stop Auto-commit File Watcher" or: `pkill -f simple-file-watcher.sh`
+- **Check logs:** `tail -f ~/auto-commit.log`
+- **Check if running:** `pgrep -f simple-file-watcher.sh`
+
+#### Manual Start (Alternative)
+
+If automatic start doesn't work, you can manually start the file watcher:
 
 ```bash
 ./start-auto-commit.sh
 ```
 
 This will start a background process that watches for changes to `notes.tex` and `notes.pdf` files and automatically commits and pushes them to GitHub.
-
-**To stop the watcher:**
-```bash
-pkill -f simple-file-watcher.sh
-```
-
-**To check logs:**
-```bash
-tail -f ~/auto-commit.log
-```
 
 #### Option B: Using fswatch (Alternative)
 
