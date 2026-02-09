@@ -356,7 +356,7 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     \Pr[X\geq 2\sqrt{n}] \leq \frac{1}{4} \tag{Chebyshev's Inequality}\implies \Pr[ \text{any prefix of $X$ is } \geq 2\sqrt{n}]\leq \frac{1}{2}
     .\] 
     Let $t_i$ be the event that the prefix of $X$ reaches $2i\sqrt{n}$ then \[
-    \Pr[t_i \text{ exists  ]
+    \Pr[t_i \text{ exists} | {t_{i-1} \text{ exist}}  ]\leq \frac{1}{2}
     .\] 
 \end{proof}
 
