@@ -1320,5 +1320,82 @@ We have \[
     \int_{\partial \mathcal{D}}f=2\pi i \sum_{k=1}^n \text{res}_{z_k}(f)
     .\] 
 \end{thm}
+\begin{proof}
+    Let $\gamma=\partial \mathcal{D}$ be the boundary of the disk $\mathcal{D}$, oriented counterclockwise. For each pole $z_k$, choose a small disk $\mathcal{D}_k$ centered at $z_k$ with radius $\varepsilon_k>0$ small enough so that:
+    \begin{itemize}
+        \item $\overline{\mathcal{D}_k}\subset \mathcal{D}$ for all $k$
+        \item $\overline{\mathcal{D}_k}\cap \overline{\mathcal{D}_j}=\emptyset$ for $k\neq j$
+        \item $f$ is holomorphic on $\overline{\mathcal{D}}\setminus \bigcup_{k=1}^n \mathcal{D}_k$
+    \end{itemize}
+    
+    Let $\gamma_k=\partial \mathcal{D}_k$ be the boundary of each small disk, oriented clockwise (negative orientation). Consider the multiply connected region $\mathcal{D}\setminus \bigcup_{k=1}^n \overline{\mathcal{D}_k}$.
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1.2]
+        % Large disk boundary
+        \draw[thick, ->] (0,0) circle (2.5cm);
+        \node[above] at (0,2.5) {$\gamma = \partial \mathcal{D}$};
+        
+        % Pole 1
+        \filldraw[red] (1,0.8) circle (2pt) node[above right] {$z_1$};
+        \draw[thick, ->, blue] (1,0.8) circle (0.4cm);
+        \node[below left] at (1.3,0.8) {$\gamma_1$};
+        
+        % Pole 2
+        \filldraw[red] (-0.8,1.2) circle (2pt) node[above left] {$z_2$};
+        \draw[thick, ->, blue] (-0.8,1.2) circle (0.35cm);
+        \node[below right] at (-0.5,1.2) {$\gamma_2$};
+        
+        % Pole 3
+        \filldraw[red] (-1,-0.5) circle (2pt) node[below left] {$z_3$};
+        \draw[thick, ->, blue] (-1,-0.5) circle (0.3cm);
+        \node[above right] at (-0.7,-0.5) {$\gamma_3$};
+        
+        % Dots for more poles
+        \filldraw[red] (0.5,-1) circle (2pt) node[below] {$z_n$};
+        \draw[thick, ->, blue] (0.5,-1) circle (0.35cm);
+        \node[above left] at (0.8,-1) {$\gamma_n$};
+        
+        % Label the region
+        \node at (0,0) {$\mathcal{D}$};
+    \end{tikzpicture}
+    \end{center}
+    
+    By Cauchy's theorem for multiply connected regions, the integral of $f$ around the boundary of this region (taking into account orientations) is zero. The boundary consists of $\gamma$ (counterclockwise) and each $\gamma_k$ (clockwise), so:
+    \[
+    \int_{\gamma} f(z)dz + \sum_{k=1}^n \int_{\gamma_k} f(z)dz = 0
+    .\]
+    Note that $\gamma_k$ has clockwise orientation, so reversing it gives:
+    \[
+    \int_{\gamma} f(z)dz = \sum_{k=1}^n \int_{-\gamma_k} f(z)dz
+    .\]
+    where $-\gamma_k$ denotes $\gamma_k$ with counterclockwise orientation.
+    
+    Now, for each pole $z_k$, consider its Laurent expansion:
+    \[
+    f(z) = \sum_{j=-\infty}^{\infty} a_j^{(k)}(z-z_k)^j = \frac{a_{-1}^{(k)}}{z-z_k} + \sum_{j\neq -1} a_j^{(k)}(z-z_k)^j
+    .\]
+    where $a_{-1}^{(k)} = \text{res}_{z_k}(f)$.
+    
+    For $j \neq -1$, the function $(z-z_k)^j$ has an antiderivative on $\C\setminus\{z_k\}$ (or on all of $\C$ if $j\geq 0$), so by the fundamental theorem of calculus:
+    \[
+    \int_{-\gamma_k} (z-z_k)^j dz = 0 \quad \text{for } j \neq -1
+    .\]
+    
+    For $j=-1$, we compute directly. Parameterize $-\gamma_k$ by $z(t) = z_k + \varepsilon_k e^{it}$ for $t \in [0,2\pi]$:
+    \[
+    \int_{-\gamma_k} \frac{1}{z-z_k} dz = \int_0^{2\pi} \frac{1}{\varepsilon_k e^{it}} \cdot i\varepsilon_k e^{it} dt = \int_0^{2\pi} i dt = 2\pi i
+    .\]
+    
+    Therefore,
+    \[
+    \int_{-\gamma_k} f(z)dz = a_{-1}^{(k)} \cdot 2\pi i = 2\pi i \cdot \text{res}_{z_k}(f)
+    .\]
+    
+    Combining all terms:
+    \[
+    \int_{\partial \mathcal{D}} f(z)dz = \sum_{k=1}^n \int_{-\gamma_k} f(z)dz = 2\pi i \sum_{k=1}^n \text{res}_{z_k}(f)
+    .\]
+\end{proof}
 
 \end{document}
