@@ -683,6 +683,11 @@ Conjugation is a specific action of $G$ on itself.
     $R$ is unital iff there exists $1_R\in R$ such that $1_R r=r1_R=r$ for all $r\in R$
 \end{defn}
 \begin{defn}
-    Let $R,S$ be rings. A ring homomorphism from $R$ to $S$ if $\phi:R\to S$ satisfy 
+    Let $R,S$ be rings. A ring homomorphism from $R$ to $S$ if $\phi:R\to S$ satisfy:
+    \begin{enumerate}
+        \item $\phi(r+s)=\phi(r)+\phi(s)$ for all $r,s\in R$
+        \item $\phi(rs)=\phi(r)\phi(s)$ for all $r,s\in R$
+        \item $\phi(1_R)=1_S$
+    \end{enumerate}
 \end{defn}
 \end{document}
