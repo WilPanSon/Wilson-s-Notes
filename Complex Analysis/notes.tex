@@ -1373,23 +1373,20 @@ We have \[
     \[
     f(z) = \sum_{j=-\infty}^{\infty} a_j^{(k)}(z-z_k)^j = \frac{a_{-1}^{(k)}}{z-z_k} + \sum_{j\neq -1} a_j^{(k)}(z-z_k)^j
     .\]
-    where $a_{-1}^{(k)} = \text{res}_{z_k}(f)$.
-    
+    where $a_{-1}^{(k)} = \text{res}_{z_k}(f)$.\\
     For $j \neq -1$, the function $(z-z_k)^j$ has an antiderivative on $\C\setminus\{z_k\}$ (or on all of $\C$ if $j\geq 0$), so by the fundamental theorem of calculus:
     \[
     \int_{-\gamma_k} (z-z_k)^j dz = 0 \quad \text{for } j \neq -1
     .\]
-    
     For $j=-1$, we compute directly. Parameterize $-\gamma_k$ by $z(t) = z_k + \varepsilon_k e^{it}$ for $t \in [0,2\pi]$:
     \[
     \int_{-\gamma_k} \frac{1}{z-z_k} dz = \int_0^{2\pi} \frac{1}{\varepsilon_k e^{it}} \cdot i\varepsilon_k e^{it} dt = \int_0^{2\pi} i dt = 2\pi i
     .\]
-    
     Therefore,
     \[
     \int_{-\gamma_k} f(z)dz = a_{-1}^{(k)} \cdot 2\pi i = 2\pi i \cdot \text{res}_{z_k}(f)
     .\]
-    
+
     Combining all terms:
     \[
     \int_{\partial \mathcal{D}} f(z)dz = \sum_{k=1}^n \int_{-\gamma_k} f(z)dz = 2\pi i \sum_{k=1}^n \text{res}_{z_k}(f)
