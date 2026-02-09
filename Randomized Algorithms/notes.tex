@@ -369,31 +369,8 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     Then $X=\sum_{i=1}^n X_i$ satisfies \[
     \Pr[X\geq 2n]\leq (4p)^n
     .\] 
-    \begin{proof}
-        We use Markov's inequality with the exponential moment. For any $t > 0$ such that $pe^t < 1$:
-        \[
-        \Pr[X \geq 2n] = \Pr[e^{tX} \geq e^{2tn}] \leq \frac{\E[e^{tX}]}{e^{2tn}}.
-        \]
-        Since the $X_i$ are independent and identically distributed:
-        \[
-        \E[e^{tX}] = \E\left[\prod_{i=1}^n e^{tX_i}\right] = \prod_{i=1}^n \E[e^{tX_i}] = (\E[e^{tX_1}])^n.
-        \]
-        Now, we bound $\E[e^{tX_1}]$. Since $\Pr[X_1 \geq j] \leq p^j$ for all $j \geq 0$, and assuming $X_1$ is non-negative:
-        \[
-        \E[e^{tX_1}] = \sum_{j=0}^{\infty} e^{tj} \Pr[X_1 = j] \leq \sum_{j=0}^{\infty} e^{tj} \Pr[X_1 \geq j] \leq \sum_{j=0}^{\infty} (pe^t)^j = \frac{1}{1-pe^t},
-        \]
-        provided that $pe^t < 1$.
-        
-        Choose $t$ such that $pe^t = 1/4$. Then $e^t = 1/(4p)$ and $t = -\ln(4p)$. We have:
-        \[
-        \E[e^{tX_1}] \leq \frac{1}{1-1/4} = \frac{4}{3}.
-        \]
-        Therefore:
-        \[
-        \Pr[X \geq 2n] \leq \frac{(4/3)^n}{e^{2tn}} = \frac{(4/3)^n}{e^{2n \cdot (-\ln(4p))}} = \frac{(4/3)^n}{(4p)^{-2n}} = (4/3)^n \cdot (4p)^{2n} = \left(\frac{64p^2}{3}\right)^n.
-        \]
-        For $p \leq \sqrt{3}/8$, this gives $(64p^2/3)^n \leq (4p)^n$. To achieve the bound $(4p)^n$ more generally, we optimize the choice of $t$. Setting the derivative of $\ln((1/(1-pe^t))/e^{2t})$ with respect to $t$ to zero, we find the optimal $t$ satisfies $pe^t = 1/4$, which we already used. For small $p$, the bound $(4p)^n$ follows from the fact that $(64p^2/3)^n \leq (4p)^n$ when $p \leq 3/16 \approx 0.1875$. More generally, by choosing $t$ appropriately, one can show that $\Pr[X \geq 2n] \leq (4p)^n$ holds for all $p$ sufficiently small.
-    \end{proof}
 \end{lem}
-
+\begin{proof}
+    $$
+\end{proof}
 \end{document}
