@@ -635,13 +635,23 @@
     .\] 
 \end{thm}
 \begin{thm}
+    For the subgradient method with step sizes $\{\eta_t\}_{t=1}^T$ on a convex, $G$-Lipschitz function $f$, we have
     \[
-        f \left( x_T^{\mathrm{(best)}} \right)-f(x^*)\leq ||x_0-x^*||^2+G^2 \sum_{t=1}^T \eta_t^2
-    .\]
-    This theorem implies theorem 8.2 as
+        f \left( x_T^{\mathrm{(best)}} \right)-f(x^*)
+        \;\leq\;
+        \frac{\lVert x_0 - x^* \rVert^2 + G^2 \sum_{t=1}^T \eta_t^2}{2 \sum_{t=1}^T \eta_t}.
+    \]
+    This theorem implies Theorem 8.2 since, under the assumptions $\eta_t \to 0$, $\sum_{t=1}^\infty \eta_t = \infty$, and $\sum_{t=1}^\infty \eta_t^2 < \infty$, we have
     \[
-    
-    .\] 
+        \lim_{T \to \infty}
+        \frac{\lVert x_0 - x^* \rVert^2 + G^2 \sum_{t=1}^T \eta_t^2}{2 \sum_{t=1}^T \eta_t}
+        = 0,
+    \]
+    because the numerator is bounded (the series $\sum_{t=1}^\infty \eta_t^2$ converges) while the denominator diverges (the series $\sum_{t=1}^\infty \eta_t$ diverges). Hence
+    \[
+        f \left( x_T^{\mathrm{(best)}} \right)-f(x^*) \xrightarrow[T \to \infty]{} 0,
+    \]
+    which is exactly the statement of Theorem 8.2.
 \end{thm}
 
 \end{document}
