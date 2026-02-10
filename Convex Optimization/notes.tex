@@ -661,7 +661,7 @@
     \end{align*}
     Last step follows from $f(x^*)\geq f(x_t)+g_t^T(x^*-x_t)\iff -g_t^T(x_t-x^*)\geq f(x^*)-f(x_t)$.\\
     Adding $(*)$ up from $0,...,T-1$ we have \[
-    ||x_T-x^*||^2 \leq ||x_0-x^*||^2+G^2 \sum_{t=0}^{T-1}\eta_t^2-2\sum_{t=0}^{T-1}\eta_t \left( f(x^*)-f(x_t) \right)
+    ||x_T-x^*||^2 \leq ||x_0-x^*||^2+G^2 \sum_{t=0}^{T-1}\eta_t^2+2\sum_{t=0}^{T-1}\eta_t \left( f(x^*)-f(x_t) \right)
     .\] 
     So \[
     2\sum_{t=0}^{T-1}f(x^*)-f(x_t)\leq ||x_0-x^*||^2+G^2 \sum_{t=0}^{T-1}\eta_t^2
