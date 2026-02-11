@@ -1469,6 +1469,47 @@ We have \[
 \begin{thm}
     (Riemann's Theorem) Let $f:\Omega\setminus \{z_0\}\to \C$ be holomorphic, if $f$ is bounded near $z_0$ then $z_0$ is a removable singularity. 
 \end{thm}
+\begin{center}
+    \begin{tikzpicture}[scale=1.2, x=1.4cm, y=1.4cm]
+        % Axes
+        \draw[->] (-2.2,0) -- (3,0) node[right] {$\Re(z)$};
+        \draw[->] (0,-1.5) -- (0,1.5) node[above] {$\Im(z)$};
+        
+        % Branch cut (positive real axis)
+        \draw[thick] (0,0) -- (2.8,0) node[right] {$\R_+$};
+        
+        % Keyhole contour parameters
+        \def\R{2.2}
+        \def\eps{0.35}
+        \def\delta{0.12}
+        
+        % Outer arc C(R): clockwise from above to below positive real axis
+        \draw[thick, ->] ({\R*cos(\delta)},{\R*sin(\delta)}) arc ({\delta}:{360-\delta}:\R);
+        \draw[thick] ({\R*cos(360-\delta)},{\R*sin(360-\delta)}) arc ({360-\delta}:{\delta}:\R);
+        \node[above left] at ({\R*cos(90)},{\R*sin(90)}) {$C(R)$};
+        
+        % Inner arc C(epsilon): counterclockwise
+        \draw[thick, ->] ({\eps*cos(-\delta)},{\eps*sin(-\delta)}) arc ({360-\delta}:{\delta}:\eps);
+        \node[above left] at ({\eps*cos(90)},{\eps*sin(90)}) {$C(\varepsilon)$};
+        
+        % Upper straight segment (epsilon to R, above real axis)
+        \draw[thick, ->] (\eps,\delta) -- (\R,\delta);
+        
+        % Lower straight segment (R to epsilon, below real axis)
+        \draw[thick, ->] (\R,-\delta) -- (\eps,-\delta);
+        
+        % 2\delta label
+        \draw[dashed, <->] (2.7,\delta) -- (2.7,-\delta) node[right, midway] {$2\delta$};
+        
+        % Branch point at origin
+        \fill (0,0) circle (2pt);
+        \node[below left] at (0,0) {$0$};
+        
+        % Singularity at -1
+        \fill (-1,0) circle (2pt);
+        \node[below] at (-1,-0.1) {$-1$};
+    \end{tikzpicture}
+\end{center}
 \begin{proof}
     Let $\overline{D}\subset \Omega$ be a disc centered at $z_0$. We want to use Cacuhy's formula \[
     \frac{1}{2\pi i}\int_{\partial D}\frac{f(w)}{w-z}dw = g(z) \text{, for all} z\in D
