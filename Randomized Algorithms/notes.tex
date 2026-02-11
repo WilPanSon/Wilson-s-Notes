@@ -430,6 +430,8 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
 \end{thm}
 \begin{thm}
     Adapted Version of Chernoff Bound:
-    Same upper bound holds if $X_1,...,X_n$ are independent $[0,1]$ random variables such that $\E[\sum X_i]=\mu$ or it's okay 
+    Same upper bound holds if $X_1,...,X_n$ are independent $[0,1]$ random variables such that $\E[\sum X_i]=\mu$ or the independent condition can be dropped as long as \[
+    \Pr[X_i=1 | X_1,...,X_{i=1}]\leq p
+    .\] 
 \end{thm}
 \end{document}
