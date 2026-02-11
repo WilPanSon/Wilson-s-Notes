@@ -1481,25 +1481,28 @@ We have \[
         % Keyhole contour parameters
         \def\R{2.2}
         \def\eps{0.35}
-        \def\delta{0.12}
+        \def\delt{8}
         
         % Outer arc C(R): clockwise from above to below positive real axis
-        \draw[thick, ->] ({\R*cos(\delta)},{\R*sin(\delta)}) arc ({\delta}:{360-\delta}:\R);
-        \draw[thick] ({\R*cos(360-\delta)},{\R*sin(360-\delta)}) arc ({360-\delta}:{\delta}:\R);
+        \draw[thick] ({\R*cos(\delt)},{\R*sin(\delt)}) arc ({\delt}:{360-\delt}:-\R);
+        \draw[thick, ->] ({\R*cos(180)},{\R*sin(180)}) -- ($({\R*cos(180)},{\R*sin(180)})!0.55!({\R*cos(360-\delt)},{\R*sin(360-\delt)})$);
         \node[above left] at ({\R*cos(90)},{\R*sin(90)}) {$C(R)$};
         
         % Inner arc C(epsilon): counterclockwise
-        \draw[thick, ->] ({\eps*cos(-\delta)},{\eps*sin(-\delta)}) arc ({360-\delta}:{\delta}:\eps);
-        \node[above left] at ({\eps*cos(90)},{\eps*sin(90)}) {$C(\varepsilon)$};
+        \draw[thick] ({\eps*cos(360-\delt)},{\eps*sin(360-\delt)}) arc ({360-\delt}:{\delt}:\eps);
+        \draw[thick, ->] ({\eps*cos(270)},{\eps*sin(270)}) -- ($({\eps*cos(270)},{\eps*sin(270)})!0.55!({\eps*cos(90)},{\eps*sin(90)})$);
+        \node[above left] at ({\eps*cos(100)},{\eps*sin(100)}) {$C(\varepsilon)$};
         
         % Upper straight segment (epsilon to R, above real axis)
-        \draw[thick, ->] (\eps,\delta) -- (\R,\delta);
+        \draw[thick, ->] (\eps,{\eps*tan(\delt)}) -- ($(\eps,{\eps*tan(\delt)})!0.6!(\R,{\R*tan(\delt)})$);
+        \draw[thick] ($(\eps,{\eps*tan(\delt)})!0.6!(\R,{\R*tan(\delt)})$) -- (\R,{\R*tan(\delt)});
         
         % Lower straight segment (R to epsilon, below real axis)
-        \draw[thick, ->] (\R,-\delta) -- (\eps,-\delta);
+        \draw[thick, ->] (\R,-{\R*tan(\delt)}) -- ($(\R,-{\R*tan(\delt)})!0.6!(\eps,-{\eps*tan(\delt)})$);
+        \draw[thick] ($(\R,-{\R*tan(\delt)})!0.6!(\eps,-{\eps*tan(\delt)})$) -- (\eps,-{\eps*tan(\delt)});
         
         % 2\delta label
-        \draw[dashed, <->] (2.7,\delta) -- (2.7,-\delta) node[right, midway] {$2\delta$};
+        \draw[dashed, <->] (2.6,{\R*tan(\delt)}) -- (2.6,-{\R*tan(\delt)}) node[right, midway] {$2\delta$};
         
         % Branch point at origin
         \fill (0,0) circle (2pt);
