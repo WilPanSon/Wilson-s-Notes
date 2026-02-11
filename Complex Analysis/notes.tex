@@ -1478,31 +1478,32 @@ We have \[
         % Branch cut (positive real axis)
         \draw[thick] (0,0) -- (2.8,0) node[right] {$\R_+$};
         
-        % Keyhole contour parameters
-        \def\R{2.2}
-        \def\eps{0.35}
-        \def\delt{8}
+        % Keyhole contour parameters: R, epsilon, delta (angle in degrees)
+        \pgfmathsetmacro{\keyR}{2.2}
+        \pgfmathsetmacro{\keyeps}{0.35}
+        \pgfmathsetmacro{\keydel}{8}
+        \pgfmathsetmacro{\keydelrad}{0.14}
         
         % Outer arc C(R): clockwise from above to below positive real axis
-        \draw[thick] ({\R*cos(\delt)},{\R*sin(\delt)}) arc ({\delt}:{360-\delt}:-\R);
-        \draw[thick, ->] ({\R*cos(180)},{\R*sin(180)}) -- ($({\R*cos(180)},{\R*sin(180)})!0.55!({\R*cos(360-\delt)},{\R*sin(360-\delt)})$);
-        \node[above left] at ({\R*cos(90)},{\R*sin(90)}) {$C(R)$};
+        \draw[thick] ({\keyR*cos(\keydel)},{\keyR*sin(\keydel)}) arc ({\keydel}:{360-\keydel}:-\keyR);
+        \draw[thick, ->] ({\keyR*cos(180)},{\keyR*sin(180)}) -- ($({\keyR*cos(180)},{\keyR*sin(180)})!0.55!({\keyR*cos(360-\keydel)},{\keyR*sin(360-\keydel)})$);
+        \node[above left] at ({\keyR*cos(90)},{\keyR*sin(90)}) {$C(R)$};
         
         % Inner arc C(epsilon): counterclockwise
-        \draw[thick] ({\eps*cos(360-\delt)},{\eps*sin(360-\delt)}) arc ({360-\delt}:{\delt}:\eps);
-        \draw[thick, ->] ({\eps*cos(270)},{\eps*sin(270)}) -- ($({\eps*cos(270)},{\eps*sin(270)})!0.55!({\eps*cos(90)},{\eps*sin(90)})$);
-        \node[above left] at ({\eps*cos(100)},{\eps*sin(100)}) {$C(\varepsilon)$};
+        \draw[thick] ({\keyeps*cos(360-\keydel)},{\keyeps*sin(360-\keydel)}) arc ({360-\keydel}:{\keydel}:\keyeps);
+        \draw[thick, ->] ({\keyeps*cos(270)},{\keyeps*sin(270)}) -- ($({\keyeps*cos(270)},{\keyeps*sin(270)})!0.55!({\keyeps*cos(90)},{\keyeps*sin(90)})$);
+        \node[above left] at ({\keyeps*cos(100)},{\keyeps*sin(100)}) {$C(\varepsilon)$};
         
         % Upper straight segment (epsilon to R, above real axis)
-        \draw[thick, ->] (\eps,{\eps*tan(\delt)}) -- ($(\eps,{\eps*tan(\delt)})!0.6!(\R,{\R*tan(\delt)})$);
-        \draw[thick] ($(\eps,{\eps*tan(\delt)})!0.6!(\R,{\R*tan(\delt)})$) -- (\R,{\R*tan(\delt)});
+        \draw[thick, ->] (\keyeps,\keydelrad) -- ($(\keyeps,\keydelrad)!0.6!(\keyR,\keydelrad)$);
+        \draw[thick] ($(\keyeps,\keydelrad)!0.6!(\keyR,\keydelrad)$) -- (\keyR,\keydelrad);
         
         % Lower straight segment (R to epsilon, below real axis)
-        \draw[thick, ->] (\R,-{\R*tan(\delt)}) -- ($(\R,-{\R*tan(\delt)})!0.6!(\eps,-{\eps*tan(\delt)})$);
-        \draw[thick] ($(\R,-{\R*tan(\delt)})!0.6!(\eps,-{\eps*tan(\delt)})$) -- (\eps,-{\eps*tan(\delt)});
+        \draw[thick, ->] (\keyR,-\keydelrad) -- ($(\keyR,-\keydelrad)!0.6!(\keyeps,-\keydelrad)$);
+        \draw[thick] ($(\keyR,-\keydelrad)!0.6!(\keyeps,-\keydelrad)$) -- (\keyeps,-\keydelrad);
         
         % 2\delta label
-        \draw[dashed, <->] (2.6,{\R*tan(\delt)}) -- (2.6,-{\R*tan(\delt)}) node[right, midway] {$2\delta$};
+        \draw[dashed, <->] (2.5,\keydelrad) -- (2.5,-\keydelrad) node[right, midway] {$2\delta$};
         
         % Branch point at origin
         \fill (0,0) circle (2pt);
