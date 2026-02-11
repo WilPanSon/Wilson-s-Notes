@@ -1469,52 +1469,6 @@ We have \[
 \begin{thm}
     (Riemann's Theorem) Let $f:\Omega\setminus \{z_0\}\to \C$ be holomorphic, if $f$ is bounded near $z_0$ then $z_0$ is a removable singularity. 
 \end{thm}
-\begin{center}
-    \begin{tikzpicture}[scale=1.2, x=1.4cm, y=1.4cm]
-        % Axes
-        \draw[->] (-2.2,0) -- (3,0) node[right] {$\Re(z)$};
-        \draw[->] (0,-1.5) -- (0,1.5) node[above] {$\Im(z)$};
-        
-        % Branch cut (positive real axis)
-        \draw[thick] (0,0) -- (2.8,0) node[right] {$\R_+$};
-        
-        % Keyhole contour parameters: R, epsilon, delta (vertical offset)
-        \pgfmathsetmacro{\keyR}{2.2}
-        \pgfmathsetmacro{\keyeps}{0.35}
-        \pgfmathsetmacro{\keydelrad}{0.12}
-        \pgfmathsetmacro{\keyangOut}{atan(\keydelrad/\keyR)}
-        \pgfmathsetmacro{\keyangIn}{atan(\keydelrad/\keyeps)}
-        
-        % Outer arc C(R): clockwise from (R,delta) to (R,-delta)
-        \draw[thick] ({\keyR*cos(\keyangOut)},{\keydelrad}) arc ({\keyangOut}:{-\keyangOut}:-\keyR);
-        \draw[thick, ->] ({\keyR*cos(180)},{\keyR*sin(180)}) -- ($({\keyR*cos(180)},{\keyR*sin(180)})!0.55!({\keyR*cos(-\keyangOut)},{-\keydelrad})$);
-        \node[above left] at ({\keyR*cos(90)},{\keyR*sin(90)}) {$C(R)$};
-        
-        % Inner arc C(epsilon): counterclockwise from (eps,-delta) to (eps,delta)
-        \draw[thick] ({\keyeps*cos(-\keyangIn)},{-\keydelrad}) arc ({-\keyangIn}:{\keyangIn}:\keyeps);
-        \draw[thick, ->] ({\keyeps*cos(270)},{\keyeps*sin(270)}) -- ($({\keyeps*cos(270)},{\keyeps*sin(270)})!0.55!({\keyeps*cos(\keyangIn)},{\keydelrad})$);
-        \node[above left] at ({\keyeps*cos(100)},{\keyeps*sin(100)}) {$C(\varepsilon)$};
-        
-        % Upper straight segment (epsilon to R, above real axis)
-        \draw[thick, ->] (\keyeps,\keydelrad) -- ($(\keyeps,\keydelrad)!0.6!(\keyR,\keydelrad)$);
-        \draw[thick] ($(\keyeps,\keydelrad)!0.6!(\keyR,\keydelrad)$) -- (\keyR,\keydelrad);
-        
-        % Lower straight segment (R to epsilon, below real axis)
-        \draw[thick, ->] (\keyR,-\keydelrad) -- ($(\keyR,-\keydelrad)!0.6!(\keyeps,-\keydelrad)$);
-        \draw[thick] ($(\keyR,-\keydelrad)!0.6!(\keyeps,-\keydelrad)$) -- (\keyeps,-\keydelrad);
-        
-        % 2\delta label
-        \draw[dashed, <->] (2.5,\keydelrad) -- (2.5,-\keydelrad) node[right, midway] {$2\delta$};
-        
-        % Branch point at origin
-        \fill (0,0) circle (2pt);
-        \node[below left] at (0,0) {$0$};
-        
-        % Singularity at -1
-        \fill (-1,0) circle (2pt);
-        \node[below] at (-1,-0.1) {$-1$};
-    \end{tikzpicture}
-\end{center}
 \begin{proof}
     Let $\overline{D}\subset \Omega$ be a disc centered at $z_0$. We want to use Cacuhy's formula \[
     \frac{1}{2\pi i}\int_{\partial D}\frac{f(w)}{w-z}dw = g(z) \text{, for all} z\in D
