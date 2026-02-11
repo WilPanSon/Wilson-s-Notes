@@ -1400,7 +1400,7 @@ We have \[
 \end{eg}
 \begin{proof}
     Let $f(z)=\frac{e^{az}}{1+e^z}$ then we have simple poles at $z:e^z=1$ so $z\in \{...,-\pi i, \pi i, 3\pi i,...\}$. We have the residual for \[
-    \int_{\gamma_1}f+\cdots=\int_{\gamma_R}f(z)dz=2\pi i \text{res}_{\pi i}(f)
+    \int_{\gamma_1}f+\cdots=\int_{\gamma_R}f(z)\,dz=2\pi i \operatorname{res}_{\pi i}(f)
     .\] 
     \begin{center}
         \begin{tikzpicture}[scale=0.8, x=1.2cm, y=0.6cm]
@@ -1446,5 +1446,9 @@ We have \[
     On $\gamma_3$, $z = x + 2\pi i$ with $x$ from $R$ to $-R$, so \[
     \int_{\gamma_3} f(z)\,dz = -\int_{-R}^{R} \frac{e^{a(x+2\pi i)}}{1+e^x}dx = -e^{2\pi a i}\cdot I.
     \] 
+    As $R\to \infty$, $\int_{\gamma_2}f\to 0$ and $\int_{\gamma_4}f\to 0$. Thus \[
+    (1-e^{2\pi a i})I = 2\pi i \cdot \operatorname{res}_{\pi i}(f) = 2\pi i \cdot (-e^{a\pi i}) = -2\pi i e^{a\pi i},
+    \] 
+    so $I = \frac{-2\pi i e^{a\pi i}}{1-e^{2\pi a i}} = \frac{\pi}{\sin(a\pi)}$.
 \end{proof}
 \end{document}
