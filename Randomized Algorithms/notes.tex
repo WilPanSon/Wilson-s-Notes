@@ -472,7 +472,7 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     .\] 
     We have each $Y_i\in [-1,1]$ and we need to prove $\E[Y_i | X_1,...,X_{i-1}]=0$. \\
     Fix $X_1,...,X_{i-1}$. Let $X_i$ still be random then by law of total expectation \[
-    \underbrace{\E[\overbrace{\E[f | X_1,...,X_i]}_{P}]}_{\text{random over $X_i$}}=\underbrace{\E[f| X_1,...,X_{i-1}]}_{Q}
+    \underbrace{\E[\overbrace{\E[f | X_1,...,X_i]}^{P}]}_{\text{random over $X_i$}}=\underbrace{\E[f| X_1,...,X_{i-1}]}_{Q}
     .\] 
     So \[
     \E[Y_i]=\E[P-Q | X_1,...,X_{i-1}]=0
