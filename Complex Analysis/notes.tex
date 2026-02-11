@@ -1402,6 +1402,37 @@ We have \[
     Let $f(z)=\frac{e^{az}}{1+e^z}$ then we have simple poles at $z:e^z=1$ so $z\in \{...,-\pi i, \pi i, 3\pi i,...\}$. We have the residual for \[
     \int_{\gamma_R}f(z)dz=2\pi i \res_{\pi i}(f)
     .\] 
-    
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8, x=1.2cm, y=0.6cm]
+            % Axes
+            \draw[->] (-3.5,0) -- (3.5,0) node[right] {$\Re(z)$};
+            \draw[->] (0,-0.5) -- (0,5.5) node[above] {$\Im(z)$};
+            
+            % Rectangle contour (vertices: -R, R, R+2\pi i, -R+2\pi i)
+            \coordinate (A) at (-2.5,0);
+            \coordinate (B) at (2.5,0);
+            \coordinate (C) at (2.5,4);
+            \coordinate (D) at (-2.5,4);
+            
+            \draw[thick, ->] (A) -- ($(A)!0.6!(B)$);
+            \draw[thick] ($(A)!0.6!(B)$) -- (B);
+            \draw[thick, ->] (B) -- ($(B)!0.6!(C)$);
+            \draw[thick] ($(B)!0.6!(C)$) -- (C);
+            \draw[thick, ->] (C) -- ($(C)!0.6!(D)$);
+            \draw[thick] ($(C)!0.6!(D)$) -- (D);
+            \draw[thick, ->] (D) -- ($(D)!0.6!(A)$);
+            \draw[thick] ($(D)!0.6!(A)$) -- (A);
+            
+            % Labels
+            \node[below] at (A) {$-R$};
+            \node[below] at (B) {$R$};
+            \node[above right] at (C) {$R+2\pi i$};
+            \node[above left] at (D) {$-R+2\pi i$};
+            
+            % Pole at \pi i
+            \fill (0,2) circle (2pt);
+            \node[right] at (0.1,2) {$\pi i$};
+        \end{tikzpicture}
+    \end{center}
 \end{proof}
 \end{document}
