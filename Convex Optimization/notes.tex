@@ -792,6 +792,9 @@
     .\] 
 \end{eg}
 \begin{proof}
-    
+    We have $\nabla f(x)=A^T(Ax-b)$ and $\nabla^2 f(x)=A^TA$. So $f$ is quadratic with Hessian $A^TA$. The eigenvalues of $A^TA$ satisfy $\lambda_{\min}=\lambda_{\min}(A^TA)$ and $\lambda_{\max}=\lambda_{\max}(A^TA)$. Hence $f$ is $\alpha$-strongly convex with $\alpha=\lambda_{\min}$ and $\beta$-smooth with $\beta=\lambda_{\max}$. Taking $\gamma=\beta/\alpha=\lambda_{\max}/\lambda_{\min}$ and $\eta=1/\beta$, the strongly convex convergence theorem gives \[
+    ||x_k-x^*||^2\leq \left(1-\frac{1}{\gamma}\right)^k ||x_0-x^*||^2
+    =\left(1-\frac{\lambda_{\min}}{\lambda_{\max}}\right)^k ||x_0-x^*||^2.
+    \]
 \end{proof}
 \end{document}
