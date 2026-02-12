@@ -748,7 +748,15 @@
     We have 
     \begin{enumerate}
         \item $\inner{x_1-z_1}{z_2-z_1} \leq 0 \forall z_2\in C$
-        \item 
+        \item $\inner{x_2-z_2}{z_1-z_2} \leq 0 \forall z_1\in C$
+        \item Adding these two inequalities we have \[
+        \inner{x_1-z_1}{z_2-z_1}+\inner{x_2-z_2}{z_1-z_2} \leq 0
+        .\]
+        \item Rearranging we have \[
+        \inner{x_1-z_1}{z_2-z_1} \leq \inner{x_2-z_2}{z_1-z_2}
+        .\]
+        \item Taking the norm of both sides we have \[
+        ||x_1-z_1||_2 ||z_2-z_1||_2 \leq ||x_2-z_2||_2 ||z_1-z_2||_2\]
     \end{enumerate}
 \end{proof}
 \end{document}
