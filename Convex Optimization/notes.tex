@@ -648,16 +648,14 @@
         \sum_{t=1}^T \eta_t &= T \cdot \frac{R}{G\sqrt{T}} = \frac{R\sqrt{T}}{G}, \\
         \sum_{t=1}^T \eta_t^2 &= T \cdot \frac{R^2}{G^2 T} = \frac{R^2}{G^2}.
     \end{align*}
-    Substituting into the bound:
-    \[
+    Substituting into the bound (using $\lVert x_0 - x^* \rVert^2 \leq R^2$):
+    \begin{align*}
         f \left( x_T^{\mathrm{(best)}} \right) - f(x^*)
-        \;\leq\;
-        \frac{R^2 + G^2 \cdot \frac{R^2}{G^2}}{2 \cdot \frac{R\sqrt{T}}{G}}
-        \;=\;
-        \frac{2R^2}{\frac{2R\sqrt{T}}{G}}
-        \;=\;
-        \frac{GR}{\sqrt{T}}.
-    \]
+        &\leq \frac{R^2 + G^2 \cdot \frac{R^2}{G^2}}{2 \cdot \frac{R\sqrt{T}}{G}}
+        = \frac{2R^2}{2R\sqrt{T}/G}
+        = \frac{2R^2 \cdot G}{2R\sqrt{T}}
+        = \frac{GR}{\sqrt{T}}.
+    \end{align*}
     Hence Theorem 8.2 holds with the $O(1/\sqrt{T})$ rate.
 \end{proof}
 
