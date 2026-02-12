@@ -17,7 +17,7 @@
 \usepackage{pgfplots}
 
 \pgfplotsset{compat=1.18}
-\usetikzlibrary{arrows.meta, calc}
+\usetikzlibrary{arrows.meta, calc, decorations.pathreplacing}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
@@ -643,6 +643,48 @@
     \]
     This theorem implies Theorem 8.2 by letting $\eta_t=\frac{R}{G\sqrt{T}}$
 \end{thm}
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[scale=1.1, >=Stealth]
+        % Level sets of convex f(x) = (x1)^2 + (x2)^2 (ellipses scaled)
+        \begin{scope}
+            \foreach \r in {0.3, 0.6, 1.0, 1.5, 2.2} {
+                \draw[gray!50, thin] (0,0) ellipse ({\r*1.2} and {\r*0.8});
+            }
+        \end{scope}
+        % x^* at minimum
+        \fill (0,0) circle (2pt);
+        \node[below left] at (0,0) {$x^*$};
+        % x_0
+        \fill (1.8, 1.2) circle (2pt);
+        \node[above right] at (1.8, 1.2) {$x_0$};
+        % Subgradient path (zigzag - subgradients aren't descent directions)
+        \draw[thick, blue!70!black, ->] (1.8, 1.2) -- (1.4, 0.5);
+        \draw[thick, blue!70!black, ->] (1.4, 0.5) -- (1.9, 0.1);
+        \draw[thick, blue!70!black, ->] (1.9, 0.1) -- (1.2, -0.3);
+        \draw[thick, blue!70!black, ->] (1.2, -0.3) -- (0.5, 0.2);
+        \draw[thick, blue!70!black, ->] (0.5, 0.2) -- (0.2, -0.1);
+        % x_T (last iterate)
+        \fill[blue!70!black] (0.2, -0.1) circle (2pt);
+        \node[below left] at (0.2, -0.1) {$x_T$};
+        % x_T^(best) - best along path (closest to center = lowest f)
+        \fill[red!80!black] (0.5, 0.2) circle (2.5pt);
+        \node[above right, red!80!black] at (0.5, 0.2) {$x_T^{\mathrm{(best)}}$};
+        % ||x_0 - x^*|| brace
+        \draw[thick, decorate, decoration={brace, amplitude=5pt, mirror}] (0,0) -- (1.8, 1.2)
+            node[midway, below=8pt, sloped] {$\lVert x_0 - x^* \rVert$};
+        % f(x_T^best) - f(x^*) = optimality gap
+        \draw[dashed, red] (0.5, 0.2) -- (0.5, 0);
+        \draw[<->, red!80!black] (0.5, 0.1) -- (0, 0.1);
+        \node[red!80!black, font=\footnotesize, above] at (0.25, 0.15) {$\leq$ bound};
+        % Formula callout
+        \node[draw, rounded corners, inner sep=6pt, font=\small, align=center] at (2.8, -1.2) {
+            bound $\propto \dfrac{\lVert x_0{-}x^*\rVert^2 + G^2\sum\eta_t^2}{\sum\eta_t}$
+        };
+    \end{tikzpicture}
+    \caption{Subgradient method: the path may zigzag (subgradients need not be descent directions). The \textbf{best iterate} $x_T^{\mathrm{(best)}}$ minimizes $f$ over $\{x_0,\ldots,x_T\}$. The bound shrinks when $\sum\eta_t$ is large (more ``progress'') and when $\lVert x_0{-}x^*\rVert$ and $\sum\eta_t^2$ are small.}
+\end{figure}
 \begin{proof}
     \begin{align*}
         ||x_{t+1}-x^*||^2&=||x_t-\eta_tg_t -x^*||^2\\
@@ -702,6 +744,6 @@
     Projections are contractions: \[
     ||\underbrace{P_C(x_1)}_{z_1}-\underbrace{P_C(x_2)}_{z_2}||_2 \leq ||x_1-x_2||_2
     .\] 
-    
+
 \end{lem}
 \end{document}
