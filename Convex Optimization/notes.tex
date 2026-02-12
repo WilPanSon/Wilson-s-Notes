@@ -641,8 +641,25 @@
         \;\leq\;
         \frac{\lVert x_0 - x^* \rVert^2 + G^2 \sum_{t=1}^T \eta_t^2}{2 \sum_{t=1}^T \eta_t}.
     \]
-    This theorem implies Theorem 8.2 by letting $\eta_t=\frac{R}{G\sqrt{T}}$
 \end{thm}
+\begin{proof}[Verification of Theorem 8.2]
+    Set $\eta_t = \frac{R}{G\sqrt{T}}$ for all $t$. With $\lVert x_0 - x^* \rVert \leq R$:
+    \begin{align*}
+        \sum_{t=1}^T \eta_t &= T \cdot \frac{R}{G\sqrt{T}} = \frac{R\sqrt{T}}{G}, \\
+        \sum_{t=1}^T \eta_t^2 &= T \cdot \frac{R^2}{G^2 T} = \frac{R^2}{G^2}.
+    \end{align*}
+    Substituting into the bound:
+    \[
+        f \left( x_T^{\mathrm{(best)}} \right) - f(x^*)
+        \;\leq\;
+        \frac{R^2 + G^2 \cdot \frac{R^2}{G^2}}{2 \cdot \frac{R\sqrt{T}}{G}}
+        \;=\;
+        \frac{2R^2}{\frac{2R\sqrt{T}}{G}}
+        \;=\;
+        \frac{GR}{\sqrt{T}}.
+    \]
+    Hence Theorem 8.2 holds with the $O(1/\sqrt{T})$ rate.
+\end{proof}
 
 \begin{figure}[h]
     \centering
