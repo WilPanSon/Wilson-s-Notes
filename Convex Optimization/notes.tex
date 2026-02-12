@@ -674,10 +674,9 @@
         % ||x_0 - x^*|| brace
         \draw[thick, decorate, decoration={brace, amplitude=5pt, mirror}] (0,0) -- (1.8, 1.2)
             node[midway, below=8pt, sloped] {$\lVert x_0 - x^* \rVert$};
-        % f(x_T^best) - f(x^*) = optimality gap
-        \draw[dashed, red] (0.5, 0.2) -- (0.5, 0);
-        \draw[<->, red!80!black] (0.5, 0.1) -- (0, 0.1);
-        \node[red!80!black, font=\footnotesize, above] at (0.25, 0.15) {$\leq$ bound};
+        % Optimality gap: f(x_T^best) - f(x^*) bounded; level sets show f-values
+        \draw[dashed, red!70] (0.5, 0.2) -- (0, 0);
+        \node[red!80!black, font=\footnotesize, above right] at (0.25, 0.1) {$f(x_T^{\mathrm{(best)}})-f(x^*)$};
         % Formula callout
         \node[draw, rounded corners, inner sep=6pt, font=\small, align=center] at (2.8, -1.2) {
             bound $\propto \dfrac{\lVert x_0{-}x^*\rVert^2 + G^2\sum\eta_t^2}{\sum\eta_t}$
