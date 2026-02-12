@@ -58,6 +58,20 @@
 \newcommand{\norm}[1]{\lVert #1\rVert}
 \newcommand{\aff}{\mathrm{Aff}}
 \newcommand{\inner}[2]{\langle #1, #2 \rangle}
+\newtcbtheorem[number within=section]{TheoremBox}{Theorem}{
+    enhanced, 
+    sharp corners, 
+    attach boxed title to top left={yshifttext=-1mm}, 
+    colback=blue!5!white, 
+    colframe=blue!75!black, 
+    fonttitle=\bfseries, 
+    boxed title style={
+        sharp corners, 
+        size=small, 
+        colback=blue!75!black, 
+        colframe=blue!75!black,
+    }
+}{thm}
 \begin{document}
 \maketitle
 \tableofcontents
