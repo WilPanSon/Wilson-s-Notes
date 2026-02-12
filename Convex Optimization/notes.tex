@@ -682,6 +682,9 @@
 \section{Feb 12}
 \begin{defn}
     For $\min_{x\in C}f(x)$ we define the projected subgradient method to be 
-        
+    \begin{cases}
+        x_{t+1}=x_t-\eta_t g_t\\
+        x_{t+1}=P_{C_i}(x_t-\eta_t g_t)
+    \end{cases}
 \end{defn}
 \end{document}
