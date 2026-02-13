@@ -1016,7 +1016,7 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
         Observe: Each $V_i$ is cut into $\leq 2^k$ parts. 
         \item Let $\mathcal{P}$ be the old partition and $\mathcal{P}_{ \text{new}}$ be the new partition. 
         \[
-        f(\mathcal{P}_{ \text{new}})\leq \sum_{A,B\in \mathcal{P}_{ \text{new}}} f(A,B)+\sum_{A,B\in \mathcal{P}_{ \text{new}}} \left( d(A,B)-d(A_i,B_j) \right)^2\frac{|A_i||B_j|}{|V|^2}
+        f(\mathcal{P}_{ \text{new}})\leq \sum_{A,B\in \mathcal{P}_{ \text{new}}, A\neq B} f(A,B)+\sum_{A,B\in \mathcal{P}_{ \text{new}}} \left( d(A,B)-d(A_i,B_j) \right)^2\frac{|A_i||B_j|}{|V|^2}
         .\] 
     \end{enumerate} 
 \end{proof}
