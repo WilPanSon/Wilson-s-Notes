@@ -1400,9 +1400,9 @@ We have \[
         \def\eps1{0.35}
         \def\eps2{0.3}
         \def\eps3{0.28}
-        \pgfmathparse{asin(\yGap/\eps1)}\let\epsAng1\pgfmathresult
-        \pgfmathparse{asin(\yGap/\eps2)}\let\epsAng2\pgfmathresult
-        \pgfmathparse{asin(\yGap/\eps3)}\let\epsAng3\pgfmathresult
+        \pgfmathsetmacro\epsAng1{asin(\yGap/\eps1)}
+        \pgfmathsetmacro\epsAng2{asin(\yGap/\eps2)}
+        \pgfmathsetmacro\epsAng3{asin(\yGap/\eps3)}
         
         % --- Keyhole contour (one continuous path, counterclockwise on outer, clockwise on inner) ---
         \begin{scope}[blue]
