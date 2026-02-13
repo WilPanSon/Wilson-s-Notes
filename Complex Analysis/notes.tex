@@ -998,7 +998,6 @@ We have \[
                 % We calculate the start/end angles on the small circle based on the corridor width.
                 \pgfmathparse{asin(\yGap/\eps)}
                 \let\epsAng\pgfmathresult
-                % Note: To draw clockwise, we go from a positive angle to a negative one across 0.
                 \draw[decoration={markings,
                     mark=at position 0.25 with {\arrow{<}}, % < arrow for clockwise
                     mark=at position 0.75 with {\arrow{<}}}, postaction={decorate}]
