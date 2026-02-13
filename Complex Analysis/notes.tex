@@ -1000,7 +1000,6 @@ We have \[
                     mark=at position 0.25 with {\arrow{<}}, % < arrow for clockwise
                     mark=at position 0.75 with {\arrow{<}}}, postaction={decorate}]
                     ($(Z) + (\epsAng:\eps)$) arc (\epsAng:360-\epsAng:\eps);
-                % Label for inner circle
                 \node[left] at ($(Z) - (\eps, 0)$) {$C_\epsilon$};
         
                 % 4. Path Outward (Bottom side of the corridor)
@@ -1009,8 +1008,6 @@ We have \[
                      ($(Z) + (0:\eps) - (0, \yGap)$) -- (-\angGap:\R);
             \end{scope}
         
-            % --- Other Elements ---
-            % Draw the point z
             \filldraw[black] (Z) circle (2pt) node[left] {$z$};
         
             % Label the entire contour
