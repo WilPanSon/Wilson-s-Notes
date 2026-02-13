@@ -1400,6 +1400,9 @@ We have \[
         \def\eps1{0.35}
         \def\eps2{0.3}
         \def\eps3{0.28}
+        \pgfmathparse{asin(\yGap/\eps1)}\let\epsAng1\pgfmathresult
+        \pgfmathparse{asin(\yGap/\eps2)}\let\epsAng2\pgfmathresult
+        \pgfmathparse{asin(\yGap/\eps3)}\let\epsAng3\pgfmathresult
         
         % --- Keyhole contour (one continuous path, counterclockwise on outer, clockwise on inner) ---
         \begin{scope}[blue]
@@ -1415,7 +1418,7 @@ We have \[
             \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
                 (\ang1+\angGap:\R) -- ($(Z1) + (\ang1:\eps1) + (\ang1+90:\yGap)$);
             \draw[decoration={markings, mark=at position 0.25 with {\arrow{<}}, mark=at position 0.75 with {\arrow{<}}}, postaction={decorate}]
-                ($(Z1) + (\ang1+90:-\yGap) + (\ang1:\eps1)$) arc (\ang1+180:\ang1:\eps1);
+                ($(Z1) + (\ang1+\epsAng1:\eps1)$) arc (\ang1+\epsAng1:\ang1-\epsAng1:\eps1);
             \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
                 ($(Z1) + (\ang1:\eps1) - (\ang1+90:\yGap)$) -- (\ang1-\angGap:\R);
             
@@ -1423,7 +1426,7 @@ We have \[
             \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
                 (\ang2+\angGap:\R) -- ($(Z2) + (\ang2:\eps2) + (\ang2+90:\yGap)$);
             \draw[decoration={markings, mark=at position 0.25 with {\arrow{<}}, mark=at position 0.75 with {\arrow{<}}}, postaction={decorate}]
-                ($(Z2) + (\ang2+90:-\yGap) + (\ang2:\eps2)$) arc (\ang2+180:\ang2:\eps2);
+                ($(Z2) + (\ang2+\epsAng2:\eps2)$) arc (\ang2+\epsAng2:\ang2-\epsAng2:\eps2);
             \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
                 ($(Z2) + (\ang2:\eps2) - (\ang2+90:\yGap)$) -- (\ang2-\angGap:\R);
             
@@ -1431,7 +1434,7 @@ We have \[
             \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
                 (\ang3+\angGap:\R) -- ($(Z3) + (\ang3:\eps3) + (\ang3+90:\yGap)$);
             \draw[decoration={markings, mark=at position 0.25 with {\arrow{<}}, mark=at position 0.75 with {\arrow{<}}}, postaction={decorate}]
-                ($(Z3) + (\ang3+90:-\yGap) + (\ang3:\eps3)$) arc (\ang3+180:\ang3:\eps3);
+                ($(Z3) + (\ang3+\epsAng3:\eps3)$) arc (\ang3+\epsAng3:\ang3-\epsAng3:\eps3);
             \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
                 ($(Z3) + (\ang3:\eps3) - (\ang3+90:\yGap)$) -- (\ang3-\angGap:\R);
         \end{scope}
