@@ -1381,32 +1381,74 @@ We have \[
     Let $\gamma_k=\partial \mathcal{D}_k$ be the boundary of each small disk, oriented clockwise (negative orientation). Consider the multiply connected region $\mathcal{D}\setminus \bigcup_{k=1}^n \overline{\mathcal{D}_k}$.
     
     \begin{center}
-    \begin{tikzpicture}[scale=1.2]
-        % Large disk boundary
-        \draw[thick, ->] (0,0) circle (2.5cm);
-        \node[above] at (0,2.5) {$\gamma = \partial \mathcal{D}$};
+    \begin{tikzpicture}[>=Stealth, scale=1.2, thick]
+        \def\R{2.5}                    % Outer radius
+        \def\angGap{5}                 % Half-angle for corridor gaps
+        \def\yGap{0.08}                % Corridor half-width
         
-        % Pole 1
-        \filldraw[red] (1,0.8) circle (2pt) node[above right] {$z_1$};
-        \draw[thick, ->, blue] (1,0.8) circle (0.4cm);
-        \node[below left] at (1.3,0.8) {$\gamma_1$};
+        % Pole coordinates
+        \coordinate (Z1) at (1,0.8);
+        \coordinate (Z2) at (-0.8,1.2);
+        \coordinate (Z3) at (-1,-0.5);
         
-        % Pole 2
-        \filldraw[red] (-0.8,1.2) circle (2pt) node[above left] {$z_2$};
-        \draw[thick, ->, blue] (-0.8,1.2) circle (0.35cm);
-        \node[below right] at (-0.5,1.2) {$\gamma_2$};
+        % Angles from center to poles (for corridor placement)
+        \def\ang1{39}
+        \def\ang2{124}
+        \def\ang3{207}
         
-        % Pole 3
-        \filldraw[red] (-1,-0.5) circle (2pt) node[below left] {$z_3$};
-        \draw[thick, ->, blue] (-1,-0.5) circle (0.3cm);
-        \node[above right] at (-0.7,-0.5) {$\gamma_3$};
+        % Inner circle radii
+        \def\eps1{0.35}
+        \def\eps2{0.3}
+        \def\eps3{0.28}
         
-        % Dots for more poles
+        % --- Keyhole contour (one continuous path, counterclockwise on outer, clockwise on inner) ---
+        \begin{scope}[blue]
+            % Outer arcs (with gaps for corridors)
+            \draw[decoration={markings, mark=at position 0.4 with {\arrow{>}}}, postaction={decorate}]
+                (\ang1+\angGap:\R) arc (\ang1+\angGap:\ang2-\angGap:\R);
+            \draw[decoration={markings, mark=at position 0.4 with {\arrow{>}}}, postaction={decorate}]
+                (\ang2+\angGap:\R) arc (\ang2+\angGap:\ang3-\angGap:\R);
+            \draw[decoration={markings, mark=at position 0.4 with {\arrow{>}}}, postaction={decorate}]
+                (\ang3+\angGap:\R) arc (\ang3+\angGap:360+\ang1-\angGap:\R);
+            
+            % Keyhole 1 (z1): corridor in -> inner circle (clockwise) -> corridor out
+            \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
+                (\ang1+\angGap:\R) -- ($(Z1) + (\ang1:\eps1) + (\ang1+90:\yGap)$);
+            \draw[decoration={markings, mark=at position 0.25 with {\arrow{<}}, mark=at position 0.75 with {\arrow{<}}}, postaction={decorate}]
+                ($(Z1) + (\ang1+90:-\yGap) + (\ang1:\eps1)$) arc (\ang1+180:\ang1:\eps1);
+            \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
+                ($(Z1) + (\ang1:\eps1) - (\ang1+90:\yGap)$) -- (\ang1-\angGap:\R);
+            
+            % Keyhole 2 (z2)
+            \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
+                (\ang2+\angGap:\R) -- ($(Z2) + (\ang2:\eps2) + (\ang2+90:\yGap)$);
+            \draw[decoration={markings, mark=at position 0.25 with {\arrow{<}}, mark=at position 0.75 with {\arrow{<}}}, postaction={decorate}]
+                ($(Z2) + (\ang2+90:-\yGap) + (\ang2:\eps2)$) arc (\ang2+180:\ang2:\eps2);
+            \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
+                ($(Z2) + (\ang2:\eps2) - (\ang2+90:\yGap)$) -- (\ang2-\angGap:\R);
+            
+            % Keyhole 3 (z3)
+            \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
+                (\ang3+\angGap:\R) -- ($(Z3) + (\ang3:\eps3) + (\ang3+90:\yGap)$);
+            \draw[decoration={markings, mark=at position 0.25 with {\arrow{<}}, mark=at position 0.75 with {\arrow{<}}}, postaction={decorate}]
+                ($(Z3) + (\ang3+90:-\yGap) + (\ang3:\eps3)$) arc (\ang3+180:\ang3:\eps3);
+            \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
+                ($(Z3) + (\ang3:\eps3) - (\ang3+90:\yGap)$) -- (\ang3-\angGap:\R);
+        \end{scope}
+        
+        \node[above right] at (45:\R) {$\gamma = \partial \mathcal{D}$};
+        
+        % Poles and labels
+        \filldraw[red] (Z1) circle (2pt) node[above right] {$z_1$};
+        \node[below left] at ($(Z1)+(\eps1,0)$) {$\gamma_1$};
+        \filldraw[red] (Z2) circle (2pt) node[above left] {$z_2$};
+        \node[below right] at ($(Z2)+(-\eps2*0.7,0)$) {$\gamma_2$};
+        \filldraw[red] (Z3) circle (2pt) node[below left] {$z_3$};
+        \node[above right] at ($(Z3)+(\eps3,0)$) {$\gamma_3$};
+        
+        % Indicate more poles
         \filldraw[red] (0.5,-1) circle (2pt) node[below] {$z_n$};
-        \draw[thick, ->, blue] (0.5,-1) circle (0.35cm);
-        \node[above left] at (0.8,-1) {$\gamma_n$};
         
-        % Label the region
         \node at (0,0) {$\mathcal{D}$};
     \end{tikzpicture}
     \end{center}
