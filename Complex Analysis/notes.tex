@@ -966,7 +966,64 @@ We have \[
         Fix $z\in D_1$, let $\gamma_{\epsilon, \delta}$ be a key-hole contour but we omit $z.$ Then \[
         \int_{\gamma_{\epsilon, \delta}}\frac{f(\zeta)}{\zeta - z}d\zeta=0
         .\] 
+        \begin{tikzpicture}[>=Stealth, thick]
+            % Define coordinates and parameters
+            \coordinate (O) at (0,0);       % Center of the domain D
+            \coordinate (Z) at (1, 0.5);    % The fixed point z
+            \def\R{3}                       % Radius of outer boundary partial D
+            \def\eps{0.7}                   % Radius of inner circle C_epsilon
+            \def\angGap{6}                  % Half-angle gap on the outer circle for the corridor
+            \def\yGap{0.1}                  % Half-width (vertical shift) of the corridor at z
         
+            % --- The Key-hole Contour \gamma_{\epsilon, \delta} ---
+            % We draw this as one continuous blue path.
+            \begin{scope}[blue]
+                % 1. Outer Arc (\partial D) - Counter-clockwise
+                % Draws from the top of the gap around to the bottom of the gap.
+                \draw[decoration={markings,
+                    mark=at position 0.25 with {\arrow{>}},
+                    mark=at position 0.75 with {\arrow{>}}}, postaction={decorate}]
+                    (\angGap:\R) arc (\angGap:360-\angGap:\R);
+                % Label for outer boundary
+                \node[above right] at (45:\R) {$\partial D$};
+        
+                % 2. Path Inward (Top side of the corridor)
+                % Connects outer circle to the inner circle.
+                \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
+                    (\angGap:\R) -- ($(Z) + (0:\eps) + (0, \yGap)$);
+        
+                % 3. Inner Arc (C_\epsilon) - Clockwise
+                % We calculate the start/end angles on the small circle based on the corridor width.
+                \pgfmathparse{asin(\yGap/\eps)}
+                \let\epsAng\pgfmathresult
+                % Note: To draw clockwise, we go from a positive angle to a negative one across 0.
+                \draw[decoration={markings,
+                    mark=at position 0.25 with {\arrow{<}}, % < arrow for clockwise
+                    mark=at position 0.75 with {\arrow{<}}}, postaction={decorate}]
+                    ($(Z) + (\epsAng:\eps)$) arc (\epsAng:360-\epsAng:\eps);
+                % Label for inner circle
+                \node[left] at ($(Z) - (\eps, 0)$) {$C_\epsilon$};
+        
+                % 4. Path Outward (Bottom side of the corridor)
+                % Connects inner circle back to the outer circle.
+                \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
+                     ($(Z) + (0:\eps) - (0, \yGap)$) -- (-\angGap:\R);
+            \end{scope}
+        
+            % --- Other Elements ---
+            % Draw the point z
+            \filldraw[black] (Z) circle (2pt) node[left] {$z$};
+        
+            % Label the entire contour
+            \node[blue, font=\large] at (1.5, 2.2) {$\gamma_{\epsilon, \delta}$};
+        
+            % Indicate the radius epsilon (optional, dashed red)
+            \draw[thin, dashed, red, ->] (Z) -- node[midway, above, scale=0.8] {$\epsilon$} ++(135:\eps);
+        
+            % Indicate the gap delta (optional)
+            %\draw[thin, <->] ($(Z) + (1.2*\eps, \yGap)$) -- node[right, scale=0.7] {$\delta$} ($(Z) + (1.2*\eps, -\yGap)$);
+        
+        \end{tikzpicture}
         Fix $\epsilon > 0$ and $\delta \to 0$ we want to show that \[
         \int_{\gamma_{\epsilon, \delta}}\frac{f(\zeta)}{\zeta - z}d\zeta\to \int_{\partial D} - \int_{C_\epsilon}
         .\] 
