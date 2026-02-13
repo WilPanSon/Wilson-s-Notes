@@ -17,7 +17,6 @@
 \usepackage{mathtools}
 \usepackage{hyperref} 
 \usepackage{mathtools}
-\usetikzlibrary{decorations.markings, arrows.meta}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
@@ -967,50 +966,7 @@ We have \[
         Fix $z\in D_1$, let $\gamma_{\epsilon, \delta}$ be a key-hole contour but we omit $z.$ Then \[
         \int_{\gamma_{\epsilon, \delta}}\frac{f(\zeta)}{\zeta - z}d\zeta=0
         .\] 
-        \begin{tikzpicture}[>=Stealth]
-            % Define coordinates
-            \def\R{3}
-            \def\y{2}
-            \coordinate (A) at (\R, 0);
-            \coordinate (B) at (\R, \y);
-            \coordinate (C) at (-\R, \y);
-            \coordinate (D) at (-\R, 0);
         
-            % Draw axes
-            \draw[->] (-\R-1, 0) -- (\R+1, 0) node[right] {$\Re$};
-            \draw[->] (0, -0.5) -- (0, \y+1) node[above] {$\Im$};
-        
-            % Draw the contour with arrows
-            % The decoration places an arrow in the middle of each segment
-            \draw[blue, thick, decoration={
-                markings,
-                mark=at position 0.125 with {\arrow{>}},
-                mark=at position 0.375 with {\arrow{>}},
-                mark=at position 0.625 with {\arrow{>}},
-                mark=at position 0.875 with {\arrow{>}}
-            }, postaction={decorate}] (A) -- (B) -- (C) -- (D) -- cycle;
-        
-            % Draw the dashed red line l
-            \draw[red, dashed] (C) -- (B) -- (\R+1.5, \y) node[right] {$\ell: z = t+iy$};
-        
-            % Draw vertices and labels
-            \filldraw (A) circle (2pt) node[below right] {$R$};
-            \filldraw (B) circle (2pt) node[above right] {$R+iy$};
-            \filldraw (C) circle (2pt) node[above left] {$-R+iy$};
-            \filldraw (D) circle (2pt) node[below left] {$-R$};
-        
-            % Label the contour
-            \node[blue] at (0, \y/2) {$\Gamma_R$};
-        
-            % Mark y on the imaginary axis
-            \draw[dashed] (C) -- (0,\y);
-            \draw (-0.1, \y) -- (0.1, \y);
-            \node[left] at (0, \y) {$y$};
-        
-            % Label the origin/Real Axis
-            \node[below] at (0,0) {Real Axis};
-        
-        \end{tikzpicture}
         Fix $\epsilon > 0$ and $\delta \to 0$ we want to show that \[
         \int_{\gamma_{\epsilon, \delta}}\frac{f(\zeta)}{\zeta - z}d\zeta\to \int_{\partial D} - \int_{C_\epsilon}
         .\] 
