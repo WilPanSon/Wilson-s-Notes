@@ -108,6 +108,38 @@
 \subsection{Jacobian and Cauchy-Riemann Equations}
 \begin{defn}
     The jacobian matrix of $F$ is \[
+    J=J_F(x,y)=\begin{pmatrix}
+        {\frac{\partial u}{\partial x} } & {\frac{\partial u}{\partial y} } \\ 
+        {\frac{\partial v}{\partial x} } & {\frac{\partial v}{\partial y} }
+    \end{pmatrix}
+    .\] 
+\end{defn}
+\begin{thm}
+    Cauchy-Riemann Equations: If $f$ is holomorphic then 
+    \[
+    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}  \text{ and } \frac{\partial u}{\partial y} =-\frac{\partial v}{\partial x} 
+    .\] 
+    \begin{proof}
+        If we write $z=x+iy,z_0=x_0+iy_0$ and $f(z)=f(x,y)$ then 
+        \begin{align*}
+            f'(z_0)&=\lim_{h_1\to 0} \frac{f(x_0+h_1,y_0)-f(x_0,y_0)}{h_1}\\
+            &=\frac{\partial f}{\partial x} (z_0)
+        \end{align*}
+        Similarly, now take $h$ purely imaginary, say $h=ih_2$, then 
+        \begin{align*}
+            f'(z_0)&=\lim_{h_2\to 0}  \frac{f(x_0,y_0+h_2)-f(x_0,y_0)}{ih_2}\\
+            &=\frac{1}{i}\frac{\partial f}{\partial y} (z_0)
+        \end{align*}
+        Since $f$ is holomorphic we have \[
+        \frac{\partial f}{\partial x} =\frac{1}{i}\frac{\partial f}{\partial y}
+        .\] 
+        Writing $f=u+iv$ we have the stated relation.
+    \end{proof}
+\end{thm}
+\newpage
+\section{Jan 14}
+\subsection{Holomorphic Equivalence and Wirtinger Derivatives}
+\begin{thm}
     $f:\Omega\to \mathbb{C}$ holomorphic on $\Omega$ equivalently $F=\begin{pmatrix}
         {u} \\ 
         {v}
