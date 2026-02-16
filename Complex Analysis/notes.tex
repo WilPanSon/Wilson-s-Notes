@@ -1615,12 +1615,13 @@ We have \[
 \begin{proof}
     Claim: Under these assumptions, $f$ has finitely many poles. \\
     If not, $z_1,z_2,...$ are poles and this sequence cannot be bounded otherwise it got a limit point. Say $|z_k|\to +\infty$, the neighborhoods of $\infty$ are $ \{|z|>R\}$ so $f$ not holomorphic for any $R>0$ which contradicts that $f$ has a removable singularity at $+\infty$. \\\\
-    Let $z_1,...,z_N$ be the poles of $f$, near $z_k$, for each $1\leq k \leq N$, \[
-    f(z)=\underbrace{f_k(z)}_{\relstack{principle part \ a poly in $\frac{1}{z-z_k}$}}+ \underbrace{g_k(z)}_{\relstack{holomorphic}}
-    .\] 
-    Near $\infty$
+    Let $z_1,\ldots,z_N$ be the poles of $f$. Near $z_k$, for each $1\leq k \leq N$,
     \[
-    f(\frac{1}{z})=\underbrace{\tilde{f}_\infty(z)}_{principle part, a poly in \frac{1}{z}}+ \underbrace{\tilde{g}_\infty(z)}_{holomorphic}
-    .\] 
+    f(z)=\underbrace{f_k(z)}_{\text{principal part, poly in }\frac{1}{z-z_k}}+ \underbrace{g_k(z)}_{\text{holomorphic}}.
+    \]
+    Near $\infty$,
+    \[
+    f\!\left(\frac{1}{z}\right)=\underbrace{\tilde{f}_\infty(z)}_{\text{principal part, poly in }\frac{1}{z}}+ \underbrace{\tilde{g}_\infty(z)}_{\text{holomorphic}}.
+    \] 
 \end{proof}
 \end{document}
