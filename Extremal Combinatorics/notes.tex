@@ -1073,7 +1073,8 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     Pick $\epsilon'=$ and apply szemeredi's regularity lemma to $G$ to get an $\epsilon$-regular partition $V(G)=V_1\cup \cdots \cup V_k \cup J$ where $m\leq k\leq M(\epsilon', m)$ and $|J|\leq \epsilon' n$. To clean up the graph \begin{enumerate}
         \item Delete all edges incident to $J$ as we do not know anything about $J$
         \item Delete all edges inside $\epsilon$-irregular parts 
-        \item Delete all edges between $$
+        \item Delete all edges inside a single $V_i$
+        \item Delete edges between $V_i $
     \end{enumerate}
 \end{proof}
 \end{document}
