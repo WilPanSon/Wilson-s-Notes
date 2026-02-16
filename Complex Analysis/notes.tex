@@ -1373,6 +1373,7 @@ We have \[
 \begin{proof}
     Apply previous theorem to $\frac{1}{f}(z)=(z-z_0)^ng(z)$. 
 \end{proof}
+\subsection{Laurent Series and Residues}
 \begin{thm}
     (Laurent Series Expansion) If $f$ has a pole of order $n$ at $z_0$ then locally \[
     f(z)=\underbrace{\frac{a_{-n}}{(z-z_0)^n}+\cdots+\frac{\overbrace{a_{-1}}^{\text{residue of $f$ at $z_0$}}}{z-z_0}}_{\text{principal part}}+\underbrace{G(z)}_{ \text{holo part of }f}
@@ -1465,6 +1466,7 @@ We have \[
 \end{proof}
 \newpage
 \section{Feb 11}
+\subsection{Integral Evaluation via Residues}
 \begin{eg}
     \[
     \int_{-\infty}^\infty \frac{e^{ax}}{1+e^x}dx=\frac{\pi}{\sin(a \pi)}
@@ -1535,6 +1537,7 @@ We have \[
     I=-\frac{2\pi i e^{\pi i a}}{1-e^{2\pi a i}}=\frac{\pi}{\sin(a \pi)}
     .\] 
 \end{proof}
+\subsection{Removable Singularities}
 \begin{defn}
     Let $f:\Omega\setminus \{z_0\}\to \C$ be holomorphic, if we can extend $f$ analytically to $z_0$ we say that $f$ has a removable singularity at $z_0$. 
 \end{defn}
@@ -1553,6 +1556,7 @@ We have \[
 \end{proof}
 \newpage
 \section{Feb 13}
+\subsection{Classification of Singularities}
 \begin{thm}
     (Riemann) Let $f:\Omega\setminus \{z_0\}\to \C$ has a removable singularity at $z_0$ if and only if bounded near $z_0$. 
 \end{thm}
