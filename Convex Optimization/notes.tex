@@ -30,10 +30,11 @@
 
 \newtheorem{thm}{Theorem}[section]
 \AtBeginEnvironment{thm}{\begin{tcolorbox}[
+    enhanced,
     colback=red!5,
-    colframe=red!20,
-    frame empty,
-    borderline west={4pt}{0pt}{red!50!black},
+    boxrule=0pt,
+    frame hidden,
+    borderline west={4pt}{0pt}{red!80!black},
     left=6pt,
     right=6pt,
     top=4pt,
@@ -914,4 +915,7 @@ f(y)\geq f(x^*)+\inner{0,y-x^*}\implies 0\in \partial f(x^*)
         \item $||p(x)-p(y)||_2^2\leq \inner{x-y}{p(x)-p(y)}$
     \end{enumerate}
 \end{thm}
+\begin{proof}
+    
+\end{proof}
 \end{document}
