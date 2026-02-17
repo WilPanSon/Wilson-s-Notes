@@ -102,8 +102,9 @@
     Turan's Theorem: $ex(n,K_{r+1})=e(T_{n,r})$ and furthermore $T_{n,r}$ is the only extremizer.
     \[
     e(T_{n,r})=\left (1-\frac{1}{r} \right ) {n \choose 2}+ O(n) 
-    .\]  
-    \begin{proof}
+    .\]
+\end{thm}
+\begin{proof}
         Let $G$ be a graph on $n$ vertices that is $K_{r+1}$-free and has the maximum possible number of edges (an extremizer). We proceed in two steps.\\\\
         Suppose $G$ is not a complete multipartite graph. Then non-adjacency is not an equivalence relation, implying there exist two non-adjacent vertices $x,y$ that do not have identical neighborhoods.\\\\
         Assume $\deg(x)\leq \deg(y)$. Delete $x$ and then clone $y$ to obtain $y'$. The new graph $G'$ has 
@@ -118,8 +119,7 @@
         \]
         To maximize $e(G)$, we must minimize the subtracted sum of pairs inside the parts. This occurs when $n_i$ are as equal as possible ($|n_i - n_j| \leq 1$). If $n_i \geq n_j + 2$, moving a vertex from part $i$ to part $j$ increases the edge count by $(n_i-1) - n_j > 0$.\\\\
         Thus, the unique extremizer is the balanced complete $r$-partite graph, $T_{n,r}$.
-    \end{proof}
-\end{thm}
+\end{proof}
 \newpage
 \section{Jan 14}
 
@@ -143,7 +143,8 @@
 \begin{thm}
     Observe that if $F$ is a graph then \[
 \frac{ex(n,F)}{{n \choose 2}}\geq \frac{ex(n+1,F)}{{n+1 \choose 2}}
-.\] 
+.\]
+\end{thm}
 \begin{proof}
     Pick $n$ vertices in an $F$-free $(n+1)$ vertex graph $G$ at random without replacement; let $G'$ be the induced graph on these $n$ vertices. 
     \[
@@ -151,9 +152,8 @@
     .\]
     \[
     \mathbb{E}(e(G'))={n \choose 2} \frac{e(G)}{{n+1 \choose 2}}\implies \frac{e(G)}{{n+1 \choose 2}}\leq \frac{ex(n,F)}{{n \choose 2}}
-    .\] 
+    .\]
 \end{proof}
-\end{thm}
 \begin{defn}
     \[
     \pi(F):=\lim_{n\to \infty}\frac{ex(n,F)}{{n \choose 2}}
