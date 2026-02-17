@@ -1006,8 +1006,9 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
 \begin{rmk}
     \# edges inside parts $+$ \# edges adjacent to $J$ $+$ \# edges in $\epsilon$-irregular pairs is at most \[
     k {n/k \choose 2} + (\epsilon n) \cdot n +\epsilon k^2 (n/k)^2\leq \frac{1}{k}n^2+\epsilon n^2+\epsilon n^2
-    .\] 
+    .\]
 \end{rmk}
+
 \begin{proof}
     For a partition $\mathcal{P}$ of $V:=V(G)$, we define \[
     f(\mathcal{P})=\sum_{U,W\in \mathcal{P}, U \neq W} \underbrace{d(U,W)^2\frac{|U||W|}{|V|^2}}_{f(U,W)}
@@ -1046,8 +1047,11 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
         .\] 
     \end{enumerate} 
 \end{proof}
+
 \newpage
-\section{Feb 16}
+\section{Triangle Counting and Removal Lemmas (Feb 16)}
+
+\subsection{Triangle Counting Lemma}
 \begin{lem}[\textbf{Triangle Counting Lemma}]
     Let $X,Y,Z\subset V(G)$ be disjoint with $d(X,Y), d(X,Z), d(Y,Z)\geq 2\epsilon$, and suppose $(X,Y)$, $(X,Z)$, $(Y,Z)$ are $\epsilon$-regular. \\
     Then the number of $XYZ$-triangles is at least
@@ -1077,8 +1081,11 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     .\] 
     So \[
     \# \triangle = \sum_{x\in X'}(*)\geq (*)(1-2\epsilon)|X|
-    .\] 
+    .\]
 \end{proof}
+
+\subsection{Triangle Removal Lemma}
+
 \begin{lem}
     Triangle Removal Lemma: $\forall \epsilon>0, \exists \delta>0$ such that every graph with $\leq \delta n^3$ triangles can be made triangle free by deleting only $\epsilon n^2$ edges. 
 \end{lem}
