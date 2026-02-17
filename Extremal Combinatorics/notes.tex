@@ -165,9 +165,10 @@
 \begin{thm}
     Let $F$ be any graph and let $\epsilon>0$. Let $G$ be an $n$-vertex graph. There is a $\delta>0$ such that \[
     e(G)\geq \left( \pi(F)+\epsilon \right) {n\choose 2} \text{ and } n\geq n_0(F,\epsilon)
-    .\] 
-    then there are at least $\delta n^{|V(F)|}$ copies of $F$. 
-    \begin{proof}
+    .\]
+    then there are at least $\delta n^{|V(F)|}$ copies of $F$.
+\end{thm}
+\begin{proof}
         Let $n_0$ be large enough such that $\frac{ex(n_0,F)}{{n_0 \choose 2}}\leq \pi(F)+\frac{\epsilon}{2}.$ Given $n$-vertex $G$ as in theorem. Pick $n_0$ vertices at random without replacement. Let $G'$ be the $n_0$-vertex graph induced on these chosen vertices. \[
         \mathbb{E}[e(G')]=\frac{e(G)}{{n \choose 2}}{n_0 \choose 2}\geq (\pi(F)+\epsilon){n_0 \choose 2}
         .\] 
@@ -185,9 +186,8 @@
         \[
         \mathbb{P}(G'' \text{ contains } F)\geq \mathbb{P}(G' \text{ is good})\cdot \mathbb{P}(G'' \text{ contains $F$} | G' \text{ is good})\geq \frac{\epsilon}{2}\frac{1}{{n_0 \choose |V(F)|}}
         .\] 
-        Note that $G''$ is uniformly randomly chosen $|V(F)|$-vertex subset of $G.$ This implies the \# copies of $F$ in $G\geq \mathbb{P}(G'' \text{contains F}){n \choose |V(F)|}\geq P(...)\frac{n^{|V(F)|}(1-o(1))}{|V(F)|!}.$ We can choose $\delta=\frac{1}{{n_0 \choose |V(F)|}}$ 
-    \end{proof}
-\end{thm}
+        Note that $G''$ is uniformly randomly chosen $|V(F)|$-vertex subset of $G.$ This implies the \# copies of $F$ in $G\geq \mathbb{P}(G'' \text{contains F}){n \choose |V(F)|}\geq P(...)\frac{n^{|V(F)|}(1-o(1))}{|V(F)|!}.$ We can choose $\delta=\frac{1}{{n_0 \choose |V(F)|}}$
+\end{proof}
 \newpage
 \section{Jan 16}
 
