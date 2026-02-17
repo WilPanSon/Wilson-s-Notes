@@ -555,18 +555,18 @@
 \begin{thm}
     If $f$ is differentiable, $\beta$ smooth, and $x^*$ be any optimizer. For any $k>0$ \[
     \min_{i=0,...,k}||\nabla(f(x_i))||_2\leq \sqrt{\frac{2\beta}{k}\left(\underbrace{f(x_0)-f(x^*)}_{\Delta_0}\right)}
-    .\] 
-    \begin{proof}
-        AFSOC $\forall i\in \{0,...,k\}$, $||\nabla f(x_i)||> \sqrt{\frac{2\beta}{k}\Delta_0}$
-        Then we have \[
-        f(x_{i+1})< f(x_i)-\frac{1}{2\beta} \left( \frac{2\beta \Delta_0}{k} \right) \tag{$\forall i\in \{0,...,k\}$}
-        .\] 
-        Continuing down the chain we have \[
-        f(x_{k+1})<f(x_0)-\Delta_0<f(x^*)
-        .\] 
-        Thus a contradiction. 
-    \end{proof}
+    \]
 \end{thm}
+\begin{proof}
+    AFSOC $\forall i\in \{0,...,k\}$, $||\nabla f(x_i)||> \sqrt{\frac{2\beta}{k}\Delta_0}$
+    Then we have \[
+    f(x_{i+1})< f(x_i)-\frac{1}{2\beta} \left( \frac{2\beta \Delta_0}{k} \right) \tag{$\forall i\in \{0,...,k\}$}
+    \] 
+    Continuing down the chain we have \[
+    f(x_{k+1})<f(x_0)-\Delta_0<f(x^*)
+    \] 
+    Thus a contradiction. 
+\end{proof}
 
 \subsection{Convergence Rates}
 \begin{thm}
