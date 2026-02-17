@@ -16,6 +16,7 @@
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage{pgfplots}
+\usepackage[dvipsnames,svgnames]{xcolor}
 \usepackage[most]{tcolorbox}
 \usepackage{etoolbox}
 \pgfplotsset{compat=1.18}
@@ -46,7 +47,7 @@
 \AtBeginEnvironment{thm}{\envbox{red}}
 \AtEndEnvironment{thm}{\end{tcolorbox}}
 \newtheorem{lem}[thm]{Lemma}
-\AtBeginEnvironment{lem}{\envbox{green}}
+\AtBeginEnvironment{lem}{\envbox{SeaGreen}}
 \AtEndEnvironment{lem}{\end{tcolorbox}}
 \newtheorem{defn}[thm]{Definition}
 \AtBeginEnvironment{defn}{\envbox{blue}}
