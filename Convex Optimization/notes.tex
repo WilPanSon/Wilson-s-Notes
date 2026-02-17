@@ -627,13 +627,13 @@
     \end{cases}$ is convex
     Additionally, for $x\in C$, $\partial I_C(x)=N_C(x)= \{g: g^T(y-x)\leq 0 \forall y\in C\}$
 \end{eg}
-
-\subsection{Subgradient Method}
 \begin{proof}
     For $x\in C$, $I_C(y)\geq I_C(x)+g^T(y-x)$ for all $y\in C$ then we have \[
     0 \geq 0 + g^T(y-x)
     .\]
 \end{proof}
+
+\subsection{Subgradient Method}
 \begin{defn}
     \textbf{Subgradient Method:} $x_{t+1}\leftarrow x_t-\eta g_x$ for some $g_x\in \partial f(x)$
     \begin{enumerate}
