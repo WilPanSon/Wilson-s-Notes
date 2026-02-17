@@ -713,6 +713,8 @@ When $H$ is bipartite ($r=1$), the Erd\H{o}s-Stone bound gives $1 - 1/1 = 0$, wh
     Are there planes of order which are not prime powers?
 \end{rmk}
 
+\subsection{$C_{2k}$-Free Graphs for $k=2,3,5$}
+
 \begin{thm}
     \textbf{Construction of $C_{2k}$-free graphs for $k=2,3,5$:}\\
     Let $q$ be a prime power and let $\F_q$ be the finite field with $q$ elements. Define a graph $G$ on the vertex set $\F_q^k$ (the set of $k$-tuples over $\F_q$) as follows:\\
@@ -807,8 +809,11 @@ When $H$ is bipartite ($r=1$), the Erd\H{o}s-Stone bound gives $1 - 1/1 = 0$, wh
         Therefore, for $k=2,3,5$, no proper $2k$-cycle exists in $G$.
 \end{proof}
 \newpage
-\section{Jan 28}
-Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(n,K_{s,t})=\theta \left(  n^{2-\frac{1}{s}} \right)$ for $t\geq t_0(s)$
+\section{Algebraic Construction for $ex(n,K_{s,t})$ (Jan 28)}
+
+\subsection{Random Polynomial Construction}
+
+Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(n,K_{s,t})=\theta \left(  n^{2-\frac{1}{s}} \right)$ for $t\geq t_0(s)$.
 \begin{thm}
     Construction of the extremal graph for $ex(n,K_{s,t})$.
 \end{thm}
@@ -872,8 +877,11 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     \end{thm}
     \noindent So $\Pr\left[\text{some $s$ vertices have neighborhood of size} \geq O_{s,\alpha}(1)\right] \leq C_{s,\alpha} \left(\frac{p}{2}\right)^{-\alpha} {p^s \choose s}.$ 
     Choose $\alpha = s^2 + 1$. To ensure this probability goes to $0$, we need to choose $d = s^2 + 1.$
+
 \newpage
-\section{Regularity Lemmas: Feb 4}
+\section{Regularity for Binary Words (Feb 4)}
+
+\subsection{Definitions and Chernoff Bound}
 \begin{defn}
     Binary word is sequence $w_1,w_2,...,w_n\in \{0, 1\}$ and write $w=w_1w_2...,w_n$.\\
     The density of $w$ is \[
