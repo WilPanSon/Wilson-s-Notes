@@ -441,7 +441,8 @@ We generalize the KST theorem from bipartite graphs to $r$-uniform hypergraphs. 
 \begin{thm}[Erd\H{o}s-Stone]
     If $e(G) \geq \left( 1-\frac{1}{r}+\epsilon \right)\binom{n}{2}$ and $n$ is sufficiently large, then $G$ contains $T_{s,(r+1)}$ (a blow-up of $K_{r+1}$ with parts of size $s$).\\
     Consequently, $G$ contains any graph $H$ with $\chi(H) = r+1$ (since any such $H$ is a subgraph of a large enough blow-up of $K_{r+1}$).
-    \begin{proof}
+\end{thm}
+\begin{proof}
         \textbf{Step 1: Find many cliques.}
         By the Supersaturation Corollary, since the edge density is greater than the Turán threshold for $K_{r+1}$, $G$ contains many copies of $K_{r+1}$:
         \[
@@ -458,8 +459,7 @@ We generalize the KST theorem from bipartite graphs to $r$-uniform hypergraphs. 
         By definition of $\mathcal{H}$, this means $\{u_1, \dots, u_{r+1}\}$ forms a clique $K_{r+1}$ in $G$.
         If every possible tuple forms a clique, then every pair of vertices in distinct parts $U_i, U_j$ must be connected in $G$.\\
         Thus, $G[U_1 \cup \dots \cup U_{r+1}]$ contains the complete multipartite graph with parts of size $s$, which is exactly $T_{s(r+1)}$.
-    \end{proof}
-\end{thm}
+\end{proof}
 
 \subsection{Degenerate Turán Numbers (Bipartite Graphs)}
 
