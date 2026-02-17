@@ -187,7 +187,9 @@
 \end{thm}
 
 \newpage
-\section{Jan 20}
+\section{Jan 20: Convex Combinations, Hulls, and Cones}
+
+\subsection{Types of Combinations}
 \begin{defn}
     A \textbf{convex combination} of $x_1, x_2$ is $\theta_1 x_1 + \theta_2 x_2$ where $\theta_1, \theta_2 \geq 0$ and $\theta_1 + \theta_2 = 1$.
 \end{defn}
@@ -273,6 +275,7 @@
     \end{enumerate}
 \end{eg}
 
+\subsection{Optimality and the Normal Cone}
 \begin{thm}
     A set $S$ is \textbf{strictly convex} if for all $x_1 \neq x_2$ and $\theta \in (0, 1)$, $\theta x_1 + (1-\theta) x_2 \in \mathrm{int}(S)$.
 \end{thm}
@@ -293,7 +296,9 @@
 \end{thm}
 
 \newpage
-\section{Jan 22}
+\section{Jan 22: Optimality Conditions and Characterizations of Convexity}
+
+\subsection{Optimality and Operations on Convex Sets}
 \begin{thm}
     If $f$ is convex and differentiable, and $C$ is a convex set, then any optimal solution $x^*$ to $\min_{x \in C} f(x)$ must satisfy $-\nabla f(x^*) \in N_C(x^*)$.
 \end{thm}
@@ -326,6 +331,7 @@
     \end{enumerate}
 \end{thm}
 
+\subsection{First and Second Order Conditions}
 \begin{defn}
     \[
         \mathrm{epi}(f) = \{ (x, t) : x \in \mathrm{dom}(f),\, t \geq f(x) \}
@@ -401,6 +407,7 @@
     \]
 \end{defn}
 
+\subsection{Subdifferentials}
 \begin{defn}
     The \textbf{subdifferential} is
     \[
@@ -414,7 +421,9 @@
 \end{thm}
 
 \newpage
-\section{Jan 27}
+\section{Jan 27: Matrix Theory, Lipschitz Continuity, and Smoothness}
+
+\subsection{Gradient Monotonicity and SVD}
 \begin{defn}
     Gradient Monotonicity: If $f$ is differentiable, then $f$ is convex if and only if $\nabla f(x)$ is monotone. So we can conclude \[
     (\nabla f(x) - \nabla f(y))^T(x-y)\geq 0 \iff f \text{ is convex}
@@ -447,6 +456,8 @@
         \item $||A+A'||\leq ||A||+||A'||$
     \end{enumerate}
 \end{defn}
+
+\subsection{Matrix Norms}
 \begin{defn}
     Operator/Spectral Norm: \[
     ||A||_{\text{op}}=||A||_2=\max_{||x||=1}||Ax||_2
@@ -457,6 +468,8 @@
     ||A||_F=\sqrt{\sum_{i,j}A_{ij}^2}
     .\] 
 \end{defn}
+
+\subsection{Lipschitz Continuity and Smoothness}
 \begin{defn}
     $f$ is $L$-Lipschitz if \[
     |f(x)-f(y)|\leq L||x-y||_2 \quad \forall x,y\in \mathrm{dom}(f)
@@ -476,7 +489,9 @@
 
 \end{thm}
 \newpage
-\section{Feb 3}
+\section{Feb 3: Gradient Descent and Convergence}
+
+\subsection{Descent Directions and Step Sizes}
 \begin{defn}
     "Descent Direction" any $h$ for which $f(x+\eta h)\leq f(x)$. 
 \end{defn}
