@@ -538,20 +538,20 @@
         \item If $\eta \leq \frac{2}{\beta}$ then $f(x_{t+1})\leq f(x_t)$
         \item If $\eta \leq \frac{1}{\beta}$ then $f(x_{t+1})\leq f(x_t)-\frac{\eta}{2}||\nabla f(x_t)||_2^2$
     \end{enumerate}
-    \begin{proof}
-        Recall \[
-            f(y)\leq f(x)+\nabla f(x)^T(y-x)+\frac{\beta}{2}||y-x||_2^2
-        .\]  
-        and \[
-        ||\nabla f(y)-\nabla f(x)||_2\leq \beta||y-x||_2
-        .\] 
-        Let $y\leftarrow x+ h$ then $f(x+h)\leq f(x)+\nabla f(x)^T h+\frac{\beta}{2}||h||_2^2$
-        \begin{enumerate}
-            \item If $h=-\frac{2}{\beta}\nabla f(x)$ then $\nabla f(x)^Th=-\frac{2}{\beta}||\nabla f(x)||_2^2$ and $\frac{\beta}{2}||h||_2^2=\frac{2}{\beta}||\nabla f(x)||_2^2$ so $f(x+h)\leq f(x)$
-            \item If $h=-\frac{1}{\beta}\nabla f(x)$ then $\nabla f(x)^Th=-\frac{1}{\beta}||\nabla f(x)||_2^2$ and $\frac{\beta}{2}||h||_2^2=\frac{1}{2\beta}||\nabla f(x)||_2^2$.
-        \end{enumerate}
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Recall \[
+        f(y)\leq f(x)+\nabla f(x)^T(y-x)+\frac{\beta}{2}||y-x||_2^2
+    \]  
+    and \[
+    ||\nabla f(y)-\nabla f(x)||_2\leq \beta||y-x||_2
+    \] 
+    Let $y\leftarrow x+ h$ then $f(x+h)\leq f(x)+\nabla f(x)^T h+\frac{\beta}{2}||h||_2^2$
+    \begin{enumerate}
+        \item If $h=-\frac{2}{\beta}\nabla f(x)$ then $\nabla f(x)^Th=-\frac{2}{\beta}||\nabla f(x)||_2^2$ and $\frac{\beta}{2}||h||_2^2=\frac{2}{\beta}||\nabla f(x)||_2^2$ so $f(x+h)\leq f(x)$
+        \item If $h=-\frac{1}{\beta}\nabla f(x)$ then $\nabla f(x)^Th=-\frac{1}{\beta}||\nabla f(x)||_2^2$ and $\frac{\beta}{2}||h||_2^2=\frac{1}{2\beta}||\nabla f(x)||_2^2$.
+    \end{enumerate}
+\end{proof}
 \begin{thm}
     If $f$ is differentiable, $\beta$ smooth, and $x^*$ be any optimizer. For any $k>0$ \[
     \min_{i=0,...,k}||\nabla(f(x_i))||_2\leq \sqrt{\frac{2\beta}{k}\left(\underbrace{f(x_0)-f(x^*)}_{\Delta_0}\right)}
