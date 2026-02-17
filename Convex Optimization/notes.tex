@@ -893,7 +893,7 @@ f(y)\geq f(x^*)+\inner{0,y-x^*}\implies 0\in \partial f(x^*)
 \end{thm}
 \begin{rmk}
     The intuition is that \[
-    x_{t+1}\leftarrow \arg\min_z g(x_t)+\nabla g(x_t)^T(z-x)+\frac{1}{2\eta_t}
+    x_{t+1}\leftarrow \arg\min_z g(x_t)+\nabla g(x_t)^T(z-x)+\frac{1}{2\eta_t}||z-z_t||
     .\] 
 \end{rmk}
 \end{document}
