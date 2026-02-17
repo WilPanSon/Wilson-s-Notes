@@ -887,7 +887,7 @@ f(y)\geq f(x^*)+\inner{0,y-x^*}\implies 0\in \partial f(x^*)
     Our update rules are 
     \begin{align*}
         y^{t+1}&\rightarrow x^t-\eta_t \nabla g(x^t)\\
-        x^{t+1}&\rightarrow prox_{\eta_t,h}(y^{t+1})
+        x^{t+1}&\rightarrow prox_{\eta_t,h}(y^{t+1}):=\arg\min_{z\in \R^d} 1
     \end{align*}
     \[
     y^{t+1}\rightarrow x^t-\eta_t \nabla g(x^t)
