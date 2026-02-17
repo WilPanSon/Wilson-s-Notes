@@ -973,8 +973,11 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
         .\] 
     \end{proof}
 \end{eg}
+
 \newpage
-\section{Feb 13}
+\section{Szemerédi's Graph Regularity Lemma (Feb 13)}
+
+\subsection{$\epsilon$-Regular Pairs and Partitions}
 \begin{defn}
     For disjoint sets $U,V\subset V(G)$, the density between $U$ and $V$ is \[
     d(U,V)=\frac{e(U,V)}{|U|V|}
@@ -992,8 +995,11 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
         \item $|J|\leq \epsilon |V(G)|$
         \item $|V_1|=|V_2|=...=|V_k|$
         \item All except $\leq \epsilon k^2$ pairs $(V_1,V_2)$ are $\epsilon$-regular 
-    \end{enumerate} 
+    \end{enumerate}
 \end{defn}
+
+\subsection{Proof of the Regularity Lemma}
+
 \begin{thm}
     (Szemeredi's Regularity Lemma) $\forall \epsilon>0,m$ there exist a constant $M=M(\epsilon,m)$ such that every graph admits an $\epsilon$-regular partition $V(G)=V_1\cup \cdots \cup V_k\cup J$ where the number of parts $m\leq k \leq M$. 
 \end{thm}
