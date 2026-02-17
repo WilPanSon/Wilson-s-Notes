@@ -510,15 +510,15 @@ When $H$ is bipartite ($r=1$), the Erd\H{o}s-Stone bound gives $1 - 1/1 = 0$, wh
         Let $S$ be the set of removed vertices. The number of edges removed is strictly less than $|S| \cdot \frac{d}{2}$.
         Even if we remove $n-1$ vertices, the number of edges removed is $< (n-1)\frac{d}{2} < \frac{dn}{2}$.
         Thus, the edge set cannot be emptied. The process must stop at a non-empty subgraph where every remaining vertex has degree $\geq d/2$.
-    \end{proof}
-\end{lem}
+\end{proof}
 
 \begin{thm}
     If $T$ is a tree with $r$ edges (so $r+1$ vertices), then:
     \[
     ex(n,T) \leq rn.
     \]
-    \begin{proof}
+\end{thm}
+\begin{proof}
         Suppose $e(G) > rn$. Then the average degree of $G$ is $d(G) = \frac{2e(G)}{n} > 2r$.
         By the Lemma, there exists a subgraph $H \subseteq G$ with minimum degree $\delta(H) > r$. Since degrees are integers, $\delta(H) \geq r$.
         
