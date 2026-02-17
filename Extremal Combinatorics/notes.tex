@@ -151,8 +151,11 @@
     .\] 
     The Turan density of $F$ is \[
     \pi(K_{r+1})=1-\frac{1}{r}
-    .\] 
+.\]
 \end{defn}
+
+\subsection{Counting Copies Above Threshold}
+
 \begin{thm}
     Let $F$ be any graph and let $\epsilon>0$. Let $G$ be an $n$-vertex graph. There is a $\delta>0$ such that \[
     e(G)\geq \left( \pi(F)+\epsilon \right) {n\choose 2} \text{ and } n\geq n_0(F,\epsilon)
@@ -180,7 +183,9 @@
         Note that $G''$ is uniformly randomly chosen $|V(F)|$-vertex subset of $G.$ This implies the \# copies of $F$ in $G\geq \mathbb{P}(G'' \text{contains F}){n \choose |V(F)|}\geq P(...)\frac{n^{|V(F)|}(1-o(1))}{|V(F)|!}.$ We can choose $\delta=\frac{1}{{n_0 \choose |V(F)|}}$
 \end{proof}
 \newpage
-\section{Jan 16}
+\section{Erdős–Stone and Kővári–Sós–Turán (Jan 16)}
+
+\subsection{Erdős–Stone–Simonovits Theorem}
 
 \begin{thm}[Erd\H{o}s-Stone-Simonovits]
     Let $T_{n,r}$ denote the Tur\'{a}n graph. We know that:
@@ -201,6 +206,8 @@
     \] 
     It is important to note that this theorem holds for bipartite graphs as well, where $\chi(H) = 2$. However, substituting $r = \chi(H) - 1 = 1$ gives a coefficient of $1 - 1/1 = 0$. This implies that $ex(n, H) = o(n^2)$, but it does not provide the precise asymptotic behavior (e.g., $n^{2-\epsilon}$). Therefore, while valid, the Erd\H{o}s-Stone-Simonovits theorem is not the primary tool for determining extremal numbers of bipartite graphs; we rely on theorems like K\H{o}v\'{a}ri-S\'{o}s-Tur\'{a}n for those bounds.
 \end{thm}
+
+\subsection{Kővári–Sós–Turán Bound}
 
 \begin{thm}[K\H{o}v\'{a}ri-S\'{o}s-Tur\'{a}n 1954]
     \[
@@ -287,6 +294,8 @@
         \frac{2m}{n} \leq (t-1)^{\frac{1}{s}} n^{1-\frac{1}{s}} + s \implies m \leq \frac{1}{2}(t-1)^{\frac{1}{s}} n^{2-\frac{1}{s}} + O(n).
         \]
 \end{proof}
+
+\subsection{Unit Distance Problem}
 
 \begin{eg}[Unit Distance Problem]
     How can we place $n$ points in $\R^2$ to maximize the number of pairs $(p,q)$ such that $||p-q||=1$?\\\\
