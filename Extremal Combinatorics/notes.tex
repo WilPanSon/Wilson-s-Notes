@@ -801,20 +801,21 @@ When $H$ is bipartite ($r=1$), the Erd\H{o}s-Stone bound gives $1 - 1/1 = 0$, wh
 \section{Jan 28}
 Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(n,K_{s,t})=\theta \left(  n^{2-\frac{1}{s}} \right)$ for $t\geq t_0(s)$
 \begin{thm}
-    Construction of the extremal graph for $ex(n,K_{s,t})$. 
-    \begin{proof}
-        We will first consider a random graph by picking edges with probability $p=n^{-\frac{1}{s}}$. Let $x^{(1)},...,x^{(s)}$ be $s$ vertices chosen uniformly at random without replacement on the left. Let $N(x^{(1),...,x^{(s)}})$ that are the common neighbors with $d(x^{(1)},...,x^{(s)})=|N(...)|$. Let our random variable be $d(x^{(1)},...,x^{(s)})$ and is distributed according to \[
-        Binomial(n,p^s)=Binomial\left (n,\frac{1}{n}\right )\sim Poisson(1)
-        .\] 
-        So $\E[d(x^{(1)},...,x^{(s)})]=1$ and $\E[d(...)^k]=o_k(1)$. With probability $\frac{1}{n^\epsilon}$ there is at least $\epsilon \log n$ neighbors. Yet there are ${n \choose s}$ such $s$ tuples $(x^{(1)},...,x^{(s)})$. and then $\frac{n}{s}$ disjoint. This does not work. \\\\
-        Consider another construction of $K_{s,t}$-free graph with $\Omega(n^{2-\frac{1}{s}})$ edges. \\
-        For a bipartite graph with $\F_p^s$ where $n=2p^s$ on each side we say $x\sim y$ if $f(x,y)=0$. Pick equation $f$ uniformly at random among all polynomials in $s, t$ of degree at most $d=$ in each of $x$ and $y.$ It would be \[
-        f=\sum_{|\alpha|,|\beta|\leq d}c_{\alpha \beta}x_1^{\alpha_1}x_2^{\alpha_2}...x_s^{\alpha_s}y_1^{\beta_1}y_2^{\beta_2}...y_s^{\beta_s} \tag{$c_{\alpha \beta}\in \F_p$, $|\alpha|=\alpha_1+\cdots+\alpha_d$}
-        .\] 
-        Part I: This random graph is locally (neighborhood look "similar") similar to uniform random graph.\\
-        Part II: Globally very different/more discrete. 
-    \end{proof}
-    \begin{lem}
+    Construction of the extremal graph for $ex(n,K_{s,t})$.
+\end{thm}
+\begin{proof}
+    We will first consider a random graph by picking edges with probability $p=n^{-\frac{1}{s}}$. Let $x^{(1)},...,x^{(s)}$ be $s$ vertices chosen uniformly at random without replacement on the left. Let $N(x^{(1),...,x^{(s)}})$ that are the common neighbors with $d(x^{(1)},...,x^{(s)})=|N(...)|$. Let our random variable be $d(x^{(1)},...,x^{(s)})$ and is distributed according to \[
+    Binomial(n,p^s)=Binomial\left (n,\frac{1}{n}\right )\sim Poisson(1)
+    .\] 
+    So $\E[d(x^{(1)},...,x^{(s)})]=1$ and $\E[d(...)^k]=o_k(1)$. With probability $\frac{1}{n^\epsilon}$ there is at least $\epsilon \log n$ neighbors. Yet there are ${n \choose s}$ such $s$ tuples $(x^{(1)},...,x^{(s)})$. and then $\frac{n}{s}$ disjoint. This does not work. \\\\
+    Consider another construction of $K_{s,t}$-free graph with $\Omega(n^{2-\frac{1}{s}})$ edges. \\
+    For a bipartite graph with $\F_p^s$ where $n=2p^s$ on each side we say $x\sim y$ if $f(x,y)=0$. Pick equation $f$ uniformly at random among all polynomials in $s, t$ of degree at most $d=$ in each of $x$ and $y.$ It would be \[
+    f=\sum_{|\alpha|,|\beta|\leq d}c_{\alpha \beta}x_1^{\alpha_1}x_2^{\alpha_2}...x_s^{\alpha_s}y_1^{\beta_1}y_2^{\beta_2}...y_s^{\beta_s} \tag{$c_{\alpha \beta}\in \F_p$, $|\alpha|=\alpha_1+\cdots+\alpha_d$}
+    .\] 
+    Part I: This random graph is locally (neighborhood look "similar") similar to uniform random graph.\\
+    Part II: Globally very different/more discrete.
+\end{proof}
+\begin{lem}
         For any fixed $x,y\in \F_p^s$ \[
         \Pr[x\sim y]=\frac{1}{p}
         .\] 
