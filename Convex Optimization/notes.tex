@@ -857,7 +857,7 @@ f(y)\geq f(x^*)+\inner{0,y-x^*}\implies 0\in \partial f(x^*)
 \end{thm}
 \begin{proof}
     We can rewrite the objective as \[
-    x^*\in
+    x^*\in \arg\min_{x\in C}f(x) \iff f(x^*)\leq f(x) \forall x\in C \iff f(x^*)-f(x)\leq 0 \forall x\in C \iff 0\in \partial f(x^*)+N_C(x^*)
     .\] 
 \end{proof}
 \end{document}
