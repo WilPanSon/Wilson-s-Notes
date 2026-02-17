@@ -327,8 +327,9 @@
     For the $3$-uniform case:
     \[
     ex(n,K_{s_1,s_2,t}^{(3)}) \leq C_{s_1,s_2,t} n^{3-\frac{1}{s_1s_2}} + O(n^2).
-    \] 
-    \begin{proof}
+    \]
+\end{thm}
+\begin{proof}
     We will count the number of stars $K_{1,1,s_1}$ (sets of edges sharing a common pair of vertices). Let $X$ be this number. For any pair $\{v_1,v_2\}$, let $d_{v_1,v_2}$ be the co-degree (number of edges containing $\{v_1,v_2\}$).
     
     \begin{enumerate}
@@ -355,8 +356,7 @@
     \[
     m \leq C n^{3-\frac{1}{s_1s_2}}.
     \]
-    \end{proof}
-\end{thm}
+\end{proof}
 \newpage
 \section{Jan 21: Supersaturation and Generalized Turán Problems}
 
@@ -383,8 +383,9 @@ We generalize the KST theorem from bipartite graphs to $r$-uniform hypergraphs. 
     Let $K = K_{s_1,s_2,\ldots,s_{r-1},t}^{(r)}$ be the complete $r$-partite $r$-uniform hypergraph with part sizes $s_1, \dots, s_{r-1}, t$. Then:
     \[
     \text{ex}(n, K) = O_{s,t}\left(n^{r-\frac{1}{s_1 s_2 \cdots s_{r-1}}}\right).
-    \] 
-    \begin{proof}
+    \]
+\end{thm}
+\begin{proof}
         We proceed by induction on the uniformity $r$. The base case $r=2$ is the standard graph KST theorem. Assume the bound holds for $(r-1)$-uniform hypergraphs.\\
         Let $G$ be an $r$-uniform hypergraph with $n$ vertices and $m$ edges. We define a ``hypergraph star'' $K_{1, 1, \dots, s_1}^{(r)}$ as a set of $s_1$ edges that all share a common core of $r-1$ vertices.\\
         Let $X$ be the number of such stars (copies of $K_{1,1,...,1,s_1}^{(r)}$) in $G$. We double count $X$.
@@ -428,8 +429,7 @@ We generalize the KST theorem from bipartite graphs to $r$-uniform hypergraphs. 
         \[
         m \lesssim n^{r - \frac{1}{s_1 s_2 \dots s_{r-1}}}. \qedhere
         \]
-    \end{proof}
-\end{thm}
+\end{proof}
 
 \subsection{The Erd\H{o}s-Stone Theorem}
 
