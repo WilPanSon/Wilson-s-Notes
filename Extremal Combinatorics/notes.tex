@@ -22,8 +22,10 @@
 \maketitle
 
 \tableofcontents
-\newpage 
-\section{Jan 12}
+\newpage
+\section{Turán Numbers and Mantel's Theorem (Jan 12)}
+
+\subsection{Basic Definitions}
 
 \begin{defn}
     Turan Numbers (Forbidden Subgraph Problems): $F$ is a graph and $G$ graph is $F$-free if $G$ contains no copy of $F$ as a subgraph. \\\\
@@ -32,6 +34,9 @@
 \begin{defn}
     $ex(n,F)=\max \{e(G) | G \text{ is $F$-free and $G$ is $n$-vertex graph}\} $
 \end{defn}
+
+\subsection{Crude Turán's Theorem}
+
 \begin{thm}
     Crude Turan's Theorem: If $G$ is $n$-vertex graph, \[
     e(G)=\epsilon {n \choose 2}
@@ -62,6 +67,9 @@
             &=\frac{1}{2}\frac{1}{\epsilon} + \frac{1}{2}+\frac{\frac{1}{4}-\delta^2}{2}\geq \frac{1}{2}\frac{1}{\epsilon} + \frac{1}{2}
         \end{align*}
 \end{proof}
+
+\subsection{Mantel's and Turán's Theorems}
+
 \begin{rmk}
     Recall: $k$-uniform hypergraph on vertex set $V$ is a subset of \[
     {V \choose k}:= \{e\subseteq V: |e|=k\}
@@ -99,7 +107,9 @@
         Thus, the unique extremizer is the balanced complete $r$-partite graph, $T_{n,r}$.
 \end{proof}
 \newpage
-\section{Jan 14}
+\section{Turán Density and Supersaturation (Jan 14)}
+
+\subsection{Inductive Proof of Turán's Theorem}
 
 \begin{proof}
     Second proof of Turan's Theorem with induction on $r$.\\
@@ -118,6 +128,9 @@
     The right hand side is equal to number of edges in complete r-partite graph with one part of size $|B|$ and other being as equal as possible. \\
     Equality holds iff $B$ is independent and $A$ must be a copy of $e(T_{|A|,r-1})$. Hence $G$ is $T_{n,r}$ for equality to hold.
 \end{proof}
+
+\subsection{Monotonicity of Extremal Density}
+
 \begin{thm}
     Observe that if $F$ is a graph then \[
 \frac{ex(n,F)}{{n \choose 2}}\geq \frac{ex(n+1,F)}{{n+1 \choose 2}}
