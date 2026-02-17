@@ -16,6 +16,7 @@
 \usepackage{hyperref}
 \usepackage{pgfplots}
 \usepackage[most]{tcolorbox}
+\usepackage{etoolbox}
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{arrows.meta, calc, decorations.pathreplacing}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
@@ -897,8 +898,9 @@ f(y)\geq f(x^*)+\inner{0,y-x^*}\implies 0\in \partial f(x^*)
     .\] 
 \end{rmk}
 \begin{thm}
-    For $p(x)=Prox_{\eta, h}(x)=\frac{\arg\min_{z}1}{2\eta}||x-z||_2^2+h(z)$ we have \[
-    
-    .\] 
+    For $p(x)=Prox_{\eta, h}(x)=\frac{\arg\min_{z}1}{2\eta}||x-z||_2^2+h(z)$ we have 
+    \begin{enumerate}
+        \item $||p(x)-p(y)||_2^2\leq \inner{}$
+    \end{enumerate}
 \end{thm}
 \end{document}
