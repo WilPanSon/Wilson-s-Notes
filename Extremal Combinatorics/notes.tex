@@ -61,8 +61,9 @@
     In particular, if $e(G)\geq (1-\epsilon){n \choose 2}$ edges, then $G$ contains a clique on greater than or equal $\frac{1}{2\epsilon}+\frac{1}{2}$ vertices.
     \[
     ex(n,K_t)\leq \left (1-\frac{1}{2t-1} \right ) {n \choose 2}
-    .\] 
-    \begin{proof}
+    .\]
+\end{thm}
+\begin{proof}
         Pick $k$ vertices in $G$ at random without replacement. Say we pick $v_1,...,v_k$\\
         For each edge between $v_i$ and $v_j$, delete $v_i$. \\
         Let $X=\#$ deleted vertices\\
@@ -82,8 +83,7 @@
             &=\frac{1}{\epsilon}+\frac{1}{2}+\delta -\epsilon \frac{(1/\epsilon)^2+2 \frac{1}{\epsilon}\delta +\delta^2-\frac{1}{4}}{2}\\
             &=\frac{1}{2}\frac{1}{\epsilon} + \frac{1}{2}+\frac{\frac{1}{4}-\delta^2}{2}\geq \frac{1}{2}\frac{1}{\epsilon} + \frac{1}{2}
         \end{align*}
-    \end{proof}
-\end{thm}
+\end{proof}
 \begin{rmk}
     Recall: $k$-uniform hypergraph on vertex set $V$ is a subset of \[
     {V \choose k}:= \{e\subseteq V: |e|=k\}
