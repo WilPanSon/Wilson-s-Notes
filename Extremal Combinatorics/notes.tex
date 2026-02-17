@@ -308,7 +308,6 @@
     This is significantly larger than the $n\sqrt{\log n}$ bound derived from the Pigeonhole Principle on generic integers.
 \end{eg}
 
-
 \begin{thm}[Upper Bound for Unit Distances]
     The number of unit distances is $O(n^{3/2})$.
 \end{thm}
@@ -318,6 +317,8 @@
         By KST with $s=2, t=3$:
         \[ e(G) \leq \frac{1}{2}\sqrt{3-1} \cdot n^{2-\frac{1}{2}} + o(n^2) = \frac{1}{\sqrt{2}}n^{\frac{3}{2}} + o(n^2). \]
 \end{proof}
+
+\subsection{KST for 3-Uniform Hypergraphs}
 
 \begin{defn}
     Define $K_{s_1,s_2,t}^{(3)}$ to be the complete $3$-uniform, $3$-partite hypergraph with parts of size $s_1, s_2, t$.
@@ -358,9 +359,9 @@
     \]
 \end{proof}
 \newpage
-\section{Jan 21: Supersaturation and Generalized Turán Problems}
+\section{Supersaturation and Erdős–Stone (Jan 21)}
 
-\subsection{Supersaturation}
+\subsection{Supersaturation Lemma}
 
 The classical Turán problem asks for the maximum number of edges in a graph avoiding a subgraph $F$. Supersaturation asks: what happens if we have just \emph{slightly} more edges than this threshold? It turns out we don't just get one copy of $F$, but exponentially many.
 
@@ -535,8 +536,9 @@ When $H$ is bipartite ($r=1$), the Erd\H{o}s-Stone bound gives $1 - 1/1 = 0$, wh
         \end{enumerate}
 \end{proof}
 \newpage
-\section{Jan 23}
-\subsection{Turan Number of Cycles and Girth Problem}
+\section{Cycles, Girth, and Paths (Jan 23)}
+
+\subsection{Turán Numbers for Cycles and Girth}
 \begin{defn}
     If $\mathcal{F}$ is a family of graphs, $ex(n,\mathcal{F})=$ maximum number of edges in an $n$ vertex graph $G$ that contains no $F\in \mathcal{F}$.  
 \end{defn}
