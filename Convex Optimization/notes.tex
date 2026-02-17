@@ -572,28 +572,28 @@
 \begin{thm}
     If $f$ is $\beta$-smooth and convex, $\eta= \frac{1}{\beta}$ and $x^*$ any minimum then \[
     f(x_k)-f(x^*)\leq \frac{\beta||x_0-x^*||_2^2}{2k}
-    .\] 
-    \begin{proof}
-        Observe that \[
-        ||x_{t+1}-x^*||^2=||x_t-x^*-\eta \nabla f(x_t)||^2=||x_t-x^*||^2-\eta^2||\nabla f(x_t)||^2-2\eta \nabla f(x_t)^T(x_t-x^*)
-        .\] 
-        Rearranging and by convexity we have 
-        \begin{align*}
-            f(x_t)-f(x^*)\leq\nabla f(x_t)^T(x_t-x^*)&=\frac{1}{2\eta}\left [ \underbrace{||x_{t}-x^*||^2}_{\delta_{t}}-\underbrace{||x_{t+1}-x^*||^2}_{\delta_{t+1}} +\frac{\eta}{2}||\nabla f(x_t)||^2\right ]\\
-            &\leq \frac{1}{2\eta} \left [\delta_t-\delta_{t+1}+2\eta (f(x_t)-f(x_{t+1})) \right ]\\
-            &=\frac{1}{2\eta}(\delta_t-\delta_{t+1})+f(x_t)-f(x_{t+1})
-        \end{align*}
-        So we have \[
-        f(x_{t+1})-f(x^*)\leq \frac{\beta}{2}(\delta_t-\delta_{t+1})
-        .\] 
-        Adding across all terms \[
-        \sum_{i=0}^{k-1} f(x_{i+1})-f(x^*)\leq \frac{\beta}{2} \left( ||x_0-x^*||^2 \right)
-        .\]
-        So we have the relation \[
-        k(f(x_k)-f(x^*))\leq  \sum_{i=0}^{k-1} f(x_{i+1})-f(x^*) \leq  \frac{\beta}{2} ||x_0-x^*||^2
-        .\]  
-    \end{proof}
+    \]
 \end{thm}
+\begin{proof}
+    Observe that \[
+    ||x_{t+1}-x^*||^2=||x_t-x^*-\eta \nabla f(x_t)||^2=||x_t-x^*||^2-\eta^2||\nabla f(x_t)||^2-2\eta \nabla f(x_t)^T(x_t-x^*)
+    \] 
+    Rearranging and by convexity we have 
+    \begin{align*}
+        f(x_t)-f(x^*)\leq\nabla f(x_t)^T(x_t-x^*)&=\frac{1}{2\eta}\left [ \underbrace{||x_{t}-x^*||^2}_{\delta_{t}}-\underbrace{||x_{t+1}-x^*||^2}_{\delta_{t+1}} +\frac{\eta}{2}||\nabla f(x_t)||^2\right ]\\
+        &\leq \frac{1}{2\eta} \left [\delta_t-\delta_{t+1}+2\eta (f(x_t)-f(x_{t+1})) \right ]\\
+        &=\frac{1}{2\eta}(\delta_t-\delta_{t+1})+f(x_t)-f(x_{t+1})
+    \end{align*}
+    So we have \[
+    f(x_{t+1})-f(x^*)\leq \frac{\beta}{2}(\delta_t-\delta_{t+1})
+    \] 
+    Adding across all terms \[
+    \sum_{i=0}^{k-1} f(x_{i+1})-f(x^*)\leq \frac{\beta}{2} \left( ||x_0-x^*||^2 \right)
+    \]
+    So we have the relation \[
+    k(f(x_k)-f(x^*))\leq  \sum_{i=0}^{k-1} f(x_{i+1})-f(x^*) \leq  \frac{\beta}{2} ||x_0-x^*||^2
+    \]  
+\end{proof}
 
 \subsection{Strong Convexity}
 \begin{defn}
@@ -607,13 +607,13 @@
 \end{defn}
 \begin{thm}
     Assume $f$ is $\beta$-smooth, $\alpha$-strongly convex, $\eta=\frac{1}{\beta}$ then $||x_k-x^*||^2\leq \left( 1-\frac{1}{\gamma} \right)^k||x_0-x^*||^2$. \\
-    We define the conditional number as $\gamma=\frac{\beta}{\alpha}$ 
-    \begin{proof}
-        \[
-        \frac{\alpha}{2}||x_k-x^*||^2\leq \frac{\beta}{2} \left(  ||x_t-x^*||^2-||x_{t+1}-x^*||^2 \right)\leq \left( 1-\frac{\alpha}{\beta} \right)||x_t-x^*||^2 \leq (1-\frac{1}{\gamma})||x_k-x^*||^2
-        .\] 
-    \end{proof}
+    We define the conditional number as $\gamma=\frac{\beta}{\alpha}$
 \end{thm}
+\begin{proof}
+    \[
+    \frac{\alpha}{2}||x_k-x^*||^2\leq \frac{\beta}{2} \left(  ||x_t-x^*||^2-||x_{t+1}-x^*||^2 \right)\leq \left( 1-\frac{\alpha}{\beta} \right)||x_t-x^*||^2 \leq (1-\frac{1}{\gamma})||x_k-x^*||^2
+    \]
+\end{proof}
 \newpage
 \section{Feb 5: Subgradients and the Subgradient Method}
 
