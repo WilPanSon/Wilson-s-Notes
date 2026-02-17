@@ -578,7 +578,9 @@
     \end{proof}
 \end{thm}
 \newpage
-\section{Feb 5}
+\section{Feb 5: Subgradients and the Subgradient Method}
+
+\subsection{Review and Subgradient Calculus}
 \begin{rec}
     From previous class
     \begin{enumerate}
@@ -623,14 +625,16 @@
         \infty & x\notin C
     \end{cases}$ is convex
     Additionally, for $x\in C$, $\partial I_C(x)=N_C(x)= \{g: g^T(y-x)\leq 0 \forall y\in C\}$
-\end{eg} 
+\end{eg}
+
+\subsection{Subgradient Method}
 \begin{proof}
     For $x\in C$, $I_C(y)\geq I_C(x)+g^T(y-x)$ for all $y\in C$ then we have \[
     0 \geq 0 + g^T(y-x)
     .\]
 \end{proof}
 \begin{defn}
-    Subgradient Method: $x_{t+1}\leftarrow x_t-\eta g_x$ for some $g_x\in \partial f(x)$
+    \textbf{Subgradient Method:} $x_{t+1}\leftarrow x_t-\eta g_x$ for some $g_x\in \partial f(x)$
     \begin{enumerate}
         \item Subgradients are in general not descent directions
         \item The min norm subgradient is a descent direction
@@ -642,7 +646,9 @@
     .\] 
 \end{eg}
 \newpage
-\section{Feb 10}
+\section{Feb 10: Subgradient Method Analysis and Projections}
+
+\subsection{Subgradient Method Rates}
 \begin{defn}
     For the subgradient method for $\min_{x\in \R^n} f(x)$ and $f$ convex where \[
     x_{t+1}=x_t - \eta_t g_t \text{ where } g_t\in \partial f(x_t)
@@ -710,6 +716,8 @@
     2\sum_{t=0}^{T-1}\eta_t \left( f(x_T^{\mathrm{(best)}})-f(x^*) \right)\leq2\sum_{t=0}^{T-1}\eta_t \left( f(x_t)-f(x^*) \right)\leq ||x_0-x^*||^2+G^2 \sum_{t=0}^{T-1}\eta_t^2
     .\] 
 \end{proof}
+
+\subsection{Polyak Stepsize and Feasibility}
 \begin{thm}
     Polyak's Stepsize: If $f(x^*)$ is known, \[
     \eta_t = \frac{f(x_t)-f(x^*)}{||g_t||^2}
@@ -732,7 +740,9 @@
     .\] 
 \end{proof}
 \newpage
-\section{Feb 12}
+\section{Feb 12: Projected Subgradient Method}
+
+\subsection{Projections and Contractions}
 \begin{defn}
     For $\min_{x\in C}f(x)$ we define the projected subgradient method to be 
 \[
@@ -772,6 +782,8 @@
         \norm{z_1-z_2}\leq ||x_1-x_2||
         .\] 
 \end{proof}
+
+\subsection{Convergence and Examples}
 \begin{thm}
     Rates for PGD are identical to GD and similarly PSGM is identical to SGM. 
 \end{thm}
