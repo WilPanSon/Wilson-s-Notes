@@ -205,22 +205,22 @@
 
 \begin{thm}
     For any convex optimization problem, every local minimum is a global minimum.
-    \begin{proof}
-        Suppose $\hat{x}$ is a local minimizer not equal to global minimizer $x^*$. Take $\epsilon$ as any witness to $\hat{x}$ being a local minimum. Let
-        \[
-            y = \frac{\epsilon}{\norm{\hat{x} - x^*}} x^* + \left(1 - \frac{\epsilon}{\norm{\hat{x} - x^*}}\right) \hat{x}
-        \]
-        Note: $\norm{\hat{x} - x^*} \leq \epsilon$, otherwise $\hat{x}$ is not a local minimizer in that neighborhood.
-        \[
-            y - \hat{x} = \frac{\epsilon (x^* - \hat{x})}{\norm{x^* - \hat{x}}} \quad;\quad \norm{y - \hat{x}} = \epsilon
-        \]
-        Since $f$ is convex,
-        \[
-            f(y) \leq \frac{\epsilon}{\norm{\hat{x} - x^*}} f(x^*) + \left(1-\frac{\epsilon}{\norm{\hat{x} - x^*}}\right) f(\hat{x}) < f(\hat{x})
-        \]
-        Thus, a contradiction.
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Suppose $\hat{x}$ is a local minimizer not equal to global minimizer $x^*$. Take $\epsilon$ as any witness to $\hat{x}$ being a local minimum. Let
+    \[
+        y = \frac{\epsilon}{\norm{\hat{x} - x^*}} x^* + \left(1 - \frac{\epsilon}{\norm{\hat{x} - x^*}}\right) \hat{x}
+    \]
+    Note: $\norm{\hat{x} - x^*} \leq \epsilon$, otherwise $\hat{x}$ is not a local minimizer in that neighborhood.
+    \[
+        y - \hat{x} = \frac{\epsilon (x^* - \hat{x})}{\norm{x^* - \hat{x}}} \quad;\quad \norm{y - \hat{x}} = \epsilon
+    \]
+    Since $f$ is convex,
+    \[
+        f(y) \leq \frac{\epsilon}{\norm{\hat{x} - x^*}} f(x^*) + \left(1-\frac{\epsilon}{\norm{\hat{x} - x^*}}\right) f(\hat{x}) < f(\hat{x})
+    \]
+    Thus, a contradiction.
+\end{proof}
 
 \newpage
 \section{Jan 20: Convex Combinations, Hulls, and Cones}
