@@ -942,14 +942,9 @@ f(y)\geq f(x^*)+\inner{0,y-x^*}\implies 0\in \partial f(x^*)
     .\] 
     \begin{align*}
         &u:=prox_{\eta,h}(x)\iff \frac{1}{\eta}(x-u)\in \partial h(u)\\
-        &\iff \tilde{x}-\eta\nabla g(\tilde{x})-\tilde{x}-\eta G_\eta(\tilde{x})\in \eta \partial h(\tilde{x}-\eta G_\eta(\tilde{x}))
+        &\iff \tilde{x}-\eta\nabla g(\tilde{x})-\tilde{x}-\eta G_\eta(\tilde{x})\in \eta \partial h(\tilde{x}-\eta G_\eta(\tilde{x}))\\
+        &\iff G_\eta(\tilde{x})\in \nabla 
     \end{align*}
-    \[
-    u:=prox_{\eta,h}(x)\iff \frac{1}{\eta}(x-u)\in \partial h(u)
-    .\] 
-    If we expand we have \[
-    \tilde{x}-\eta\nabla g(\tilde{x})-\tilde{x}-\eta G_\eta(\tilde{x})\in \eta \partial h(\tilde{x}-\eta G_\eta(\tilde{x}))
-    .\] 
 
 \end{proof}
 \end{document}
