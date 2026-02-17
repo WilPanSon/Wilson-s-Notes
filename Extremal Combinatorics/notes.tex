@@ -294,9 +294,8 @@
         Rearranging yields:
         \[
         \frac{2m}{n} \leq (t-1)^{\frac{1}{s}} n^{1-\frac{1}{s}} + s \implies m \leq \frac{1}{2}(t-1)^{\frac{1}{s}} n^{2-\frac{1}{s}} + O(n).
-        \] 
-    \end{proof}
-\end{thm}
+        \]
+\end{proof}
 
 \begin{eg}[Unit Distance Problem]
     How can we place $n$ points in $\R^2$ to maximize the number of pairs $(p,q)$ such that $||p-q||=1$?\\\\
@@ -312,14 +311,13 @@
 
 \begin{thm}[Upper Bound for Unit Distances]
     The number of unit distances is $O(n^{3/2})$.
-    
-    \begin{proof}
+\end{thm}
+\begin{proof}
         Given $n$ points in $\R^2$, construct a graph where vertices are points and $v\sim u$ if $||v-u||= 1$.
         Observe the graph is $K_{2,3}$-free. Geometrically, this is because two circles with radius 1 intersect at most 2 times; thus, no 2 vertices can share 3 common neighbors.\\
         By KST with $s=2, t=3$:
         \[ e(G) \leq \frac{1}{2}\sqrt{3-1} \cdot n^{2-\frac{1}{2}} + o(n^2) = \frac{1}{\sqrt{2}}n^{\frac{3}{2}} + o(n^2). \]
-    \end{proof}
-\end{thm}
+\end{proof}
 
 \begin{defn}
     Define $K_{s_1,s_2,t}^{(3)}$ to be the complete $3$-uniform, $3$-partite hypergraph with parts of size $s_1, s_2, t$.
