@@ -77,7 +77,9 @@
 \tableofcontents
 \newpage
 
-\section{Jan 13}
+\section{Jan 13: Introduction to Optimization}
+
+\subsection{Basic Definitions}
 \begin{defn}
     An \textbf{optimization problem} is defined as
     \[
@@ -111,7 +113,9 @@
 \end{rmk}
 
 \newpage
-\section{Jan 15}
+\section{Jan 15: Convex Sets and Functions}
+
+\subsection{Convexity}
 \begin{defn}
     A set $C$ is \textbf{convex} if $\forall x_1, x_2 \in C$ and $\forall \theta \in [0, 1]$, we have $\theta x_1 + (1-\theta)x_2 \in C$.
 \end{defn}
@@ -148,6 +152,7 @@
     The set of feasible solutions in Definition 2.6 is convex.
 \end{thm}
 
+\subsection{Local vs.\ Global Optima}
 \begin{thm}
     $x^*$ is a \textbf{local minimizer} if there exists $\epsilon > 0$ such that for all $y$ with $\norm{x^* - y} \leq \epsilon$,
     \[
