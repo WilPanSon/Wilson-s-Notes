@@ -105,6 +105,17 @@
     \end{pmatrix}
     .\]  
 \end{thm}
+\begin{proof}
+    We have 
+    \begin{align}
+        \frac{|F((x,y)+(h_1,h_2))-F(x,y)-\mathcal{L}(h_1,h_2)|}{|h|}&=\frac{\left | \begin{pmatrix}
+            {u(\overline{z}+\overline{h})-u(\overline{z})-\frac{\partial u}{\partial x}h_1-\frac{\partial u}{\partial y}h_2} \\ 
+            {v(\overline{z}+\overline{h})-v(\overline{z})-\frac{\partial v}{\partial x}h_1-\frac{\partial v}{\partial y}h_2}
+        \end{pmatrix}\right |}{|h|}\\
+        &=\frac{|f(z+h)-f(z)-f'(z)h|}{|h|}\to 0
+    \end{align}
+    Where $f(z+h)=u(z+h)+iv(z+h)$, $f(z)=u(z)+iv(z)$ and $f'(z)=\frac{\partial u }{\partial x}+i \frac{\partial v }{\partial x}$.
+\end{proof}
 \begin{cor}
     $f$ holomorphic implies $F$ is $\R$-differentiable. Let $a=\frac{\partial u }{\partial x}=\frac{\partial v}{\partial y}$ and $b=\frac{\partial u }{\partial y}=-\frac{\partial v}{\partial x}$
     \begin{align}
