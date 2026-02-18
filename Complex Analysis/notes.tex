@@ -1638,10 +1638,12 @@ We have \[
     Therefore $\frac{f'}{f}$ has simple poles at zeros and poles of $f$ with residue $ \frac{\text{order}}{-\text{order}}$. The residue formula finishes the proof. 
 \end{proof}
 \begin{thm}
-    Rouche's Theorem: Let $f,g$ be holomorphic in $\Omega\supset \overline{D}$ with $\Omega$ open. If $|f|>|g|$ on $\partial \D$ then $f,f+g$ have the same number of zeros in $D$. 
+    Rouche's Theorem: Let $f,g$ be holomorphic in $\Omega\supset \overline{D}$ with $\Omega$ open. If $|f|>|g|$ on $\partial D$ then $f,f+g$ have the same number of zeros in $D$. 
 \end{thm}
 \begin{proof}
     Let $f_t=f+t\cdot g$ for $t\in [0,1]$ and $n_t=\#$ of zeros of $f_t$ in $D$. 
-    By    
+    By argument principle we have \[
+    n_t = \frac{1}{2\pi i}\int_{\partial D}\frac{f_t'}{f}
+    .\] 
 \end{proof}
 \end{document}
