@@ -516,7 +516,7 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
             \Pr[ \text{cup $i$ crosses an int threshold}]=a_i(t)
             .\] 
             \# of integer thresholds crossed is a sum of independent $[0,1]$ random variables with total mean $\sum a_i(t)\leq (1-\epsilon)$.\\
-            Let $X_i$ be the amount of water that gets added to each cup during the $k$ steps. Then the total number of thresholds that the cup $i$ crosses is 
+            Let $X_i$ be the amount of water that gets added to each cup during the $k$ steps. Then the total number of thresholds that the cup $i$ crosses is $\floor{X_i}$ for sure and one more with probability $X_i-\floor{X_i}$.\\
         \end{proof}
     \end{lem}
 \end{proof}
