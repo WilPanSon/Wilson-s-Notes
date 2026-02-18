@@ -1071,17 +1071,17 @@ We have \[
 \subsection{Rigidity and Analytic Continuation}
 \begin{thm}
     (Rigidity Theorem): Let $\Omega$ be a region and $f:\Omega\to \C$ be holomorphic. If $z_1,z_2,...\in \Omega$ distinct sequence with a limit in $\Omega$. If $f(z_n)=0, \forall n$ then $f=0$ on $\Omega.$
-    \begin{proof}
-        Say $z_n\to \omega\in \Omega$ and $D=D_r(\omega)\subset \Omega$ be a disk centered at $\omega$ with radius $r$. If $f=0$ on $D$ then by regularity implies \[
-        f(z)=\sum_{n\geq 0}a_n(z-\omega)^n \text{ on } D
-        .\] 
-        Suppose $f\neq 0$ on $D$ then $\exists m$ such that $a_m\neq 0$, let's take the smallest such $m$. Then $f(z)=a_m(z-w)^m(1+g(z))$ where $g(z)\to 0$ as $z\to w.$ For all sufficiency large $k, z_k\in D$ then \[
-        0=f(z_k)=a_m(z_k-w)^m(1+g(z_k)) \tag{$a_m\neq 0$ and $z_k-w\neq 0$}
-        .\] 
-        A contradiction as the RHS is nonzero. To finish $f=0$ on $\Omega$, we use $\mathcal{U}=\text{int} \{z\in \Omega: f(z)=0\}$\\
-        We have $\mathcal{U}$ is open, $w\in \mathcal{U}$ so $\mathcal{U}$ is non-empty. Additionally, $\mathcal{U}$ is closed. We have $\Omega\setminus \mathcal{U}$ is open and non-empty so $\exists z_k\in \Omega\setminus \mathcal{U}$ such that $z_k\to \omega'\in \Omega\setminus \mathcal{U}$. Then $f(z_k)\neq 0$ for all $k$ so $f\neq 0$ on $D_r(\omega')$. A contradiction as $D_r(\omega')\subset D$. Thus, $f=0$ on $\Omega$.
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Say $z_n\to \omega\in \Omega$ and $D=D_r(\omega)\subset \Omega$ be a disk centered at $\omega$ with radius $r$. If $f=0$ on $D$ then by regularity implies \[
+    f(z)=\sum_{n\geq 0}a_n(z-\omega)^n \text{ on } D
+    .\] 
+    Suppose $f\neq 0$ on $D$ then $\exists m$ such that $a_m\neq 0$, let's take the smallest such $m$. Then $f(z)=a_m(z-w)^m(1+g(z))$ where $g(z)\to 0$ as $z\to w.$ For all sufficiency large $k, z_k\in D$ then \[
+    0=f(z_k)=a_m(z_k-w)^m(1+g(z_k)) \tag{$a_m\neq 0$ and $z_k-w\neq 0$}
+    .\] 
+    A contradiction as the RHS is nonzero. To finish $f=0$ on $\Omega$, we use $\mathcal{U}=\text{int} \{z\in \Omega: f(z)=0\}$\\
+    We have $\mathcal{U}$ is open, $w\in \mathcal{U}$ so $\mathcal{U}$ is non-empty. Additionally, $\mathcal{U}$ is closed. We have $\Omega\setminus \mathcal{U}$ is open and non-empty so $\exists z_k\in \Omega\setminus \mathcal{U}$ such that $z_k\to \omega'\in \Omega\setminus \mathcal{U}$. Then $f(z_k)\neq 0$ for all $k$ so $f\neq 0$ on $D_r(\omega')$. A contradiction as $D_r(\omega')\subset D$. Thus, $f=0$ on $\Omega$.
+\end{proof}
 \begin{cor}
     $f,g:\underset{region}{\Omega}\to \C$ holomorphic. If $f(z_n)=g(z_n),  \forall z_n\in \Omega$ distinct sequence with a limit in $\Omega$ then $f=g$ on $\Omega.$
 \end{cor}
