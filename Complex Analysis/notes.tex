@@ -406,21 +406,21 @@ We have \[
 \subsection{Fundamental Theorem of Algebra}
 \begin{lem}
     Let $P(z)$ be a complex polynomial of positive degree $n$, if $|P(z)|$ has a local minimum at $z_0$ then $P(z_0)=0$.
-    \begin{proof}
-        WLOG $z_0=0$ as we can translate $Q(z)=P(z-z_0)$. \\AFSOC $P(0)\neq 0$ and WLOG $P(0)=1$ by $\frac{P}{P(0)}$. We can write $P(z)=1+a_kz^k+\cdots+a_z^n$ with $a_k,a_n\neq 0$. \\
-        Consider $z_\delta = \delta e^{i\theta}.$ For all $\delta>0$ sufficiently small: 
-        \[
-        \left | a_{k+1}z_\delta + \cdots + a_nz_\delta^{n-k}\right |<\frac{|a_k|}{2}
-        .\]  
-        Then \[
-        |P(z)|\leq \left | 1+a_kz_\delta^k\right | + \left |a_{k+1}z_\delta^{k+1}+\cdots+a_nz_\delta^n\right |< \left | 1+a_kz_\delta^k\right |+\left |z_\delta^k\right | \frac{|a_k|}{2}
-        .\]
-        Now we can choose $\delta$ such that $a_kz_\delta^k<0$ and real. 
-        \[
-        \left | 1+a_kz_\delta^k\right |+\left |z_\delta^k\right | \frac{|a_k|}{2}=1+a_kz_\delta^k-\frac{1}{2}a_kz_\delta^k=1+\frac{1}{2}a_kz_\delta^k<1
-        .\] 
-    \end{proof}
 \end{lem}
+\begin{proof}
+    WLOG $z_0=0$ as we can translate $Q(z)=P(z-z_0)$. \\AFSOC $P(0)\neq 0$ and WLOG $P(0)=1$ by $\frac{P}{P(0)}$. We can write $P(z)=1+a_kz^k+\cdots+a_z^n$ with $a_k,a_n\neq 0$. \\
+    Consider $z_\delta = \delta e^{i\theta}.$ For all $\delta>0$ sufficiently small: 
+    \[
+    \left | a_{k+1}z_\delta + \cdots + a_nz_\delta^{n-k}\right |<\frac{|a_k|}{2}
+    .\]  
+    Then \[
+    |P(z)|\leq \left | 1+a_kz_\delta^k\right | + \left |a_{k+1}z_\delta^{k+1}+\cdots+a_nz_\delta^n\right |< \left | 1+a_kz_\delta^k\right |+\left |z_\delta^k\right | \frac{|a_k|}{2}
+    .\]
+    Now we can choose $\delta$ such that $a_kz_\delta^k<0$ and real. 
+    \[
+    \left | 1+a_kz_\delta^k\right |+\left |z_\delta^k\right | \frac{|a_k|}{2}=1+a_kz_\delta^k-\frac{1}{2}a_kz_\delta^k=1+\frac{1}{2}a_kz_\delta^k<1
+    .\] 
+\end{proof}
 \begin{thm}
     Fundamental Theorem of Algebra:
     \begin{proof}
