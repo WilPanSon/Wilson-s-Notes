@@ -473,7 +473,8 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
         \item There are $n$ cups that are initially empty 
         \item In each step, the filler distributes up to $1-\epsilon$ units of water for $\epsilon\in [0,\frac{1}{2}]$
         \item The emptier removes up to $1$ unit from single cup. 
-        \item The emptier's goal 
+        \item The emptier's goal is to minimize backlog (amount of water in the fullest cup)
+        \item Filler is a oblivious adversary that does not adapt to behavior of emptier and precommits to what it will do on each time step 
     \end{enumerate}
 \end{prop}
 \end{document}
