@@ -1656,7 +1656,9 @@ We have \[
 \begin{proof}
     Third Proof of fundamental Theorem of Algebra. 
     \[
-    P(z)=\undebrace{a_0+a_1z+\cdots+a_{n-1}z}
+    P(z)=\undebrace{a_0+a_1z+\cdots+a_{n-1}z^{n-1}}_{g(z)}+\underbrace{a_nz^n}_{f(z)}
     .\] 
+    There exist $\R>0$ such that $|g(z)|<|f(z)|$ on $|z|=R$
 \end{proof}
+
 \end{document}
