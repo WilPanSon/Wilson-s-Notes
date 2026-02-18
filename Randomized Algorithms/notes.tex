@@ -1,5 +1,6 @@
 \documentclass[a4paper]{article}
 \input{notestyle}
+\usepackage{fancyhdr}
 
 \newtheorem{thm}{Theorem}[section]
 \AtBeginEnvironment{thm}{\envbox{red}}
@@ -38,6 +39,12 @@
 \title{Randomized Algorithms Notes}
 \author{Wilson Pan}
 \date{\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Randomized Algorithms}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
 
 \begin{document}
 \maketitle
