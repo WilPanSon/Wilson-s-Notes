@@ -499,5 +499,12 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
         \item In each step, empty $1$ unit from fullest cup but if every cup has $<1$ unit then skip our turn. 
     \end{enumerate}
     Let $a_i(t)$ be the amount of water the filler puts in cup $i$ on step $t$, $b_i(t)$ be the amount of water the emptier removes from cup $i$ on step $t$ and $c_i(t)$ be the fill of cup $i$ after step $t.$
+    \begin{claim}
+        \begin{enumerate}
+            \item $c_i(t)=r_i+a_i(t)-b_i(t)$
+            \item $c_i(t+1)\geq c_i(t)-\epsilon$
+            \item $c_i(t+1)\leq c_i(t)+1$
+        \end{enumerate}
+    \end{claim}
 \end{proof}
 \end{document}
