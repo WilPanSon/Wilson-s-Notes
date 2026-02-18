@@ -1028,23 +1028,23 @@ We have \[
     Let $f:\Omega\to \C$ be holomorphic, $\overline{D}=\overline{D}_r(z_0)\subset \Omega$ then $f$ is analytic at $z_0$ i.e \[
     f(z)=\sum_{n=0}^\infty a_n(z-z_0)^n
     .\] 
-    \begin{proof}
-        We know \[
-        f(z)=\frac{1}{2\pi i}\int_{\partial D}\frac{f(\zeta)}{\zeta-z}d\zeta
-        .\] 
-        We can write \[
-        \frac{1}{\zeta-z}=\frac{1}{(\zeta-z_0)+(z_0-z)}=\frac{1}{\zeta - z_0}\cdot \frac{1}{1-\frac{z-z_0}{\zeta - z_0}}=\frac{1}{\zeta-z_0}\sum_{n=0}^\infty \left (\frac{z-z_0}{\zeta-z_0}\right )^n
-        .\] 
-        Note: $\frac{z-z_0}{\zeta-z_0}<1$. 
-        \begin{align*}
-            f(z)&=\frac{1}{2\pi i}\int_{\partial D}\frac{f(\zeta)}{\zeta-z_0}\underbrace{\sum_{n=0}^\infty \left (\frac{z-z_0}{\zeta-z_0}\right )^n \frac{f(\zeta)}{\zeta -z}}_{ \text{conv. uniformly on $\partial D$}} d\zeta\\
-            &=\frac{1}{2\pi i}\sum_{n=0}^\infty \int_{\partial D}\frac{f(\zeta)}{\zeta-z_0}\left (\frac{z-z_0}{\zeta-z_0}\right )^n d\zeta\\
-            &=\sum_{n=0}^{\infty} (z-z_0)^n 
-                \underbrace{\left( \frac{1}{2\pi i} \int_{\partial D} \frac{f(\zeta)}{(\zeta-z_0)^{n+1}} d\zeta \right)}_{a_n}
-        \end{align*}
-        So $a_n=\frac{f^{(n)}(z_0)}{n!}$.
-    \end{proof}
 \end{thm}
+\begin{proof}
+    We know \[
+    f(z)=\frac{1}{2\pi i}\int_{\partial D}\frac{f(\zeta)}{\zeta-z}d\zeta
+    .\] 
+    We can write \[
+    \frac{1}{\zeta-z}=\frac{1}{(\zeta-z_0)+(z_0-z)}=\frac{1}{\zeta - z_0}\cdot \frac{1}{1-\frac{z-z_0}{\zeta - z_0}}=\frac{1}{\zeta-z_0}\sum_{n=0}^\infty \left (\frac{z-z_0}{\zeta-z_0}\right )^n
+    .\] 
+    Note: $\frac{z-z_0}{\zeta-z_0}<1$. 
+    \begin{align*}
+        f(z)&=\frac{1}{2\pi i}\int_{\partial D}\frac{f(\zeta)}{\zeta-z_0}\underbrace{\sum_{n=0}^\infty \left (\frac{z-z_0}{\zeta-z_0}\right )^n \frac{f(\zeta)}{\zeta -z}}_{ \text{conv. uniformly on $\partial D$}} d\zeta\\
+        &=\frac{1}{2\pi i}\sum_{n=0}^\infty \int_{\partial D}\frac{f(\zeta)}{\zeta-z_0}\left (\frac{z-z_0}{\zeta-z_0}\right )^n d\zeta\\
+        &=\sum_{n=0}^{\infty} (z-z_0)^n 
+            \underbrace{\left( \frac{1}{2\pi i} \int_{\partial D} \frac{f(\zeta)}{(\zeta-z_0)^{n+1}} d\zeta \right)}_{a_n}
+    \end{align*}
+    So $a_n=\frac{f^{(n)}(z_0)}{n!}$.
+\end{proof}
 \begin{cor}
     Cauchy's Formula:
     \[
