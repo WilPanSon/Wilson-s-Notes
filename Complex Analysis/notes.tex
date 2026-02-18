@@ -618,157 +618,157 @@ We have \[
     Cauchy's Theorem in a disk: Let $D\subset \C$ be an open disk and $f$ holomorphic on $D$. Then for any closed curve $\gamma$ in $D$ we have \[
     \int_\gamma f=0
     .\] 
-    \begin{proof}
-        WLOG let $D$ be a disk centered at $0$. Define $F:D\to \C$ by \[
-        F(z)=\int_{\gamma_z}f
-        \]
-        where $\gamma_z$ is the path $0\to \Re(z)\to z$ (horizontal then vertical).
-        \begin{center}
-            \begin{tikzpicture}[scale=1.2]
-                % Draw the disk
-                \draw[dashed, blue!50] (0,0) circle (2.2);
-                \node[blue!70] at (1.8,1.8) {$D$};
-                
-                % Axes
-                \draw[->] (-2.5,0) -- (2.5,0) node[right] {$\Re$};
-                \draw[->] (0,-2.5) -- (0,2.5) node[above] {$\Im$};
-                
-                % Points
-                \coordinate (O) at (0,0);
-                \coordinate (X) at (1.5,0);
-                \coordinate (Z) at (1.5,1.2);
-                
-                % Path gamma_z
-                \draw[thick, blue, ->] (O) -- (0.8,0);
-                \draw[thick, blue] (0.8,0) -- (X);
-                \draw[thick, blue, ->] (X) -- (1.5,0.6);
-                \draw[thick, blue] (1.5,0.6) -- (Z);
-                
-                % Labels
-                \fill (O) circle (1.5pt) node[below left] {$0$};
-                \fill (X) circle (1.5pt) node[below] {$\Re(z)$};
-                \fill (Z) circle (1.5pt) node[above right] {$z$};
-                
-                % Path label
-                \node[blue] at (0.75,0.3) {$\gamma_z$};
-            \end{tikzpicture}
-        \end{center}
-        We claim $F$ is a primitive for $f$, i.e., $F'(z)=f(z)$.\\[6pt]
-        \textbf{Case 1:} $h\in \R$ (horizontal increment).\\
-        The path $\gamma_{z+h}$ goes $0\to \Re(z)+h\to z+h$. Observe that:
-        \[
-        F(z+h)-F(z)= \int_{\gamma_{z+h}}f-\int_{\gamma_z}f
-        .\]
-        \begin{center}
-            \begin{tikzpicture}[scale=1.2]
-                % Axes
-                \draw[->] (-0.5,0) -- (4,0) node[right] {$\Re$};
-                \draw[->] (0,-0.5) -- (0,2.5) node[above] {$\Im$};
-                
-                % Points
-                \coordinate (O) at (0,0);
-                \coordinate (X) at (1.5,0);
-                \coordinate (Xh) at (2.8,0);
-                \coordinate (Z) at (1.5,1.5);
-                \coordinate (Zh) at (2.8,1.5);
-                
-                % Path gamma_z (blue)
-                \draw[thick, blue, ->] (O) -- (0.8,0);
-                \draw[thick, blue] (0.8,0) -- (X);
-                \draw[thick, blue, ->] (X) -- (1.5,0.8);
-                \draw[thick, blue] (1.5,0.8) -- (Z);
-                
-                % Path gamma_{z+h} (red, dashed)
-                \draw[thick, red, dashed, ->] (O) -- (1.4,0);
-                \draw[thick, red, dashed] (1.4,0) -- (Xh);
-                \draw[thick, red, dashed, ->] (Xh) -- (2.8,0.8);
-                \draw[thick, red, dashed] (2.8,0.8) -- (Zh);
-                
-                % Rectangle (the key region)
-                \draw[thick, orange, ->] (X) -- (2.15,0);
-                \draw[thick, orange] (2.15,0) -- (Xh);
-                \draw[thick, orange, ->] (Zh) -- (2.15,1.5);
-                \draw[thick, orange] (2.15,1.5) -- (Z);
-                
-                % Labels
-                \fill (O) circle (1.5pt) node[below left] {$0$};
-                \fill (X) circle (1.5pt) node[below] {$\Re(z)$};
-                \fill (Xh) circle (1.5pt) node[below] {$\Re(z)+h$};
-                \fill (Z) circle (1.5pt) node[above left] {$z$};
-                \fill (Zh) circle (1.5pt) node[above right] {$z+h$};
-                
-                % Path labels
-                \node[blue] at (0.5,0.6) {$\gamma_z$};
-                \node[red] at (1.8,-0.4) {$\gamma_{z+h}$};
-            \end{tikzpicture}
-        \end{center}
-        The difference of paths can be decomposed using Goursat's theorem. The integral over the rectangle with vertices $\Re(z), \Re(z)+h, z+h, z$ vanishes, so:
-        \[
-        F(z+h)-F(z)=\int_{\Re(z)}^{\Re(z)+h}f(\zeta)d\zeta + \int_{z}^{z+h}f(\zeta)d\zeta = \int_{z}^{z+h}f(\zeta)d\zeta
-        \]
-        where the first integral is along the real axis and the second is horizontal at height $\Im(z)$. By the rectangle lemma, these combine to give just the horizontal segment from $z$ to $z+h$:
-        \[
-        \frac{F(z+h)-F(z)}{h}=\frac{1}{h}\int_z^{z+h}f(\zeta)d\zeta \to f(z) \text{ as } h\to 0
-        .\]
-        \textbf{Case 2:} $h=ik$ with $k\in \R$ (vertical increment).\\
-        Similarly, $\gamma_{z+ik}$ goes $0\to \Re(z)\to z+ik$. The paths $\gamma_z$ and $\gamma_{z+ik}$ share the horizontal segment $0\to \Re(z)$, so:
-        \[
-        F(z+ik)-F(z)=\int_z^{z+ik}f(\zeta)d\zeta
-        .\]
-        \begin{center}
-            \begin{tikzpicture}[scale=1.2]
-                % Axes
-                \draw[->] (-0.5,0) -- (3,0) node[right] {$\Re$};
-                \draw[->] (0,-0.5) -- (0,3) node[above] {$\Im$};
-                
-                % Points
-                \coordinate (O) at (0,0);
-                \coordinate (X) at (1.5,0);
-                \coordinate (Z) at (1.5,1.2);
-                \coordinate (Zik) at (1.5,2.2);
-                
-                % Shared horizontal path (purple)
-                \draw[ultra thick, purple, ->] (O) -- (0.8,0);
-                \draw[ultra thick, purple] (0.8,0) -- (X);
-                
-                % Path to z (blue)
-                \draw[thick, blue, ->] (X) -- (1.5,0.6);
-                \draw[thick, blue] (1.5,0.6) -- (Z);
-                
-                % Path to z+ik (red, dashed)
-                \draw[thick, red, dashed, ->] (X) -- (1.5,1.1);
-                \draw[thick, red, dashed] (1.5,1.1) -- (Zik);
-                
-                % The difference segment (orange)
-                \draw[ultra thick, orange, ->] (Z) -- (1.5,1.7);
-                \draw[ultra thick, orange] (1.5,1.7) -- (Zik);
-                
-                % Labels
-                \fill (O) circle (1.5pt) node[below left] {$0$};
-                \fill (X) circle (1.5pt) node[below right] {$\Re(z)$};
-                \fill (Z) circle (1.5pt) node[left] {$z$};
-                \fill (Zik) circle (1.5pt) node[left] {$z+ik$};
-                
-                % Path labels
-                \node[purple] at (0.75,0.3) {shared};
-                \node[orange] at (2.1,1.7) {$\int_z^{z+ik}f$};
-            \end{tikzpicture}
-        \end{center}
-        Thus:
-        \[
-        \frac{F(z+ik)-F(z)}{ik}=\frac{1}{ik}\int_z^{z+ik}f(\zeta)d\zeta \to f(z) \text{ as } k\to 0
-        .\]
-        \textbf{General $h$:} For arbitrary $h=h_1+ih_2$, we write:
-        \[
-        \frac{F(z+h)-F(z)}{h}=\frac{F(z+h)-F(z+h_1)}{h}+\frac{F(z+h_1)-F(z)}{h}
-        .\]
-        Using the above cases and the continuity of $f$, both terms converge appropriately, giving $F'(z)=f(z)$.\\[6pt]
-        Since $f$ has a primitive $F$ on $D$, by the Fundamental Theorem of Calculus, for any closed curve $\gamma$ in $D$:
-        \[
-        \int_\gamma f = F(z(b))-F(z(a))=0
-        .\]
-    \end{proof}
 \end{thm}
+\begin{proof}
+    WLOG let $D$ be a disk centered at $0$. Define $F:D\to \C$ by \[
+    F(z)=\int_{\gamma_z}f
+    \]
+    where $\gamma_z$ is the path $0\to \Re(z)\to z$ (horizontal then vertical).
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2]
+            % Draw the disk
+            \draw[dashed, blue!50] (0,0) circle (2.2);
+            \node[blue!70] at (1.8,1.8) {$D$};
+            
+            % Axes
+            \draw[->] (-2.5,0) -- (2.5,0) node[right] {$\Re$};
+            \draw[->] (0,-2.5) -- (0,2.5) node[above] {$\Im$};
+            
+            % Points
+            \coordinate (O) at (0,0);
+            \coordinate (X) at (1.5,0);
+            \coordinate (Z) at (1.5,1.2);
+            
+            % Path gamma_z
+            \draw[thick, blue, ->] (O) -- (0.8,0);
+            \draw[thick, blue] (0.8,0) -- (X);
+            \draw[thick, blue, ->] (X) -- (1.5,0.6);
+            \draw[thick, blue] (1.5,0.6) -- (Z);
+            
+            % Labels
+            \fill (O) circle (1.5pt) node[below left] {$0$};
+            \fill (X) circle (1.5pt) node[below] {$\Re(z)$};
+            \fill (Z) circle (1.5pt) node[above right] {$z$};
+            
+            % Path label
+            \node[blue] at (0.75,0.3) {$\gamma_z$};
+        \end{tikzpicture}
+    \end{center}
+    We claim $F$ is a primitive for $f$, i.e., $F'(z)=f(z)$.\\[6pt]
+    \textbf{Case 1:} $h\in \R$ (horizontal increment).\\
+    The path $\gamma_{z+h}$ goes $0\to \Re(z)+h\to z+h$. Observe that:
+    \[
+    F(z+h)-F(z)= \int_{\gamma_{z+h}}f-\int_{\gamma_z}f
+    .\]
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2]
+            % Axes
+            \draw[->] (-0.5,0) -- (4,0) node[right] {$\Re$};
+            \draw[->] (0,-0.5) -- (0,2.5) node[above] {$\Im$};
+            
+            % Points
+            \coordinate (O) at (0,0);
+            \coordinate (X) at (1.5,0);
+            \coordinate (Xh) at (2.8,0);
+            \coordinate (Z) at (1.5,1.5);
+            \coordinate (Zh) at (2.8,1.5);
+            
+            % Path gamma_z (blue)
+            \draw[thick, blue, ->] (O) -- (0.8,0);
+            \draw[thick, blue] (0.8,0) -- (X);
+            \draw[thick, blue, ->] (X) -- (1.5,0.8);
+            \draw[thick, blue] (1.5,0.8) -- (Z);
+            
+            % Path gamma_{z+h} (red, dashed)
+            \draw[thick, red, dashed, ->] (O) -- (1.4,0);
+            \draw[thick, red, dashed] (1.4,0) -- (Xh);
+            \draw[thick, red, dashed, ->] (Xh) -- (2.8,0.8);
+            \draw[thick, red, dashed] (2.8,0.8) -- (Zh);
+            
+            % Rectangle (the key region)
+            \draw[thick, orange, ->] (X) -- (2.15,0);
+            \draw[thick, orange] (2.15,0) -- (Xh);
+            \draw[thick, orange, ->] (Zh) -- (2.15,1.5);
+            \draw[thick, orange] (2.15,1.5) -- (Z);
+            
+            % Labels
+            \fill (O) circle (1.5pt) node[below left] {$0$};
+            \fill (X) circle (1.5pt) node[below] {$\Re(z)$};
+            \fill (Xh) circle (1.5pt) node[below] {$\Re(z)+h$};
+            \fill (Z) circle (1.5pt) node[above left] {$z$};
+            \fill (Zh) circle (1.5pt) node[above right] {$z+h$};
+            
+            % Path labels
+            \node[blue] at (0.5,0.6) {$\gamma_z$};
+            \node[red] at (1.8,-0.4) {$\gamma_{z+h}$};
+        \end{tikzpicture}
+    \end{center}
+    The difference of paths can be decomposed using Goursat's theorem. The integral over the rectangle with vertices $\Re(z), \Re(z)+h, z+h, z$ vanishes, so:
+    \[
+    F(z+h)-F(z)=\int_{\Re(z)}^{\Re(z)+h}f(\zeta)d\zeta + \int_{z}^{z+h}f(\zeta)d\zeta = \int_{z}^{z+h}f(\zeta)d\zeta
+    \]
+    where the first integral is along the real axis and the second is horizontal at height $\Im(z)$. By the rectangle lemma, these combine to give just the horizontal segment from $z$ to $z+h$:
+    \[
+    \frac{F(z+h)-F(z)}{h}=\frac{1}{h}\int_z^{z+h}f(\zeta)d\zeta \to f(z) \text{ as } h\to 0
+    .\]
+    \textbf{Case 2:} $h=ik$ with $k\in \R$ (vertical increment).\\
+    Similarly, $\gamma_{z+ik}$ goes $0\to \Re(z)\to z+ik$. The paths $\gamma_z$ and $\gamma_{z+ik}$ share the horizontal segment $0\to \Re(z)$, so:
+    \[
+    F(z+ik)-F(z)=\int_z^{z+ik}f(\zeta)d\zeta
+    .\]
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2]
+            % Axes
+            \draw[->] (-0.5,0) -- (3,0) node[right] {$\Re$};
+            \draw[->] (0,-0.5) -- (0,3) node[above] {$\Im$};
+            
+            % Points
+            \coordinate (O) at (0,0);
+            \coordinate (X) at (1.5,0);
+            \coordinate (Z) at (1.5,1.2);
+            \coordinate (Zik) at (1.5,2.2);
+            
+            % Shared horizontal path (purple)
+            \draw[ultra thick, purple, ->] (O) -- (0.8,0);
+            \draw[ultra thick, purple] (0.8,0) -- (X);
+            
+            % Path to z (blue)
+            \draw[thick, blue, ->] (X) -- (1.5,0.6);
+            \draw[thick, blue] (1.5,0.6) -- (Z);
+            
+            % Path to z+ik (red, dashed)
+            \draw[thick, red, dashed, ->] (X) -- (1.5,1.1);
+            \draw[thick, red, dashed] (1.5,1.1) -- (Zik);
+            
+            % The difference segment (orange)
+            \draw[ultra thick, orange, ->] (Z) -- (1.5,1.7);
+            \draw[ultra thick, orange] (1.5,1.7) -- (Zik);
+            
+            % Labels
+            \fill (O) circle (1.5pt) node[below left] {$0$};
+            \fill (X) circle (1.5pt) node[below right] {$\Re(z)$};
+            \fill (Z) circle (1.5pt) node[left] {$z$};
+            \fill (Zik) circle (1.5pt) node[left] {$z+ik$};
+            
+            % Path labels
+            \node[purple] at (0.75,0.3) {shared};
+            \node[orange] at (2.1,1.7) {$\int_z^{z+ik}f$};
+        \end{tikzpicture}
+    \end{center}
+    Thus:
+    \[
+    \frac{F(z+ik)-F(z)}{ik}=\frac{1}{ik}\int_z^{z+ik}f(\zeta)d\zeta \to f(z) \text{ as } k\to 0
+    .\]
+    \textbf{General $h$:} For arbitrary $h=h_1+ih_2$, we write:
+    \[
+    \frac{F(z+h)-F(z)}{h}=\frac{F(z+h)-F(z+h_1)}{h}+\frac{F(z+h_1)-F(z)}{h}
+    .\]
+    Using the above cases and the continuity of $f$, both terms converge appropriately, giving $F'(z)=f(z)$.\\[6pt]
+    Since $f$ has a primitive $F$ on $D$, by the Fundamental Theorem of Calculus, for any closed curve $\gamma$ in $D$:
+    \[
+    \int_\gamma f = F(z(b))-F(z(a))=0
+    .\]
+\end{proof}
 \newpage
 \section{Jan 28}
 \subsection{Applications of Cauchy's Theorem}
