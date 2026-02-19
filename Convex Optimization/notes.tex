@@ -974,7 +974,7 @@ f(y)\geq f(x^*)+\inner{0}{y-x^*}\implies 0\in \partial f(x^*)
         \E[||x_{t+1}-x^*||_2^2]&\leq \E[||x_t-x^*||^2]-2\eta_t\E[f(x_t)-f(x^*)]+\eta_t^2G^2\\
     \end{align*}
     So we can conclude \[
-    0\leq \E[||X_{t+1}-x^*||_2^2]\leq R^2-2\sum_{i=1}^k \E[f(x_i)-f(x^*)]+\eta_t^2G^2
+    0\leq \E[||X_{t+1}-x^*||_2^2]\leq R^2-2\sum_{i=1}^k \E[f(x_i)-f(x^*)]+\sum_{t=1}^k\eta_t^2G^2
     .\] 
 \end{proof}
 \end{document}
