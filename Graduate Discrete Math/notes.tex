@@ -417,18 +417,18 @@ Let $X=h+(n-h)\frac{-p}{1-p}$
 \end{defn}
 \begin{thm}
     Azuma's Theorem: If $X_0,X_1,...$ is martingale and \\$|X_{i+1}-X_i|\leq 1$ then $$\mathbb{P}(X_n-X_0\geq \lambda \sqrt{n})\leq e^{-\lambda^2/2}$$
-    \begin{proof}
-        By Markov's Inequality we have $$\mathbb{P}(X_n-X_0\geq \lambda \sqrt{n})\leq \frac{\mathbb{E}\left [e^{t(X_n-X_0)}\right ]}{e^{t\lambda\sqrt{n}}}$$
-        We can telescope the numerator as 
-        \begin{align*}
-            \mathbb{E}\left [e^{t(X_n-X_0)}\right ]&=\mathbb{E}\left [\prod_{k=1}^{n}e^{t(X_k-X_{k-1})} \right ]\\&=\mathbb{E}\left [\mathbb{E}\left [e^{t(X_n-X_{n-1})}|X_0,X_1,X_2,...,X_{n-1} \right ]\prod_{k=1}^{n-1}e^{t(X_k-X_{k-1})} \right ]
-        \end{align*}
-        By Theorem 3.23 we have $\mathbb{E}\left [e^{t(X_n-X_{n-1})}|X_1,X_2,...X_{n-1}\right ]\leq e^{t^2/2}$ so $$\mathbb{E}\left [\mathbb{E}\left [e^{t(X_n-X_{n-1})}|X_0,X_1,X_2,...,X_{n-1} \right ]\prod_{k=1}^{n}e^{t(X_k-X_{k-1})} \right ]\leq e^{nt^2/2}$$
-        So $$\mathbb{P}(X_n-X_0\geq \lambda \sqrt{n})\leq e^{nt^2/2-t\lambda \sqrt{n}}.$$
-        The RHS achieves it's max at $t=\frac{\lambda}{\sqrt{n}}$. 
-        Thus $$\mathbb{P}(X_n-X_0\geq \lambda \sqrt{n})\leq e^{-\lambda^2/2}$$
-    \end{proof}
 \end{thm}
+\begin{proof}
+    By Markov's Inequality we have $$\mathbb{P}(X_n-X_0\geq \lambda \sqrt{n})\leq \frac{\mathbb{E}\left [e^{t(X_n-X_0)}\right ]}{e^{t\lambda\sqrt{n}}}$$
+    We can telescope the numerator as 
+    \begin{align*}
+        \mathbb{E}\left [e^{t(X_n-X_0)}\right ]&=\mathbb{E}\left [\prod_{k=1}^{n}e^{t(X_k-X_{k-1})} \right ]\\&=\mathbb{E}\left [\mathbb{E}\left [e^{t(X_n-X_{n-1})}|X_0,X_1,X_2,...,X_{n-1} \right ]\prod_{k=1}^{n-1}e^{t(X_k-X_{k-1})} \right ]
+    \end{align*}
+    By Theorem 3.23 we have $\mathbb{E}\left [e^{t(X_n-X_{n-1})}|X_1,X_2,...X_{n-1}\right ]\leq e^{t^2/2}$ so $$\mathbb{E}\left [\mathbb{E}\left [e^{t(X_n-X_{n-1})}|X_0,X_1,X_2,...,X_{n-1} \right ]\prod_{k=1}^{n}e^{t(X_k-X_{k-1})} \right ]\leq e^{nt^2/2}$$
+    So $$\mathbb{P}(X_n-X_0\geq \lambda \sqrt{n})\leq e^{nt^2/2-t\lambda \sqrt{n}}.$$
+    The RHS achieves it's max at $t=\frac{\lambda}{\sqrt{n}}$. 
+    Thus $$\mathbb{P}(X_n-X_0\geq \lambda \sqrt{n})\leq e^{-\lambda^2/2}$$
+\end{proof}
 \begin{defn}
     Doob's Martingale: Let $X$ and $Y_1,Y_2,...$ be random variables with $\mathbb{E}[|Y_i|]<\infty.$\\Define $X_i:=\mathbb{E}(X|Y_1,...,Y_i)$ for $i\geq 1.$ with $X_0=\mathbb{E}[X]$
 \end{defn}
