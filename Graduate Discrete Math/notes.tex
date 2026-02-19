@@ -788,14 +788,14 @@ In other words, $|zero(p)\cap S^n|\leq D|S|^{n-1}$
 \end{eg}
 \begin{eg}
     Cauchy Davenport: Let $p$ prime, $A,B\subseteq \Z_p$ $$|A+B|\geq \min(p,|A|+|B|-1)$$
-    \begin{proof}
-        Case 1: If $|A|+|B|-1\geq p$\\
-        Consider $x\in \Z_p$ then $|x-A|=|A|$ so $|A-x|+|B|\geq p+1$ and $\exists y\in A_x\cap B\implies \exists a\in A, b\in B$ such that $y=b,y=x-a$ so $x=a+b.$\\\\
-        Case 2: If $|A|+|B|-1<p$\\
-        Consider any set $C\subseteq \Z$ of size $|C|=|A|+|B|-2$. We want to show $\exists x\in A+B, x\notin C.$ \\
-        Define $$f(a,b)=\prod_{c\in C}(a+b-c)$$ We have $\deg(f)=|C|=|A|+|B|-2$, consider the monomial $a^{|A|-1}b^{|B|-1}$ then the coefficient is ${|A|+|B|-2 \choose |A|-1}\neq 0$ in $\Z_p.$ So for $|A|, |B|$ we have a choice of $a,b$ such that $a+b\notin C.$ 
-    \end{proof}
 \end{eg}
+\begin{proof}
+    Case 1: If $|A|+|B|-1\geq p$\\
+    Consider $x\in \Z_p$ then $|x-A|=|A|$ so $|A-x|+|B|\geq p+1$ and $\exists y\in A_x\cap B\implies \exists a\in A, b\in B$ such that $y=b,y=x-a$ so $x=a+b.$\\\\
+    Case 2: If $|A|+|B|-1<p$\\
+    Consider any set $C\subseteq \Z$ of size $|C|=|A|+|B|-2$. We want to show $\exists x\in A+B, x\notin C.$ \\
+    Define $$f(a,b)=\prod_{c\in C}(a+b-c)$$ We have $\deg(f)=|C|=|A|+|B|-2$, consider the monomial $a^{|A|-1}b^{|B|-1}$ then the coefficient is ${|A|+|B|-2 \choose |A|-1}\neq 0$ in $\Z_p.$ So for $|A|, |B|$ we have a choice of $a,b$ such that $a+b\notin C.$ 
+\end{proof}
 \begin{defn}
     Finite Kakeya: In $\mathbb{F}^n_a,\forall a,\exists b$ such that $\{at+b | t\in \mathbb{F}_a\}\subseteq K.$ Then $K$ is a kakeya set. 
 \end{defn}
