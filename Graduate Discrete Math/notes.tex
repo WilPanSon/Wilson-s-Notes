@@ -1071,20 +1071,20 @@ We can write $A=P^TBP$ where $B$ is a diagonal matrix with eigenvalues $$B=\begi
 \begin{thm}
     Let $d\equiv 4,$ choose $d$ edges from each vertex in $L$ independent and 1 and only. \\
     Claim: With constant probability, result is a $(d,\frac{d}{10})$ bipartite expander.
-    \begin{proof}
-        Let the bad events be for sets $S\subseteq L, T\subseteq R$, $|S|\leq \frac{n}{d}, |T|< \alpha|S|, E_{S,T}=\{N(S)\subseteq T\}.$ Then $\mathbb{P}(E_{S,T})=\left (\frac{|T|}{n} \right )^{d|S|}$
-        \\
-        \begin{align}
-            \mathbb{P}(\exists S,T, |S|\leq \frac{n}{d}, |T|=\alpha|S|,E_{S,T})&\leq \sum_{s=1}^{n/d}{n \choose s}{n \choose \alpha s}\left (\frac{\alpha s}{n} \right )^ds\\
-            &\leq \sum_{s=1}^{n/d}{n \choose \alpha s}^2\left ( \frac{\alpha s}{n}\right ) ^ds\\
-            &\leq \sum_{s=1}^\infty \left ( \frac{en}{\alpha s}\right ) ^{2\alpha s} \left ( \frac{\alpha s}{n}\right )^{ds}\\
-            &=\sum_{s=1}^\infty \left (\frac{n}{d} \right )^{(2\alpha -d)s}e^{2\alpha s}s^{(d-2\alpha)s}\\
-            &=\sum_{s=1}^\infty \left ( \frac{n}{\alpha s}\right )^{2\alpha-d)s}e^{2\alpha s}\\
-            &\leq \sum_{s=1}^\infty 10^{(2\alpha -d)s}e^{2\alpha s} \tag{$\alpha \leq d/10$}\\
-            &=\sum_{s=1}^{\infty}\left (10^{2\alpha-d}e^{2\alpha} \right)^s<1 
-        \end{align}
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Let the bad events be for sets $S\subseteq L, T\subseteq R$, $|S|\leq \frac{n}{d}, |T|< \alpha|S|, E_{S,T}=\{N(S)\subseteq T\}.$ Then $\mathbb{P}(E_{S,T})=\left (\frac{|T|}{n} \right )^{d|S|}$
+    \\
+    \begin{align}
+        \mathbb{P}(\exists S,T, |S|\leq \frac{n}{d}, |T|=\alpha|S|,E_{S,T})&\leq \sum_{s=1}^{n/d}{n \choose s}{n \choose \alpha s}\left (\frac{\alpha s}{n} \right )^ds\\
+        &\leq \sum_{s=1}^{n/d}{n \choose \alpha s}^2\left ( \frac{\alpha s}{n}\right ) ^ds\\
+        &\leq \sum_{s=1}^\infty \left ( \frac{en}{\alpha s}\right ) ^{2\alpha s} \left ( \frac{\alpha s}{n}\right )^{ds}\\
+        &=\sum_{s=1}^\infty \left (\frac{n}{d} \right )^{(2\alpha -d)s}e^{2\alpha s}s^{(d-2\alpha)s}\\
+        &=\sum_{s=1}^\infty \left ( \frac{n}{\alpha s}\right )^{2\alpha-d)s}e^{2\alpha s}\\
+        &\leq \sum_{s=1}^\infty 10^{(2\alpha -d)s}e^{2\alpha s} \tag{$\alpha \leq d/10$}\\
+        &=\sum_{s=1}^{\infty}\left (10^{2\alpha-d}e^{2\alpha} \right)^s<1 
+    \end{align}
+\end{proof}
 \begin{lem}
     If $p$ has $1$ fermat witnesses, half of the $a$'s relatively prime to $p$ are fermat witnesses. 
 \end{lem}
