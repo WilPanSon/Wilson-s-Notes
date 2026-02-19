@@ -229,7 +229,8 @@ Letting $f_0=\{i-k+1,...,i\}$ and $f_1=\{i,...,i+k-1\}$ then $\tau(f_0)=f_0$ and
 (Case 2) If $j=i+k-1$ and $j+1=i+k$ then $\tau(f_0)=f_0$ and $\tau(\{i-k,...,i-1\})=\{i-k,...,i-1\}.$
 \begin{thm}
     Let $\alpha_1,...,\alpha_n\sim Ber(p),$ choosing numbers $\beta_1,...,\beta_n$ with $\sum\beta_i=1$ then $\mathbb{P}[\sum\beta_i\alpha_i\geq \frac{1}{2}]\geq p$
-    \begin{proof} Define $\HG$ on $[n]$ by $f\in \HG$ if $\sum_{i\in f}a_i\geq \frac{1}{2}$
+\end{thm}
+\begin{proof} Define $\HG$ on $[n]$ by $f\in \HG$ if $\sum_{i\in f}a_i\geq \frac{1}{2}$
     For simplicity, assume no sum is $\frac{1}{2}.$
         Then $$\mathbb{P}\left [\sum\beta_i\alpha_i\geq \frac{1}{2}\right ]=\sum_{f\in \HG}p^{|f|}(1-p)^{n-|f|}$$
         Define $h_k=\left |\HG\cap {X \choose k}\right |$
@@ -246,7 +247,6 @@ Letting $f_0=\{i-k+1,...,i\}$ and $f_1=\{i,...,i+k-1\}$ then $\tau(f_0)=f_0$ and
             &=p
         \end{align*}
     \end{proof}
-\end{thm}
 \begin{thm}
     If there are $10$ points in the plane then they can be covered by $10$ non-intersecting unit circles.
     \begin{proof}
