@@ -115,7 +115,9 @@ Let this number be $m(k)$ then $m(1)=0, m(2)=3,m(3)\geq 7$
     \begin{rmk}
             Suppose it has $7$ edges and vertices. Consider the coloring $4$ red and $3$ blue. Then there are ${7 \choose 3}=35$ such colorings. If $\mathcal{H}$ is not $2$ colorable then there are ${3 \choose 3}+{4 \choose 3}=5$ excluded coloring for all distinct edges. There are $4$ forbidden configurations for any configurations that are not $2$ colorable $\mathcal{H}$ with $|\mathcal{H}|=7$ on $7$ vertices
     \end{rmk}
+\end{thm}
 \section{Probabilistic Method}
+
 \begin{thm}
     $m(k)\geq2^{k-1}$
     \begin{proof}
@@ -123,7 +125,6 @@ Let this number be $m(k)$ then $m(1)=0, m(2)=3,m(3)\geq 7$
         $$Pr\left [\bigcup_{f\in \mathcal{H}}E_f \right ]\leq  \sum_{f\in \mathcal{H}}Pr\left [E_f \right ]=\frac{|\mathcal{H}|}{2^{k-1}}<1$$ 
         So there is non-zero probability that there exist a coloring with no monochromatic edges if $|\mathcal{H}|<2^{k-1}$
     \end{proof}
-\end{thm}
 \end{thm}
 \begin{thm} 
     Erdős-Selfridge Theorem:
