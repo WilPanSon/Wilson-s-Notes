@@ -303,14 +303,14 @@ So $\mathbb{P}(G_{n,p} \text{ having triangles})\to 0.$ \\\\
 \begin{thm}
     Threshold of $\mathcal{H}$ in $G_{n,p}.$\\
     Consider $G_{n,p}$ with $p=p(n)$ and $\mathcal{H}$ is fixed graph with $k$ vertices and $l$ edges.\\
-        Define $\epsilon = \epsilon(\mathcal{H})=\frac{l}{k}$ and $\epsilon'=\epsilon'(\mathcal{H})=\max_{J\subseteq \mathcal{H}}\epsilon(J).$
-        If $p^\epsilon \cdot n\to 0$ then $\mathbb{E}[\#\mathcal{H} \text{ in } G_{n,p}]\to 0.$
-        
-    \begin{proof}
-        $\mathbb{E}[\#\mathcal{H}\in G_{n,p}]\leq {n \choose k}hp^l\leq C(np^\epsilon)^k$ where $h=\frac{k!}{\text{Aut}(\mathcal{H})}$\\
-        If $p^{\epsilon'}n\to 0,$ there is some argument for densest subgraph $J.$\end{proof}
-        \noindent Now to show the other side, if $p^{\epsilon'}n\to \infty$ (if $p=\omega\left (\frac{1}{n^{1/\epsilon'}} \right )$ then $G_{n,p}$ has $\mathcal{H}$ as a subgraph with high probability. 
-\end{thm}        
+    Define $\epsilon = \epsilon(\mathcal{H})=\frac{l}{k}$ and $\epsilon'=\epsilon'(\mathcal{H})=\max_{J\subseteq \mathcal{H}}\epsilon(J).$
+    If $p^\epsilon \cdot n\to 0$ then $\mathbb{E}[\#\mathcal{H} \text{ in } G_{n,p}]\to 0.$
+    \noindent Now to show the other side, if $p^{\epsilon'}n\to \infty$ (if $p=\omega\left (\frac{1}{n^{1/\epsilon'}} \right )$ then $G_{n,p}$ has $\mathcal{H}$ as a subgraph with high probability.
+\end{thm}
+\begin{proof}
+    $\mathbb{E}[\#\mathcal{H}\in G_{n,p}]\leq {n \choose k}hp^l\leq C(np^\epsilon)^k$ where $h=\frac{k!}{\text{Aut}(\mathcal{H})}$\\
+    If $p^{\epsilon'}n\to 0,$ there is some argument for densest subgraph $J.$
+\end{proof}        
 \begin{proof}
     Let $X=\#\mathcal{H}$ subgraph in $G_{n,p}$ then 
     by Chebyshev, $$\mathbb{P}[X\leq 0]\leq \frac{\text{Var}[X]}{\mathbb{E}[X]^2}.$$
@@ -528,25 +528,25 @@ Let $X=h+(n-h)\frac{-p}{1-p}$
 \end{defn}
 \begin{thm}
     $R(k,l)\leq R(k-1,l)+R(k,l-1)$
-    \begin{proof}
-        Let $n\geq R(k-1,l)+R(k,l-1)$ and consider a red/blue coloring of $K_n.$ Fix $v_0$. Since $v_0$ has $\geq R(k-1,l)+R(k,l-1)-1$ edges,\\
-        (Case 1) If $v_0$ has $\geq R(k-1,l)$ red edges then the induced subgraph of the neighbors, $G'$ must have red $K_{k-1}$ or blue $K_{l}.$ If red $K_{k-1}$ then $G'\cup v_0$ is a $K_k$, otherwise we have blue $K_{l}.$ \\
-        (Case 2) If $v_0$ has $\geq R(k,l-1)$ blue neighbors then same argument as case 1.\\
-        Thus we're done
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Let $n\geq R(k-1,l)+R(k,l-1)$ and consider a red/blue coloring of $K_n.$ Fix $v_0$. Since $v_0$ has $\geq R(k-1,l)+R(k,l-1)-1$ edges,\\
+    (Case 1) If $v_0$ has $\geq R(k-1,l)$ red edges then the induced subgraph of the neighbors, $G'$ must have red $K_{k-1}$ or blue $K_{l}.$ If red $K_{k-1}$ then $G'\cup v_0$ is a $K_k$, otherwise we have blue $K_{l}.$ \\
+    (Case 2) If $v_0$ has $\geq R(k,l-1)$ blue neighbors then same argument as case 1.\\
+    Thus we're done
+\end{proof}
 \begin{thm}
     $R(k,k)>(1-O(1))\frac{k}{e\sqrt{2}}2^{k/2}$
-    \begin{proof}
-        Flip fair coins to color a $K_n$ red or blue. Let $X=\#$ monotonic $K_k$ then $$\mathbb{E}[X]={n \choose k}2^{1-{k \choose 2}}\leq \left (\frac{en}{k} \right )^k\cdot 2\cdot 2^{-k(k-1)/2}$$
-        If $\mathbb{E}[X]<1$ then $R(k,k)>n$.
-        \begin{align*}
-            2^{1/k}\left (\frac{en}{k}\right )2^{(k-1)/2}&<1
-        \end{align*}
-        Thus $$n<(1-O(1)\frac{k}{e\sqrt{2}}2^{k/2}$$
-        Consequently, $R(k,k)>(1-O(1)\frac{k}{e\sqrt{2}}2^{k/2}$
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Flip fair coins to color a $K_n$ red or blue. Let $X=\#$ monotonic $K_k$ then $$\mathbb{E}[X]={n \choose k}2^{1-{k \choose 2}}\leq \left (\frac{en}{k} \right )^k\cdot 2\cdot 2^{-k(k-1)/2}$$
+    If $\mathbb{E}[X]<1$ then $R(k,k)>n$.
+    \begin{align*}
+        2^{1/k}\left (\frac{en}{k}\right )2^{(k-1)/2}&<1
+    \end{align*}
+    Thus $$n<(1-O(1)\frac{k}{e\sqrt{2}}2^{k/2}$$
+    Consequently, $R(k,k)>(1-O(1)\frac{k}{e\sqrt{2}}2^{k/2}$
+\end{proof}
 \begin{thm}
     Alterations: Color edges of $K_n$ randomly red or blue. Delete an vertex from each monochromatic $K_k$. Let $X=n-$ \# monochromatic cliques.\\
     \begin{align*}
