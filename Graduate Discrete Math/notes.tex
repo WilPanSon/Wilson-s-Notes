@@ -119,12 +119,12 @@ Let this number be $m(k)$ then $m(1)=0, m(2)=3,m(3)\geq 7$
 \section{Probabilistic Method}
 \begin{thm}
     $m(k)\geq2^{k-1}$
-    \begin{proof}
-        Color vertices of $\mathcal{H}$ randomly red or blue. For each edge $f$, define $E_f$ to be the event that $f$ is monochromatic then $Pr[E_f]=\frac{1}{2^{k-1}}$
-        $$Pr\left [\bigcup_{f\in \mathcal{H}}E_f \right ]\leq  \sum_{f\in \mathcal{H}}Pr\left [E_f \right ]=\frac{|\mathcal{H}|}{2^{k-1}}<1$$ 
-        So there is non-zero probability that there exist a coloring with no monochromatic edges if $|\mathcal{H}|<2^{k-1}$
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Color vertices of $\mathcal{H}$ randomly red or blue. For each edge $f$, define $E_f$ to be the event that $f$ is monochromatic then $Pr[E_f]=\frac{1}{2^{k-1}}$
+    $$Pr\left [\bigcup_{f\in \mathcal{H}}E_f \right ]\leq  \sum_{f\in \mathcal{H}}Pr\left [E_f \right ]=\frac{|\mathcal{H}|}{2^{k-1}}<1$$ 
+    So there is non-zero probability that there exist a coloring with no monochromatic edges if $|\mathcal{H}|<2^{k-1}$
+\end{proof}
 \begin{thm} 
     Erdős-Selfridge Theorem:
     Given hypergraph $\mathcal{H}$, consider a game between a maker and breaker. The maker's goal is to color some edge all blue and breaker's goal is to prevent all blue edges. \\\\
