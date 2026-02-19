@@ -501,12 +501,12 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     Let $a_i(t)$ be the amount of water the filler puts in cup $i$ on step $t$, $b_i(t)$ be the amount of water the emptier removes from cup $i$ on step $t$ and $c_i(t)$ be the fill of cup $i$ after step $t.$
     \begin{claim}
         For all $t,i, c_i(t) \pmod 1$ is uniformly random. 
-        \begin{proof}
-            \[
-            c_i(t)=\underbrace{r_i}_{\text{random}}+\underbrace{\sum_{\ell=1}^t a_i(\ell)}_{ \text{fixed}}-\underbrace{\sum_{\ell=1}^t b_i(\ell)}_{ \text{integer}}
-            .\] 
-        \end{proof}
     \end{claim}
+    \begin{proof}
+        \[
+        c_i(t)=\underbrace{r_i}_{\text{random}}+\underbrace{\sum_{\ell=1}^t a_i(\ell)}_{ \text{fixed}}-\underbrace{\sum_{\ell=1}^t b_i(\ell)}_{ \text{integer}}
+        .\] 
+    \end{proof}
     \noindent Define a potential function $\phi(t)=\sum_{i=1}^n \floor{c_i(t)^2}$
     \begin{lem}
         Consider time $t_1,$ let $t_0<t_1$ be most recent time that $\phi(t_0)$ was zero. With high probability, $t_1-t_0=O(\log n)$. 
