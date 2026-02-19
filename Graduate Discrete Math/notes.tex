@@ -310,23 +310,23 @@ So $\mathbb{P}(G_{n,p} \text{ having triangles})\to 0.$ \\\\
         $\mathbb{E}[\#\mathcal{H}\in G_{n,p}]\leq {n \choose k}hp^l\leq C(np^\epsilon)^k$ where $h=\frac{k!}{\text{Aut}(\mathcal{H})}$\\
         If $p^{\epsilon'}n\to 0,$ there is some argument for densest subgraph $J.$\end{proof}
         \noindent Now to show the other side, if $p^{\epsilon'}n\to \infty$ (if $p=\omega\left (\frac{1}{n^{1/\epsilon'}} \right )$ then $G_{n,p}$ has $\mathcal{H}$ as a subgraph with high probability. 
-        \begin{proof}
-            Let $X=\#\mathcal{H}$ subgraph in $G_{n,p}$ then 
-            by Chebyshev, $$\mathbb{P}[X\leq 0]\leq \frac{\text{Var}[X]}{\mathbb{E}[X]^2}.$$
-            We can compute $$\mathbb{E}[X^2]=\sum_{H_1,H_2\in \mathcal{H}}\mathbb{P}[H_1,H_2\subseteq G_{n,p}]=\sum_{t=0}^{k}\sum_{|H_1\cap H_2|=t}\mathbb{P}(H_1,H_2\subseteq G_{n,p})$$
-            For $t=0$ we have $$\sum_{|H_1\cap H_2|=0}\mathbb{P}(H_1\subseteq G_{n,p})\mathbb{P}(H_2\subseteq G_{n,p})\leq \mathbb{E}[X]^2$$
-            So $$\mathbb{E}[X^2]-\mathbb{E}[X]^2\leq \sum_{t=1}^{k}\sum_{|H_1\cap H_2|=t}\mathbb{P}(H_1,H_2\subseteq G)=\sum_{t=1}^{k}\sum_{|H_1\cap H_2|=t}{k \choose t}{n-k \choose k-t}hp^{e(H_1\cup H_2)}$$
-            By PIE, $e(H_1\cup H_2)\geq 2l-\epsilon't$ since $e(H_1\cap H_2)\leq \epsilon't$ as $H_1\cap H_2$ is a subgraph of $H_1$
-            \begin{align*}
-                \sum_{t=1}^{k}\sum_{|H_1\cap H_2|=t}{k \choose t}{n-k \choose k-t}hp^{e(H_1\cup H_2)}&\leq \sum_{t=1}^{k}\sum_{|H_1\cap H_2|t}{k \choose t}{n-k \choose k-t}hp^{2l-\epsilon't}\\
-                &=\sum_{t=1}^{k}\sum_{|H_1\cap H_2|t}{n \choose k}h\cdot h{n-k \choose k-t}p^{l-\epsilon't}\tag{$\sum_{H\in \mathcal{H}}p^l=\mathbb{E}[X]={n \choose k}\cdot h \cdot p^l$}\\ 
-                &\leq\mathbb{E}[X] \sum_{t=1}^{k}h{k \choose t}{n-k \choose k-t}p^{l-\epsilon't}\\
-                &\leq \mathbb{E}[X]\sum_{t=1}^k h\cdot C \cdot n^k \cdot \frac{1}{n^t}\cdot p^{l-\epsilon't}\\
-                &\leq \mathbb{E}[X]\sum_{t=1}^k C' \cdot h \cdot {n \choose k}\cdot p^l \cdot \frac{1}{\left ( np^{\epsilon'}\right )^t }\\
-                &=\mathbb{E}[X]^2\sum_{t=1}^kC'\left (\frac{1}{np^{\epsilon'}} \right )^t\to 0
-            \end{align*}
-        \end{proof}
-\end{thm}
+\end{thm}        \begin{proof}
+    Let $X=\#\mathcal{H}$ subgraph in $G_{n,p}$ then 
+    by Chebyshev, $$\mathbb{P}[X\leq 0]\leq \frac{\text{Var}[X]}{\mathbb{E}[X]^2}.$$
+    We can compute $$\mathbb{E}[X^2]=\sum_{H_1,H_2\in \mathcal{H}}\mathbb{P}[H_1,H_2\subseteq G_{n,p}]=\sum_{t=0}^{k}\sum_{|H_1\cap H_2|=t}\mathbb{P}(H_1,H_2\subseteq G_{n,p})$$
+    For $t=0$ we have $$\sum_{|H_1\cap H_2|=0}\mathbb{P}(H_1\subseteq G_{n,p})\mathbb{P}(H_2\subseteq G_{n,p})\leq \mathbb{E}[X]^2$$
+    So $$\mathbb{E}[X^2]-\mathbb{E}[X]^2\leq \sum_{t=1}^{k}\sum_{|H_1\cap H_2|=t}\mathbb{P}(H_1,H_2\subseteq G)=\sum_{t=1}^{k}\sum_{|H_1\cap H_2|=t}{k \choose t}{n-k \choose k-t}hp^{e(H_1\cup H_2)}$$
+    By PIE, $e(H_1\cup H_2)\geq 2l-\epsilon't$ since $e(H_1\cap H_2)\leq \epsilon't$ as $H_1\cap H_2$ is a subgraph of $H_1$
+    \begin{align*}
+        \sum_{t=1}^{k}\sum_{|H_1\cap H_2|=t}{k \choose t}{n-k \choose k-t}hp^{e(H_1\cup H_2)}&\leq \sum_{t=1}^{k}\sum_{|H_1\cap H_2|t}{k \choose t}{n-k \choose k-t}hp^{2l-\epsilon't}\\
+        &=\sum_{t=1}^{k}\sum_{|H_1\cap H_2|t}{n \choose k}h\cdot h{n-k \choose k-t}p^{l-\epsilon't}\tag{$\sum_{H\in \mathcal{H}}p^l=\mathbb{E}[X]={n \choose k}\cdot h \cdot p^l$}\\ 
+        &\leq\mathbb{E}[X] \sum_{t=1}^{k}h{k \choose t}{n-k \choose k-t}p^{l-\epsilon't}\\
+        &\leq \mathbb{E}[X]\sum_{t=1}^k h\cdot C \cdot n^k \cdot \frac{1}{n^t}\cdot p^{l-\epsilon't}\\
+        &\leq \mathbb{E}[X]\sum_{t=1}^k C' \cdot h \cdot {n \choose k}\cdot p^l \cdot \frac{1}{\left ( np^{\epsilon'}\right )^t }\\
+        &=\mathbb{E}[X]^2\sum_{t=1}^kC'\left (\frac{1}{np^{\epsilon'}} \right )^t\to 0
+    \end{align*}
+\end{proof}
+
 \begin{thm}
     Chernoff Bound \\
     Suppose you had independent random values $\zeta_1,...,\zeta_n$ with $\zeta_i \in \{-1, 1\}$ $\forall i $ and $\mathbb{P}(\zeta_i=1)=\mathbb{P}(\zeta=-1)=\frac{1}{2}$. \\Let $X=\sum_{i=1}^{n}\zeta_i$
