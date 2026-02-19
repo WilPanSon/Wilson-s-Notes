@@ -558,21 +558,21 @@ Let $X=h+(n-h)\frac{-p}{1-p}$
 \end{thm}
 \begin{thm}
     Using Lovasc Local Lemma: Given $k$, fix $n$, randomly red/blue color edges.
-    \begin{proof}
-        Bad events: $B_k$ for $k\in \mathcal{K}$ where $\mathcal{K}$ is the collection of $k$-clique. \\
-        Then $\mathbb{P}(B_k)=2^{1-{n \choose k}}.$\\
-        If $K_1,K_2$ share any edges, set $B_{K_1}\sim B_{K_2}$ in dependency graph. Then $$D\leq {k \choose 2}{n \choose k-2}$$
-        Consequently 
-        \begin{align*}
-            epD&\leq e\cdot 2^{1-{n \choose k}}\left (2 {k \choose 2}{n \choose k-2}\right )<1 \\
-            4e\left (\left (\frac{en}{k-2} \right )^{k-2}{k \choose 2}  \right ) &<2^{k \choose 2} \\
-            \left (2e{k \choose 2} \right )^{\frac{1}{k-2}}\cdot {\frac{en}{k-2}}&<2^{{k \choose 2}-\frac{1}{k-2}}=2^{\frac{k+1}{2}}\\
-            (1+o(1))\frac{en}{k-2}&<2^{\frac{k+1}{2}}
-        \end{align*}
-        So $$n<(1-o(1))\frac{k\sqrt{2}}{e}2^{k/2}$$
-        Thus $R(k)>(1-o(1))\frac{k\sqrt{2}}{e}2^{k/2}$
-    \end{proof}  
 \end{thm}
+\begin{proof}
+    Bad events: $B_k$ for $k\in \mathcal{K}$ where $\mathcal{K}$ is the collection of $k$-clique. \\
+    Then $\mathbb{P}(B_k)=2^{1-{n \choose k}}.$\\
+    If $K_1,K_2$ share any edges, set $B_{K_1}\sim B_{K_2}$ in dependency graph. Then $$D\leq {k \choose 2}{n \choose k-2}$$
+    Consequently 
+    \begin{align*}
+        epD&\leq e\cdot 2^{1-{n \choose k}}\left (2 {k \choose 2}{n \choose k-2}\right )<1 \\
+        4e\left (\left (\frac{en}{k-2} \right )^{k-2}{k \choose 2}  \right ) &<2^{k \choose 2} \\
+        \left (2e{k \choose 2} \right )^{\frac{1}{k-2}}\cdot {\frac{en}{k-2}}&<2^{{k \choose 2}-\frac{1}{k-2}}=2^{\frac{k+1}{2}}\\
+        (1+o(1))\frac{en}{k-2}&<2^{\frac{k+1}{2}}
+    \end{align*}
+    So $$n<(1-o(1))\frac{k\sqrt{2}}{e}2^{k/2}$$
+    Thus $R(k)>(1-o(1))\frac{k\sqrt{2}}{e}2^{k/2}$
+\end{proof}
 \begin{defn}
     Define $K_k^j$ as the complete $j$ uniform hypergraph on $n$ vertices with $k$ vertices
 \end{defn}
