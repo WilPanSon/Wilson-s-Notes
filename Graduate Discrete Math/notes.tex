@@ -153,10 +153,10 @@ Let this number be $m(k)$ then $m(1)=0, m(2)=3,m(3)\geq 7$
 \begin{thm}
     Consider complete graph $\mathcal{P}(X)$ where $|X|=n.$ \\$\mathcal{P}(X)$ has levels $${X \choose 0}, {X \choose 1},\cdots, {X \choose n}$$
     $\forall k<\frac{n}{2},$ there is an injection $$f_k:{X \choose k}\to {X \choose k+1}$$ such that $\forall S\in {X \choose k}, S\subseteq f_k(S)$
-    \begin{proof}
-        Consider bipartite graph $\left ({X \choose k}, {X \choose k+1} \right ),$ if $f\in {X \choose k}, g\in {X \choose k+1}$ then we define $f\sim g$ if $f\subseteq g.$ Then for some $S\subseteq {X \choose k}$ then $|\Gamma(S)|\geq \frac{|S|(n-k)}{k+1}.$ 
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Consider bipartite graph $\left ({X \choose k}, {X \choose k+1} \right ),$ if $f\in {X \choose k}, g\in {X \choose k+1}$ then we define $f\sim g$ if $f\subseteq g.$ Then for some $S\subseteq {X \choose k}$ then $|\Gamma(S)|\geq \frac{|S|(n-k)}{k+1}.$ 
+\end{proof}
 \begin{defn}
     For a sperner system is a hypergraph $\mathcal{H}$ that satisfy if $$\forall f,g\in \mathcal{H}, f\not \subseteq g$$
 \end{defn}
