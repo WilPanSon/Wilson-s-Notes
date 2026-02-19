@@ -958,9 +958,7 @@ f(y)\geq f(x^*)+\inner{0}{y-x^*}\implies 0\in \partial f(x^*)
         g_i=\nabla \ell (f_\theta(x_i),y_i) \text{ is unbiased for } \nabla R_n(\theta) \text{ if } i \sim \text{Unif} \{1,...,n\}
     .\]  
 \end{eg}
-\begin{defn}
-    Incremental Gradient Descent: We have access to $g_i$ unbiased for $\nabla R_n(\theta)$ then we can perform update \[
-    \theta^{t+1}\leftarrow \theta^t-\eta_t (\theta_t-)
-    .\] 
-\end{defn}
+\begin{thm}
+    Assume $f$ is convex, $||x_0-x^*||$
+\end{thm}
 \end{document}
