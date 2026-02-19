@@ -830,24 +830,64 @@ f(y)\geq f(x^*)+\inner{0}{y-x^*}\implies 0\in \partial f(x^*)
     .\] 
 \end{proof}
 \begin{eg}
-    Soft Thresholding: \[
-x^* = \underset{z \in \R^d}{\arg\min} \frac{1}{2}\|z - y\|_2^2 + \lambda\|z\|_1.
-\]
-We can conclude that
-\[
-    x^* = \begin{cases}
-        y & \text{if } \lambda = 0 \\
-        0 & \text{if } \lambda = \infty
-    \end{cases}.
-\]
-We have $0 \in x^* - y + \lambda \partial \|x^*\|_1$, which implies $0 \in x^* - y + \lambda \text{sign}(x^*)$. So
-\[
-x_j^* = \begin{cases}
-    y_j - \lambda & \text{if } y_j \ge \lambda \\
-    y_j + \lambda & \text{if } y_j \le -\lambda \\
-    0 & \text{otherwise}
-\end{cases}.
-\]
+    Soft Thresholding: Consider the optimization problem with an $L_2$ data fidelity term and an $L_1$ regularization term (Lasso):
+    \[
+        x^* = \underset{z \in \mathbb{R}^d}{\arg\min} \left( \frac{1}{2}\|z - y\|_2^2 + \lambda\|z\|_1 \right).
+    \]
+    Since the objective function is separable (a sum of terms for each component), we can solve for each coordinate $x_j^*$ independently. The problem reduces to finding scalar $x_j^*$ that minimizes:
+    \[
+        f(z_j) = \frac{1}{2}(z_j - y_j)^2 + \lambda |z_j|.
+    \]
+    The optimality condition for a convex function requires that 0 is in the subdifferential of the objective at the solution $x_j^*$:
+    \[
+        0 \in \partial \left( \frac{1}{2}(x_j^* - y_j)^2 + \lambda |x_j^*| \right).
+    \]
+    Taking the derivative of the quadratic term and the subdifferential of the absolute value, we get:
+    \[
+        0 \in (x_j^* - y_j) + \lambda \partial |x_j^*|.
+    \]
+    where the subdifferential $\partial |x|$ is defined as:
+    \[
+        \partial |x| = 
+        \begin{cases} 
+            \{1\} & \text{if } x > 0 \\
+            \{-1\} & \text{if } x < 0 \\
+            [-1, 1] & \text{if } x = 0
+        \end{cases}
+    \]
+    We analyze the three possible cases for the solution $x_j^*$:
+    
+    \begin{enumerate}
+        \item \textbf{Case 1 ($x_j^* > 0$):} The subgradient is $\{1\}$.
+        \[
+            x_j^* - y_j + \lambda = 0 \implies x_j^* = y_j - \lambda.
+        \]
+        For this to be consistent with our assumption $x_j^* > 0$, we must have $y_j - \lambda > 0$, or $y_j > \lambda$.
+    
+        \item \textbf{Case 2 ($x_j^* < 0$):} The subgradient is $\{-1\}$.
+        \[
+            x_j^* - y_j - \lambda = 0 \implies x_j^* = y_j + \lambda.
+        \]
+        For this to be consistent with $x_j^* < 0$, we must have $y_j + \lambda < 0$, or $y_j < -\lambda$.
+    
+        \item \textbf{Case 3 ($x_j^* = 0$):} The subgradient is the interval $[-1, 1]$.
+        The condition becomes $0 \in -y_j + \lambda [-1, 1]$, which means $y_j \in [-\lambda, \lambda]$.
+        This holds whenever $|y_j| \le \lambda$.
+    \end{enumerate}
+    
+    Combining these cases yields the closed-form \textbf{Soft Thresholding Operator}, denoted as $\mathcal{S}_\lambda(y)$:
+    \[
+        x_j^* = \mathcal{S}_\lambda(y_j) = 
+        \begin{cases} 
+            y_j - \lambda & \text{if } y_j > \lambda \\
+            y_j + \lambda & \text{if } y_j < -\lambda \\
+            0 & \text{if } |y_j| \le \lambda
+        \end{cases}
+    \]
+    Or more compactly using the sign function:
+    \[
+        x^* = \text{sign}(y) \max(|y| - \lambda, 0).
+    \]
 \end{eg}
 \begin{thm}
     Proximal Gradient Descent: Our objective is \[
