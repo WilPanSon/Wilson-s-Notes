@@ -95,27 +95,27 @@ A collection $\mathcal{H}$ of subsets of a vertex set $V$.
 Let this number be $m(k)$ then $m(1)=0, m(2)=3,m(3)\geq 7$
 \begin{thm}
     If $\mathcal{H}$ is a $3$-uniform hypergraph with less than $6$ edges then $\mathcal{H}$ is $2$-colorable
-    \begin{proof}
-        Using induction on $|V|$\\
-        (Base Case) For $n=6$, consider all balanced $2$-colorings of $V$ there are ${6 \choose 3}=20.$ Each hyperedge is incompatible with 2 of those colorings (namely those were the edges are 3 blue or 3 red). Thus, at least $20-12>0$ of these colorings can be proper.\\
-        (Induction Hypothesis) Suppose $n\geq 7$
-        \begin{claim}
-            There are 2 vertices $u$ and $v$ not in any common edge.
-        \end{claim}
-        \noindent Each edge connects ${3 \choose 2}=3$ pairs of vertices. There are ${7 \choose 2}=21$ pairs of vertices overall. So some pair of vertices is not connected as $21>18.$\\\\
-        Define $\mathcal{H}'$ by merging $u,v$ into $w$
-        \begin{claim}
-            $\mathcal{H}'$ is $3$-uniform 
-        \end{claim}
-        \noindent Because no edge contains both $u$ and $v$ the merging doesn't create a $2$ set and every edge is still has size $3.$\\\\
-        Additionally, $||\mathcal{H}'||\leq ||\mathcal{H}||\leq 6$ so by induction hypothesis $\mathcal{H}'$ is $2$-colorable. Giving both $u$ and $v$ the same color as $w$ and keeping the rest of the colors the same. \\
-
-        \noindent If an edge of $e$ of $\mathcal{H}$ avoids $\{u,v\}$ then it is properly colored in $\mathcal{H}'.$ If $e$ contains $u$ or $v$ then after merging it corresponds to an edge of $\mathcal{H}'$ containing $w.$ If $e$ is monochromatic in $\mathcal{H}$ then it would be monochromatic in $\mathcal{H}'.$ This would be a contradiction so edge is monochromatic in $\mathcal{H}$ and thus a proper coloring. 
-    \end{proof}
-    \begin{rmk}
-            Suppose it has $7$ edges and vertices. Consider the coloring $4$ red and $3$ blue. Then there are ${7 \choose 3}=35$ such colorings. If $\mathcal{H}$ is not $2$ colorable then there are ${3 \choose 3}+{4 \choose 3}=5$ excluded coloring for all distinct edges. There are $4$ forbidden configurations for any configurations that are not $2$ colorable $\mathcal{H}$ with $|\mathcal{H}|=7$ on $7$ vertices
-    \end{rmk}
 \end{thm}
+\begin{proof}
+    Using induction on $|V|$\\
+    (Base Case) For $n=6$, consider all balanced $2$-colorings of $V$ there are ${6 \choose 3}=20.$ Each hyperedge is incompatible with 2 of those colorings (namely those were the edges are 3 blue or 3 red). Thus, at least $20-12>0$ of these colorings can be proper.\\
+    (Induction Hypothesis) Suppose $n\geq 7$
+    \begin{claim}
+        There are 2 vertices $u$ and $v$ not in any common edge.
+    \end{claim}
+    \noindent Each edge connects ${3 \choose 2}=3$ pairs of vertices. There are ${7 \choose 2}=21$ pairs of vertices overall. So some pair of vertices is not connected as $21>18.$\\\\
+    Define $\mathcal{H}'$ by merging $u,v$ into $w$
+    \begin{claim}
+        $\mathcal{H}'$ is $3$-uniform 
+    \end{claim}
+    \noindent Because no edge contains both $u$ and $v$ the merging doesn't create a $2$ set and every edge is still has size $3.$\\\\
+    Additionally, $||\mathcal{H}'||\leq ||\mathcal{H}||\leq 6$ so by induction hypothesis $\mathcal{H}'$ is $2$-colorable. Giving both $u$ and $v$ the same color as $w$ and keeping the rest of the colors the same. \\
+
+    \noindent If an edge of $e$ of $\mathcal{H}$ avoids $\{u,v\}$ then it is properly colored in $\mathcal{H}'.$ If $e$ contains $u$ or $v$ then after merging it corresponds to an edge of $\mathcal{H}'$ containing $w.$ If $e$ is monochromatic in $\mathcal{H}$ then it would be monochromatic in $\mathcal{H}'.$ This would be a contradiction so edge is monochromatic in $\mathcal{H}$ and thus a proper coloring. 
+\end{proof}
+\begin{rmk}
+        Suppose it has $7$ edges and vertices. Consider the coloring $4$ red and $3$ blue. Then there are ${7 \choose 3}=35$ such colorings. If $\mathcal{H}$ is not $2$ colorable then there are ${3 \choose 3}+{4 \choose 3}=5$ excluded coloring for all distinct edges. There are $4$ forbidden configurations for any configurations that are not $2$ colorable $\mathcal{H}$ with $|\mathcal{H}|=7$ on $7$ vertices
+\end{rmk}
 \section{Probabilistic Method}
 \begin{thm}
     $m(k)\geq2^{k-1}$
