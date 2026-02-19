@@ -460,20 +460,20 @@ Let $X=h+(n-h)\frac{-p}{1-p}$
 \end{proof}
 \begin{thm}
     Local Lemma (General Version) Suppose $\mathcal{B}$ is a collection of "bad" events with some dependency graph. Suppose we can assign real number $0<X_A<1$ to each $A\in B$ such that $$\mathbb{P}(A)\leq X_A\prod_{B\sim A}(1-X_B).$$ Then $$\mathbb{P}\left (\bigcap_{B\in \mathcal{B}}\overline{B} \right )\geq \prod_{B\in \mathcal{B}}(1-X_B)> 0$$
-    \begin{proof}
-        We can prove it by induction on $|S|$ that if $B_1,...,B_t,B_{t+1},...,B_S\in \mathcal{B}$ such that $A\sim B_1,...,B_t$ and $A\not \sim B_{t+1},...,B_{S}$ to show $$\mathbb{P}\left (A | \bigcap_{i=1}^S \overline{B_i}\right )\leq X_A$$ 
-        We have \begin{align*}
-            \mathbb{P}\left (A | \bigcap_{i=1}^t \overline{B_i}\cap \bigcap_{i=t+1}^T \overline{B_i}  \right ) &=\frac{\mathbb{P}\left (A \cap \bigcap_{i=1}^T \overline{B_i} | \bigcap_{i=t+1}^S \overline{B_i} \right )}{\mathbb{P}(\bigcap_{i=1}^t \overline{B_i} | \bigcap_{i=t+1}^S \overline{B_i})}\\
-            &\leq \frac{\mathbb{P}\left (A| \bigcap_{i=t+1}^S \overline{B_i} \right )}{\mathbb{P}(\bigcap_{i=1}^t \overline{B_i} | \bigcap_{i=t+1}^S \overline{B_i})}\\
-            &\leq \frac{X_A\prod_{B\sim A}(1-X_B)}{\prod_{i=1}^t(1-X_B)}\\
-            &\leq X_A
-        \end{align*}
-        Thus we're done with induction.
-        Using the statement \begin{align*}
-            \mathbb{P}\left (\bigcap_{i=1}^S \overline{B_i}\right )=\mathbb{P}\left ( \overline{B_1} |\overline{B_2}\right )\times \cdots \times \mathbb{P}\left ( \overline{B_n} | \bigcap_{i=1}^S \overline{B_i}\right ) \geq \prod_{i=1}^n (1-X_{B_i})>0   
-        \end{align*}
-    \end{proof}
  \end{thm}
+ \begin{proof}
+    We can prove it by induction on $|S|$ that if $B_1,...,B_t,B_{t+1},...,B_S\in \mathcal{B}$ such that $A\sim B_1,...,B_t$ and $A\not \sim B_{t+1},...,B_{S}$ to show $$\mathbb{P}\left (A | \bigcap_{i=1}^S \overline{B_i}\right )\leq X_A$$ 
+    We have \begin{align*}
+        \mathbb{P}\left (A | \bigcap_{i=1}^t \overline{B_i}\cap \bigcap_{i=t+1}^T \overline{B_i}  \right ) &=\frac{\mathbb{P}\left (A \cap \bigcap_{i=1}^T \overline{B_i} | \bigcap_{i=t+1}^S \overline{B_i} \right )}{\mathbb{P}(\bigcap_{i=1}^t \overline{B_i} | \bigcap_{i=t+1}^S \overline{B_i})}\\
+        &\leq \frac{\mathbb{P}\left (A| \bigcap_{i=t+1}^S \overline{B_i} \right )}{\mathbb{P}(\bigcap_{i=1}^t \overline{B_i} | \bigcap_{i=t+1}^S \overline{B_i})}\\
+        &\leq \frac{X_A\prod_{B\sim A}(1-X_B)}{\prod_{i=1}^t(1-X_B)}\\
+        &\leq X_A
+    \end{align*}
+    Thus we're done with induction.
+    Using the statement \begin{align*}
+        \mathbb{P}\left (\bigcap_{i=1}^S \overline{B_i}\right )=\mathbb{P}\left ( \overline{B_1} |\overline{B_2}\right )\times \cdots \times \mathbb{P}\left ( \overline{B_n} | \bigcap_{i=1}^S \overline{B_i}\right ) \geq \prod_{i=1}^n (1-X_{B_i})>0   
+    \end{align*}
+\end{proof}
  \begin{thm}
      Axel's Theorem: \\ $\forall \epsilon > N_\epsilon$ and an infinite binary sequence such that $\forall n>N_\epsilon,$ any 2 consecutive block of length $n$ differ in $\geq \left (\frac{1}{2}-\epsilon \right )n$ places. 
      \begin{proof}
