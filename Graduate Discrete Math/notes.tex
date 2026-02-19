@@ -444,20 +444,20 @@ Let $X=h+(n-h)\frac{-p}{1-p}$
 \end{thm}
 \begin{thm}
     Lovasz Local Lemma: Given a collection $\mathcal{B}=\{B_1,B_2,...,B_n\}$ of bad events. If $B_1,...,B_n$ have a dependency graph of max degree $d$ and $4pd\leq 1$ where $\mathbb{P}(B_i)\leq p$ then $$\mathbb{P}\left (\bigcap \overline{B_i} \right )>0.$$
-    \begin{proof}
-        We'll prove the statement by induction on $k=|S|$ for $S\subseteq [n].$ Assume $4pd\leq 1$ then we want to show $\forall i, \mathbb{P}\left (B_i | \bigcap _{j\in S}\overline{B_j} \right ) \leq 2p.$\\\\
-        Let $S=T\cup U$ where $T=\{j\in S | j\sim i\}.$\\
-        \begin{align*}
-            \mathbb{P}\left (B_i | \bigcap_{j\in T}\overline{B_j} \cap \bigcap_{j\in U}\overline{B_j}\right )&=\frac{\mathbb{P}\left (B_i  \cap \bigcap_{j\in T}\overline{B_j} | \bigcap_{j\in U}\overline{B_j}\right )}{\mathbb{P}\left (\bigcap_{j\in T}\overline{B_j}|\cap_{j\in U}\overline{B_j}\right )}\\
-            &\leq \frac{p}{1-\mathbb{P}\left (\bigcup_{j\in T}B_j|\cap_{j\in U}\overline{B_j}\right )}\\
-            &\leq \frac{p}{1-\sum_{j \in T}\mathbb{P}(B_j | \bigcap_{k\in U}\overline{B_k})}\\
-            &\leq \frac{p}{1-2dp} \tag{Induction Hypothesis}\\
-            &\leq 2p \tag{Assumption}
-        \end{align*}
-        We're done with the induction. \\
-        Then $$\mathbb{P}\left (\bigcap_{i=1}^n\overline{B_i} \right)=\mathbb{P}\left (\overline{B_n}|\bigcap _{i=1}^{n-1}\overline{B_i} \right )\cdot \mathbb{P}\left (\bigcap _{i=1}^{n-1}\overline{B_i} \right )\geq \frac{(1-2p)^n}{p}>0   $$
-    \end{proof}
 \end{thm}
+\begin{proof}
+    We'll prove the statement by induction on $k=|S|$ for $S\subseteq [n].$ Assume $4pd\leq 1$ then we want to show $\forall i, \mathbb{P}\left (B_i | \bigcap _{j\in S}\overline{B_j} \right ) \leq 2p.$\\\\
+    Let $S=T\cup U$ where $T=\{j\in S | j\sim i\}.$\\
+    \begin{align*}
+        \mathbb{P}\left (B_i | \bigcap_{j\in T}\overline{B_j} \cap \bigcap_{j\in U}\overline{B_j}\right )&=\frac{\mathbb{P}\left (B_i  \cap \bigcap_{j\in T}\overline{B_j} | \bigcap_{j\in U}\overline{B_j}\right )}{\mathbb{P}\left (\bigcap_{j\in T}\overline{B_j}|\cap_{j\in U}\overline{B_j}\right )}\\
+        &\leq \frac{p}{1-\mathbb{P}\left (\bigcup_{j\in T}B_j|\cap_{j\in U}\overline{B_j}\right )}\\
+        &\leq \frac{p}{1-\sum_{j \in T}\mathbb{P}(B_j | \bigcap_{k\in U}\overline{B_k})}\\
+        &\leq \frac{p}{1-2dp} \tag{Induction Hypothesis}\\
+        &\leq 2p \tag{Assumption}
+    \end{align*}
+    We're done with the induction. \\
+    Then $$\mathbb{P}\left (\bigcap_{i=1}^n\overline{B_i} \right)=\mathbb{P}\left (\overline{B_n}|\bigcap _{i=1}^{n-1}\overline{B_i} \right )\cdot \mathbb{P}\left (\bigcap _{i=1}^{n-1}\overline{B_i} \right )\geq \frac{(1-2p)^n}{p}>0   $$
+\end{proof}
 \begin{thm}
     Local Lemma (General Version) Suppose $\mathcal{B}$ is a collection of "bad" events with some dependency graph. Suppose we can assign real number $0<X_A<1$ to each $A\in B$ such that $$\mathbb{P}(A)\leq X_A\prod_{B\sim A}(1-X_B).$$ Then $$\mathbb{P}\left (\bigcap_{B\in \mathcal{B}}\overline{B} \right )\geq \prod_{B\in \mathcal{B}}(1-X_B)> 0$$
     \begin{proof}
