@@ -162,24 +162,24 @@ Before calculating the exact probability, let us try to bound the failure probab
 
 \begin{lem}
     Consider a variant where each prisoner is allowed to open 75 boxes. Using the Cycle Algorithm, the probability of failure is at most $1/3$.
-    \begin{proof}
-        Let $X$ be the number of prisoners who lose. We write \[
-        X = \sum_{i=1}^{100} I_i \text{ where } I_i=\begin{cases}
-            1 & \text{if prisoner $i$ loses} \\
-            0 & \text{otherwise} 
-        \end{cases}
-        .\]
-        First, observe that for any prisoner $i$, the probability that their specific number lies in the 25 unopened boxes is exactly $25/100 = 1/4$. Thus, $\mathbb{E}[I_i] = 1/4$. By linearity of expectation:
-        \[
-        \mathbb{E}[X] = \sum_{i=1}^{100} \mathbb{E}[I_i] = 100 \cdot \frac{1}{4} = 25.
-        \]\\
-        Now, observe the Cycle Algorithm: If prisoner $i$ loses, they must be part of a cycle of length greater than 75. As cycles are disjoint, anyone else with a number in that same cycle will also lose. Therefore, if anyone loses like when $X>0$, then strictly more than 75 people must lose so $X>75$.\\
-        Using Markov's Inequality with $k=3$:
-        \[
-        \mathbb{P}[\text{Non-victory}] = \mathbb{P}[X > 0] = \mathbb{P}[X \geq 76] \leq \mathbb{P}[X \geq 75] \leq \frac{\mathbb{E}[X]}{75} = \frac{25}{75} = \frac{1}{3}.
-        \]
-    \end{proof}
 \end{lem}
+\begin{proof}
+    Let $X$ be the number of prisoners who lose. We write \[
+    X = \sum_{i=1}^{100} I_i \text{ where } I_i=\begin{cases}
+        1 & \text{if prisoner $i$ loses} \\
+        0 & \text{otherwise} 
+    \end{cases}
+    .\]
+    First, observe that for any prisoner $i$, the probability that their specific number lies in the 25 unopened boxes is exactly $25/100 = 1/4$. Thus, $\mathbb{E}[I_i] = 1/4$. By linearity of expectation:
+    \[
+    \mathbb{E}[X] = \sum_{i=1}^{100} \mathbb{E}[I_i] = 100 \cdot \frac{1}{4} = 25.
+    \]\\
+    Now, observe the Cycle Algorithm: If prisoner $i$ loses, they must be part of a cycle of length greater than 75. As cycles are disjoint, anyone else with a number in that same cycle will also lose. Therefore, if anyone loses like when $X>0$, then strictly more than 75 people must lose so $X>75$.\\
+    Using Markov's Inequality with $k=3$:
+    \[
+    \mathbb{P}[\text{Non-victory}] = \mathbb{P}[X > 0] = \mathbb{P}[X \geq 76] \leq \mathbb{P}[X \geq 75] \leq \frac{\mathbb{E}[X]}{75} = \frac{25}{75} = \frac{1}{3}.
+    \]
+\end{proof}
 \subsubsection{Exact Probability Calculation}
 
 \begin{thm}
