@@ -269,26 +269,26 @@ Letting $f_0=\{i-k+1,...,i\}$ and $f_1=\{i,...,i+k-1\}$ then $\tau(f_0)=f_0$ and
 \begin{thm}
     Erdos Chromatic Number Girth Theorem\\
     $\forall k\in \mathbb{Z}^+, \exists $ graph of girth greater than or equal to $k$ and chromatic number $k.$
-    \begin{proof}
-        Idea: Choose random graph $G\sim G(n,p).$ To show a graph satisfies both properties we need the the number of short cycles (length less than $k$) to be 0 and there are no independent set of size no more than $\frac{n}{k}.$ \\
-        For the first statement let $X=\#$cycles with length $\leq k$ then $$\mathbb{E}[X]=\sum_C\mathbb{E}[I_c]=\sum_{j=3}^{k}\sum_{|C|=j}\mathbb{E}[I_C]=\sum_{j=3}^k {n \choose j}\frac{(j-1)!}{2}p^j\leq \sum_{j=3}^kn^jp^j\leq (np)^{k+1}$$
-        To have $\mathbb{E}[X]=O(1),$ we need $p=O\left (\frac{1}{n}\right )$ \\\\
-        We want no independent set of size $a\approx \frac{n}{k}$ so
-        \begin{align*}
-            \mathbb{P}[\alpha(G_{n,p})&\geq a]\leq {n \choose a} (1-p)^{a \choose 2}\\
-            &\leq n^a(1-p)^{a(a-1)/2}\\
-            &\leq n^ae^{-pa(a-1)/2}\\
-            &=\left (ne^{-p(a-1)/2} \right )^a\\
-            &=\left (e^{\ln(n)-p(a-1)/2} \right )^a 
-        \end{align*}
-        Not possible since we need $p\geq 5\ln(n)/a$ but $p=O\left (\frac{1}{n} \right )$ from previous condition.\\\\
-        To fix this issue consider an alteration.
-        If $p=\frac{n^\epsilon}{n}$ and $0<\epsilon<\frac{1}{k}$ then we have $\mathbb{P}(\alpha(G_{n,p})\geq \frac{n}{2k})\to 0$ since $\frac{n^\epsilon}{n}>>\frac{5\ln(n)-2k}{n}.$\\
-        To fix the short cycle issue,$$\mathbb{E}[X]=\sum_{j=3}^{k}(np)^j\leq (k-3)(np)^k\leq kn^{\epsilon k}$$
-        By Markov's inequality $$\mathbb{P}\left (X\geq \frac{n}{2}\right )\leq \frac{kn^{\epsilon k}}{n/2}$$
-        Choose $n$ large enough such that both probabilities are greater than $\frac{1}{2}.$ Then there exists a graph on $n$ vertices with no independent set of size $\frac{n}{2k}$ and less than $\frac{n}{2}$ short cycles. Delete an vertex from each short cycle to make a graph $G'$ with $\frac{n}{2}$ vertices, no short cycles and no independent set of size $\frac{n}{2k}.$ So $$\mathcal{X}(G')=\frac{n'}{\alpha(G')}\geq \frac{\frac{n}{2}}{\frac{n}{2k}}\geq k.$$
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Idea: Choose random graph $G\sim G(n,p).$ To show a graph satisfies both properties we need the the number of short cycles (length less than $k$) to be 0 and there are no independent set of size no more than $\frac{n}{k}.$ \\
+    For the first statement let $X=\#$cycles with length $\leq k$ then $$\mathbb{E}[X]=\sum_C\mathbb{E}[I_c]=\sum_{j=3}^{k}\sum_{|C|=j}\mathbb{E}[I_C]=\sum_{j=3}^k {n \choose j}\frac{(j-1)!}{2}p^j\leq \sum_{j=3}^kn^jp^j\leq (np)^{k+1}$$
+    To have $\mathbb{E}[X]=O(1),$ we need $p=O\left (\frac{1}{n}\right )$ \\\\
+    We want no independent set of size $a\approx \frac{n}{k}$ so
+    \begin{align*}
+        \mathbb{P}[\alpha(G_{n,p})&\geq a]\leq {n \choose a} (1-p)^{a \choose 2}\\
+        &\leq n^a(1-p)^{a(a-1)/2}\\
+        &\leq n^ae^{-pa(a-1)/2}\\
+        &=\left (ne^{-p(a-1)/2} \right )^a\\
+        &=\left (e^{\ln(n)-p(a-1)/2} \right )^a 
+    \end{align*}
+    Not possible since we need $p\geq 5\ln(n)/a$ but $p=O\left (\frac{1}{n} \right )$ from previous condition.\\\\
+    To fix this issue consider an alteration.
+    If $p=\frac{n^\epsilon}{n}$ and $0<\epsilon<\frac{1}{k}$ then we have $\mathbb{P}(\alpha(G_{n,p})\geq \frac{n}{2k})\to 0$ since $\frac{n^\epsilon}{n}>>\frac{5\ln(n)-2k}{n}.$\\
+    To fix the short cycle issue,$$\mathbb{E}[X]=\sum_{j=3}^{k}(np)^j\leq (k-3)(np)^k\leq kn^{\epsilon k}$$
+    By Markov's inequality $$\mathbb{P}\left (X\geq \frac{n}{2}\right )\leq \frac{kn^{\epsilon k}}{n/2}$$
+    Choose $n$ large enough such that both probabilities are greater than $\frac{1}{2}.$ Then there exists a graph on $n$ vertices with no independent set of size $\frac{n}{2k}$ and less than $\frac{n}{2}$ short cycles. Delete an vertex from each short cycle to make a graph $G'$ with $\frac{n}{2}$ vertices, no short cycles and no independent set of size $\frac{n}{2k}.$ So $$\mathcal{X}(G')=\frac{n'}{\alpha(G')}\geq \frac{\frac{n}{2}}{\frac{n}{2k}}\geq k.$$
+\end{proof}
 \noindent When does $G_{n,p}$ have triangles? \\
 If $X=\#$triangles then $$\mathbb{E}[X]=\sum_{\text{Triangle }T\in K_n}E[I_T]={n \choose 3}p^3\sim n^3p^3/6=O(1)$$ if $p=O \left ( \frac{1}{n} \right )$\\
 Is $G_{n,p}$ connected for $p=\frac{c}{n}$?\\
