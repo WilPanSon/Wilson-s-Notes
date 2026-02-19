@@ -261,15 +261,15 @@ Letting $f_0=\{i-k+1,...,i\}$ and $f_1=\{i,...,i+k-1\}$ then $\tau(f_0)=f_0$ and
 \end{proof}
 \begin{thm}
     Given a graph, $G$ on $n$ vertices and $\frac{nd}{2}$ edges, $d\geq 1.$ Then $\alpha(G)\geq \frac{n}{2d}.$
-    \begin{proof}
-        Let $S\subseteq V$ be a random subset defined by $\mathbb{P}[v\in S]=p,$ $p$ to be determined. Let $X=|S|$ and $Y=\mathbb{E}[G_{|S}].$ For each $e=\{i,j\}\in E$, let $Y_e$ be indicator random variable for the event $i,j\in S$ so that $$Y=\sum_{e\in E}Y_e$$ For any such $e$, $$\mathbb{E}[Y_e]=\mathbb{P}[i,j\in S]=p^2$$
-        $$\mathbb{E}[Y]=\frac{nd}{2}p^2$$
-        Clearly, $\mathbb{E}[X]=np$ so $\mathbb{E}[X-Y]=np-\frac{nd}{2}p^2.$ \\
-        Setting $p=\frac{1}{d}$ then $\mathbb{E}[X-Y]=\frac{n}{2d}.$ \\
-        So there exist a $S$ such that the number of vertices minus the number of edges is at least $\frac{n}{2d}.$\\
-        Create $S^*$ from $S$ by deleting one vertex from each edge in $S$ and delete it and this leaves $S^*$ with at least $\frac{n}{2d}$ vertices. With all edges destroyed we leave $S^*$ an independent set.
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Let $S\subseteq V$ be a random subset defined by $\mathbb{P}[v\in S]=p,$ $p$ to be determined. Let $X=|S|$ and $Y=\mathbb{E}[G_{|S}].$ For each $e=\{i,j\}\in E$, let $Y_e$ be indicator random variable for the event $i,j\in S$ so that $$Y=\sum_{e\in E}Y_e$$ For any such $e$, $$\mathbb{E}[Y_e]=\mathbb{P}[i,j\in S]=p^2$$
+    $$\mathbb{E}[Y]=\frac{nd}{2}p^2$$
+    Clearly, $\mathbb{E}[X]=np$ so $\mathbb{E}[X-Y]=np-\frac{nd}{2}p^2.$ \\
+    Setting $p=\frac{1}{d}$ then $\mathbb{E}[X-Y]=\frac{n}{2d}.$ \\
+    So there exist a $S$ such that the number of vertices minus the number of edges is at least $\frac{n}{2d}.$\\
+    Create $S^*$ from $S$ by deleting one vertex from each edge in $S$ and delete it and this leaves $S^*$ with at least $\frac{n}{2d}$ vertices. With all edges destroyed we leave $S^*$ an independent set.
+\end{proof}
 \begin{thm}
     Erdos Chromatic Number Girth Theorem\\
     $\forall k\in \mathbb{Z}^+, \exists $ graph of girth greater than or equal to $k$ and chromatic number $k.$
