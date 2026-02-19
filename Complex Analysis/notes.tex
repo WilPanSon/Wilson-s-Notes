@@ -960,12 +960,13 @@ We have \[
     Cauchy's Integral Formula: Let $\Omega$ be open $f:\Omega\to \C$ be holomorphic. Let $\overline{D}$ be open in $\Omega$ be a disk then \[
     f(z)=\frac{1}{2\pi i}\int_{\partial D}\frac{f(\zeta)}{\zeta-z}d\zeta
     .\] 
-    \begin{proof}
-        Fix $z\in D_1$, let $\gamma_{\epsilon, \delta}$ be a key-hole contour but we omit $z.$ Then \[
-        \int_{\gamma_{\epsilon, \delta}}\frac{f(\zeta)}{\zeta - z}d\zeta=0
-        .\] 
-        \begin{center}
-        \begin{tikzpicture}[>=Stealth, thick]
+\end{thm}
+\begin{proof}
+    Fix $z\in D_1$, let $\gamma_{\epsilon, \delta}$ be a key-hole contour but we omit $z.$ Then \[
+    \int_{\gamma_{\epsilon, \delta}}\frac{f(\zeta)}{\zeta - z}d\zeta=0
+    .\] 
+    \begin{center}
+    \begin{tikzpicture}[>=Stealth, thick]
             % Define coordinates and parameters
             \coordinate (O) at (0,0);       % Center of the domain D
             \coordinate (Z) at (1, 0.5);    % The fixed point z
