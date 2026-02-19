@@ -182,17 +182,17 @@ Let this number be $m(k)$ then $m(1)=0, m(2)=3,m(3)\geq 7$
 \end{defn}
 \begin{thm}
     Let $n=|X|$ then $$\frac{|\mathcal{H}|}{{n \choose r}}\leq \frac{|\partial \mathcal{H}|}{{n \choose r-1}}$$ with equality only if $\mathcal{H}$ is empty on ${X \choose r}$
-    \begin{proof}
-        Suppose $\mathcal{\HG}$ is a sperner system, not all on one level.\\
-        Write $\HG_i=\HG\cap {X \choose i}$ then $H=\HG_i\cup \HG_{i+1}\cup\cdots\cup \HG_j$ where $i<j$ and $\HG_i$ nonempty.\\
-        We can instead of $\HG_j$ we can write $\partial \HG_j$ as $\partial \HG_j\subseteq \HG_j$\\
-        Suppose $\HG$ maximizes the sum $\sum_{f\in \HG}\frac{1}{{n \choose |f|}}$ among all sperner graphs. \\
-        Let $S\in \partial \HG$ and $T\subseteq \HG$. Define a bipartite graph from $S\to T$ and edges if $S\subseteq T.$ \\
-        For $T\in \HG,deg(T)=r$ for $S\in \partial \HG,deg(S)=n-(r-1).$\\ 
-        So $|\HG|\cdot r=b\leq |\partial \HG|\cdot(n-r+1)$.\\
-        Then $|\HG|\cdot r {n \choose r}\leq |\partial \HG|\cdot(n-r+1) {n \choose r}\implies \frac{|\HG|}{{n \choose r}}\leq \frac{|\partial \HG}{{n \choose r-1}}$ 
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Suppose $\mathcal{\HG}$ is a sperner system, not all on one level.\\
+    Write $\HG_i=\HG\cap {X \choose i}$ then $H=\HG_i\cup \HG_{i+1}\cup\cdots\cup \HG_j$ where $i<j$ and $\HG_i$ nonempty.\\
+    We can instead of $\HG_j$ we can write $\partial \HG_j$ as $\partial \HG_j\subseteq \HG_j$\\
+    Suppose $\HG$ maximizes the sum $\sum_{f\in \HG}\frac{1}{{n \choose |f|}}$ among all sperner graphs. \\
+    Let $S\in \partial \HG$ and $T\subseteq \HG$. Define a bipartite graph from $S\to T$ and edges if $S\subseteq T.$ \\
+    For $T\in \HG,deg(T)=r$ for $S\in \partial \HG,deg(S)=n-(r-1).$\\ 
+    So $|\HG|\cdot r=b\leq |\partial \HG|\cdot(n-r+1)$.\\
+    Then $|\HG|\cdot r {n \choose r}\leq |\partial \HG|\cdot(n-r+1) {n \choose r}\implies \frac{|\HG|}{{n \choose r}}\leq \frac{|\partial \HG}{{n \choose r-1}}$ 
+\end{proof}
 \begin{defn}
     An intersecting hypergraph has any $2$ hyperedges intersect.
 \end{defn}
