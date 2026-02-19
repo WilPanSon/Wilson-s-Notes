@@ -400,14 +400,14 @@ Let $X=h+(n-h)\frac{-p}{1-p}$
 \begin{thm}
     Let $\zeta_1,...,\zeta_n$ be random variable with $\mathbb{E}(\zeta_i)=0$ and $|\zeta_i|\leq 1.$
     $$\mathbb{E}(e^{t\sum\zeta_i})\leq \left (\frac{e^t+e^{-t}}{2} \right )^n$$
-    \begin{proof}
+\end{thm}
+\begin{proof}
         
     $$\mathbb{E}(e^{t\sum\zeta_i})= \mathbb{E}\left (\prod_{i=1}^n e^{t\zeta_i} \right )= \mathbb{E}\left (\prod_{i=1}^{n-1} e^{t\zeta_i}\mathbb{E}\left (e^{t\zeta_n } | \prod_{i=1}^{n-1}e^{t\zeta_i}\right )  \right )$$
     We know want to upper bound $\mathbb{E}\left (e^{t\zeta_n } | \prod_{i=1}^{n-1}e^{t\zeta_i}\right ).$\\
     By convexity, $e^{t\zeta_i}\leq h(\zeta_i)=\frac{1}{2}\left [(1-\zeta_i)e^{-t}+(1+\zeta_i)e^t\right ]\implies \mathbb{E}\left [e^{t\zeta_i} \right ]\leq \frac{e^t+e^{-t}}{2}$
     $$\mathbb{E}\left (e^{t\zeta_n } | \prod_{i=1}^{n-1}e^{t\zeta_i}\right )\leq \left ( \frac{e^t+e^{-t}}{2}\right ) \mathbb{E}\left (\prod_{i=1}^{n-1}e^{t\zeta_i} \right )\leq \left (\frac{e^t+e^{-t}}{2} \right )^n $$
     \end{proof}
-\end{thm}
 \begin{defn}
     Random variables $X_0,X_1,...$ is a martingale if it satisfies the following properties
     \begin{enumerate}
