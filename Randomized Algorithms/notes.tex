@@ -224,18 +224,18 @@ Before calculating the exact probability, let us try to bound the failure probab
 \end{proof}
 \begin{lem}
     The Cycle Algorithm achieves victory in Game 2 if and only if there are no cycles of length greater than 50.
-    \begin{proof}
-        Consider when there are no cycles of length $>50$, the Cycle Algorithm wins Game 1, and since Game 2 provides more information as boxes stay opened, it also wins Game 2.
-        Conversely, suppose there is a cycle of length $>50$. The first prisoner in that cycle to enter the room will be forced to open the boxes in that cycle, since the boxes were closed before they entered or if open, did not contain their number, they must follow the cycle. They will run out of their 50 openings before finding their number. Thus, the team fails. Therefore, the performance of the Cycle Algorithm is identical in Game 1 and Game 2.
-    \end{proof}
 \end{lem}
+\begin{proof}
+    Consider when there are no cycles of length $>50$, the Cycle Algorithm wins Game 1, and since Game 2 provides more information as boxes stay opened, it also wins Game 2.
+    Conversely, suppose there is a cycle of length $>50$. The first prisoner in that cycle to enter the room will be forced to open the boxes in that cycle, since the boxes were closed before they entered or if open, did not contain their number, they must follow the cycle. They will run out of their 50 openings before finding their number. Thus, the team fails. Therefore, the performance of the Cycle Algorithm is identical in Game 1 and Game 2.
+\end{proof}
 \begin{lem}
     In Game 2, all strategies yield the same probability of victory.
-    \begin{proof}
-        In Game 2, the boxes remain open, this means the decision of which box to open next depends on the set of boxes currently revealed. However, since the permutation inside the boxes is chosen uniformly, the values hidden in the unopened boxes are a random permutation of the remaining numbers.\\ 
-        Consequently, the probability that the \emph{next} box opened contains a specific required number depends only on the number of boxes remaining, not on which specific box is chosen. Regardless of the strategy used, the probability that the union of opened boxes contains the set of all prisoners' numbers is not changed.
-    \end{proof}
 \end{lem}
+\begin{proof}
+    In Game 2, the boxes remain open, this means the decision of which box to open next depends on the set of boxes currently revealed. However, since the permutation inside the boxes is chosen uniformly, the values hidden in the unopened boxes are a random permutation of the remaining numbers.\\ 
+    Consequently, the probability that the \emph{next} box opened contains a specific required number depends only on the number of boxes remaining, not on which specific box is chosen. Regardless of the strategy used, the probability that the union of opened boxes contains the set of all prisoners' numbers is not changed.
+\end{proof}
 \noindent \textbf{Conclusion of Optimality:}
 We have established the following chain of inequalities:
 \[
