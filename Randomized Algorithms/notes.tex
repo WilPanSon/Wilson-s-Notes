@@ -184,44 +184,44 @@ Before calculating the exact probability, let us try to bound the failure probab
 
 \begin{thm}
     The Cycle Algorithm achieves a victory probability of $\mathbb{P}[\text{Victory}] \approx 0.31$.
-    \begin{proof}
-        The prisoners fail if and only if there exists a cycle of length $\ell > 50$. Since the sum of cycle lengths is 100, there can be at most one cycle of length greater than 50. Thus, the events of having a cycle of length $\ell$ (for $\ell > 50$) are mutually exclusive.
-        \[
-        \mathbb{P}[\text{Non-victory}] = \mathbb{P}[\exists \text{ cycle of length } > 50] = \sum_{\ell=51}^{100} \mathbb{P}[\exists \text{ cycle of length } \ell].
-        \]
-        To calculate the number of permutations of $N=100$ elements that contain a cycle of length exactly $\ell$.
-        \begin{enumerate}
-            \item Choose $\ell$ elements to be in the cycle: $\binom{N}{\ell}$ ways
-            \item Arrange these $\ell$ elements into a cycle: $(\ell-1)!$ ways
-            \item Permute the remaining $N-\ell$ elements arbitrarily: $(N-\ell)!$ ways
-        \end{enumerate}
-        The total number of such permutations is:
-        \[
-        \binom{N}{\ell} \cdot (\ell - 1)! \cdot (N - \ell)! = \frac{N!}{\ell!(N-\ell)!} (\ell - 1)! (N - \ell)! = \frac{N!}{\ell}.
-        \]
-        The probability that a random permutation contains a cycle of length $\ell$ is therefore:
-        \[
-         \frac{N! / \ell}{N!} = \frac{1}{\ell}.
-        \]
-        Summing these probabilities:
-        \[
-         \mathbb{P}[\text{Non-victory}] = \sum_{\ell=51}^{100} \frac{1}{\ell} = H_{100} - H_{50} \approx \ln(100) - \ln(50) = \ln(2) \approx 0.69.
-        \]
-        Thus, the probability of victory is $1 - 0.69 \approx 0.31$.
-    \end{proof}
 \end{thm}
+\begin{proof}
+    The prisoners fail if and only if there exists a cycle of length $\ell > 50$. Since the sum of cycle lengths is 100, there can be at most one cycle of length greater than 50. Thus, the events of having a cycle of length $\ell$ (for $\ell > 50$) are mutually exclusive.
+    \[
+    \mathbb{P}[\text{Non-victory}] = \mathbb{P}[\exists \text{ cycle of length } > 50] = \sum_{\ell=51}^{100} \mathbb{P}[\exists \text{ cycle of length } \ell].
+    \]
+    To calculate the number of permutations of $N=100$ elements that contain a cycle of length exactly $\ell$.
+    \begin{enumerate}
+        \item Choose $\ell$ elements to be in the cycle: $\binom{N}{\ell}$ ways
+        \item Arrange these $\ell$ elements into a cycle: $(\ell-1)!$ ways
+        \item Permute the remaining $N-\ell$ elements arbitrarily: $(N-\ell)!$ ways
+    \end{enumerate}
+    The total number of such permutations is:
+    \[
+    \binom{N}{\ell} \cdot (\ell - 1)! \cdot (N - \ell)! = \frac{N!}{\ell!(N-\ell)!} (\ell - 1)! (N - \ell)! = \frac{N!}{\ell}.
+    \]
+    The probability that a random permutation contains a cycle of length $\ell$ is therefore:
+    \[
+     \frac{N! / \ell}{N!} = \frac{1}{\ell}.
+    \]
+    Summing these probabilities:
+    \[
+     \mathbb{P}[\text{Non-victory}] = \sum_{\ell=51}^{100} \frac{1}{\ell} = H_{100} - H_{50} \approx \ln(100) - \ln(50) = \ln(2) \approx 0.69.
+    \]
+    Thus, the probability of victory is $1 - 0.69 \approx 0.31$.
+\end{proof}
 \begin{thm}
     The previous algorithm is optimal. 
-    \begin{proof}
-        Consider a second version of the game:
-        \begin{enumerate}
-            \item Prisoner 1 enters, opens 50 boxes 
-            \item The difference between the games is that the boxes \textbf{remain open} for subsequent prisoners
-            \item Prisoner $i$ enters. They win immediately if their box was already opened. Otherwise they may open more boxes until 50 total boxes (including those opened by previous prisoners) have been opened in the room
-        \end{enumerate}
-        We rely on the following two lemmas to complete the theorem.
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Consider a second version of the game:
+    \begin{enumerate}
+        \item Prisoner 1 enters, opens 50 boxes 
+        \item The difference between the games is that the boxes \textbf{remain open} for subsequent prisoners
+        \item Prisoner $i$ enters. They win immediately if their box was already opened. Otherwise they may open more boxes until 50 total boxes (including those opened by previous prisoners) have been opened in the room
+    \end{enumerate}
+    We rely on the following two lemmas to complete the theorem.
+\end{proof}
 \begin{lem}
     The Cycle Algorithm achieves victory in Game 2 if and only if there are no cycles of length greater than 50.
     \begin{proof}
