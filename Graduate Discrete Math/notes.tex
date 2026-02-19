@@ -775,13 +775,13 @@ In other words, $|zero(p)\cap S^n|\leq D|S|^{n-1}$
 \end{eg}
 \begin{thm}
     Combinatorial Nullstellensatz: Suppose $p$ is a nonzero polynomial in $\poly{d}{\F^n}$ of degree $d$ and the monomial $x_1^{j_1}x_2^{j_2}\cdots x_n^{j_n}$ for $j_1+\cdots+j_n=d$ has nonzero coefficients then $\forall S_1,...,S_n\subseteq \F$ with $|S_i|\geq j_i+1$ for all $i,$ $p(x)\neq 0$ for some $x\in S_1\times S_2\times \cdots \times S_n.$
-    \begin{proof}
-        We'll show it by induction on $d$.\\
-        Suppose $f\equiv 0$ on $S_1\times S_2\times\cdots\times S_n$ where $S_i\subseteq \F$.\\
-        WLOG $j_i\geq 1$, $\forall s\in S_1$ we have $f(x)=(x_1-s)q_s(x)+r(x)$ then $\deg(q_s)=d-1,$ moreover coefficients of $x_1^{j_1-1}x_2^{j_2}\cdots x_n^{j_n}.$ For any $s\in S_1,s_2\in S_2,...$ we have $f(s,s_2,...,s_n)=0\implies r_s(s,s_2,...,s_n)=0 \space \forall s_2,...,s_n\implies r_s(s_1,...,s_n)=0 \space \space \forall s_1\in S_1,s_2\in S_2,...$  \\
-        By our assumption we have $0=f(s_1,...,s_n)=(s_1-s)q_s(s_1,...,s_n)$ for all $s,s_1\in S_1,...,s_n\in S_n$. For $s\neq s_1$ we learn $q_s(s_1,...,s_n)=0.$ Since $q_s$ is zero on $S_1\setminus \{s\} \times S_2\times \cdots \times S_n\implies$ we must have $|S_1\setminus \{s\}|\leq j_1-1$ or for some $i,$ $|S_i|\leq j_i.$ by induction hypothesis.
-    \end{proof}
 \end{thm}
+\begin{proof}
+    We'll show it by induction on $d$.\\
+    Suppose $f\equiv 0$ on $S_1\times S_2\times\cdots\times S_n$ where $S_i\subseteq \F$.\\
+    WLOG $j_i\geq 1$, $\forall s\in S_1$ we have $f(x)=(x_1-s)q_s(x)+r(x)$ then $\deg(q_s)=d-1,$ moreover coefficients of $x_1^{j_1-1}x_2^{j_2}\cdots x_n^{j_n}.$ For any $s\in S_1,s_2\in S_2,...$ we have $f(s,s_2,...,s_n)=0\implies r_s(s,s_2,...,s_n)=0 \space \forall s_2,...,s_n\implies r_s(s_1,...,s_n)=0 \space \space \forall s_1\in S_1,s_2\in S_2,...$  \\
+    By our assumption we have $0=f(s_1,...,s_n)=(s_1-s)q_s(s_1,...,s_n)$ for all $s,s_1\in S_1,...,s_n\in S_n$. For $s\neq s_1$ we learn $q_s(s_1,...,s_n)=0.$ Since $q_s$ is zero on $S_1\setminus \{s\} \times S_2\times \cdots \times S_n\implies$ we must have $|S_1\setminus \{s\}|\leq j_1-1$ or for some $i,$ $|S_i|\leq j_i.$ by induction hypothesis.
+\end{proof}
 \begin{eg}
     $\mathcal{X}'(G)$ list chromatic number of $G$. We want to find $\mathcal{X}'(C_{n})$.\\
     Consider an assignment $c_i$ to each vertex $i, c_i\in \N.$ $f(c_1,...,c_n)=(c_2-c_1)(c_3-c_2)\cdots(c_n-c_{n-1})(c_1-c_n).$ The leading term of $f$ is $2c_1c_2\cdots c_n$. For all sets $S_1,...,S_n\subseteq \N,$ chromatic number implies $\exists c_1\in S_1, c_2\in S_2,...,c_n\in S_n$ such that $f(c_1,...,c_n)\neq0.$ 
