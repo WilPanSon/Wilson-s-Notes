@@ -813,19 +813,19 @@ In other words, $|zero(p)\cap S^n|\leq D|S|^{n-1}$
     Erdos-Ginzburg-Ziv Theorem:\\
     How large a collection of numbers do I require to ensure that some $n$-subset sum to a multiple of $n$?\\
     $2n-1$ is enough
-    \begin{proof}
-        (Main Case) $n=p$ is a prime\\
-        Given numbers $a_1,...,a_{2p-1}$, we'll give two polynomials in $2p-1$ variables $x_1,...,x_{p-1}$\\
-        We want a polynomial such that $x_i$ behaves like indicators for $a_i\in S.$ So $x_i^{p-1}\equiv 1$ mod $p$ by FLT.
-        $$f(x_1,..,x_{2p-1})=\sum_{x_i}x_i^{p-1}=\#\{i | x_i\neq 0\}$$
-        $$g(x_1,...,x_{2p-1})=\sum_{x_i}a_ix_i^{p-1}=\sum_{x_i\neq 0}a_i$$
-        We have $2p-2<2p-1$ and the trivial solution exist so a non-trivial solution exist by Chevalley-Warning\\
-        (General Case) Induction on $n$, $a_1,...,a_{2n-1}$\\
-        If $n$ not prime, let $p$ be a prime factor of $n$, $m=\frac{n}{p}$. Find a set $I_i$, $|I_i|=p$ such that $\sum_{j\in I_i}a_j=0$ (mod $p$) for $i\in [2m-1]$\\
-        Say $\sum_{i\in I_j}a_i=b_i \equiv 0$ (mod $p$)\\
-        Let $c_i=\frac{b_i}{p}$, we can find $c_{i_1},c_{i_2},...,c_{i_m}$ such that $$\sum_{j=1}^{m}c_{i_j}=\sum_{j=1}^{m}\sum_{t\in I_{i_j}}t=\left (\sum_{j=1}^{m}c_{i_j} \right )p\equiv 0$$
-    \end{proof}
 \end{thm}
+\begin{proof}
+    (Main Case) $n=p$ is a prime\\
+    Given numbers $a_1,...,a_{2p-1}$, we'll give two polynomials in $2p-1$ variables $x_1,...,x_{p-1}$\\
+    We want a polynomial such that $x_i$ behaves like indicators for $a_i\in S.$ So $x_i^{p-1}\equiv 1$ mod $p$ by FLT.
+    $$f(x_1,..,x_{2p-1})=\sum_{x_i}x_i^{p-1}=\#\{i | x_i\neq 0\}$$
+    $$g(x_1,...,x_{2p-1})=\sum_{x_i}a_ix_i^{p-1}=\sum_{x_i\neq 0}a_i$$
+    We have $2p-2<2p-1$ and the trivial solution exist so a non-trivial solution exist by Chevalley-Warning\\
+    (General Case) Induction on $n$, $a_1,...,a_{2n-1}$\\
+    If $n$ not prime, let $p$ be a prime factor of $n$, $m=\frac{n}{p}$. Find a set $I_i$, $|I_i|=p$ such that $\sum_{j\in I_i}a_j=0$ (mod $p$) for $i\in [2m-1]$\\
+    Say $\sum_{i\in I_j}a_i=b_i \equiv 0$ (mod $p$)\\
+    Let $c_i=\frac{b_i}{p}$, we can find $c_{i_1},c_{i_2},...,c_{i_m}$ such that $$\sum_{j=1}^{m}c_{i_j}=\sum_{j=1}^{m}\sum_{t\in I_{i_j}}t=\left (\sum_{j=1}^{m}c_{i_j} \right )p\equiv 0$$
+\end{proof}
 \begin{thm}
     There exist an order of at least $d^2$ $2$-distance set in $\R^d$?
 \end{thm}
