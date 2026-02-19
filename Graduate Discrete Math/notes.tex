@@ -871,28 +871,28 @@ Claim: $x_i^{d_i}x_j^{d_j}$ with $d_1+d_2\leq 4$ covers all possible terms. So t
     \begin{eg}
         Unit cube and volume $1$ reg-tetrahedron are not dissection equivalent.\\
     \end{eg}
-    \begin{proof}
-        Dihedral angle is an irrational multiple of $\pi$\\
-        A list of vectors $\Vec{v_1},...$ is independent if for every finite sum, $$\sum_{j=1}^k\alpha_{i_j}v_{i_j}=0 \implies \alpha_{i_j}=0 \space \forall j$$
-        $Span(\mathcal{L})$ is the set of vectors representable as finite linear combinations. $\mathcal{L}$ is a basis for $V$ if $\mathcal{L}$ is independent and $Span(\mathcal{L)}=V$
-        \begin{lem}
-            Zorn's Lemma: $P$ is a poset in which every chain has an upper bound then $P$ has a maximal element.
-        \end{lem}
-        \noindent Doset is a set of independent sequences, ordered by inclusion. 
-        $$\mathcal{L}_1\subseteq \mathcal{L}_2\cdots\subseteq$$ Then $\cup{\mathcal{L}_i}$ is still independent. 
-        By Zorn's lemma and Doset we have every vector space has a (possibly infinite) basis.\\\\
-        Define $\alpha$ to be dihedral angle of tetrahedron, we'll use that $\frac{\alpha}{\pi}$ is irrational.\\
-        In general, we can define a linear transformation $f:\R\to\R$ such that $f(\pi)=0$ and $f(\alpha)=1$.\\
-        Since $\alpha$ and $\pi$ are independent over $\Q$ extended to a basis $\alpha, \pi, v_3,v_4,...$\\
-        Define $f$ using this basis by defining $f(\alpha)=1,f(\pi)=0$\\\\
-        If a plane goes through an angle then $l_e=l_{e_1}=l_{e_2}$ and $\theta_e=\theta_{e_1}+\theta_{e_2}$.\\
-        If a plane goes through an edge then $l_{e_1}+l_{e_2}=l_e$ and $\theta_e=\theta_{e_1}=\theta_{e_2}$\\
-        If a plane goes through another plane and creates a new edge then $l_{e_1}=l_{e_2}$ and $\theta_{e_1}+\theta_{e_2}=\pi$\\
-        We can assign a real number to each polytope by $$\sum_{e\in P}l_e\cdot f(\theta_e)$$
-        In the first case we would have $$R(P)=\sum_{e\in P}l_ef(\theta_e)$$
-        If $P$ is a cube then $R(P)=0$ as each dihedral angle is $90^\circ$ so it's a rational multiple of $\pi.$ However if $P$ is a tetrahedron has irrational multiple of $\pi$ so $P(R)\neq 0$.
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Dihedral angle is an irrational multiple of $\pi$\\
+    A list of vectors $\Vec{v_1},...$ is independent if for every finite sum, $$\sum_{j=1}^k\alpha_{i_j}v_{i_j}=0 \implies \alpha_{i_j}=0 \space \forall j$$
+    $Span(\mathcal{L})$ is the set of vectors representable as finite linear combinations. $\mathcal{L}$ is a basis for $V$ if $\mathcal{L}$ is independent and $Span(\mathcal{L)}=V$
+    \begin{lem}
+        Zorn's Lemma: $P$ is a poset in which every chain has an upper bound then $P$ has a maximal element.
+    \end{lem}
+    \noindent Doset is a set of independent sequences, ordered by inclusion. 
+    $$\mathcal{L}_1\subseteq \mathcal{L}_2\cdots\subseteq$$ Then $\cup{\mathcal{L}_i}$ is still independent. 
+    By Zorn's lemma and Doset we have every vector space has a (possibly infinite) basis.\\\\
+    Define $\alpha$ to be dihedral angle of tetrahedron, we'll use that $\frac{\alpha}{\pi}$ is irrational.\\
+    In general, we can define a linear transformation $f:\R\to\R$ such that $f(\pi)=0$ and $f(\alpha)=1$.\\
+    Since $\alpha$ and $\pi$ are independent over $\Q$ extended to a basis $\alpha, \pi, v_3,v_4,...$\\
+    Define $f$ using this basis by defining $f(\alpha)=1,f(\pi)=0$\\\\
+    If a plane goes through an angle then $l_e=l_{e_1}=l_{e_2}$ and $\theta_e=\theta_{e_1}+\theta_{e_2}$.\\
+    If a plane goes through an edge then $l_{e_1}+l_{e_2}=l_e$ and $\theta_e=\theta_{e_1}=\theta_{e_2}$\\
+    If a plane goes through another plane and creates a new edge then $l_{e_1}=l_{e_2}$ and $\theta_{e_1}+\theta_{e_2}=\pi$\\
+    We can assign a real number to each polytope by $$\sum_{e\in P}l_e\cdot f(\theta_e)$$
+    In the first case we would have $$R(P)=\sum_{e\in P}l_ef(\theta_e)$$
+    If $P$ is a cube then $R(P)=0$ as each dihedral angle is $90^\circ$ so it's a rational multiple of $\pi.$ However if $P$ is a tetrahedron has irrational multiple of $\pi$ so $P(R)\neq 0$.
+\end{proof}
 \section*{Linear Algebra}
 \begin{defn}
     Adjacency Matrices: On the vertex set $[n] $$$A=\begin{bmatrix}
@@ -908,14 +908,14 @@ Claim: $x_i^{d_i}x_j^{d_j}$ with $d_1+d_2\leq 4$ covers all possible terms. So t
 \end{rmk}
 \begin{thm}
     $J_n$'s eigenvalues are $\lambda_1=n$ with multiplicity $1$ and $\lambda_2=0$ with multiplicity $n-1.$
-    \begin{proof}
-        To show $\lambda=0$ has multiplicity $n-1$ the associated eigenvectors are $$\begin{bmatrix}
-            1 \\ -1 \\0\\\vdots
-        \end{bmatrix}, \begin{bmatrix}
-            1 \\ 0 \\-1\\\vdots
-        \end{bmatrix},\cdots,$$
-    \end{proof}
 \end{thm}
+\begin{proof}
+    To show $\lambda=0$ has multiplicity $n-1$ the associated eigenvectors are $$\begin{bmatrix}
+        1 \\ -1 \\0\\\vdots
+    \end{bmatrix}, \begin{bmatrix}
+        1 \\ 0 \\-1\\\vdots
+    \end{bmatrix},\cdots,$$
+\end{proof}
 \begin{thm}
     $K_n=J_n-I_n$ has eigenvalue $n-1$ with multiplicity $1$ and $-1$ with multiplicity $n-1.$
 \end{thm}
@@ -924,10 +924,10 @@ Claim: $x_i^{d_i}x_j^{d_j}$ with $d_1+d_2\leq 4$ covers all possible terms. So t
 \end{rmk}
 \begin{lem}
     For any adjacency matrix $A,$ $A^2$ has the property that $A^2_{i,j}=\#$walks of length $2$ from $i\to j.$ This generalizes easily to the general case for $A^k$
-    \begin{proof}
-        This is easily shown from the matrix multiplication $$A_{i,j}=\sum_{k\in [n]}A(i,k)A(k,j)$$
-    \end{proof}
 \end{lem}
+\begin{proof}
+    This is easily shown from the matrix multiplication $$A_{i,j}=\sum_{k\in [n]}A(i,k)A(k,j)$$
+\end{proof}
 \begin{lem}
     For a $d$-regular graph with diameter $2$ graph then the maximum number of vertices is $1+d+d(d-1)=d^2+1$ vertices.\\
     To achieve this bound, I require $\text{girth}(G)\geq 5$ \\
