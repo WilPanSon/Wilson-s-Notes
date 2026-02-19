@@ -510,22 +510,22 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     \noindent Define a potential function $\phi(t)=\sum_{i=1}^n \floor{c_i(t)^2}$
     \begin{lem}
         Consider time $t_1,$ let $t_0<t_1$ be most recent time that $\phi(t_0)$ was zero. With high probability, $t_1-t_0=O(\log n)$. 
-        \begin{proof}
-            For the steps $t_0+1,...,t_1-1$, the emptier decreases $\phi$ by exactly $1$ in each step. So the emptier decreases $\phi$ by $t_1-t_0-1$. \\
-            For the filler \[
-            \Pr[ \text{cup $i$ crosses an int threshold}]=a_i(t)
-            .\] 
-            \# of integer thresholds crossed is a sum of independent $[0,1]$ random variables with total mean $\sum a_i(t)\leq (1-\epsilon)$.\\
-            Let $X_i$ be the amount of water that gets added to each cup during the $k$ steps. Then the total number of thresholds that the cup $i$ crosses is $\floor{X_i}$ for sure and one more with probability $X_i-\floor{X_i}$.\\
-            Total incremenet across all cups is the sum of independent $[0,1]$ random variables with mean $X=\sum X_i \leq (1-\epsilon)k$. \\
-            By Chernoff Bound, \[
-            \Pr[X\geq k-1]\leq e^{-\Omega(k)}
-            .\] 
-            During steps $t_0+1,...,t_1-1$, suppose $t_1-t_0=k$ then emptier decreases by $t_1-t_0-1=k-1$. So the filler must have increased it by $\geq k-1$ \[
-            \Pr[X]\leq e^{-\Omega(k)}\implies \Pr[t_1-t_0=k]\leq e^{-\Omega(k)}\implies t_1-t_0=O(\log n)
-            .\] 
-        \end{proof}
     \end{lem}
+    \begin{proof}
+        For the steps $t_0+1,...,t_1-1$, the emptier decreases $\phi$ by exactly $1$ in each step. So the emptier decreases $\phi$ by $t_1-t_0-1$. \\
+        For the filler \[
+        \Pr[ \text{cup $i$ crosses an int threshold}]=a_i(t)
+        .\] 
+        \# of integer thresholds crossed is a sum of independent $[0,1]$ random variables with total mean $\sum a_i(t)\leq (1-\epsilon)$.\\
+        Let $X_i$ be the amount of water that gets added to each cup during the $k$ steps. Then the total number of thresholds that the cup $i$ crosses is $\floor{X_i}$ for sure and one more with probability $X_i-\floor{X_i}$.\\
+        Total incremenet across all cups is the sum of independent $[0,1]$ random variables with mean $X=\sum X_i \leq (1-\epsilon)k$. \\
+        By Chernoff Bound, \[
+        \Pr[X\geq k-1]\leq e^{-\Omega(k)}
+        .\] 
+        During steps $t_0+1,...,t_1-1$, suppose $t_1-t_0=k$ then emptier decreases by $t_1-t_0-1=k-1$. So the filler must have increased it by $\geq k-1$ \[
+        \Pr[X]\leq e^{-\Omega(k)}\implies \Pr[t_1-t_0=k]\leq e^{-\Omega(k)}\implies t_1-t_0=O(\log n)
+        .\] 
+    \end{proof}
     \noindent Consider steps $t_0+1,...,t_1-1$, all cups are initially $<1$ and consider only cups that go above $2$. The number of such cups is $\leq O(\log n)$ as $t_1-t_0=O(\log n)$ with high probability. \\
     On these $O(\log n)$ cups if we consider just water above $2$, using greedy algorithm implies that the backlog is $O(\log \# \text{cups involved})=O(\log \log n)$. 
 \end{proof}
