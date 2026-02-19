@@ -581,12 +581,12 @@ Let $X=h+(n-h)\frac{-p}{1-p}$
 \end{defn}
 \begin{thm}
     $R_r(k,l)\leq R_{r-1}(R_r(k-1,l),R_r(k,l-1))$
-    \begin{proof}
-        Let $N=R_{r-1}(R_r(k-1,l),R_r(k,l-1))+1$ and fix $v$. There are $N+1$ other vertices, $Y$. Each edge containing $v$ includes an $r-1$ edge in $Y.$ Let it inherit the color of the $r$ edges.\\
-        (Case 1) We have $R_r(k-1,l)$ vertices in $Y$ such that all $r-1$ subsets are red. 
-        (Case 1A)
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Let $N=R_{r-1}(R_r(k-1,l),R_r(k,l-1))+1$ and fix $v$. There are $N+1$ other vertices, $Y$. Each edge containing $v$ includes an $r-1$ edge in $Y.$ Let it inherit the color of the $r$ edges.\\
+    (Case 1) We have $R_r(k-1,l)$ vertices in $Y$ such that all $r-1$ subsets are red. 
+    (Case 1A)
+\end{proof}
 \noindent Let $C(k)=$ minimum $n$ such that $\forall X \subseteq \mathbb{R}^2$ such that $|X|=n$ and $X$ has a subset $S$ where $|S|=k$ and $S$ is in convex position.\\
 Then $C(1)=1, C(2)=2, C(3)=3, C(4)=5,C(5)=9,...$
 \begin{thm}
@@ -602,10 +602,10 @@ Color $3$-tuples according to whether "sorted slopes" are increasing or decreasi
 \end{defn}
 \begin{thm}
     Erdos Szekeres: $CC(k,l)={k + l -4 \choose k-2}+1$
-    \begin{proof}
-        I have $k$-cup or a $l$-cup. We'll show it by induction on $k+l.$ Assume no $l$-cap. I do have a $(k-1)$-cup or $l$ cup by induction. If I delete the last point of each $(k-1)$-cup. Then only ${k+1-5 \choose k-3}$ points remain. So I deleted ${k_l-4 \choose k-2}+1-{k+l-5 \choose k-2}+1.$ 
-    \end{proof}
 \end{thm}
+\begin{proof}
+    I have $k$-cup or a $l$-cup. We'll show it by induction on $k+l.$ Assume no $l$-cap. I do have a $(k-1)$-cup or $l$ cup by induction. If I delete the last point of each $(k-1)$-cup. Then only ${k+1-5 \choose k-3}$ points remain. So I deleted ${k_l-4 \choose k-2}+1-{k+l-5 \choose k-2}+1.$ 
+\end{proof}
 \begin{thm}
     For all positive integers $k$ and $r$, there exists $N$ such that any
 $r$-coloring of the numbers $1, 2, . . . , N$ has a monochromatic $k$-term arithmetic progression.
