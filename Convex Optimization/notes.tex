@@ -831,23 +831,23 @@ f(y)\geq f(x^*)+\inner{0}{y-x^*}\implies 0\in \partial f(x^*)
 \end{proof}
 \begin{eg}
     Soft Thresholding: \[
-    x^*=\arg\min_{z\in \R^d} \frac{1}{2}||z-y||_2^2+\lambda||z||_1
-    .\]
-    We can conclude that 
-    \[
-        x^*= \begin{cases}
-            y & \text{if $x^*=0$} \\
-            0 & \text{if $x^*=\infty$}
-        \end{cases}
-    .\] 
-    We have $0\in x^*-y+\lambda \text{sign}(x^*)$. 
-    So \[
-    x_j^*= \begin{cases}
-        y_j-\lambda & \text{if $y_j\geq \lambda$} \\
-        y_j+\lambda & \text{if $y_j\leq -\lambda$}\\
-        0 & \text{otherwise}
-    \end{cases}
-    .\] 
+x^* = \underset{z \in \R^d}{\arg\min} \frac{1}{2}\|z - y\|_2^2 + \lambda\|z\|_1.
+\]
+We can conclude that
+\[
+    x^* = \begin{cases}
+        y & \text{if } \lambda = 0 \\
+        0 & \text{if } \lambda = \infty
+    \end{cases}.
+\]
+We have $0 \in x^* - y + \lambda \partial \|x^*\|_1$, which implies $0 \in x^* - y + \lambda \text{sign}(x^*)$. So
+\[
+x_j^* = \begin{cases}
+    y_j - \lambda & \text{if } y_j \ge \lambda \\
+    y_j + \lambda & \text{if } y_j \le -\lambda \\
+    0 & \text{otherwise}
+\end{cases}.
+\]
 \end{eg}
 \begin{thm}
     Proximal Gradient Descent: Our objective is \[
