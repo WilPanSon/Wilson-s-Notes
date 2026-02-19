@@ -129,19 +129,19 @@ Let this number be $m(k)$ then $m(1)=0, m(2)=3,m(3)\geq 7$
     Erdős-Selfridge Theorem:
     Given hypergraph $\mathcal{H}$, consider a game between a maker and breaker. The maker's goal is to color some edge all blue and breaker's goal is to prevent all blue edges. \\\\
     If $\mathcal{H}$ is $k$-uniform and $|\mathcal{H}|<2^{k-1}$ then the breaker has a winning strategy even as player $2.$
-    \begin{proof}
-        Let $\phi(f)=\begin{cases}
-            0 & \text{if blocked by breaker}\\
-            \frac{2^{\text{\#blue}\in f}}{2^n} & \text{otherwise} 
-        \end{cases}$\\
-        be the "danger function". Define $$\phi(\mathcal{H})=\sum_{f\in \mathcal{H}}\phi(f)$$
-        Observe that if an edge is all blue, then $\phi(\mathcal{H})\geq 1$\\
-        At start of the game $\phi(\mathcal{H})=\frac{|\mathcal{H}|}{2^n}.$ The worst case for when maker moves is increasing by $\frac{|\mathcal{H}|}{2^n}$ when the chosen vertex is in all edges. Then when breaker moves, $$-\sum_{f \ni v_1}\phi (f).$$
-        When maker goes after $$\sum_{f \ni v_2}\phi (f).$$
-        Notice $$\sum_{f \ni v_1}\phi (f)>\sum_{f \ni v_2}\phi (f)$$ otherwise breaker played optimally. \\
-        So as long as $\frac{|\mathcal{H}|}{2^{n-1}}<1$ then breaker wins.
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Let $\phi(f)=\begin{cases}
+        0 & \text{if blocked by breaker}\\
+        \frac{2^{\text{\#blue}\in f}}{2^n} & \text{otherwise} 
+    \end{cases}$\\
+    be the "danger function". Define $$\phi(\mathcal{H})=\sum_{f\in \mathcal{H}}\phi(f)$$
+    Observe that if an edge is all blue, then $\phi(\mathcal{H})\geq 1$\\
+    At start of the game $\phi(\mathcal{H})=\frac{|\mathcal{H}|}{2^n}.$ The worst case for when maker moves is increasing by $\frac{|\mathcal{H}|}{2^n}$ when the chosen vertex is in all edges. Then when breaker moves, $$-\sum_{f \ni v_1}\phi (f).$$
+    When maker goes after $$\sum_{f \ni v_2}\phi (f).$$
+    Notice $$\sum_{f \ni v_1}\phi (f)>\sum_{f \ni v_2}\phi (f)$$ otherwise breaker played optimally. \\
+    So as long as $\frac{|\mathcal{H}|}{2^{n-1}}<1$ then breaker wins.
+\end{proof}
 \begin{defn}
     Incidence matrix of a hypergraph $\mathcal{H}$ with $|V|=n$ and $|\mathcal{H}|=m$ is defined as $$I_{i,j}=\begin{cases}
         1 & \text{if } v_n\in f_m \\ 0 & \text{otherwise}
