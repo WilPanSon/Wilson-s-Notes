@@ -944,5 +944,14 @@ f(y)\geq f(x^*)+\inner{0}{y-x^*}\implies 0\in \partial f(x^*)
 \end{proof}
 \newpage
 \section{Feb 19: Stochastic Gradient Descent}
-
+\begin{defn}
+    Stochastic Gradient Descent: Our objective is \[
+    \min_{x\in \R^d}\underbrace{g(x)}_{\substack{convex \\ diff}} +\underbrace{h(x)}_{\substack{convex \\ non-diff\\ simple}}
+    .\] 
+    Our update rules are 
+    \begin{align*}
+        y^{t+1}&\leftarrow x^t-\eta_t \nabla g(x^t)\\
+        x^{t+1}&\leftarrow prox_{\eta_t,h}(y^{t+1}):=\arg\min_{z\in \R^d} \frac{1}{2\eta_t}||y^t-z||_2^2+h(z)
+    \end{align*}
+\end{defn}
 \end{document}
