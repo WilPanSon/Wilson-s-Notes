@@ -476,19 +476,19 @@ Let $X=h+(n-h)\frac{-p}{1-p}$
 \end{proof}
  \begin{thm}
      Axel's Theorem: \\ $\forall \epsilon > N_\epsilon$ and an infinite binary sequence such that $\forall n>N_\epsilon,$ any 2 consecutive block of length $n$ differ in $\geq \left (\frac{1}{2}-\epsilon \right )n$ places. 
-     \begin{proof}
-         Let the bad events be $B_{i,n}$ where for each $i$, intervals $[i,...,i+n],[i+n+1,...,i+2n]$ differ by less than $\left (\frac{1}{2}-\epsilon \right )n$ \\
-         Let $X=\#$ places where they differ then $\mathbb{E}[X]=\frac{n}{2}$.\\
-         By Chernoff-Hoeffding's Lemma we have $$\mathbb{P}(X-\mathbb{E}[X]\geq -\epsilon n)=\mathbb{P}(X\geq n/2-\epsilon n)\leq e^{-2\epsilon^2 n}\leq e^{-\epsilon^2 n /10}$$
-         Let $X_{B_{i,n}}=e^{-\epsilon^2 n /20}\cdot \frac{1}{n^3}$ then fix $B_{i_0, n_0}$ then we have 
-         \begin{align*}
-             X_{B_{i_0,n_0}}=e^{-\epsilon^2 n_0 /20}\cdot \frac{1}{n_0^3}
-         \end{align*}
-         \begin{align*}
-             e^{-\epsilon^2 n_0 /20}\cdot \frac{1}{n_0^3}\prod_{n=N_\epsilon}^T\prod_{i=i_0-2n}^{i_0+2n}\left (1- e^{-\epsilon^2 n /20}\cdot \frac{1}{n^3}\right )^{2n+2n_0}\geq
-         \end{align*}
-     \end{proof}
 \end{thm}
+\begin{proof}
+    Let the bad events be $B_{i,n}$ where for each $i$, intervals $[i,...,i+n],[i+n+1,...,i+2n]$ differ by less than $\left (\frac{1}{2}-\epsilon \right )n$ \\
+    Let $X=\#$ places where they differ then $\mathbb{E}[X]=\frac{n}{2}$.\\
+    By Chernoff-Hoeffding's Lemma we have $$\mathbb{P}(X-\mathbb{E}[X]\geq -\epsilon n)=\mathbb{P}(X\geq n/2-\epsilon n)\leq e^{-2\epsilon^2 n}\leq e^{-\epsilon^2 n /10}$$
+    Let $X_{B_{i,n}}=e^{-\epsilon^2 n /20}\cdot \frac{1}{n^3}$ then fix $B_{i_0, n_0}$ then we have 
+    \begin{align*}
+        X_{B_{i_0,n_0}}=e^{-\epsilon^2 n_0 /20}\cdot \frac{1}{n_0^3}
+    \end{align*}
+    \begin{align*}
+        e^{-\epsilon^2 n_0 /20}\cdot \frac{1}{n_0^3}\prod_{n=N_\epsilon}^T\prod_{i=i_0-2n}^{i_0+2n}\left (1- e^{-\epsilon^2 n /20}\cdot \frac{1}{n^3}\right )^{2n+2n_0}\geq
+    \end{align*}
+\end{proof}
 \noindent From Homework \#3
 \begin{thm}
     $\forall \epsilon > 0, \exists N_\epsilon,  \forall T, \exists $ a binary sequence of length $T$ such that \\
