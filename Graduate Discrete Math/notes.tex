@@ -165,18 +165,18 @@ Let this number be $m(k)$ then $m(1)=0, m(2)=3,m(3)\geq 7$
 \end{thm}
 \begin{thm}
     LYM Inequality on a sperner family $\mathcal{H}$, $$\sum_{f\in \mathcal{H}}\frac{1}{{n \choose |f|}}\leq 1$$
-    \begin{proof}
-        Suppose $F=\{\emptyset, \{1\},...,\{1,2,...,n\}\}$\\
-        Note: Any sperner family can share at most one edge with $F.$\\
-        Consider a random permutation $\sigma\in S_n$ and define $\mathcal{H}_\sigma=\{\sigma(f)|f\in \mathcal{H}\}.$\\
-        For any $\sigma\in S_n, |\mathcal{H}_\sigma\cap F|\leq 1$\\
-        Now choose any $\sigma,$ uniformly at random and define $\mathcal{X}=|\mathcal{H}_\sigma\cap F|$ is a random variable and $\mathcal{X}\leq 1.$\\
-        Let $\mathcal{X}=I_f$ where $I_f=\begin{cases}
-            1 & \sigma(f)\in F \\ 0 &\text{otherwise}
-        \end{cases}$
-        $$\mathbb{E}[\mathcal{X}]=\sum_{f\in \mathcal{H}}\mathbb{E}[I_f]=\sum_{f\in \mathcal{H}}\frac{1}{{n \choose |f|}}\leq 1$$
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Suppose $F=\{\emptyset, \{1\},...,\{1,2,...,n\}\}$\\
+    Note: Any sperner family can share at most one edge with $F.$\\
+    Consider a random permutation $\sigma\in S_n$ and define $\mathcal{H}_\sigma=\{\sigma(f)|f\in \mathcal{H}\}.$\\
+    For any $\sigma\in S_n, |\mathcal{H}_\sigma\cap F|\leq 1$\\
+    Now choose any $\sigma,$ uniformly at random and define $\mathcal{X}=|\mathcal{H}_\sigma\cap F|$ is a random variable and $\mathcal{X}\leq 1.$\\
+    Let $\mathcal{X}=I_f$ where $I_f=\begin{cases}
+        1 & \sigma(f)\in F \\ 0 &\text{otherwise}
+    \end{cases}$
+    $$\mathbb{E}[\mathcal{X}]=\sum_{f\in \mathcal{H}}\mathbb{E}[I_f]=\sum_{f\in \mathcal{H}}\frac{1}{{n \choose |f|}}\leq 1$$
+\end{proof}
 \begin{defn}
     Define the "shadow" of $\mathcal{H}\subseteq { X \choose r}$ as $\partial \mathcal{H}\subseteq {X \choose r-1}$ $$\partial \mathcal{H}=\left \{S\subseteq {X \choose r-1}: \exists T\in \mathcal{H}, S\subseteq T\right \}$$
 \end{defn}
