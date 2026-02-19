@@ -140,10 +140,10 @@
 \end{cor}
 \begin{thm}
     If $F$ is $\R$-differentiable with $u,v$ satisfying Cauchy Riemann Equations then $f$ is holomorphic. 
-    \begin{proof}
-        Let $a=\frac{\partial u}{\partial x}+i \frac{\partial v}{\partial x}$. We just need to check that $f(z+h)-f(z)-ah=o(h)$
-    \end{proof}
 \end{thm}
+\begin{proof}
+    Let $a=\frac{\partial u}{\partial x}+i \frac{\partial v}{\partial x}$. We just need to check that $f(z+h)-f(z)-ah=o(h)$
+\end{proof}
 \begin{defn}
     The Wirtinger Derivatives
     \[
@@ -369,12 +369,12 @@ We have \[
     For $f$ with primitive $F$ on $\Omega$, $\gamma\subset \C$ curve from $w_1\to w_2$ we have \[
     \int_\gamma f=F(w_2)-F(w_1)
     .\] 
-    \begin{proof}
-        We can write \[
-        \int_\gamma f=\int_a^bf(z(t))z'(t)dt=\int_a^b \frac{d}{dt}(F(z(t)))dt=F(z(b))-F(z(a))
-        .\] 
-    \end{proof}
 \end{thm}
+\begin{proof}
+    We can write \[
+    \int_\gamma f=\int_a^bf(z(t))z'(t)dt=\int_a^b \frac{d}{dt}(F(z(t)))dt=F(z(b))-F(z(a))
+    .\] 
+\end{proof}
 \begin{cor}
     If $\gamma$ is closed then \[
     \int_\gamma f=0
