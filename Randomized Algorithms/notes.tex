@@ -265,17 +265,17 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
         \item Pick random vertex in the triangle
         \item Move vertex to other side
     \end{enumerate}
-    \begin{proof}
-        Pick a specific $3$ coloring of the graph then let $X=$ \# color $1$ vertices on left and $Y=$ \# color $2$ vertices on right side. Observe that the value $X+Y$ changes by $ \{-1,0,1\}$ with equal probability. Then observe a random walk in $[0,n]$ \\
-        \begin{lem}
-            Let $T(n)=\E[ \text{time to get to }\pm n]$ then $T(n)=n^2$, but we restrict it to powers of $2$.\\
-            We can easily see the following recurrence holds and it implies the lemma \[
-            T(n)=T \left( \frac{n}{2} \right)+ T \left( \frac{n}{2} \right)+\frac{1}{2}T(n)
-            .\] 
-        \end{lem}
-    \end{proof}
-    So the expected number of rounds is $O \left( n^2 \right)$
 \end{thm}
+\begin{proof}
+    Pick a specific $3$ coloring of the graph then let $X=$ \# color $1$ vertices on left and $Y=$ \# color $2$ vertices on right side. Observe that the value $X+Y$ changes by $ \{-1,0,1\}$ with equal probability. Then observe a random walk in $[0,n]$ \\
+    \begin{lem}
+        Let $T(n)=\E[ \text{time to get to }\pm n]$ then $T(n)=n^2$, but we restrict it to powers of $2$.\\
+        We can easily see the following recurrence holds and it implies the lemma \[
+        T(n)=T \left( \frac{n}{2} \right)+ T \left( \frac{n}{2} \right)+\frac{1}{2}T(n)
+        .\] 
+    \end{lem}
+    So the expected number of rounds is $O \left( n^2 \right)$
+\end{proof}
 \subsection{Some theorem}
 \begin{thm}
     Given $G=(V,E)$ we want for each pair $x,y\in V$ to calculate $d(x,y)\pm 2$. We will do it in $O(n^{2.5}\ln n)$.
