@@ -620,12 +620,12 @@ $r$-coloring of the numbers $1, 2, . . . , N$ has a monochromatic $k$-term arith
  \begin{thm}
      $W(3,2)\leq 325$\\
      Note: The technique used here can be used for the general case.
-     \begin{proof}
-         Consider $65$ blocks of $5$ spots each. Within the first 33 blocks, there must be 2 blocks of the same coloring. Let the blocks be $b_1,b_2\in [33]$. Of the first block consider the first 3 spots then if it's same color then we're done, WLOG for $a_1,a_2\in [3]$ with $a_1<a_2$ say $5b_1+a_1,5b_1+a_2$ be red. Let $a_3=2a_2-a_1\in [5].$ If $7b_1+a_3$ is red then we're done as $7b_1+a_1,7b_1+a_2,7b_1+a_3$ is a mono A.P. So say $7b_1+a_3$ is blue.\\
-         Since $b_2$ is the same coloring then let $b_3=2b_2-b_1\in [65]$. If $7b_3+a_3$ is red then we have $7b_1+a_1,7b_2+a_2,7b_3+a_3$. Otherwise if blue we have $7b_1+a_3,7b_2+a_3,7b_3+a_3$.\\
-         Thus we're done and $W(3,2)\geq 65\cdot 5=325$
-     \end{proof}
  \end{thm}
+ \begin{proof}
+     Consider $65$ blocks of $5$ spots each. Within the first 33 blocks, there must be 2 blocks of the same coloring. Let the blocks be $b_1,b_2\in [33]$. Of the first block consider the first 3 spots then if it's same color then we're done, WLOG for $a_1,a_2\in [3]$ with $a_1<a_2$ say $5b_1+a_1,5b_1+a_2$ be red. Let $a_3=2a_2-a_1\in [5].$ If $7b_1+a_3$ is red then we're done as $7b_1+a_1,7b_1+a_2,7b_1+a_3$ is a mono A.P. So say $7b_1+a_3$ is blue.\\
+     Since $b_2$ is the same coloring then let $b_3=2b_2-b_1\in [65]$. If $7b_3+a_3$ is red then we have $7b_1+a_1,7b_2+a_2,7b_3+a_3$. Otherwise if blue we have $7b_1+a_3,7b_2+a_3,7b_3+a_3$.\\
+     Thus we're done and $W(3,2)\geq 65\cdot 5=325$
+ \end{proof}
 \begin{defn}
     $WF(k,l,r)=$ minimum $N$ such that any $r$-coloring of $[N]$ admits $l$ color focused $k$-term A.P or a $k+1$ term $A.P.$
 \end{defn}
