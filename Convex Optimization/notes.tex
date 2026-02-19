@@ -959,6 +959,8 @@ f(y)\geq f(x^*)+\inner{0}{y-x^*}\implies 0\in \partial f(x^*)
     .\]  
 \end{eg}
 \begin{thm}
-    Assume $f$ is convex, $||x_0-x^*||=R$ and $\E[||g(x_t,\zeta_t)||_2^2]\leq G^2$ then choosing $\eta=\frac{R}{G\sqrt{k}}$ yields 
+    Assume $f$ is convex, $||x_0-x^*||=R$ and $\E[||g(x_t,\zeta_t)||_2^2]\leq G^2$ then choosing $\eta=\frac{R}{G\sqrt{k}}$ yields \[
+    \E[f(x_k)-f(x^*)]\leq \frac{G^2}{2\eta k}= \frac{G^2}{2R}\sqrt{k}
+    .\] 
 \end{thm}
 \end{document}
