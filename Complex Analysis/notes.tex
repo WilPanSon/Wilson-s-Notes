@@ -1775,9 +1775,10 @@ We have \[
         \begin{enumerate}
             \item The first statement holds because $|z_{i+1}-z_i|<\epsilon$ as $z_{i+1}=\gamma_s(t_{i+1})=H(s,t_{i+1})$ and $z_i=\gamma_s(t_i)=H(s,t_i)$. \\
             \item The second statmeent holds because $|w_i-z_i|<\epsilon$ so \[
-            |w_{i+1}-z_i|\leq |w_{i+1}-z_{i+1}|+|z_
+            |w_{i+1}-z_i|\leq |w_{i+1}-z_{i+1}|+|z_{i+1}-z_i|<\epsilon+\epsilon=2\epsilon
             .\] 
         \end{enumerate}
     \end{claim}
+    
 \end{proof}
 \end{document}
