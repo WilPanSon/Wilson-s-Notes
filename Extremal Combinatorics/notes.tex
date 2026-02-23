@@ -1267,6 +1267,7 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
 \begin{proof}
     To show Sperner's Theorem: Suppose $\mathcal{F}$ is an antichain with $a=\min \{|A|:A\in \mathcal{F}\}$ and $b=\max \{|A|:A\in \mathcal{F}\}$. \\
     Induction on $b+(\frac{m}{2}-a)$. 
-    (Induction Step) If $b>\frac{n}{2}$ then $\mathcal{A}=\mathcal{F}\cap {[n] \choose b}$ and set $\mathcal{F}'=(\mathcal{A}\setminus \partial \mathcal{A})\cup \partial \mathcal{A}$. 
+    (Induction Step) If $b>\frac{n}{2}$ then $\mathcal{A}=\mathcal{F}\cap {[n] \choose b}$ and set $\mathcal{F}'=(\mathcal{A}\setminus \partial \mathcal{A})\cup \partial \mathcal{A}$. \\
+    Note that $\mathcal{F}'$ is an antichain, if $x,y\in \mathcal{F}\setminus \mathcal{A}$ then $x,y$ are incomparable since $x,y\in \mathcal{F}$. 
 \end{proof}
 \end{document}
