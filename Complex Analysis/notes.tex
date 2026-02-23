@@ -1081,7 +1081,7 @@ We have \[
     0=f(z_k)=a_m(z_k-w)^m(1+g(z_k)) \tag{$a_m\neq 0$ and $z_k-w\neq 0$}
     .\] 
     A contradiction as the RHS is nonzero. To finish $f=0$ on $\Omega$, we use $\mathcal{U}=\text{int} \{z\in \Omega: f(z)=0\}$\\
-    We have $\mathcal{U}$ is open, $w\in \mathcal{U}$ so $\mathcal{U}$ is non-empty. Additionally, $\mathcal{U}$ is closed as otherwise there would be a boundary point $\omega'$ where the function transitions from being zero to non-zero. However, applying the exact same Taylor series logic to $\omega'$ would show that $f$ must be zero in a small disk around $\omega'$ too, meaning $\omega'$ was actually part of the open set $\mathcal{U}$ all along. We have $\Omega\setminus \mathcal{U}$ is open and non-empty so $\exists z_k\in \Omega\setminus \mathcal{U}$ such that $z_k\to \omega'\in \Omega\setminus \mathcal{U}$. Then $f(z_k)\neq 0$ for all $k$ so $f\neq 0$ on $D_r(\omega')$. A contradiction as $D_r(\omega')\subset D$. Thus, $f=0$ on $\Omega$.
+    We have $\mathcal{U}$ is open, $w\in \mathcal{U}$ so $\mathcal{U}$ is non-empty. Additionally, $\mathcal{U}$ is closed as otherwise there would be a boundary point $\omega'$ where the function transitions from being zero to non-zero. However, applying the exact same Taylor series logic to $\omega'$ would show that $f$ must be zero in a small disk around $\omega'$ too, meaning $\omega'$ was actually part of the open set $\mathcal{U}$ all along. Because $\mathcal{U}$ is open, closed, and non-empty, $\mathcal{U} = \Omega$. Therefore, $f(z) = 0$ everywhere on $\Omega$.
 \end{proof}
 \begin{cor}
     $f,g:\underset{region}{\Omega}\to \C$ holomorphic. If $f(z_n)=g(z_n),  \forall z_n\in \Omega$ distinct sequence with a limit in $\Omega$ then $f=g$ on $\Omega.$
