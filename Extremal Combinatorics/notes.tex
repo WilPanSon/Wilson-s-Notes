@@ -1302,7 +1302,9 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     If $\mathcal{F}\subseteq {[n] \choose k}$ is intersecting then 
     \[
     |\mathcal{F}|\leq \begin{cases}
-        
+        {n- \choose k} & \text{if $k\leq \frac{n}{2}$}
+        \newline
+        2^{n-1} & \text{if $k>\frac{n}{2}$}
     \end{cases}
     .\] 
 \end{thm}
