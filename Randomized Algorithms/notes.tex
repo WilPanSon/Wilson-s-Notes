@@ -563,7 +563,7 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     Fix $x,y\in X$, define $B(x,r)= \{z\in X | d(x,z)<r\}$, define $r_i=\min r$ such that both $|B(x,r)|\geq 2^i$ and $|B(y,r)|\geq 2^i$. \\
     Define $t=\max \# t$ such that $r_t\leq \frac{d(x,y)}{2}$ and redefine $r_{t+1}:=\frac{d(x,y)}{3}$. 
     \begin{lem}
-        For any $i=1,...,t+1$ and $j=1,...,c\log n$ with probability $\geq \frac{1}{10}
+        For any $i=1,...,t+1$ and $j=1,...,c\log n$ with probability $\geq \frac{1}{10}$
         \[
             |d(x,S_{i,j})-d(y,S_{i,j})|\geq r_j-r_i \tag{*}
         .\] 
