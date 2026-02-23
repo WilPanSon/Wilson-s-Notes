@@ -1131,6 +1131,11 @@ Conjugation is a specific action of $G$ on itself.
 \end{thm}
 \begin{thm}
     Universal Property: For all rings $A$ and all homomorphism $\psi:R\to A$ such that $\phi(s)$ is a unit in $A$ for all $s\in S$. There is unique $X:S^{-1}R\to A$ such that $\psi=X\circ \phi$.
-    
+    \begin{center}
+        \begin{tikzcd}
+            R \arrow[r, "\phi"] \arrow[rd, "\psi"'] & S^{-1}R \arrow[d, "X", dashed] \\
+            & A
+        \end{tikzcd}
+    \end{center}
 \end{thm}
 \end{document}
