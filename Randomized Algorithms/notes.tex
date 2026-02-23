@@ -585,7 +585,7 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     |B(y,r_{i-1})|\geq 2^{i-1}
     .\] 
     If we miss one of the balls then $d(x,S_{i,j})-d(y,S_{i,j})\geq r_i-r_{i-1}$. So \[
-    \Pr[S_{i,j} \text{misses }B(x,r_i)]\geq \left( 1-\frac{1}{2^i} \right)^{2i}\approx \frac{1}{e} \implies \Pr[S_{i,j} \text{ hits }]
+    \Pr[S_{i,j} \text{misses }B(x,r_i)]\geq \left( 1-\frac{1}{2^i} \right)^{2i}\approx \frac{1}{e} \implies \Pr[S_{i,j} \text{ hits }B(x,r_i)]\leq 1-\frac{1}{e}
     .\] 
 \end{proof}
 \end{document}
