@@ -137,8 +137,7 @@ The equivalence classes under the relation $\sim$ partition the set $X$. These c
     Notice that $g_p$ is uniquely determined by the first $p-1$ elements ($g_p = (g_1 \cdots g_{p-1})^{-1}$), so $|X| = |G|^{p-1}$. Since $p \mid |G|$, we have $p \mid |X|$. \\
     Let $\Z_p$ (cyclic group of order $p$) act on $X$ by cyclic shift:
     \[ \sigma \cdot (g_1, g_2, \dots, g_p) = (g_2, g_3, \dots, g_p, g_1). \]
-    This is a valid action because if $g_1 \cdots g_p = 1$, then $g_1 (g_2 \cdots g_p) = 1 \implies g_2 \cdots g_p = g_1^{-1}$, so $(g_2 \cdots g_p) g_1 = g_1^{-1} g_1 = 1$.
-    
+    This is a valid action because if $g_1 \cdots g_p = 1$, then $g_1 (g_2 \cdots g_p) = 1 \implies g_2 \cdots g_p = g_1^{-1}$, so $(g_2 \cdots g_p) g_1 = g_1^{-1} g_1 = 1$.\\
     By the Lemma, $|X| \equiv |X^{\Z_p}| \pmod{p}$.
     Fixed points are tuples $(a, a, \dots, a)$ such that $a^p = 1$.
     Since $(1, \dots, 1) \in X^{\Z_p}$, the set of fixed points is non-empty. Since $p$ divides $|X|$ and $p$ divides the congruence $|X| - |X^{\Z_p}|$, $p$ must divide $|X^{\Z_p}|$.
