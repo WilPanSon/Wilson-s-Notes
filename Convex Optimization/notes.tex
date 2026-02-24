@@ -1044,7 +1044,7 @@ f(y)\geq f(x^*)+\inner{0}{y-x^*}\implies 0\in \partial f(x^*)
     Let $f:C\to \R$ be non-convex then $g$ is called the convex envelope of $f$ if it is the largest convex function that lies below $f$. Formally $g(x)\leq f(x)$ for all $x\in C$. 
 \end{defn}
 \begin{eg}
-    Matrix Completion (Netflix Problem): Given a $n\times m$ matrix $M^*$ with $O(n+m)$ non-zero entries. Let $\mathcal{I}$ be the observed indices. As of right now we can't recover the matrix so if we instead assume $M^*$ is a low rank matrix then we can write 
+    Matrix Completion (Netflix Problem): Given a $n\times m$ matrix $M^*$ with $O(n+m)$ non-zero entries. Let $\mathcal{I}= \{y_{i,j}| (i,j)\in \mathcal{I}\}$ be the observed indices. As of right now we can't recover the matrix so if we instead assume $M^*$ is a low rank matrix then we can write 
     \[
     \hat{M}^*=\arg\min_{X}\sum_{(i,j)\in \mathcal{I}}(M_{i,j}-y_{i,j})^2+\lambda ||M||_*
     .\] 
