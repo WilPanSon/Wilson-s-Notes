@@ -1047,7 +1047,8 @@ f(y)\geq f(x^*)+\inner{0}{y-x^*}\implies 0\in \partial f(x^*)
     Matrix Completion (Netflix Problem): Given a $n\times m$ matrix $M^*$ with $O(n+m)$ non-zero entries. Let $\mathcal{I}$ be the observed indices then the set of observed values is $\{y_{i,j}| (i,j)\in \mathcal{I}\}$. As of right now we can't recover the matrix so if we instead assume $M^*$ is a low rank matrix then we can write 
     \[
     \hat{M}^*=\arg\min_{X}\sum_{(i,j)\in \mathcal{I}}(M_{i,j}-y_{i,j})^2+\lambda ||M||_*
-    .\] 
+    .\]
+    
 \end{eg}
 \begin{thm}
     Let $s(x)=rank(X)$, $C= \{X: ||X||_2\leq 1\}$ with $t(X)\leq s(X)$ for all $X\in C$ then 
