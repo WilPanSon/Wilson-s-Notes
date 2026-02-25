@@ -1923,7 +1923,18 @@ We have \[
 \begin{proof}
     Fix $\zeta>0$ and $b<a$, we have 
     \[
-    0=\int
+    0=\int_{\gamma_R} f(z)e^{-2\pi i \zeta z}dz=\int_{\gamma_1}+\int_{\gamma_2}+\int_{\gamma_3}+\int_{\gamma_4}
     .\] 
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2]
+            \draw[->] (-2.5,0) -- (2.5,0) node[right] {$\Re(z)$};
+            \draw[->] (0,-1.8) -- (0,1.8) node[above] {$\Im(z)$};
+            \draw[thick, dashed, blue!60] (-2.5,1.2) -- (2.5,1.2) node[right] {$y=a$};
+            \draw[thick, dashed, blue!60] (-2.5,-1.2) -- (2.5,-1.2) node[right] {$y=-a$};
+            \draw[thick, red] (-2,0) -- (2,0) node[midway, above] {$\Re$};
+            \draw[thick, green!50!black] (-2,0.8) -- (2,0.8) node[midway, above] {$y=b$};
+            \draw[thick, green!50!black] (-2,-0.8) -- (2,-0.8) node[midway, below] {$y=-b$};
+        \end{tikzpicture}
+    \end{center}
 \end{proof}
 \end{document}
