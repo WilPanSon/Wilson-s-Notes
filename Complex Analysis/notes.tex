@@ -1920,5 +1920,35 @@ We have \[
 \begin{thm}
     If $f\in \mathcal{F}_a,$ then $|\hat{f}(\zeta)|\leq C e^{-2\pi b |\zeta|}$, for $\zeta\in \R$ and $\forall b<a$. 
 \end{thm}
+\begin{proof}
+    Fix $b$ with $0<b<a$. The idea is to deform the contour of integration in the Fourier integral so that the factor $e^{-2\pi i \zeta z}$ gains exponential decay. Write $z=x+iy$.
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2, x=1.5cm, y=1.2cm]
+            % Axes
+            \draw[->] (-2.5,0) -- (2.5,0) node[right] {$\Re(z)$};
+            \draw[->] (0,-1.8) -- (0,1.8) node[above] {$\Im(z)$};
+            % Strip boundaries
+            \draw[thick, dashed, blue!60] (-2.5,1.2) -- (2.5,1.2) node[right] {$y=a$};
+            \draw[thick, dashed, blue!60] (-2.5,-1.2) -- (2.5,-1.2) node[right] {$y=-a$};
+            % Shaded strip
+            \fill[blue!5] (-2.5,-1.2) rectangle (2.5,1.2);
+            \node[blue!70] at (1.5,0) {$S_a$};
+            % Contours
+            \draw[thick, red] (-2,0) -- (2,0) node[midway, above] {$y=0$};
+            \draw[thick, green!50!black] (-2,0.8) -- (2,0.8) node[midway, above] {$y=b$};
+            \draw[thick, green!50!black] (-2,-0.8) -- (2,-0.8) node[midway, below] {$y=-b$};
+            % Labels
+            \node[below] at (0,-1.5) {$\zeta>0$: shift to $y=-b$};
+            \node[above] at (0,1.5) {$\zeta<0$: shift to $y=+b$};
+        \end{tikzpicture}
+    \end{center}
+    \textbf{Case $\zeta>0$:} Deform the contour from $\R$ to the line $\{z: \Im(z)=-b\}$. For $z=x-ib$, we have $e^{-2\pi i \zeta z}=e^{-2\pi i \zeta x}\cdot e^{-2\pi \zeta b}$, so the integrand gains a factor $e^{-2\pi \zeta b}$. By Cauchy's theorem (the vertical segments at $\pm\infty$ contribute nothing since $|f(x+iy)|\leq C_f/(1+x^2)$), \[
+    \hat{f}(\zeta)=\int_{-\infty}^{\infty} f(x-ib)\,e^{-2\pi i \zeta (x-ib)}\,dx
+    =e^{-2\pi \zeta b}\int_{-\infty}^{\infty} f(x-ib)\,e^{-2\pi i \zeta x}\,dx
+    .\] 
+    Hence $|\hat{f}(\zeta)|\leq e^{-2\pi \zeta b}\int_{-\infty}^{\infty} \frac{C_f}{1+x^2}\,dx=C_f\pi\, e^{-2\pi \zeta b}=C\,e^{-2\pi b|\zeta|}$.
+    \textbf{Case $\zeta<0$:} Deform to $\{z: \Im(z)=+b\}$. For $z=x+ib$, we have $e^{-2\pi i \zeta z}=e^{-2\pi i \zeta x}\cdot e^{2\pi \zeta b}$
+    (since $\zeta<0$, $e^{2\pi \zeta b}=e^{-2\pi |\zeta| b}$). The same argument gives $|\hat{f}(\zeta)|\leq C\,e^{-2\pi b|\zeta|}$.
+\end{proof}
 
 \end{document}
