@@ -1927,13 +1927,21 @@ We have \[
     .\] 
     \begin{center}
         \begin{tikzpicture}[scale=1.2]
+            % Axes
             \draw[->] (-2.5,0) -- (2.5,0) node[right] {$\Re(z)$};
             \draw[->] (0,-1.8) -- (0,1.8) node[above] {$\Im(z)$};
+            % Strip boundaries
             \draw[thick, dashed, blue!60] (-2.5,1.2) -- (2.5,1.2) node[right] {$y=a$};
             \draw[thick, dashed, blue!60] (-2.5,-1.2) -- (2.5,-1.2) node[right] {$y=-a$};
-            \draw[thick, red] (-2,0) -- (2,0) node[midway, above] {$\Re$};
-            \draw[thick, green!50!black] (-2,0.8) -- (2,0.8) node[midway, above] {$y=b$};
-            \draw[thick, green!50!black] (-2,-0.8) -- (2,-0.8) node[midway, below] {$y=-b$};
+            % Rectangle gamma_R = gamma_1 + gamma_2 + gamma_3 + gamma_4 (for zeta>0)
+            \draw[thick, ->] (-2,0) -- (2,0) node[midway, above] {$\gamma_1$};
+            \draw[thick, ->] (2,0) -- (2,-0.8) node[midway, right] {$\gamma_2$};
+            \draw[thick, ->] (2,-0.8) -- (-2,-0.8) node[midway, below] {$\gamma_3$};
+            \draw[thick, ->] (-2,-0.8) -- (-2,0) node[midway, left] {$\gamma_4$};
+            % Vertex labels
+            \node[below left] at (-2,0) {$-R$};
+            \node[below right] at (2,0) {$R$};
+            \node[above] at (0,-0.8) {$y=-b$};
         \end{tikzpicture}
     \end{center}
 \end{proof}
