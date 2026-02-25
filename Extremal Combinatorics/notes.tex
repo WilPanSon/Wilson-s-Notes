@@ -1326,8 +1326,12 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     .\] 
     On each line the two intervals are disjoint and so at most one is in $\mathcal{A}\cap \mathcal{F}$. 
     \[
-    \E[|\mathcal{A}\cap F|]=\sum_{A\in \mathcal{F}} \Pr[A\in \mathcal{A}]=\frac{|\mathcal{F}|}{{n \choose k}}n\leq k\implies |\mathcal{F}|\leq {n-1 \choose k-1}
-    .\] 
+    \begin{aligned}
+    \E[|\mathcal{A}\cap \mathcal{F}|]&=\sum_{A\in \mathcal{F}} \Pr[A\in \mathcal{A}]=\frac{|\mathcal{F}|}{\binom{n}{k}}\cdot n\\
+    &\Downarrow\\
+    n&\leq k\implies |\mathcal{F}|\leq \binom{n-1}{k-1}
+    \end{aligned}
+    \] 
     Note: The probability is from $\forall s\in \mathcal{F}$, $|forall i\in [n]$, 
     \[
     \Pr[ \{\pi(i),\pi(i+1),...,\pi(i+k-1)\}=S]=\frac{1}{{n \choose k}}
