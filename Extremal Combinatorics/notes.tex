@@ -544,8 +544,7 @@ When $H$ is bipartite ($r=1$), the Erd\H{o}s-Stone bound gives $1 - 1/1 = 0$, wh
 \end{thm}
 \begin{proof}
         Suppose $e(G) > rn$. Then the average degree of $G$ is $d(G) = \frac{2e(G)}{n} > 2r$.
-        By the Lemma, there exists a subgraph $H \subseteq G$ with minimum degree $\delta(H) > r$. Since degrees are integers, $\delta(H) \geq r$.
-        
+        By the Lemma, there exists a subgraph $H \subseteq G$ with minimum degree $\delta(H) > r$. Since degrees are integers, $\delta(H) \geq r$.\\
         We embed $T$ into $H$ greedily:
         \begin{enumerate}
             \item Order the vertices of $T$ as $v_1, v_2, \dots, v_{r+1}$ such that each $v_i$ (for $i>1$) has exactly one neighbor among $\{v_1, \dots, v_{i-1}\}$. (This is always possible by doing a BFS/DFS from a root).
