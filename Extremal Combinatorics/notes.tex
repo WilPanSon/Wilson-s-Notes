@@ -960,7 +960,7 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
         \end{align*}
         So we have $\sum_1+\sum_2+\sum_3=f(\mathcal{P}')-f(\mathcal{P})$
     \end{proof}
-    \noindent Start with the trivial partition (i.e. $\mathcal{P}= \{w\}$) and repeat while $\sum_{w'\in \mathcal{P} \\ w' \text{ is } \epsilon\text{-irregular}} |w'|\leq \epsilon |w|$.\\
+    \noindent Start with the trivial partition (i.e. $\mathcal{P}= \{w\}$) and repeat while $\sum_{\substack{w'\in \mathcal{P} \\ w' \text{ is } \epsilon\text{-irregular}}} |w'|\leq \epsilon |w|$.\\
     For $w'\in \mathcal{P}$ that is $\epsilon$-irregular, find a way to write as $w'=w^{(1)}w^{(2)}w^{(3)}$ where $|d(w^{(2)})-d(w^{(1)})|\geq \epsilon$ and $|w^{(2)}|\geq \epsilon |w'|$
     Replace $w'$ with the three words $w^{(1)},w^{(2)},w^{(3)}$ to obtain a new partition of $w$, call it $\mathcal{P}'$. Repeat with $\mathcal{P}$ replaced by $\mathcal{P}'$.\\\\
     To analyze this algorithm, if we drop some words we have \[
