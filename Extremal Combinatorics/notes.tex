@@ -963,7 +963,7 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     \noindent Start with the trivial partition (i.e. $\mathcal{P}= \{w\}$) and repeat while \[
         \sum_{\substack{w'\in \mathcal{P} \\ w' \text{ is } \epsilon\text{-irregular}}} |w'|\leq \epsilon |w|
     .\]
-    For $w'\in \mathcal{P}$ that is $\epsilon$-irregular, find a way to write as $w'=w^{(1)}w^{(2)}w^{(3)}$ where $|d(w^{(2)})-d(w^{(1)})|\geq \epsilon$ and $|w^{(2)}|\geq \epsilon |w'|$
+    For $w'\in \mathcal{P}$ that is $\epsilon$-irregular, find a way to write as $w'=w^{(1)}w^{(2)}w^{(3)}$ where $|d(w^{(2)})-d(w^{(1)})|\geq \epsilon$ and $|w^{(2)}|\geq \epsilon |w'|$.\\
     Replace $w'$ with the three words $w^{(1)},w^{(2)},w^{(3)}$ to obtain a new partition of $w$, call it $\mathcal{P}'$. Repeat with $\mathcal{P}$ replaced by $\mathcal{P}'$.\\\\
     To analyze this algorithm, if we drop some words we have \[
     f(\mathcal{P}')\geq f(\mathcal{P})+\sum_{\substack{w'\in \mathcal{P}' \\ w' \text{ is } \epsilon\text{-irregular}}}\sum_{w^{(2)}}(d(w^{(2)}-d(w')))\frac{|w^{(2)}|}{|w|}\geq f(\mathcal{P})+\sum_{\substack{w'\in \mathcal{P}' \\ w' \text{ is } \epsilon\text{-irregular}}}\epsilon^2 \frac{\epsilon |w'|}{|w|}=f(\mathcal{P})+\epsilon^4
