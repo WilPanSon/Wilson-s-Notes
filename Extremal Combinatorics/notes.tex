@@ -1096,10 +1096,9 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     \[
         f(\mathcal{P}_{\text{new}}) \ge f(\mathcal{P}_{\text{ref}}) > f(\mathcal{P}_{\text{main}}) + \epsilon^5
     \]
-
     \textbf{6. Final Iteration Bound:} \\
     Because the energy is bounded by 1, and each step strictly increases the energy by at least $\epsilon^5$, the algorithm must terminate in at most $T = \lceil 1/\epsilon^5 \rceil$ steps. \\
-    
+
     Let $m$ be the initial number of parts. At each step, if we have $k$ parts, the next step yields at most $g(k) = k \cdot 4^k \le 4^{4^k}$ parts. \\
     The total number of parts at termination is bounded by iterating this function $T$ times:
     \[
