@@ -1051,13 +1051,11 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
 
     \vspace{0.5cm}
     \noindent \textbf{Algorithm Analysis \& Energy Increment:} \\
-    
     \textbf{1. The Setup:} \\
     We start with an equipartition $\mathcal{P} = \{V_0, V_1, \dots, V_k\}$ where $V_0$ is the "Junk" set and $V_1, \dots, V_k$ are the main parts of equal size. Assume $\mathcal{P}$ is \textbf{not} $\epsilon$-regular. By definition, this means the sum of the volume of the $\epsilon$-irregular pairs exceeds $\epsilon$:
     \[
         \sum_{\substack{(V_i, V_j) \\ \text{is } \epsilon\text{-irregular}}} \frac{|V_i||V_j|}{|V|^2} > \epsilon
     \]
-
     \textbf{2. Isolating Witnesses:} \\
     For each $\epsilon$-irregular pair $(V_i, V_j)$, there exist witness sets $A^{(i,j)} \subset V_i$ and $A^{(j,i)} \subset V_j$ proving the irregularity. They satisfy:
     \begin{align*}
