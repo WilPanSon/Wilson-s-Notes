@@ -1035,62 +1035,42 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
 \end{rmk}
 
 \begin{proof}
-$V_1, \dots, V_k$ are the main parts, all of equal size. \\
-\textbf{The Assumption:} The partition $\mathcal{P}$ is \textbf{not} $\epsilon$-regular. \\
-
-By definition, if a partition is not $\epsilon$-regular, it means the total volume of all $\epsilon$-irregular pairs $(V_i, V_j)$ exceeds an $\epsilon$-fraction of the total possible volume. Mathematically, this means:
-\[
-    \sum_{(V_i, V_j) \text{ is irregular}} \frac{|V_i||V_j|}{|V|^2} > \epsilon
-\]
-\textbf{Our goal:} Construct a refined partition $\mathcal{P}_{\text{new}}$ and prove that $f(\mathcal{P}_{\text{new}}) \ge f(\mathcal{P}) + \epsilon^5$. \\
-
-\vspace{0.5cm}
-
-\textbf{Step 1: Isolate the "Witness" Sets} \\
-Because every $\epsilon$-irregular pair $(V_i, V_j)$ is irregular, there must exist sub-parts that prove it. Let's call them $A^{(i,j)} \subset V_i$ and $B^{(i,j)} \subset V_j$. By the definition of irregularity, they satisfy: \\
-1. \textbf{Size:} $|A^{(i,j)}| \ge \epsilon|V_i|$ and $|B^{(i,j)}| \ge \epsilon|V_j|$ \\
-2. \textbf{Density Deviation:} $|d(A^{(i,j)}, B^{(i,j)}) - d(V_i, V_j)| \ge \epsilon$ \\
-
-For every irregular pair involving $V_i$, this gives us a simple boolean cut of $V_i$: $\{A^{(i,j)}, V_i \setminus A^{(i,j)}\}$. \\
-
-\vspace{0.5cm}
-
-\textbf{Step 2: The Common Refinement} \\
-A single part $V_i$ might be involved in multiple irregular pairs. To capture all the density deviations, we take the \textbf{common refinement} of all these boolean cuts on $V_i$. \\
-
-Let $\mathcal{P}_i$ be this new, finely chopped partition of $V_i$. Because $V_i$ interacts with at most $k$ other sets, we cut it at most $k$ times. Therefore, $\mathcal{P}_i$ contains at most $2^k$ sub-parts. \\
-
-Our completely new partition of the whole graph is $\mathcal{P}_{\text{new}} = \bigcup_{i=1}^k \mathcal{P}_i \cup \{V_0\}$. \\
-
-\vspace{0.5cm}
-
-\textbf{Step 3: Energy Increment for ONE Irregular Pair} \\
-Now we apply the Lemma. For any specific $\epsilon$-irregular pair $(V_i, V_j)$, we replace them with their refinements $\mathcal{P}_i$ and $\mathcal{P}_j$. \\
-
-According to the Lemma, the new energy between these refined parts is at least the old energy \textit{plus} the variance caused by the witness sets $A$ and $B$:
-\begin{align*}
-    f(\mathcal{P}_i, \mathcal{P}_j) &\ge f(V_i, V_j) + \left( d(A,B) - d(V_i, V_j) \right)^2 \frac{|A||B|}{|V|^2} \\
-    &\ge f(V_i, V_j) + (\epsilon)^2 \frac{(\epsilon|V_i|)(\epsilon|V_j|)}{|V|^2} \\
-    &= f(V_i, V_j) + \epsilon^4 \frac{|V_i||V_j|}{|V|^2}
-\end{align*}
-\textbf{For regular pairs}, we don't have a guaranteed variance boost, so we just use the trivial bound: $f(\mathcal{P}_i, \mathcal{P}_j) \ge f(V_i, V_j)$. \\
-
-\vspace{0.5cm}
-
-\textbf{Step 4: The Global Energy Increment} \\
-Now we sum the energy over all pairs in our new partition to find the total energy $f(\mathcal{P}_{\text{new}})$. We split the sum into pairs that were regular and pairs that were irregular (dropping the Junk set $V_0$ entirely to form a lower bound). \\
-
-\begin{align*}
-    f(\mathcal{P}_{\text{new}}) &\ge \sum_{(i,j) \text{ regular}} f(\mathcal{P}_i, \mathcal{P}_j) + \sum_{(i,j) \text{ irregular}} f(\mathcal{P}_i, \mathcal{P}_j) \\
-    &\ge \sum_{\text{regular}} f(V_i, V_j) + \sum_{\text{irregular}} \left[ f(V_i, V_j) + \epsilon^4 \frac{|V_i||V_j|}{|V|^2} \right] \\
-    &= f(\mathcal{P}) + \epsilon^4 \sum_{(V_i, V_j) \text{ irregular}} \frac{|V_i||V_j|}{|V|^2}
-\end{align*}
-
-We use the definition of an $\epsilon$-irregular partition from the Setup section. We know that the sum of the volume of irregular pairs is strictly greater than $\epsilon$. Substitute that into the equation:
-\begin{align*}
-    f(\mathcal{P}_{\text{new}}) &\ge f(\mathcal{P}) + \epsilon^4 (\epsilon) \\
-    &= f(\mathcal{P}) + \epsilon^5
-\end{align*}
+    For a partition $\mathcal{P}$ of $V:=V(G)$, we define \[
+    f(\mathcal{P})=\sum_{U,W\in \mathcal{P}, U \neq W} \underbrace{d(U,W)^2\frac{|U||W|}{|V|^2}}_{f(U,W)}
+    .\] 
+    \begin{lem}
+        Suppose $A,B\subset V$ are disjoint and we have partitions $A=A_1\cup \cdots \cup A_k$ and $B=B_1\cup \cdots \cup B_l$ then \[
+        \sum_{i,j}f(A_i,B_j)=f(A,B)+\sum_{i,j} \left( d(A,B)-d(A_i,B_j) \right)^2\frac{|A_i||B_j|}{|V|^2}
+        .\] 
+        Proof is exactly the same as the proof of the regularity lemma for binary words.
+    \end{lem}
+    \noindent \textbf{Algorithm}: To find an $\epsilon$-regular partition
+    \begin{enumerate}
+        \item Start with any equipartition of $V$ into $m$ parts. 
+        \item We will start with partitions of the form $V=V_1\cup V_2\cup ...\cup V_k \cup J_1\cup ... \cup J_\ell$ 
+        \item For each $\epsilon$-irregular pair $(V_i,V_j)$ there exist partitions $V_i=V_{i,1}^{(i,j)}\cup V_{i,2}^{(i,j)}$ and $V_j=V_{j,1}^{(i,j)}\cup V_{j,2}^{(i,j)}$ such that $|d(V_i, V_j)-d(V_{i,1}^{(i,j)}, V_{j,1}^{(i,j)})|\geq \epsilon$ and $|V_{i,1}^{(i,j)}|\geq \epsilon |V_i|$ and $|V_{j,1}^{(i,j)}|\geq \epsilon |V_j|$.
+        \\
+        Note: We write is as such since there may be many $\epsilon$-irregular pairs $(V_i,V_j)$ and we want to keep track of them.
+        \item For each $i$ consider all partitions of $V_i$ as $V_i=V_{i,1}\cup V_{i,2}$ and take the common refinement. Two $V,V'$ are in the same part of the refinement iff $V,V'$ are in the same part in each of the partitions. \\
+        Observe: Each $V_i$ is cut into $\leq 2^k$ parts. \\
+        Let $\mathcal{P}$ be the old partition and $\mathcal{P}_{ \text{new}}$ be the new partition.
+        \begin{align*}
+            f(\mathcal{P}_{ \text{new}})&= \sum_{\substack{A,B\in \mathcal{P}_{ \text{new}}\\ A\neq B}} f(A,B)\\&\geq\sum_i f(J_i, ?)+\sum_{i,j}\sum_{\substack{A,B \\ \text{parent}(A)=V_i \\ \text{parent}(B)=V_j}} f(A,B)\\
+            &\geq f( \text{Junk})+\sum_{i\neq j} \left( f(V_i,V_j)+\epsilon^2 \frac{\epsilon^2|V_i||V_j|}{|V|^2} \right)\\
+            &=f(\mathcal{P})+\epsilon^4 \left( \frac{|V|-| \text{Junk}|}{|V|} \right)^2\\
+            &\geq f(\mathcal{P})+\frac{\epsilon^4}{4}
+        \end{align*} 
+        \item Cut each of the parts in $\mathcal{P}_{ \text{new}}$ into equally big parts so total \# parts is $\leq k\cdot 4^k$ and some left over where \# of leftovers is $\leq k 2^k$ and the size of them $\leq k 2^k \cdot \frac{|V|}{k 4^k}\leq \frac{|V|}{2^k}$\\
+        So the total junk size is $\leq \sum_{k\geq m} \frac{|V|}{2^k}$\\
+        The total number of iterations is at most $\frac{4}{\epsilon^4}$, and let $g(k) = k \cdot 4^k$. The total number of parts at the end is at most 
+        \[
+            M\leq g^{(\lceil 1/\epsilon^5 \rceil)}(m)
+        \]
+        where $g^{(t)}$ denotes $g$ composed with itself $t$ times, starting from $m$; that is, we iterate $g$ at most $\frac{1}{\epsilon^5}$ times as $\epsilon k^2 \cdot \frac{\epsilon^4}{k^2}=\epsilon^5$. \\
+        So using $g(k)\leq 4^{4^k}$ we have \[
+        M\leq \left. 4^{4^{4^{\cdots^{4^m}}}} \right\} \tfrac{2}{\epsilon^5} \text{ times}
+        .\] 
+    \end{enumerate} 
 \end{proof}
 
 \newpage
