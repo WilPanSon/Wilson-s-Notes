@@ -1035,42 +1035,71 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
 \end{rmk}
 
 \begin{proof}
-    For a partition $\mathcal{P}$ of $V:=V(G)$, we define \[
-    f(\mathcal{P})=\sum_{U,W\in \mathcal{P}, U \neq W} \underbrace{d(U,W)^2\frac{|U||W|}{|V|^2}}_{f(U,W)}
-    .\] 
+    For a partition $\mathcal{P}$ of $w$ into sub-words $\mathcal{P}= \{w^{(1)},...,w^{(m)}\}$ we define $f(\mathcal{P})=\sum_{w'\in \mathcal{P}}d(w')^2|w'|/|w|$.\\
+    Alternatively, we pick a symbol of $w$ at random, say $i\in [n]$ uniformly, then pick another symbol at random from the same part as the $1$'st, say $j$ is picked. By expanding the square, we can explicitly show how this relates to $f(\mathcal{P})$:
+    \begin{align*}
+        \Pr[w_i=w_j] &= \sum_{w'\in \mathcal{P}}\frac{|w'|}{|w|}(d(w')^2+(1-d(w'))^2) \\
+        &= \sum_{w'\in \mathcal{P}}\frac{|w'|}{|w|}(2d(w')^2 - 2d(w') + 1) \\
+        &= 2\sum_{w'\in \mathcal{P}}d(w')^2\frac{|w'|}{|w|} + \sum_{w'\in \mathcal{P}}\frac{|w'|}{|w|} - 2\sum_{w'\in \mathcal{P}}d(w')\frac{|w'|}{|w|} \\
+        &= 2f(\mathcal{P}) + 1 - 2d(w)
+    \end{align*}
+
     \begin{lem}
-        Suppose $A,B\subset V$ are disjoint and we have partitions $A=A_1\cup \cdots \cup A_k$ and $B=B_1\cup \cdots \cup B_l$ then \[
-        \sum_{i,j}f(A_i,B_j)=f(A,B)+\sum_{i,j} \left( d(A,B)-d(A_i,B_j) \right)^2\frac{|A_i||B_j|}{|V|^2}
-        .\] 
-        Proof is exactly the same as the proof of the regularity lemma for binary words.
-    \end{lem}
-    \noindent \textbf{Algorithm}: To find an $\epsilon$-regular partition
-    \begin{enumerate}
-        \item Start with any equipartition of $V$ into $m$ parts. 
-        \item We will start with partitions of the form $V=V_1\cup V_2\cup ...\cup V_k \cup J_1\cup ... \cup J_\ell$ 
-        \item For each $\epsilon$-irregular pair $(V_i,V_j)$ there exist partitions $V_i=V_{i,1}^{(i,j)}\cup V_{i,2}^{(i,j)}$ and $V_j=V_{j,1}^{(i,j)}\cup V_{j,2}^{(i,j)}$ such that $|d(V_i, V_j)-d(V_{i,1}^{(i,j)}, V_{j,1}^{(i,j)})|\geq \epsilon$ and $|V_{i,1}^{(i,j)}|\geq \epsilon |V_i|$ and $|V_{j,1}^{(i,j)}|\geq \epsilon |V_j|$.
-        \\
-        Note: We write is as such since there may be many $\epsilon$-irregular pairs $(V_i,V_j)$ and we want to keep track of them.
-        \item For each $i$ consider all partitions of $V_i$ as $V_i=V_{i,1}\cup V_{i,2}$ and take the common refinement. Two $V,V'$ are in the same part of the refinement iff $V,V'$ are in the same part in each of the partitions. \\
-        Observe: Each $V_i$ is cut into $\leq 2^k$ parts. \\
-        Let $\mathcal{P}$ be the old partition and $\mathcal{P}_{ \text{new}}$ be the new partition.
-        \begin{align*}
-            f(\mathcal{P}_{ \text{new}})&= \sum_{\substack{A,B\in \mathcal{P}_{ \text{new}}\\ A\neq B}} f(A,B)\\&\geq\sum_i f(J_i, ?)+\sum_{i,j}\sum_{\substack{A,B \\ \text{parent}(A)=V_i \\ \text{parent}(B)=V_j}} f(A,B)\\
-            &\geq f( \text{Junk})+\sum_{i\neq j} \left( f(V_i,V_j)+\epsilon^2 \frac{\epsilon^2|V_i||V_j|}{|V|^2} \right)\\
-            &=f(\mathcal{P})+\epsilon^4 \left( \frac{|V|-| \text{Junk}|}{|V|} \right)^2\\
-            &\geq f(\mathcal{P})+\frac{\epsilon^4}{4}
-        \end{align*} 
-        \item Cut each of the parts in $\mathcal{P}_{ \text{new}}$ into equally big parts so total \# parts is $\leq k\cdot 4^k$ and some left over where \# of leftovers is $\leq k 2^k$ and the size of them $\leq k 2^k \cdot \frac{|V|}{k 4^k}\leq \frac{|V|}{2^k}$\\
-        So the total junk size is $\leq \sum_{k\geq m} \frac{|V|}{2^k}$\\
-        The total number of iterations is at most $\frac{4}{\epsilon^4}$, and let $g(k) = k \cdot 4^k$. The total number of parts at the end is at most 
+        If $\mathcal{P}'$ is a refinement of $\mathcal{P}$ (meaning each word in $\mathcal{P}'$ has a unique parent word in $\mathcal{P}$), then:
         \[
-            M\leq g^{(\lceil 1/\epsilon^5 \rceil)}(m)
+            f(\mathcal{P}')=f(\mathcal{P})+\sum_{w'\in \mathcal{P}'} \left( d(w')-d(\mathrm{parent}(w')) \right)^2 \frac{|w'|}{|w|}
         \]
-        where $g^{(t)}$ denotes $g$ composed with itself $t$ times, starting from $m$; that is, we iterate $g$ at most $\frac{1}{\epsilon^5}$ times as $\epsilon k^2 \cdot \frac{\epsilon^4}{k^2}=\epsilon^5$. \\
-        So using $g(k)\leq 4^{4^k}$ we have \[
-        M\leq \left. 4^{4^{4^{\cdots^{4^m}}}} \right\} \tfrac{2}{\epsilon^5} \text{ times}
-        .\] 
-    \end{enumerate} 
+    \end{lem}
+
+    \begin{proof}[Proof of Lemma]
+        Expanding the square in the second term we have:
+        \[
+            \sum_{w'\in \mathcal{P'}}d(w')^2\frac{|w'|}{|w|}-2d(w')d(\mathrm{parent}(w'))\frac{|w'|}{|w|}+d(\mathrm{parent}(w'))^2\frac{|w'|}{|w|}=\sum_1+\sum_2+\sum_3
+        \]
+        By definition, we immediately have $\sum_1 = f(\mathcal{P}')$. \\
+        To simplify $\sum_2$ and $\sum_3$, we group the sub-words $w' \in \mathcal{P}'$ by their parent word $\tilde{w} \in \mathcal{P}$. We use two conservation facts: the lengths of the sub-words sum to the length of the parent ($\sum |w'| = |\tilde{w}|$), and the number of 1s is conserved ($\sum d(w')|w'| = d(\tilde{w})|\tilde{w}|$).
+
+        For the second sum:
+        \begin{align*}
+            \sum_2 &= \sum_{\tilde{w}\in \mathcal{P}}\sum_{\substack{w'\in \mathcal{P'} \\ \mathrm{parent}(w')=\tilde{w}}} \left( -2d(w')d(\tilde{w})\frac{|w'|}{|w|} \right)\\
+            &= \sum_{\tilde{w}\in \mathcal{P}}-2d(\tilde{w})\frac{1}{|w|}\sum_{\substack{w'\in \mathcal{P'} \\ \mathrm{parent}(w')=\tilde{w}}}d(w')|w'|\\
+            &= \sum_{\tilde{w}\in \mathcal{P}}-2d(\tilde{w})\frac{1}{|w|} \cdot \left( d(\tilde{w})|\tilde{w}| \right)\\
+            &= \sum_{\tilde{w}\in \mathcal{P}}-2d(\tilde{w})^2\frac{|\tilde{w}|}{|w|}\\
+            &= -2f(\mathcal{P})
+        \end{align*}
+
+        Then for the third sum:
+        \begin{align*}
+            \sum_3 &=\sum_{\tilde{w}\in \mathcal{P}}\sum_{\substack{w'\in \mathcal{P'} \\ \mathrm{parent}(w')=\tilde{w}}} d(\tilde{w})^2 \frac{|w'|}{|w|}\\
+            &=\sum_{\tilde{w}\in \mathcal{P}}d(\tilde{w})^2 \frac{1}{|w|} \sum_{\substack{w'\in \mathcal{P'} \\ \mathrm{parent}(w')=\tilde{w}}} |w'| \\
+            &=\sum_{\tilde{w}\in \mathcal{P}}d(\tilde{w})^2 \frac{|\tilde{w}|}{|w|}\\
+            &=f(\mathcal{P})
+        \end{align*}
+        So substituting these back, we have $\sum_1+\sum_2+\sum_3=f(\mathcal{P}') - 2f(\mathcal{P}) + f(\mathcal{P}) = f(\mathcal{P}')-f(\mathcal{P})$. This concludes the lemma.
+    \end{proof}
+
+    \noindent \textbf{Algorithm Analysis.}\\
+    Start with the trivial partition (i.e. $\mathcal{P}= \{w\}$) and repeat the refinement process while the partition is not $\epsilon$-regular, which means:
+    \[
+        \sum_{\substack{w'\in \mathcal{P} \\ w' \text{ is } \epsilon\text{-irregular}}} |w'| > \epsilon |w|
+    \]
+
+    For each $w'\in \mathcal{P}$ that is $\epsilon$-irregular, find a way to write it as $w'=w^{(1)}w^{(2)}w^{(3)}$ where the middle chunk acts as the witness to irregularity, satisfying $|d(w^{(2)})-d(w')|\geq \epsilon$ and $|w^{(2)}|\geq \epsilon |w'|$.\\
+    Replace each such irregular $w'$ with its three sub-words $w^{(1)},w^{(2)},w^{(3)}$ (keeping regular words unchanged) to obtain a new partition of $w$, call it $\mathcal{P}'$. Repeat with $\mathcal{P}$ replaced by $\mathcal{P}'$.\\
+
+    To rigorously analyze the energy increase of this algorithm step, we apply the Lemma and strategically drop non-negative terms to establish a strict lower bound:
+    \begin{align*}
+        f(\mathcal{P}') &= f(\mathcal{P}) + \sum_{w'\in \mathcal{P}} \sum_{\substack{w''\in \mathcal{P}' \\ \mathrm{parent}(w'')=w'}} \left( d(w'')-d(w') \right)^2 \frac{|w''|}{|w|} \\
+        &\geq f(\mathcal{P}) + \sum_{\substack{w'\in \mathcal{P} \\ w' \text{ is } \epsilon\text{-irregular}}} \sum_{\substack{w''\in \mathcal{P}' \\ \mathrm{parent}(w'')=w'}} \left( d(w'')-d(w') \right)^2 \frac{|w''|}{|w|} \\
+        &\geq f(\mathcal{P}) + \sum_{\substack{w'\in \mathcal{P} \\ w' \text{ is } \epsilon\text{-irregular}}} \left( d(w^{(2)})-d(w') \right)^2 \frac{|w^{(2)}|}{|w|} \\
+        &\geq f(\mathcal{P}) + \sum_{\substack{w'\in \mathcal{P} \\ w' \text{ is } \epsilon\text{-irregular}}}\epsilon^2 \frac{\epsilon |w'|}{|w|} \\
+        &= f(\mathcal{P}) + \frac{\epsilon^3}{|w|} \sum_{\substack{w'\in \mathcal{P} \\ w' \text{ is } \epsilon\text{-irregular}}} |w'| \\
+        &> f(\mathcal{P}) + \frac{\epsilon^3}{|w|} (\epsilon |w|) \\
+        &= f(\mathcal{P})+\epsilon^4
+    \end{align*} 
+
+    Note: $f(\mathcal{P})\leq 1$ for any partition $\mathcal{P}$ because densities are bounded between $0$ and $1$.\\
+    Because the energy strictly increases by at least $\epsilon^4$ in every step, the total number of steps in the algorithm is bounded by $\lfloor 1/\epsilon^4 \rfloor$. Since each step cuts an existing part into at most 3 parts, the total number of parts multiplies by at most 3 each time. Therefore, the algorithm must terminate, and the theorem holds with the maximum number of parts being $M(\epsilon)=3^{1/\epsilon^4}$.
 \end{proof}
 
 \newpage
