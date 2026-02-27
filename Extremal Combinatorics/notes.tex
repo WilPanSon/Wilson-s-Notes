@@ -931,7 +931,7 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     For all $\epsilon>0$, every word $w\in \{0,1\}^n$ can be partitioned into $\leq M(\epsilon)$ many sub-words $w^{(1)},...,w^{(m)}$ (i.e. $w=w^{(1)}...w^{(m)}$). So that the total length of $w^{(i)}$'s that are $\epsilon$-irregular is at most $\epsilon n.$  
 \end{thm}
 \begin{proof}
-    For a partition $\mathcal{P}$ of $w$ into sub-words $\mathcal{P}= \{w^{(1)},...,w^{(m)}\}$ we define $f(\mathcal{P})=\sum_{w'\in \mathcal{P}}d(w)^2|w'|/|w|$.\\
+    For a partition $\mathcal{P}$ of $w$ into sub-words $\mathcal{P}= \{w^{(1)},...,w^{(m)}\}$ we define $f(\mathcal{P})=\sum_{w'\in \mathcal{P}}d(w')^2|w'|/|w|$.\\
     Alternatively, we pick a symbol of $w$ at random, say $i\in [n]$ uniformly, then pick another symbol at random from the same part as $1$'st, say $j$ is picked. 
     \[
     \Pr[w_i=w_j]=\sum_{w'\in \mathcal{P}}\frac{|w'|}{|w|}(d(w')^2+(1-d(w'))^2)=2 f(\mathcal{P})+\sum_{w'}\frac{|w'|}{|w|}-2\sum_{w'}d(w')\frac{|w'|}{|w|}=2f(\mathcal{P})+1-2d(w)
