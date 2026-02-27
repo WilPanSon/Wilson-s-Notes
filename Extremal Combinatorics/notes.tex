@@ -1097,7 +1097,6 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
         &> f(\mathcal{P}) + \frac{\epsilon^3}{|w|} (\epsilon |w|) \\
         &= f(\mathcal{P})+\epsilon^4
     \end{align*} 
-
     Note: $f(\mathcal{P})\leq 1$ for any partition $\mathcal{P}$ because densities are bounded between $0$ and $1$.\\
     Because the energy strictly increases by at least $\epsilon^4$ in every step, the total number of steps in the algorithm is bounded by $\lfloor 1/\epsilon^4 \rfloor$. Since each step cuts an existing part into at most 3 parts, the total number of parts multiplies by at most 3 each time. Therefore, the algorithm must terminate, and the theorem holds with the maximum number of parts being $M(\epsilon)=3^{1/\epsilon^4}$.
 \end{proof}
