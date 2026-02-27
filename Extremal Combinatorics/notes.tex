@@ -1063,11 +1063,9 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
         |d(A^{(i,j)}, A^{(j,i)}) - d(V_i, V_j)| &\ge \epsilon
     \end{align*}
     This creates a boolean partition of $V_i$ into $\{A^{(i,j)}, V_i \setminus A^{(i,j)}\}$ and similarly for $V_j$. \\
-
     \textbf{3. The Common Refinement ($\mathcal{P}_{\text{ref}}$):} \\
     For each part $V_i$, we consider all boolean partitions induced by its irregular pairings. We take the \textbf{common refinement} of all these cuts to form a new partition $\mathcal{P}_i$ of $V_i$. \\
     Since $V_i$ is paired with at most $k-1$ other parts, we cut $V_i$ at most $k-1$ times. Thus, $\mathcal{P}_i$ contains at most $2^{k-1} \le 2^k$ sub-parts. Let our intermediate refined partition be $\mathcal{P}_{\text{ref}} = \{V_0\} \cup \bigcup_{i=1}^k \mathcal{P}_i$. \\
-
     \textbf{4. Energy of the Refinement:} \\
     We calculate the energy $f(\mathcal{P}_{\text{ref}})$. We can drop non-negative energy terms from pairs of sub-parts that belong to the same parent $V_i$, and pairs involving the junk set $V_0$, to establish a strict lower bound:
     \begin{align*}
