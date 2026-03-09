@@ -1,0 +1,2020 @@
+\documentclass[a4paper]{article}
+\input{notestyle}
+
+\newtheorem{thm}{Theorem}[section]
+\AtBeginEnvironment{thm}{\envbox{red}}
+\AtEndEnvironment{thm}{\end{tcolorbox}}
+\newtheorem{lem}[thm]{Lemma}
+\AtBeginEnvironment{lem}{\envbox{SeaGreen}}
+\AtEndEnvironment{lem}{\end{tcolorbox}}
+\newtheorem{defn}[thm]{Definition}
+\AtBeginEnvironment{defn}{\envbox{blue}}
+\AtEndEnvironment{defn}{\end{tcolorbox}}
+\newtheorem{eg}[thm]{Example}
+\newtheorem{ex}[thm]{Exercise}
+\AtBeginEnvironment{ex}{\envbox{violet}}
+\AtEndEnvironment{ex}{\end{tcolorbox}}
+\newtheorem{conj}[thm]{Conjecture}
+\AtBeginEnvironment{conj}{\envbox{teal}}
+\AtEndEnvironment{conj}{\end{tcolorbox}}
+\newtheorem{cor}[thm]{Corollary}
+\AtBeginEnvironment{cor}{\envbox{purple}}
+\AtEndEnvironment{cor}{\end{tcolorbox}}
+\newtheorem{claim}[thm]{Claim}
+\AtBeginEnvironment{claim}{\envbox{brown}}
+\AtEndEnvironment{claim}{\end{tcolorbox}}
+\newtheorem{rmk}[thm]{Remark}
+\AtBeginEnvironment{rmk}{\envbox{gray}}
+\AtEndEnvironment{rmk}{\end{tcolorbox}}
+\newtheorem{rec}[thm]{Recall}
+\AtBeginEnvironment{rec}{\envbox{cyan}}
+\AtEndEnvironment{rec}{\end{tcolorbox}}
+\newtheorem{prop}[thm]{Proposition}
+\AtBeginEnvironment{prop}{\envbox{DarkOrchid}}
+\AtEndEnvironment{prop}{\end{tcolorbox}}
+
+\title{Complex Analysis Notes}
+\author{Wilson Pan}
+\date{\today}
+\setnotesheader{Complex Analysis}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Jan 12}
+\subsection{Holomorphic Functions and Complex Differentiation}
+\begin{defn}
+    Let $\Omega$ be an open set in $\C$ and $f$ a complex-valued function on $\Omega$. A  function $f$ is holomorphic at a point $z_0\in \Omega$ if the quotient \[
+    \frac{f(z_0+h)-f(z_0)}{h}
+    .\] 
+    converges to a limit when $h\to 0.$ The limit of the quotient, when it exists, is denoted $f'(z_0).$
+\end{defn}
+\begin{thm}
+    A function $F(x,y)=(u(x,y),v(x,y))$ is said to be differentiable at a point $P_0(x_0,y_0)$ if there exist a linear transformation $J:\R^2\to \R^2$ such that \[
+    \frac{|F(P_0+H)-F(P_0)-J(H)|}{|H|}\to 0 \text{ as } |H|\to 0
+    .\] 
+\end{thm}
+\subsection{Jacobian and Cauchy-Riemann Equations}
+\begin{defn}
+    The jacobian matrix of $F$ is \[
+    J=J_F(x,y)=\begin{pmatrix}
+        {\frac{\partial u}{\partial x} } & {\frac{\partial u}{\partial y} } \\ 
+        {\frac{\partial v}{\partial x} } & {\frac{\partial v}{\partial y} }
+    \end{pmatrix}
+    .\] 
+\end{defn}
+\begin{thm}
+    Cauchy-Riemann Equations: If $f$ is holomorphic then 
+    \[
+    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}  \text{ and } \frac{\partial u}{\partial y} =-\frac{\partial v}{\partial x} 
+    .\] 
+\end{thm}
+\begin{proof}
+    If we write $z=x+iy,z_0=x_0+iy_0$ and $f(z)=f(x,y)$ then 
+    \begin{align*}
+        f'(z_0)&=\lim_{h_1\to 0} \frac{f(x_0+h_1,y_0)-f(x_0,y_0)}{h_1}\\
+        &=\frac{\partial f}{\partial x} (z_0)
+    \end{align*}
+    Similarly, now take $h$ purely imaginary, say $h=ih_2$, then 
+    \begin{align*}
+        f'(z_0)&=\lim_{h_2\to 0}  \frac{f(x_0,y_0+h_2)-f(x_0,y_0)}{ih_2}\\
+        &=\frac{1}{i}\frac{\partial f}{\partial y} (z_0)
+    \end{align*}
+    Since $f$ is holomorphic we have \[
+    \frac{\partial f}{\partial x} =\frac{1}{i}\frac{\partial f}{\partial y}
+    .\] 
+    Writing $f=u+iv$ we have the stated relation.
+\end{proof}
+\newpage
+\section{Jan 14}
+\subsection{Holomorphic Equivalence and Wirtinger Derivatives}
+\begin{thm}
+    $f:\Omega\to \mathbb{C}$ holomorphic on $\Omega$ equivalently $F=\begin{pmatrix}
+        {u} \\ 
+        {v}
+    \end{pmatrix}:\R^2\to \R^2$. The partials $\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}, \frac{\partial v}{\partial x}, \frac{\partial v}{\partial y}$ exist and satisfy the Cauchy-Riemann equations \[
+    \frac{\partial u}{\partial x}=\frac{\partial v}{\partial y}, \frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x}
+    .\] 
+    Moreover, $F$ is $\R$-differentiable, there exist a linear map $\mathcal{L}:\R^2\to\R^2$ such that $F((x,y)+(h_1,h_2))-F(x,y)=\mathcal{L}(h_1,h_2)+o(h)$ \[
+    \mathcal{L}=\begin{pmatrix}
+        {\frac{\partial u}{\partial x}} & {\frac{\partial u}{\partial y}} \\ 
+        {\frac{\partial v}{\partial x}} & {\frac{\partial v}{\partial y}}
+    \end{pmatrix}
+    .\]  
+\end{thm}
+\begin{proof}
+    We have 
+    \begin{align}
+        \frac{|F((x,y)+(h_1,h_2))-F(x,y)-\mathcal{L}(h_1,h_2)|}{|h|}&=\frac{\left | \begin{pmatrix}
+            {u(\overline{z}+\overline{h})-u(\overline{z})-\frac{\partial u}{\partial x}h_1-\frac{\partial u}{\partial y}h_2} \\ 
+            {v(\overline{z}+\overline{h})-v(\overline{z})-\frac{\partial v}{\partial x}h_1-\frac{\partial v}{\partial y}h_2}
+        \end{pmatrix}\right |}{|h|}\\
+        &=\frac{|f(z+h)-f(z)-f'(z)h|}{|h|}\to 0
+    \end{align}
+    Where $f(z+h)=u(z+h)+iv(z+h)$, $f(z)=u(z)+iv(z)$ and $f'(z)=\frac{\partial u }{\partial x}+i \frac{\partial v }{\partial x}$.
+\end{proof}
+\begin{cor}
+    $f$ holomorphic implies $F$ is $\R$-differentiable. Let $a=\frac{\partial u }{\partial x}=\frac{\partial v}{\partial y}$ and $b=\frac{\partial u }{\partial y}=-\frac{\partial v}{\partial x}$
+    \begin{align}
+        DF_z&=\begin{pmatrix}
+        {\frac{\partial u}{\partial x}} & {\frac{\partial u}{\partial y}} \\ 
+        {\frac{\partial v}{\partial x}} & {\frac{\partial v}{\partial y}}
+    \end{pmatrix}\\
+    &=\begin{pmatrix}
+        {a} & {b} \\ 
+        {-b} & {a}
+    \end{pmatrix}\\
+    &=\sqrt{a^2+b^2}\begin{pmatrix}
+        {\cos(\theta)} & {\sin(\theta)} \\ 
+        {-\sin(\theta)} & {\cos(\theta)}
+    \end{pmatrix}\\
+    &= |f'(z)|\begin{pmatrix}
+        {\cos(\theta)} & {\sin(\theta)} \\ 
+        {-\sin(\theta)} & {\cos(\theta)}
+    \end{pmatrix}
+    \end{align}
+\end{cor}
+\begin{thm}
+    If $F$ is $\R$-differentiable with $u,v$ satisfying Cauchy Riemann Equations then $f$ is holomorphic. 
+\end{thm}
+\begin{proof}
+    Let $a=\frac{\partial u}{\partial x}+i \frac{\partial v}{\partial x}$. We just need to check that $f(z+h)-f(z)-ah=o(h)$
+\end{proof}
+\begin{defn}
+    The Wirtinger Derivatives
+    \[
+    \frac{\partial}{\partial z} = \frac{1}{2} \left( \frac{\partial}{\partial x}-i \frac{\partial}{\partial y}  \right) \text{ and } \frac{\partial}{\partial \overline{z}}=\frac{1}{2} \left( \frac{\partial}{\partial x}+i \frac{\partial}{\partial y} \right )  
+    .\] 
+\end{defn}
+\begin{rmk}
+    The cauchy-riemann equations if and only if $\frac{\partial f}{\partial \overline{z}}=0$
+\end{rmk}
+\noindent We initially had the map $z\mapsto \overline{z}$ which is not holomorphic. Let $f(z)=\overline{z}$ and $\frac{\partial f}{\partial \overline{z}}=1$ then we've captured this with $\frac{\partial}{\partial \overline{z}}.$\\
+If we have $z,\overline{z}$ as independent variables with $z=x+iy$. Consider the map 
+\[
+(z,\overline{z})\mapsto (x(z,\overline{z}), y(z,\overline{z}))\mapsto f(x,y)
+.\]
+We have \[
+\partial_z f = \frac{\partial f}{\partial x}\frac{\partial x}{\partial z}+\frac{\partial f}{\partial y} \frac{\partial y}{\partial z}=\frac{1}{2} \left( \frac{\partial}{\partial x}+\frac{1}{i}\frac{\partial}{\partial y} \right)
+.\]
+\begin{thm}
+    \[
+    \frac{\partial}{\partial z}\cdot \frac{\partial}{\partial \overline z}=\frac{1}{4} \left( \frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2} \right)=\frac{1}{4}\triangle
+    .\]
+\end{thm}
+
+\newpage
+\section{Jan 16}
+\subsection{Power Series}
+\begin{defn}
+    Given a $\C$ valued seq $(a_n)_{n=0}^\infty$, form \[
+    \sum_{n=0}^\infty a_nz^n
+    .\] 
+    A power series 
+    \begin{enumerate}
+        \item Converges if $\lim_{N\to \infty}\sum_{n=0}^N a_nz^n$ exists 
+        \item Converges absolutely if $\sum_{n=0}^\infty |a_n||z|^n$ converges
+    \end{enumerate}
+\end{defn}
+\begin{rmk}
+    By translation, all we say will apply to $\sum a_n(z-z_0)^n$
+\end{rmk}
+\begin{thm}
+    Given $\sum_{n=0}^\infty a_nz^n$, $\exists R\in [0,+\infty]$ such that 
+    \begin{enumerate}
+        \item It converges, if $D_R= \{|z|<R\}$
+        \item It diverges at every at $z$ such that $|z|>R$. 
+    \end{enumerate}
+    Moreover, \[
+    R=\frac{1}{\lim_{n\to\infty}\sup|a_n|^{\frac{1}{n}}} \tag{Hadamard's Formula}
+    .\] 
+\end{thm}
+\begin{rmk}
+    On $\partial D_R$ it can often be delicate.
+\end{rmk}
+\begin{proof}
+    Fix $|z|<R$, then $\frac{1}{R}|z|<1$ and fix $\epsilon>0$ such that \[
+    \left( \frac{1}{R}+\epsilon \right)|z|<1
+    .\] 
+    Then, eventually \[
+    |a_n|^{\frac{1}{n}}<\frac{1}{R}+\epsilon
+    .\] 
+    Then \[
+    |a_n||z|^n\leq \left( |a_n|^{\frac{1}{n}}|z| \right)^n \leq \left( \left (\frac{1}{R}+\epsilon\right )|z| \right)^n\leq q^n
+    .\]
+    So by the comparison test with $\sum q^n<\infty$
+\end{proof}
+\begin{eg}
+    \[
+    \sum_{n=0}^{\infty} \frac{z^n}{n!}=\exp(z)
+    .\] 
+    This has $R=+\infty$
+    \[
+    \sum_{n=0}^{\infty}\frac{(-1)^n}{(2n)!}z^{2n}=\cos(z)
+    .\] 
+    This has $R=+\infty$
+    \[
+    \sum_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!}z^{2n+1}=\sin(z)
+    .\] 
+    This has $R=+\infty$\\
+    Euler's Formula is 
+    \[
+    e^{iz}=\cos(z)+i\sin(z)
+    .\] 
+\end{eg}
+\begin{thm}
+    The function $f(z)=\sum a_nz^n$ is holomorphic on $D_R$, $f'$ is a power series 
+    \[
+    f'(z)=\sum na_nz^{n-1}
+    .\] 
+    Whose disk of convergence is $R$. 
+\end{thm}
+\begin{proof}
+    Let $g(z)=\sum na_nz^{n-1}$, $z\in D_R$. We want to show that $f'$ exist and $f'=g$.\\
+    Fix $z_0\in D_R$, let $r<R$ such that $|z_0|<r<R$.\\
+    Fix $N\geq 1$ (to be chosen later)\\
+    \[
+    f(z)=\sum_{n=0}^{N} a_nz^n+\sum_{n=N+1}^\infty a_nz^n=S_N(z)+E_N(z)
+    .\] 
+    From here we want to show that \[
+    \frac{f(z_0+h)-f(z_0)}{h}\to g(z_0)
+    .\] 
+    For all $h$ such that $|z_0+h|<r$
+    \begin{align*}
+            \frac{f(z_0+h)-f(z_0)}{h}-g(z_0)&= \left ( \frac{S_N(z_0+h)-S_N(z_0)}{h}-S_N'(z_0)\right ) + \left( S_N'(z_0)-g(z_0) \right) + \left( \frac{E_N(z_0+h)-E_N(z_0)}{h} \right)\\
+            &= A + B + C
+    \end{align*}
+    Fix $\epsilon>0$ we want to show that $\exists \delta$ such that $\forall |h|<\delta, |A+B+C|<\epsilon.$
+    \begin{align*}
+            |C|&\leq \sum_{n=N+1}^\infty |a_n| \left | \frac{(z_0+h)^n-z_0^n}{h} \right |\\
+            &=\sum_{n=N+1}^\infty |a_n| \left | (z_0+h)^{n-1}+(z_0+h)^{n-2}z_0+\cdots+z_0^n\right |\\
+            &\leq \sum_{n=N+1}^\infty |a_n||nr^{n-1}| < \frac{\epsilon}{3} \tag{for all $N\geq N_1(\epsilon)$}
+    \end{align*}
+    Note the last summation is the tail of $\sum a_n    nr^{n-1}$ which converges by $r<R$.\\
+    For $B$: \[
+    S_N'(z_0)=\sum_{n=0}^Nna_nz_0^{n-1}\to g(z_0) \tag{by def of $g$}
+    .\]
+    So $\forall N\geq N_2$, $|B|<\frac{\epsilon}{3}$.\\
+    $|A|<\frac{\epsilon}{3}$ for all $h$ sufficiently small by the definition of the complex derivative and the fact that $S_N$ is plainly holomorphic. 
+\end{proof}
+\subsection{Analytic Functions}
+\begin{defn}
+    Let $\Omega$ be open and define $f:\Omega\to \C$ is analytic at $z_0\in \Omega$, if there exists a power series $\sum a_n(z-z_0)^n$ with positive radius of convergence such that $f(z)=\sum a_n (z-z_0)^n$ is a neighborhood of $z_0.$ \\
+    $f$ is analytic on $\Omega,$ if analytic at every point of $z_0\in \Omega$.  
+\end{defn}
+\begin{cor}
+     If $f$ analytic on $\Omega\implies f$ is holomorphic on $\Omega$. \\
+     In fact, $\impliedby$. 
+\end{cor}
+\newpage
+\section{Jan 21}
+\subsection{Parametrized Curves}
+\begin{defn}
+    A parametrized curve (in $\C$) is a function $z(t):[a,b]\to \C$
+    \begin{enumerate}
+        \item Smooth if $z'$ is continuous and $\forall t\in [a,b]$, $z'(t)\neq 0$
+        \item Piecewise smooth if $z$ is continuous and there exists $a_0=a<a_1<\cdots<a_k=b$ such that $z|_{[a_j,a_{j+1}]}$ is smooth for all $j=0,\ldots,k-1$. 
+        \item Let $\tilde{z}:[\tilde{a},\tilde{b}]\to \C$ then two parameterization are equivalent if there exist $c^1$-bijection $s\mapsto t(s):[\tilde{a},\tilde{b}]\to [a,b]$ and $t'(s)>0$ for all $s$ such that $\tilde{z}(s)=z(t(s))$.
+    \end{enumerate}
+\end{defn}
+    \begin{eg}
+        A piecewise smooth curve can be visualized as follows:
+        \begin{center}
+            \begin{tikzpicture}[scale=2]
+                % First smooth segment
+                \draw[thick, blue] (0,0) .. controls (0.3,0.6) and (1,0.8) .. (1.5,0.5);
+                % Second smooth segment
+                \draw[thick, blue] (1.5,0.5) .. controls (2.2,0) and (2.8,-0.6) .. (3,-0.3);
+                % Third smooth segment
+                \draw[thick, blue] (3,-0.3) .. controls (3.7,0) and (4,0.6) .. (4.5,0.8);
+                
+                % Mark the corners (non-smooth points)
+                \fill[red] (1.5,0.5) circle (0.1);
+                \fill[red] (3,-0.3) circle (0.1);
+                
+                % Mark start and end
+                \fill[black] (0,0) circle (0.08);
+                \fill[black] (4.5,0.8) circle (0.08);
+                
+                % Labels
+                \node[below left] at (0,0) {$z(a)$};
+                \node[above] at (1.5,0.6) {$z(a_1)$};
+                \node[below] at (3,-0.5) {$z(a_2)$};
+                \node[above right] at (4.5,0.8) {$z(b)$};
+            \end{tikzpicture}
+        \end{center}
+        The curve consists of smooth segments joined at corner points (marked in red) where the derivative is discontinuous.
+    \end{eg}
+\begin{defn}
+    The family of all equivalent parameterization determines a curve (oriented) $\gamma \subset \C, \gamma = z([a,b])$. \\
+    $z(a)$ is the starting point and $z(b)$ is the endpoint of $\gamma.$ $\gamma^{-1}=\gamma$ with reversed orientation
+\end{defn}
+\begin{defn}
+    $\gamma$ is closed if $z(a)=z(b)$ and simple if $z(t_1)\neq z(t_2)$ for all $t_1\neq t_2$. 
+\end{defn}
+\begin{eg}
+    $z(T)=re^{-it}, t\in [0,2\pi]$\\
+\end{eg}
+\begin{defn}
+    A curve has positive orientation if interior is on the left or counterclockwise.
+\end{defn}
+\subsection{Contour Integration}
+\begin{defn}
+    Give a smooth curve $\gamma \subset \C$ (with parameterization $z:[a,b]\to\C$) with $f:\gamma \to \C$ continuous.\\
+    We set 
+    \[
+    \int_\gamma f=\int_\gamma f(z)dz = \int_{a}^bf(z(t))z'(t)dt
+    .\] 
+    Since $f(z(t))z'(t)\in \C$ we split the integral into \[
+    \int_a^b\Re(...)dt+i\int_a^b\Im(...)dt
+    .\]  
+\end{defn}
+\begin{rmk}
+    This is well defined as the right hand side does not depend on the choice of the parametrization. 
+\end{rmk}
+\begin{defn}
+    For a piece-wise smooth curve, we define \[
+    \int_\gamma f=\sum_{j=0}^{k-1}\int_{a_j}^{a_{j+1}}f(z(t))z'(t)dt
+    .\] 
+\end{defn}
+\begin{defn}
+    We define \[
+    |\gamma|= \text{length}(\gamma)=\int_{a}^{b}|z'(t)|dt
+    .\] 
+\end{defn}
+\begin{thm}
+    Some very basic properties:
+    \begin{enumerate}
+        \item Linearity \[
+        \int_\gamma (\alpha f+ \beta g)=\alpha \int_\gamma f +\beta \int_\gamma g
+        .\] 
+        \item \[
+        \int_{\gamma^{-1}}f=-\int_{\gamma}f
+        .\] 
+        \item \[
+        \left |\int_\gamma f\right |\leq  \left( \sup_\gamma |f| \right)|\gamma|
+        .\] 
+    \end{enumerate}
+\end{thm}
+\subsection{Primitives and the Fundamental Theorem}
+\begin{defn}
+    The primitive of $f:\Omega\to \C$ with open $\Omega\subset \C$ is any $F:\Omega\to \C$ holomorphic such that $F'=f$ on $\Omega$
+\end{defn}
+\begin{thm}
+    The Fundamental Theorem of Calculus\\
+    For $f$ with primitive $F$ on $\Omega$, $\gamma\subset \C$ curve from $w_1\to w_2$ we have \[
+    \int_\gamma f=F(w_2)-F(w_1)
+    .\] 
+\end{thm}
+\begin{proof}
+    We can write \[
+    \int_\gamma f=\int_a^bf(z(t))z'(t)dt=\int_a^b \frac{d}{dt}(F(z(t)))dt=F(z(b))-F(z(a))
+    .\] 
+\end{proof}
+\begin{cor}
+    If $\gamma$ is closed then \[
+    \int_\gamma f=0
+    .\] 
+\end{cor}
+\begin{cor}
+    If $f$ is holomorphic on $\Omega$ with $f'=0$ on $\Omega$ then $f$ is constant.
+\end{cor}
+\begin{proof}
+    Fix $z_0\in \Omega,$ for $z\in \Omega$, take $\gamma:z_0\to z$ then \[
+    0=\int_\gamma f'=f(z)-f(z_0)
+    .\] 
+\end{proof}
+\begin{eg}
+    Let $z(t)=e^{it}$
+    \[
+    \int_{\partial D}{ \frac{1}{z}}dz=\int_0^{2\pi}\frac{1}{e^{it}}ie^{it}dt=2\pi i \neq 0
+    .\] 
+    So $\frac{1}{z}$ does not admit a primitive. 
+\end{eg}
+\newpage
+\section{Jan 23}
+\subsection{Glossary of Elementary Functions}
+\textbf{Glossary of Elementary Functions}
+\begin{enumerate}
+    \item Polynomials: $P(z)=a_0+a_1z+\cdots+a_nz^n$ for $a_i\in \C$ and is entirely holomorphic in $\C$, $a_n\neq 0 $ and $n=\deg P$
+    \item Rational: $R(z)=\frac{P(z)}{Q(z)}$ where $P,Q$ are polynomials with no common factors. The zeros of $Q$ are called poles and their order is called the order of a given pole.
+    \item Exponential: $e^z=\sum_{n=0}^\infty \frac{z^n}{n!}$
+\end{enumerate}
+\subsection{Fundamental Theorem of Algebra}
+\begin{lem}
+    Let $P(z)$ be a complex polynomial of positive degree $n$, if $|P(z)|$ has a local minimum at $z_0$ then $P(z_0)=0$.
+\end{lem}
+\begin{proof}
+    WLOG $z_0=0$ as we can translate $Q(z)=P(z-z_0)$. \\AFSOC $P(0)\neq 0$ and WLOG $P(0)=1$ by $\frac{P}{P(0)}$. We can write $P(z)=1+a_kz^k+\cdots+a_nz^n$ with $a_k,a_n\neq 0$. \\
+    Consider $z_\delta = \delta e^{i\theta}.$ For all $\delta>0$ sufficiently small: 
+    \[
+    \left | a_{k+1}z_\delta + \cdots + a_nz_\delta^{n-k}\right |<\frac{|a_k|}{2}
+    .\]  
+    Then \[
+    |P(z)|\leq \left | 1+a_kz_\delta^k\right | + \left |a_{k+1}z_\delta^{k+1}+\cdots+a_nz_\delta^n\right |< \left | 1+a_kz_\delta^k\right |+\left |z_\delta^k\right | \frac{|a_k|}{2}
+    .\]
+    Now we can choose $\delta$ such that $a_kz_\delta^k<0$ and real. 
+    \[
+    \left | 1+a_kz_\delta^k\right |+\left |z_\delta^k\right | \frac{|a_k|}{2}=1+a_kz_\delta^k-\frac{1}{2}a_kz_\delta^k=1+\frac{1}{2}a_kz_\delta^k<1
+    .\] 
+\end{proof}
+\begin{thm}
+    Fundamental Theorem of Algebra:
+\end{thm}
+\begin{proof}
+    $|P(z)|\to +\infty$ as $|z|\to+\infty$ therefore $\exists R$ such that $\forall |z|>R$, $|P(z)|>|P(0)|$ thus $\inf_{z\in \C}|P(z)|=\inf_{z\in D_R}|P(z)|$ and such a value is attained somewhere at $z_0$ then by lemma 5.1 we're done. 
+\end{proof}
+\begin{lem}
+    $P(z)=a_n(z-z_1)\cdots(z-z_n)$ where $z_1,...,z_n$ are roots of $P$.\\ The order of a zero $z_j$ is its multiplicity, the number of times it appears in the sequence. If $z_j$ is of the order $k_j$, \[
+    P(z)=\underbrace{Q(z)}_{\mathclap{\text{non-vanishing}}}(z-z_j)^{k_j}
+    .\] 
+    A zero $z_0$ is of order $k_0$ if and only if $P(z_0)=P'(z_0)=...=P^{(k_0-1)}(z_0)=0$ and $P^{(k_0)}(z_0)\neq 0$
+\end{lem}
+\begin{thm}
+    (Gauss-Lucas) The roots of $P'$ lies in the convex hull of the roots of $P$. In particular, if $P$ is real rooted then so is $P'$. 
+\end{thm}
+\begin{thm}
+    If $R$ a rational function then $R'$ has the same roots as $R$ with order greater by $1$. 
+\end{thm}
+\begin{thm}
+    The following are true
+    \begin{enumerate}
+        \item $ \left(  e^z \right)'=e^z$
+        \item $e^{w+z}=e^we^z$
+        \item $\overline{e^z}=e^{\overline{z}}$
+        \item $|e^{iy}|=1$ and $|e^{x+iy}|=e^x$
+        \item $\sin(z)=\frac{e^{iz}-e^{-iz}}{2i}$ and $\cos(z)=\frac{e^{iz}+e^{-iz}}{2}$
+    \end{enumerate}
+\end{thm}
+\section{Jan 26}
+\subsection{Cauchy's and Goursat's Theorems}
+\begin{thm}
+    Cauchy Theorem: If $f:\Omega\to \C$ is holomorphic on $\Omega$ and $\gamma$ is a closed curve in $\Omega$ then \[
+    \int_\gamma f=0
+    .\] 
+
+\end{thm}
+\begin{thm}
+    Goursat's Theorem: If $f:\Omega\to \C$ is holomorphic and $\Omega$ is open, then $\forall \triangle \subset \Omega$ we have \[
+    \int_{\partial \triangle} f=0
+    .\] 
+    \begin{center}
+        \begin{tikzpicture}[scale=1.5]
+            % Draw the open set Omega as a shaded region
+            \fill[blue!10] (-0.5,-0.5) .. controls (0,1.8) and (3,2) .. (3.5,0.5) 
+                .. controls (3.8,-0.5) and (2,-1) .. (0.5,-0.8) 
+                .. controls (-0.3,-0.6) .. cycle;
+            \draw[dashed, blue!60] (-0.5,-0.5) .. controls (0,1.8) and (3,2) .. (3.5,0.5) 
+                .. controls (3.8,-0.5) and (2,-1) .. (0.5,-0.8) 
+                .. controls (-0.3,-0.6) .. cycle;
+            \node[blue!70] at (3.2,1.3) {$\Omega$};
+            
+            % Draw the triangle
+            \coordinate (A) at (0.5,0);
+            \coordinate (B) at (2.5,0);
+            \coordinate (C) at (1.5,1.5);
+            
+            % Fill triangle
+            \fill[orange!20] (A) -- (B) -- (C) -- cycle;
+            
+            % Draw triangle edges with arrows (counterclockwise orientation)
+            \draw[thick, ->] (A) -- ($(A)!0.55!(B)$);
+            \draw[thick] ($(A)!0.55!(B)$) -- (B);
+            \draw[thick, ->] (B) -- ($(B)!0.55!(C)$);
+            \draw[thick] ($(B)!0.55!(C)$) -- (C);
+            \draw[thick, ->] (C) -- ($(C)!0.55!(A)$);
+            \draw[thick] ($(C)!0.55!(A)$) -- (A);
+            
+            % Label vertices
+            \fill (A) circle (1.5pt);
+            \fill (B) circle (1.5pt);
+            \fill (C) circle (1.5pt);
+            
+            % Label the triangle
+            \node at (1.5,0.5) {$\triangle$};
+            
+            % Label the boundary
+            \node[below] at (1.5,-0.15) {$\partial \triangle$};
+        \end{tikzpicture}
+    \end{center}
+    The integral around the positively oriented (counterclockwise) boundary of any triangle $\triangle \subset \Omega$ vanishes.
+\end{thm}
+\begin{proof}
+    Let $\triangle=\triangle^{(0)}$ and partition into four triangles by connecting the midpoints of the sides:
+    \[
+    \triangle^{(0)}=\triangle_1^{(1)}\cup \triangle_2^{(1)} \cup \triangle_3^{(1)} \cup \triangle_4^{(1)}
+    .\]
+    \begin{center}
+        \begin{tikzpicture}[scale=2]
+            % Original triangle vertices
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (3,0);
+            \coordinate (C) at (1.5,2.4);
+            
+            % Midpoints
+            \coordinate (MAB) at ($(A)!0.5!(B)$);
+            \coordinate (MBC) at ($(B)!0.5!(C)$);
+            \coordinate (MCA) at ($(C)!0.5!(A)$);
+            
+            % Fill the four triangles with different colors
+            \fill[red!15] (A) -- (MAB) -- (MCA) -- cycle;
+            \fill[blue!15] (MAB) -- (B) -- (MBC) -- cycle;
+            \fill[green!15] (MCA) -- (MBC) -- (C) -- cycle;
+            \fill[yellow!25] (MAB) -- (MBC) -- (MCA) -- cycle;
+            
+            % Draw outer triangle
+            \draw[thick] (A) -- (B) -- (C) -- cycle;
+            
+            % Draw inner edges (midpoint connections)
+            \draw[thick] (MAB) -- (MBC) -- (MCA) -- cycle;
+            
+            % Arrows on outer boundary (counterclockwise)
+            \draw[thick, ->, blue!70] (A) -- ($(A)!0.55!(MAB)$);
+            \draw[thick, ->, blue!70] (MAB) -- ($(MAB)!0.55!(B)$);
+            \draw[thick, ->, blue!70] (B) -- ($(B)!0.55!(MBC)$);
+            \draw[thick, ->, blue!70] (MBC) -- ($(MBC)!0.55!(C)$);
+            \draw[thick, ->, blue!70] (C) -- ($(C)!0.55!(MCA)$);
+            \draw[thick, ->, blue!70] (MCA) -- ($(MCA)!0.55!(A)$);
+            
+            % Arrows on inner edges showing cancellation (both directions)
+            \draw[thick, ->, red!70] (MAB) -- ($(MAB)!0.55!(MCA)$);
+            \draw[thick, ->, orange!70] (MCA) -- ($(MCA)!0.55!(MAB)$);
+            \draw[thick, ->, red!70] (MBC) -- ($(MBC)!0.55!(MAB)$);
+            \draw[thick, ->, orange!70] (MAB) -- ($(MAB)!0.55!(MBC)$);
+            \draw[thick, ->, red!70] (MCA) -- ($(MCA)!0.55!(MBC)$);
+            \draw[thick, ->, orange!70] (MBC) -- ($(MBC)!0.55!(MCA)$);
+            
+            % Labels for vertices
+            \fill (A) circle (1pt) node[below left] {$A$};
+            \fill (B) circle (1pt) node[below right] {$B$};
+            \fill (C) circle (1pt) node[above] {$C$};
+            
+            % Labels for midpoints
+            \fill (MAB) circle (1pt);
+            \fill (MBC) circle (1pt);
+            \fill (MCA) circle (1pt);
+            
+            % Labels for the four triangles
+            \node at (0.5,0.5) {$\triangle_1^{(1)}$};
+            \node at (2.5,0.5) {$\triangle_2^{(1)}$};
+            \node at (1.5,1.7) {$\triangle_3^{(1)}$};
+            \node at (1.5,0.75) {$\triangle_4^{(1)}$};
+        \end{tikzpicture}
+    \end{center}
+    When we integrate along each sub-triangle with positive orientation, the interior edges cancel (traversed in opposite directions, shown with opposing arrows): \[
+    \int_{\partial \triangle^{(0)}} f= \sum_{j=1}^4 \int_{\partial \triangle_j^{(1)}} f
+    .\]     
+    By the triangle inequality 
+    \[
+        \left | \int_{\partial \triangle^{(0)}}f \right |\leq \sum_{j=1}^4 \left | \int_{\partial \triangle_j^{(1)}}f \right | \leq 4 \max_{j=1,2,3,4} \left | \int_{\partial \triangle_j^{(1)}}f \right |
+    .\] 
+    Thus there exists $j_0\in\{1,2,3,4\}$ such that\[
+     \left | \int_{\partial \triangle^{(0)}}f \right |\leq 4\left | \int_{\partial \triangle_{j_0}^{(1)}}f \right |
+    .\]
+    Set $\triangle^{(1)}=\triangle_{j_0}^{(1)}$. Repeating this subdivision process, we obtain a nested sequence of triangles 
+    \[
+    \triangle^{(0)}\supset \triangle^{(1)}\supset \triangle^{(2)}\supset \cdots
+    \]
+    such that 
+    \[
+        \left | \int_{\partial \triangle^{(0)}}f \right |\leq 4^n \left | \int_{\partial \triangle^{(n)}}f \right |
+    .\]
+    Note that $\diam(\triangle^{(n)})=2^{-n}\diam(\triangle^{(0)})$ and $|\partial \triangle^{(n)}|=2^{-n}|\partial \triangle^{(0)}|$.\\
+    Since the triangles are nested compact sets with diameters shrinking to zero, by Cantor's intersection theorem:
+    \[
+    \bigcap_{n=0}^\infty \triangle^{(n)}=\{z_0\}
+    \]
+    for some $z_0\in \triangle^{(0)}\subset \Omega$.
+    Since $f$ is holomorphic at $z_0$, we can write \[
+    f(z)=f(z_0)+f'(z_0)(z-z_0)+\psi(z)(z-z_0) 
+    \] 
+    where $\psi(z)\to 0$ as $z\to z_0$.\\
+    Since $f(z_0)$ and $f'(z_0)(z-z_0)$ have primitives ($f(z_0)z$ and $\frac{1}{2}f'(z_0)(z-z_0)^2$ respectively), their integrals over the closed curve $\partial \triangle^{(n)}$ vanish. Thus:
+    \[
+    \int_{\partial \triangle^{(n)}}f(z)dz=\int_{\partial \triangle^{(n)}}\psi(z)(z-z_0)dz
+    .\] 
+    For $z\in \partial \triangle^{(n)}$, we have $|z-z_0|\leq \diam(\triangle^{(n)})=2^{-n}\diam(\triangle^{(0)})$. \\
+    Let $\epsilon_n=\sup_{z\in\partial\triangle^{(n)}}|\psi(z)|$. Since $\psi(z)\to 0$ as $z\to z_0$ and $\triangle^{(n)}\to \{z_0\}$, we have $\epsilon_n\to 0$.\\
+    Therefore:
+    \begin{align*}
+        \left | \int_{\partial \triangle^{(n)}}f(z)dz \right | &\leq \sup_{z\in\partial \triangle^{(n)}}|\psi(z)(z-z_0)| \cdot |\partial \triangle^{(n)}|\\
+        &\leq \epsilon_n \cdot 2^{-n}\diam(\triangle^{(0)})\cdot 2^{-n}|\partial \triangle^{(0)}|\\
+        &= \epsilon_n \cdot 4^{-n}\diam(\triangle^{(0)})|\partial \triangle^{(0)}|
+    \end{align*}
+    Combining with our earlier inequality:
+    \[
+    \left | \int_{\partial \triangle^{(0)}}f \right |\leq 4^n \left | \int_{\partial \triangle^{(n)}}f \right | \leq 4^n \cdot \epsilon_n \cdot 4^{-n}\diam(\triangle^{(0)})|\partial \triangle^{(0)}| = \epsilon_n \cdot \diam(\triangle^{(0)})|\partial \triangle^{(0)}|
+    \]
+    Since $\epsilon_n\to 0$ as $n\to\infty$ and the right-hand side is independent of $n$ except for $\epsilon_n$, we conclude:
+    \[
+    \int_{\partial \triangle}f=0
+    .\]
+\end{proof}
+\subsection{Cauchy's Theorem in a Disk}
+\begin{thm}
+    Cauchy's Theorem in a disk: Let $D\subset \C$ be an open disk and $f$ holomorphic on $D$. Then for any closed curve $\gamma$ in $D$ we have \[
+    \int_\gamma f=0
+    .\] 
+\end{thm}
+\begin{proof}
+    WLOG let $D$ be a disk centered at $0$. Define $F:D\to \C$ by \[
+    F(z)=\int_{\gamma_z}f
+    \]
+    where $\gamma_z$ is the path $0\to \Re(z)\to z$ (horizontal then vertical).
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2]
+            % Draw the disk
+            \draw[dashed, blue!50] (0,0) circle (2.2);
+            \node[blue!70] at (1.8,1.8) {$D$};
+            
+            % Axes
+            \draw[->] (-2.5,0) -- (2.5,0) node[right] {$\Re$};
+            \draw[->] (0,-2.5) -- (0,2.5) node[above] {$\Im$};
+            
+            % Points
+            \coordinate (O) at (0,0);
+            \coordinate (X) at (1.5,0);
+            \coordinate (Z) at (1.5,1.2);
+            
+            % Path gamma_z
+            \draw[thick, blue, ->] (O) -- (0.8,0);
+            \draw[thick, blue] (0.8,0) -- (X);
+            \draw[thick, blue, ->] (X) -- (1.5,0.6);
+            \draw[thick, blue] (1.5,0.6) -- (Z);
+            
+            % Labels
+            \fill (O) circle (1.5pt) node[below left] {$0$};
+            \fill (X) circle (1.5pt) node[below] {$\Re(z)$};
+            \fill (Z) circle (1.5pt) node[above right] {$z$};
+            
+            % Path label
+            \node[blue] at (0.75,0.3) {$\gamma_z$};
+        \end{tikzpicture}
+    \end{center}
+    We claim $F$ is a primitive for $f$, i.e., $F'(z)=f(z)$.\\[6pt]
+    \textbf{Case 1:} $h\in \R$ (horizontal increment).\\
+    The path $\gamma_{z+h}$ goes $0\to \Re(z)+h\to z+h$. Observe that:
+    \[
+    F(z+h)-F(z)= \int_{\gamma_{z+h}}f-\int_{\gamma_z}f
+    .\]
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2]
+            % Axes
+            \draw[->] (-0.5,0) -- (4,0) node[right] {$\Re$};
+            \draw[->] (0,-0.5) -- (0,2.5) node[above] {$\Im$};
+            
+            % Points
+            \coordinate (O) at (0,0);
+            \coordinate (X) at (1.5,0);
+            \coordinate (Xh) at (2.8,0);
+            \coordinate (Z) at (1.5,1.5);
+            \coordinate (Zh) at (2.8,1.5);
+            
+            % Path gamma_z (blue)
+            \draw[thick, blue, ->] (O) -- (0.8,0);
+            \draw[thick, blue] (0.8,0) -- (X);
+            \draw[thick, blue, ->] (X) -- (1.5,0.8);
+            \draw[thick, blue] (1.5,0.8) -- (Z);
+            
+            % Path gamma_{z+h} (red, dashed)
+            \draw[thick, red, dashed, ->] (O) -- (1.4,0);
+            \draw[thick, red, dashed] (1.4,0) -- (Xh);
+            \draw[thick, red, dashed, ->] (Xh) -- (2.8,0.8);
+            \draw[thick, red, dashed] (2.8,0.8) -- (Zh);
+            
+            % Rectangle (the key region)
+            \draw[thick, orange, ->] (X) -- (2.15,0);
+            \draw[thick, orange] (2.15,0) -- (Xh);
+            \draw[thick, orange, ->] (Zh) -- (2.15,1.5);
+            \draw[thick, orange] (2.15,1.5) -- (Z);
+            
+            % Labels
+            \fill (O) circle (1.5pt) node[below left] {$0$};
+            \fill (X) circle (1.5pt) node[below] {$\Re(z)$};
+            \fill (Xh) circle (1.5pt) node[below] {$\Re(z)+h$};
+            \fill (Z) circle (1.5pt) node[above left] {$z$};
+            \fill (Zh) circle (1.5pt) node[above right] {$z+h$};
+            
+            % Path labels
+            \node[blue] at (0.5,0.6) {$\gamma_z$};
+            \node[red] at (1.8,-0.4) {$\gamma_{z+h}$};
+        \end{tikzpicture}
+    \end{center}
+    The difference of paths can be decomposed using Goursat's theorem. The integral over the rectangle with vertices $\Re(z), \Re(z)+h, z+h, z$ vanishes, so:
+    \[
+    F(z+h)-F(z)=\int_{\Re(z)}^{\Re(z)+h}f(\zeta)d\zeta + \int_{z}^{z+h}f(\zeta)d\zeta = \int_{z}^{z+h}f(\zeta)d\zeta
+    \]
+    where the first integral is along the real axis and the second is horizontal at height $\Im(z)$. By the rectangle lemma, these combine to give just the horizontal segment from $z$ to $z+h$:
+    \[
+    \frac{F(z+h)-F(z)}{h}=\frac{1}{h}\int_z^{z+h}f(\zeta)d\zeta \to f(z) \text{ as } h\to 0
+    .\]
+    \textbf{Case 2:} $h=ik$ with $k\in \R$ (vertical increment).\\
+    Similarly, $\gamma_{z+ik}$ goes $0\to \Re(z)\to z+ik$. The paths $\gamma_z$ and $\gamma_{z+ik}$ share the horizontal segment $0\to \Re(z)$, so:
+    \[
+    F(z+ik)-F(z)=\int_z^{z+ik}f(\zeta)d\zeta
+    .\]
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2]
+            % Axes
+            \draw[->] (-0.5,0) -- (3,0) node[right] {$\Re$};
+            \draw[->] (0,-0.5) -- (0,3) node[above] {$\Im$};
+            
+            % Points
+            \coordinate (O) at (0,0);
+            \coordinate (X) at (1.5,0);
+            \coordinate (Z) at (1.5,1.2);
+            \coordinate (Zik) at (1.5,2.2);
+            
+            % Shared horizontal path (purple)
+            \draw[ultra thick, purple, ->] (O) -- (0.8,0);
+            \draw[ultra thick, purple] (0.8,0) -- (X);
+            
+            % Path to z (blue)
+            \draw[thick, blue, ->] (X) -- (1.5,0.6);
+            \draw[thick, blue] (1.5,0.6) -- (Z);
+            
+            % Path to z+ik (red, dashed)
+            \draw[thick, red, dashed, ->] (X) -- (1.5,1.1);
+            \draw[thick, red, dashed] (1.5,1.1) -- (Zik);
+            
+            % The difference segment (orange)
+            \draw[ultra thick, orange, ->] (Z) -- (1.5,1.7);
+            \draw[ultra thick, orange] (1.5,1.7) -- (Zik);
+            
+            % Labels
+            \fill (O) circle (1.5pt) node[below left] {$0$};
+            \fill (X) circle (1.5pt) node[below right] {$\Re(z)$};
+            \fill (Z) circle (1.5pt) node[left] {$z$};
+            \fill (Zik) circle (1.5pt) node[left] {$z+ik$};
+            
+            % Path labels
+            \node[purple] at (0.75,0.3) {shared};
+            \node[orange] at (2.1,1.7) {$\int_z^{z+ik}f$};
+        \end{tikzpicture}
+    \end{center}
+    Thus:
+    \[
+    \frac{F(z+ik)-F(z)}{ik}=\frac{1}{ik}\int_z^{z+ik}f(\zeta)d\zeta \to f(z) \text{ as } k\to 0
+    .\]
+    \textbf{General $h$:} For arbitrary $h=h_1+ih_2$, we write:
+    \[
+    \frac{F(z+h)-F(z)}{h}=\frac{F(z+h)-F(z+h_1)}{h}+\frac{F(z+h_1)-F(z)}{h}
+    .\]
+    Using the above cases and the continuity of $f$, both terms converge appropriately, giving $F'(z)=f(z)$.\\[6pt]
+    Since $f$ has a primitive $F$ on $D$, by the Fundamental Theorem of Calculus, for any closed curve $\gamma$ in $D$:
+    \[
+    \int_\gamma f = F(z(b))-F(z(a))=0
+    .\]
+\end{proof}
+\newpage
+\section{Jan 28}
+\subsection{Applications of Cauchy's Theorem}
+\begin{eg}
+    \[
+    \frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-x^2}dx=1 \iff \int_{-\infty}^{\infty}e^{-\pi x^2}dx=1
+    .\] 
+    \begin{proof}
+        First, note that by substitution $u=\sqrt{\pi}x$, we have:
+        \[
+        \int_{-\infty}^{\infty}e^{-\pi x^2}dx = \frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-u^2}du
+        .\]
+        So the equivalence follows if we can show $\int_{-\infty}^{\infty}e^{-\pi x^2}dx=1$.\\\\
+        Consider the function $f(z)=e^{-\pi z^2}$, which is entire (holomorphic everywhere). For fixed $y\in \R$, consider the rectangular contour $\Gamma_R$ with vertices at $-R, R, R+iy, -R+iy$ (traversed counterclockwise). 
+        \begin{center}
+            \begin{tikzpicture}[scale=1.2]
+                % Axes
+                \draw[->] (-3.5,0) -- (3.5,0) node[right] {$\Re$};
+                \draw[->] (0,-0.5) -- (0,3) node[above] {$\Im$};
+                
+                % Real axis label
+                \node[below] at (0,0) {Real Axis};
+                
+                % Rectangle vertices
+                \coordinate (A) at (-2.5,0);
+                \coordinate (B) at (2.5,0);
+                \coordinate (C) at (2.5,2);
+                \coordinate (D) at (-2.5,2);
+                
+                % Inner rectangle (cut-out center)
+                \coordinate (Ainner) at (-1,0.4);
+                \coordinate (Binner) at (1,0.4);
+                \coordinate (Cinner) at (1,1.6);
+                \coordinate (Dinner) at (-1,1.6);
+                
+                % Create donut shape: fill outer rectangle but cut out center
+                \fill[blue!8, even odd rule] (A) -- (B) -- (C) -- (D) -- cycle 
+                    (Ainner) -- (Binner) -- (Cinner) -- (Dinner) -- cycle;
+                
+                % Draw the outer rectangle boundary with arrows showing counterclockwise orientation
+                \draw[thick, blue, ->] (A) -- ($(A)!0.6!(B)$);
+                \draw[thick, blue] ($(A)!0.6!(B)$) -- (B);
+                \draw[thick, blue, ->] (B) -- ($(B)!0.6!(C)$);
+                \draw[thick, blue] ($(B)!0.6!(C)$) -- (C);
+                \draw[thick, blue, ->] (C) -- ($(C)!0.6!(D)$);
+                \draw[thick, blue] ($(C)!0.6!(D)$) -- (D);
+                \draw[thick, blue, ->] (D) -- ($(D)!0.6!(A)$);
+                \draw[thick, blue] ($(D)!0.6!(A)$) -- (A);
+                
+                % Draw inner rectangle boundary (showing the cut-out)
+                \draw[thick, blue!40, dashed] (Ainner) -- (Binner) -- (Cinner) -- (Dinner) -- cycle;
+                
+                % Mark vertices
+                \fill (A) circle (2pt) node[below left] {$-R$};
+                \fill (B) circle (2pt) node[below right] {$R$};
+                \fill (C) circle (2pt) node[above right] {$R+iy$};
+                \fill (D) circle (2pt) node[above left] {$-R+iy$};
+                
+                % Label the contour
+                \node[blue] at (0,1) {$\Gamma_R$};
+                
+                % Dashed line showing y
+                \draw[dashed, gray] (-2.8,2) -- (2.8,2);
+                \node[left, gray] at (-2.8,2) {$y$};
+                
+                % Label showing the horizontal line
+                \draw[dashed, red!50] (-3,2) -- (3,2);
+                \node[red] at (4,2) {$\ell: z=t+iy$};
+            \end{tikzpicture}
+        \end{center}
+        By Cauchy's theorem:
+        \[
+        \int_{\Gamma_R}e^{-\pi z^2}dz=0
+        .\]
+        Parameterizing the four sides:
+        \begin{align*}
+            \int_{\Gamma_R}e^{-\pi z^2}dz &= \int_{-R}^{R}e^{-\pi t^2}dt + \int_{0}^{y}e^{-\pi(R+it)^2}i\,dt \\
+            &\quad + \int_{R}^{-R}e^{-\pi(t+iy)^2}dt + \int_{y}^{0}e^{-\pi(-R+it)^2}i\,dt
+        \end{align*}
+        We now bound the integrals over the vertical segments. For the right vertical segment, parameterize $z=R+it$ with $t\in[0,y]$ (assuming $y>0$; the case $y<0$ is similar). We have:
+        \[
+        (R+it)^2 = R^2 + 2iRt - t^2 = (R^2-t^2) + 2iRt
+        \]
+        so
+        \[
+        e^{-\pi(R+it)^2} = e^{-\pi(R^2-t^2)} \cdot e^{-2\pi iRt}
+        .\]
+        Since $|e^{-2\pi iRt}| = 1$ for all real $R$ and $t$, we have:
+        \[
+        |e^{-\pi(R+it)^2}| = e^{-\pi(R^2-t^2)} \cdot |e^{-2\pi iRt}| = e^{-\pi(R^2-t^2)} \cdot 1 = e^{-\pi(R^2-t^2)}
+        .\]
+        For $t\in[0,y]$, we have $t^2 \leq y^2$, so $R^2-t^2 \geq R^2-y^2$. Therefore:
+        \[
+        |e^{-\pi(R+it)^2}| \leq e^{-\pi(R^2-y^2)} = e^{-\pi R^2}e^{\pi y^2}
+        .\]
+        By the ML-inequality, the length of the path is $|y|$, so:
+        \[
+        \left|\int_{0}^{y}e^{-\pi(R+it)^2}i\,dt\right| \leq |y| \cdot e^{-\pi R^2}e^{\pi y^2} = |y|e^{\pi y^2}e^{-\pi R^2}
+        .\]
+        Similarly, for the left vertical segment with $z=-R+it$ where $t\in[y,0]$:
+        \[
+        (-R+it)^2 = R^2 - 2iRt - t^2 = (R^2-t^2) - 2iRt
+        \]
+        so
+        \[
+        e^{-\pi(-R+it)^2} = e^{-\pi(R^2-t^2)} \cdot e^{2\pi iRt}
+        .\]
+        Since $|e^{2\pi iRt}| = 1$ for all real $R$ and $t$, we have:
+        \[
+        |e^{-\pi(-R+it)^2}| = e^{-\pi(R^2-t^2)} \cdot |e^{2\pi iRt}| = e^{-\pi(R^2-t^2)} \cdot 1 = e^{-\pi(R^2-t^2)}
+        .\]
+        For $t\in[y,0]$ (or equivalently $t\in[0,y]$ if we reverse the parameterization), we have $t^2 \leq y^2$, so:
+        \[
+        |e^{-\pi(-R+it)^2}| \leq e^{-\pi(R^2-y^2)} = e^{-\pi R^2}e^{\pi y^2}
+        .\]
+        Therefore:
+        \[
+        \left|\int_{y}^{0}e^{-\pi(-R+it)^2}i\,dt\right| \leq |y| \cdot e^{-\pi R^2}e^{\pi y^2} = |y|e^{\pi y^2}e^{-\pi R^2}
+        .\]
+        Both vertical integrals are bounded by $C e^{-\pi R^2}$ for some constant $C$ depending on $y$ but independent of $R$. Since $e^{-\pi R^2} \to 0$ as $R\to\infty$, we conclude that:
+        \[
+        \lim_{R\to\infty}\int_{0}^{y}e^{-\pi(R+it)^2}i\,dt = 0 \quad \text{and} \quad \lim_{R\to\infty}\int_{y}^{0}e^{-\pi(-R+it)^2}i\,dt = 0
+        .\]
+        Therefore, taking the limit as $R\to\infty$:
+        \[
+        \int_{-\infty}^{\infty}e^{-\pi t^2}dt = \int_{-\infty}^{\infty}e^{-\pi(t+iy)^2}dt
+        .\]
+        Expanding $e^{-\pi(t+iy)^2}=e^{-\pi(t^2+2ity-y^2)}=e^{-\pi t^2}e^{-2\pi ity}e^{\pi y^2}$, we get:
+        \[
+        \int_{-\infty}^{\infty}e^{-\pi t^2}dt = e^{\pi y^2}\int_{-\infty}^{\infty}e^{-\pi t^2}e^{-2\pi ity}dt
+        .\]
+        In particular, taking $y=0$ gives the standard Gaussian integral. The standard result is $\int_{-\infty}^{\infty}e^{-\pi x^2}dx=1$, which completes the proof.
+    \end{proof}
+\end{eg}
+\begin{eg}
+    \[
+    \int_0^{\infty}\frac{1-\cos(x)}{x^2}dx=\frac{\pi}{2}
+    .\] 
+    \begin{proof}
+        Consider the holomorphic function $f(z)=\frac{1-e^{iz}}{z^2}$ on $\C\setminus \{0\}$. Fix $\epsilon, R$ and consider the contour $\Gamma$ which is disk with radius $R$ and a small disk with radius $\epsilon$ centered at the origin.
+    \begin{center}
+    \begin{tikzpicture}[scale=1.3]
+        % Draw the axes
+        \draw[->] (-0.5,0) -- (3.2,0) node[right] {$\Re$};
+        \draw[->] (0,-0.5) -- (0,2.3) node[above] {$\Im$};
+
+        % Draw the large semicircle
+        \draw[thick,blue,domain=0:180] plot ({2*cos(\x)}, {2*sin(\x)});
+
+        % Draw the small indentation
+        \draw[thick,blue,domain=0:180] plot ({0.3*cos(\x)}, {0.3*sin(\x)});
+
+        % Draw the lines along the real axis outside the indentation
+        \draw[thick,blue] (0.3,0) -- (2,0);
+        \draw[thick,blue] (-2,0) -- (-0.3,0);
+
+        % Draw arrows to indicate the direction of the contour
+        \draw[thick,->,blue] (1,0) -- (1.7,0); % Rightward along real axis
+        \draw[thick,->,blue] ({0.3*cos(40)},{0.3*sin(40)}) arc (40:0:0.3); % Small arc (reversed direction)
+        \draw[thick,->,blue] (2,{0.001}) arc (0:45:2); % Large arc
+
+        % Label the points
+        \draw (2,0) node[below] {$R$};
+        \draw (-2,0) node[below] {$-R$};
+        \draw (0.37,-0.16) node[below right] {$\epsilon$};
+        \node at (1.6,1.2) {$\Gamma$};
+        % Mark origin
+        \filldraw (0,0) circle (0.03);
+        \node at (0.15,-0.2) {$0$};
+    \end{tikzpicture}
+    \end{center}
+    We can express $e^{iz}\approx 1+iz+g(z)$ where $g(z)=e^{iz}-1-iz$ so \begin{align*}
+        \int_{\gamma_\epsilon}f(z)dz&=\int_{\gamma_\epsilon}\frac{1-(1+iz+g(z))}{z^2}dz \\
+        &=\int_{\gamma_\epsilon}\frac{-g(z)}{z^2}dz +\int_{\gamma_\epsilon}\frac{-i}{z}dz
+    \end{align*}  
+    We can evaluate each part as \[
+    \int_{\gamma_\epsilon} \frac{dz}{z}=-\int_{0}^{\pi}\frac{ie^{it}}{e^{it}}dt=-\pi i
+    .\] 
+    \[
+    \int_{\gamma_\epsilon} \frac{g(z)}{z^2}dz\to 0 \text{ as } \epsilon\to 0
+    .\] 
+    \end{proof}
+\end{eg}
+\newpage
+\section{Jan 30}
+\subsection{Cauchy's Integral Formula}
+\begin{thm}
+    Cauchy's Integral Formula: Let $\Omega$ be open $f:\Omega\to \C$ be holomorphic. Let $\overline{D}$ be open in $\Omega$ be a disk then \[
+    f(z)=\frac{1}{2\pi i}\int_{\partial D}\frac{f(\zeta)}{\zeta-z}d\zeta
+    .\] 
+\end{thm}
+\begin{proof}
+    Fix $z\in D_1$, let $\gamma_{\epsilon, \delta}$ be a key-hole contour but we omit $z.$ Then \[
+    \int_{\gamma_{\epsilon, \delta}}\frac{f(\zeta)}{\zeta - z}d\zeta=0
+    .\] 
+    \begin{center}
+    \begin{tikzpicture}[>=Stealth, thick]
+            % Define coordinates and parameters
+            \coordinate (O) at (0,0);       % Center of the domain D
+            \coordinate (Z) at (1, 0.5);    % The fixed point z
+            \def\R{3}                       % Radius of outer boundary partial D
+            \def\eps{0.7}                   % Radius of inner circle C_epsilon
+            \def\angGap{6}                  % Half-angle gap on the outer circle for the corridor
+            \def\yGap{0.1}                  % Half-width (vertical shift) of the corridor at z
+        
+            % --- The Key-hole Contour \gamma_{\epsilon, \delta} ---
+            % We draw this as one continuous blue path.
+            \begin{scope}[blue]
+                % 1. Outer Arc (\partial D) - Counter-clockwise
+                % Draws from the top of the gap around to the bottom of the gap.
+                \draw[decoration={markings,
+                    mark=at position 0.25 with {\arrow{>}},
+                    mark=at position 0.75 with {\arrow{>}}}, postaction={decorate}]
+                    (\angGap:\R) arc (\angGap:360-\angGap:\R);
+                % Label for outer boundary
+                \node[above right] at (45:\R) {$\partial D$};
+        
+                % 2. Path Inward (Top side of the corridor)
+                % Connects outer circle to the inner circle.
+                \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
+                    (\angGap:\R) -- ($(Z) + (0:\eps) + (0, \yGap)$);
+        
+                \pgfmathparse{asin(\yGap/\eps)}
+                \let\epsAng\pgfmathresult
+                \draw[decoration={markings,
+                    mark=at position 0.25 with {\arrow{<}}, % < arrow for clockwise
+                    mark=at position 0.75 with {\arrow{<}}}, postaction={decorate}]
+                    ($(Z) + (\epsAng:\eps)$) arc (\epsAng:360-\epsAng:\eps);
+                \node[left] at ($(Z) - (\eps, 0)$) {$C_\epsilon$};
+        
+                % 4. Path Outward (Bottom side of the corridor)
+                % Connects inner circle back to the outer circle.
+                \draw[decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
+                     ($(Z) + (0:\eps) - (0, \yGap)$) -- (-\angGap:\R);
+            \end{scope}
+        
+            \filldraw[black] (Z) circle (2pt) node[left] {$z$};
+        
+            \node[blue, font=\large] at (1.5, 2.2) {$\gamma_{\epsilon, \delta}$};
+        
+            % Indicate the radius epsilon (optional, dashed red)
+            \draw[thin, dashed, red, ->] (Z) -- node[midway, above, scale=0.8] {$\epsilon$} ++(135:\eps);
+        
+        \end{tikzpicture}
+        \end{center}
+        Fix $\epsilon > 0$ and $\delta \to 0$ we want to show that \[
+        \int_{\gamma_{\epsilon, \delta}}\frac{f(\zeta)}{\zeta - z}d\zeta\to \int_{\partial D} - \int_{C_\epsilon}
+        .\] 
+        For \[
+        \int_{C_\epsilon}\frac{f(\zeta)}{\zeta - z}d\zeta = \int_{C_\epsilon}\frac{f(\zeta)-f(z)}{\zeta - z}d\zeta + f(z)\int_{C_\epsilon}\frac{d\zeta}{\zeta - z}
+        .\] 
+    The first term is bounded as holomorphic so as $\epsilon\to 0$, it goes to $0.$ The second part integrates to $f(z) \cdot 2\pi i.$ 
+\end{proof}
+\subsection{Regularity and Liouville's Theorem}
+\begin{thm}
+    Regularity: Holomorphic implies Analytic. \\
+    Let $f:\Omega\to \C$ be holomorphic, $\overline{D}=\overline{D}_r(z_0)\subset \Omega$ then $f$ is analytic at $z_0$ i.e \[
+    f(z)=\sum_{n=0}^\infty a_n(z-z_0)^n
+    .\] 
+\end{thm}
+\begin{proof}
+    We know \[
+    f(z)=\frac{1}{2\pi i}\int_{\partial D}\frac{f(\zeta)}{\zeta-z}d\zeta
+    .\] 
+    We can write \[
+    \frac{1}{\zeta-z}=\frac{1}{(\zeta-z_0)+(z_0-z)}=\frac{1}{\zeta - z_0}\cdot \frac{1}{1-\frac{z-z_0}{\zeta - z_0}}=\frac{1}{\zeta-z_0}\sum_{n=0}^\infty \left (\frac{z-z_0}{\zeta-z_0}\right )^n
+    .\] 
+    Note: $\frac{z-z_0}{\zeta-z_0}<1$. 
+    \begin{align*}
+        f(z)&=\frac{1}{2\pi i}\int_{\partial D}\frac{f(\zeta)}{\zeta-z_0}\underbrace{\sum_{n=0}^\infty \left (\frac{z-z_0}{\zeta-z_0}\right )^n \frac{f(\zeta)}{\zeta -z}}_{ \text{conv. uniformly on $\partial D$}} d\zeta\\
+        &=\frac{1}{2\pi i}\sum_{n=0}^\infty \int_{\partial D}\frac{f(\zeta)}{\zeta-z_0}\left (\frac{z-z_0}{\zeta-z_0}\right )^n d\zeta\\
+        &=\sum_{n=0}^{\infty} (z-z_0)^n 
+            \underbrace{\left( \frac{1}{2\pi i} \int_{\partial D} \frac{f(\zeta)}{(\zeta-z_0)^{n+1}} d\zeta \right)}_{a_n}
+    \end{align*}
+    So $a_n=\frac{f^{(n)}(z_0)}{n!}$.
+\end{proof}
+\begin{cor}
+    Cauchy's Formula:
+    \[
+    f^{(n)}(z_0)=\frac{n!}{2\pi i}\int_{\partial D}\frac{f(\zeta)}{(\zeta-z_0)^{n+1}}d\zeta
+    .\] 
+\end{cor}
+\begin{cor}
+    Cauchy's Inequality:
+    \[
+    \left | f^{(n)}(z_0) \right | \leq \frac{n!}{2\pi} \sup_{\zeta\in \partial D} \left | \frac{f(\zeta)}{(\zeta-z_0)^{n+1}} \right |=\frac{n!}{r^n}||f||_\infty\partial D
+    .\] 
+\end{cor}
+\begin{thm}
+    Liouville's Theorem: If $f$ entire and bounded then $f$ is constant.
+\end{thm}
+\begin{proof}
+    \[
+    |f'(z_0)| \leq \frac{\|f\|_\infty}{r}
+    \]
+    Since $f$ is bounded and $r$ can be taken arbitrarily large (as $f$ is entire), sending $r \to \infty$ gives $|f'(z_0)| = 0$. Thus, $f$ is constant.
+\end{proof}
+\newpage
+\section{Feb 2}
+\subsection{Rigidity and Analytic Continuation}
+\begin{thm}
+    (Rigidity Theorem): Let $\Omega$ be a region and $f:\Omega\to \C$ be holomorphic. If $z_1,z_2,...\in \Omega$ distinct sequence with a limit in $\Omega$. If $f(z_n)=0, \forall n$ then $f=0$ on $\Omega.$
+\end{thm}
+\begin{proof}
+    Say $z_n\to \omega\in \Omega$ and $D=D_r(\omega)\subset \Omega$ be a disk centered at $\omega$ with radius $r$. If $f=0$ on $D$ then by regularity implies \[
+    f(z)=\sum_{n\geq 0}a_n(z-\omega)^n \text{ on } D
+    .\] 
+    Suppose $f\neq 0$ on $D$ then $\exists m$ such that $a_m\neq 0$, let's take the smallest such $m$. Then $f(z)=a_m(z-w)^m(1+g(z))$ where $g(z)\to 0$ as $z\to w.$ For all sufficiency large $k, z_k\in D$ then \[
+    0=f(z_k)=a_m(z_k-w)^m(1+g(z_k)) \tag{$a_m\neq 0$ and $z_k-w\neq 0$}
+    .\] 
+    A contradiction as the RHS is nonzero. To finish $f=0$ on $\Omega$, we use $\mathcal{U}=\text{int} \{z\in \Omega: f(z)=0\}$\\
+    We have $\mathcal{U}$ is open, $w\in \mathcal{U}$ so $\mathcal{U}$ is non-empty. Additionally, $\mathcal{U}$ is closed as otherwise there would be a boundary point $\omega'$ where the function transitions from being zero to non-zero. However, applying the exact same Taylor series logic to $\omega'$ would show that $f$ must be zero in a small disk around $\omega'$ too, meaning $\omega'$ was actually part of the open set $\mathcal{U}$ all along. Because $\mathcal{U}$ is open, closed, and non-empty, $\mathcal{U} = \Omega$. Therefore, $f(z) = 0$ everywhere on $\Omega$.
+\end{proof}
+\begin{cor}
+    $f,g:\underset{region}{\Omega}\to \C$ holomorphic. If $f(z_n)=g(z_n),  \forall z_n\in \Omega$ distinct sequence with a limit in $\Omega$ then $f=g$ on $\Omega.$
+\end{cor}
+\begin{defn}
+    If $\Omega_1\subset \Omega_2,$ are two regions, $f_i:\Omega_i\to \C$ holomorphic for $i=1,2$ such that $f_1=f_2$ on $\Omega_1$ then we say $f_2$ is the analytic continuation of $f_1$ into $\Omega_2.$  
+\end{defn}
+\subsection{Morera's Theorem and Uniform Convergence}
+\begin{thm}
+    (Morera's Theorem): If $f:\mathcal{D}\to \C$ continuous such that $\forall \overline{\triangle}\subset \mathcal{D}$ and $\int_{\partial \triangle}f=0$ then $f$ is holomorphic. 
+\end{thm}
+\begin{proof}
+    Repeating the proof of Cauchy's Theorem in a disk, gives that $f$ has a primitive $F=\int_{\gamma_z}f$ in $\mathcal{D}.$ Since $F$ is holomorphic, $F'$ exists but so does $F'',F''',...$ so $f'$ exists. 
+\end{proof}
+\begin{thm}
+    If $f_n:\underset{open}{\Omega}\to \C$ holomorphic with $f_n$ converging uniformly to $f$ on every compact $K\subset \Omega$ then $f$ is holomorphic. 
+    \noindent Moreover, if $f_n'$ converges uniformly to $f'$, using $\Omega_s= \{z\in \Omega: \overline{\mathcal{D}}_\delta(z)\subset \Omega\}$. \\
+\end{thm}
+\begin{claim}
+    $\forall F$ holomorphic in $\Omega,$ $||F'||_{\infty,\Omega_\delta}\leq \frac{1}{\delta}||F||_{\infty, \Omega_\delta}.$ 
+\end{claim} 
+\begin{proof}
+    By Cauchy's Formula:\[
+    |F'(z)|=\left | \frac{1}{2\pi i}\int_{\partial \mathcal{D}_\delta(z)}\frac{F(w)}{(w-z)^2}dw\right |\leq \frac{1}{2\pi}\int_{\partial \mathcal{D}_\delta(z)}\frac{1}{|w-z|^2}||F||_{\infty,\Omega}\leq \frac{1}{2\pi} \frac{2\pi \delta}{\delta^2}||F||_{\infty,\Omega}\leq \frac{1}{\delta}||F||_{\infty,\Omega}
+    .\] 
+\end{proof}
+\begin{proof}
+    Use Morera's Theorem. 
+\end{proof}
+\newpage
+\section{Feb 4}
+\subsection{Parameter Integrals and Gluing}
+\begin{thm}
+    Let $F:\Omega\times [0,1]\to \C$ satisfy 
+    \begin{enumerate}
+        \item $\forall \triangle\in [0,1]$, $z\mapsto F(z,\triangle)$ is holomorphic    
+        \item $F$ is continuous on $\Omega\times [0,1]$
+    \end{enumerate}
+    Then $z\mapsto \int_0^1 F(z,\triangle)d\triangle$ is holomorphic on $\Omega$. 
+\end{thm}
+\begin{proof}
+    Consider $F_n(z)=\frac{1}{n}\sum_{k=1}^n F(z,\frac{k}{n})$ and by (1) each $F_n$ is holomorphic on $\Omega.$ 
+    \begin{align*}
+        \left |F_n(z)-\int_0^1 F(z,\triangle)d\triangle \right |&=\left |F_n(z)-\sum_{k=1}^n\int_{\frac{k-1}{n}}^{\frac{k}{n}} F(z,\triangle)d\triangle \right |\\
+        &=\left |\sum_{k=1}^{n} \int_{\frac{k-1}{n}}^{\frac{k}{n}} \left[\underbrace{F(z,\tfrac{k}{n}) - F(z,\triangle)}_{\leq \epsilon}\right] d\triangle \right |\\
+        &\leq \epsilon
+    \end{align*}
+\end{proof}
+\begin{defn}
+    $\Omega\subset \C$ be open, symmetric with respect to real axis, $\Omega^+=\Omega \cap \{z\in \C, \Im(z)>0\}$,$\Omega^-=\Omega \cap \{z\in \C, \Im(z)<0\}$ and $I=\Omega \cap \{\Im(z)=0\}$
+\end{defn}
+\begin{thm}
+    Let each $f^\pm:\Omega^\pm\to \C$ be holomorphic and extend continuous to $I$ such that $f^+=f^-$ on $I.$ Then \[
+    f=\begin{cases}
+        f^+(z) & \text{if } z\in \Omega^+ \\
+        f^+(z)=f^-(z) & \text{if } z\in I\\ 
+        f^-(z) & \text{if } z\in \Omega^-
+    \end{cases}
+    .\] 
+    is holomorphic on $\Omega$. 
+\end{thm}
+\begin{proof}
+    Sufficient to handle $z\in I$. Fix such $z$ take $D\subset \Omega$ centered at $z$. Take $\overline{\triangle}\subset D$ we want to show $\int_{\partial \triangle}f=0$. \\
+    \textbf{Case 1:} If $\overline{\triangle}\subset \Omega^+$ (or $\Omega^-$) then we're done. 
+    \begin{center}
+        \begin{tikzpicture}[scale=1.5]
+            % Draw the real axis I
+            \draw[thick, dashed, gray] (-2,0) -- (2,0) node[right] {$I$};
+            \node[below] at (0,-0.1) {$\Im(z)=0$};
+            
+            % Draw Omega^+ region (upper half-plane)
+            \fill[blue!10] (-2,0) -- (2,0) -- (2,2) -- (-2,2) -- cycle;
+            \node[blue] at (-1.5,1.5) {$\Omega^+$};
+            
+            % Draw Omega^- region (lower half-plane)
+            \fill[red!10] (-2,0) -- (2,0) -- (2,-2) -- (-2,-2) -- cycle;
+            \node[red] at (-1.5,-1.5) {$\Omega^-$};
+            
+            % Case 1a: Triangle in Omega^+
+            \coordinate (A1) at (0.3,0.5);
+            \coordinate (B1) at (1.2,0.3);
+            \coordinate (C1) at (0.7,1.2);
+            \fill[blue!30] (A1) -- (B1) -- (C1) -- cycle;
+            \draw[thick, blue, ->] (A1) -- ($(A1)!0.55!(B1)$);
+            \draw[thick, blue] ($(A1)!0.55!(B1)$) -- (B1);
+            \draw[thick, blue, ->] (B1) -- ($(B1)!0.55!(C1)$);
+            \draw[thick, blue] ($(B1)!0.55!(C1)$) -- (C1);
+            \draw[thick, blue, ->] (C1) -- ($(C1)!0.55!(A1)$);
+            \draw[thick, blue] ($(C1)!0.55!(A1)$) -- (A1);
+            \node[blue] at (0.73,0.67) {$\triangle$};
+            
+            % Case 1b: Triangle in Omega^- (on the right side)
+            \coordinate (A2) at (0.3,-0.5);
+            \coordinate (B2) at (1.2,-0.3);
+            \coordinate (C2) at (0.7,-1.2);
+            \fill[red!30] (A2) -- (B2) -- (C2) -- cycle;
+            \draw[thick, red, ->] (A2) -- ($(A2)!0.55!(B2)$);
+            \draw[thick, red] ($(A2)!0.55!(B2)$) -- (B2);
+            \draw[thick, red, ->] (B2) -- ($(B2)!0.55!(C2)$);
+            \draw[thick, red] ($(B2)!0.55!(C2)$) -- (C2);
+            \draw[thick, red, ->] (C2) -- ($(C2)!0.55!(A2)$);
+            \draw[thick, red] ($(C2)!0.55!(A2)$) -- (A2);
+            \node[red] at (0.73,-0.67) {$\triangle$};
+        \end{tikzpicture}
+    \end{center}
+    \textbf{Case 2:} If a vertex or side of $\triangle$ is on $I$, $\int_{\partial \triangle_\epsilon}f=0$ for when $\epsilon\to 0, \partial \triangle_\epsilon\to \partial \triangle$.
+    \begin{center}
+        \begin{tikzpicture}[scale=1.5]
+            % Draw the real axis I
+            \draw[thick, dashed, gray] (-2,0) -- (2,0) node[right] {$I$};
+            \node[below] at (0,-0.1) {$\Im(z)=0$};
+            
+            % Draw Omega^+ region
+            \fill[blue!10] (-2,0) -- (2,0) -- (2,2) -- (-2,2) -- cycle;
+            \node[blue] at (-1.5,1.5) {$\Omega^+$};
+            
+            % Draw Omega^- region
+            \fill[red!10] (-2,0) -- (2,0) -- (2,-2) -- (-2,-2) -- cycle;
+            \node[red] at (-1.5,-1.5) {$\Omega^-$};
+            
+            % Triangle with vertex on I
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (1.2,0.8);
+            \coordinate (C) at (0.5,1.2);
+            
+            % Draw the original triangle (partially in Omega^+)
+            \fill[blue!20] (A) -- (B) -- (C) -- cycle;
+            \draw[thick, blue, ->] (A) -- ($(A)!0.55!(B)$);
+            \draw[thick, blue] ($(A)!0.55!(B)$) -- (B);
+            \draw[thick, blue, ->] (B) -- ($(B)!0.55!(C)$);
+            \draw[thick, blue] ($(B)!0.55!(C)$) -- (C);
+            \draw[thick, blue, ->] (C) -- ($(C)!0.55!(A)$);
+            \draw[thick, blue] ($(C)!0.55!(A)$) -- (A);
+            
+            % Mark the vertex on I
+            \fill[black] (A) circle (2pt);
+            \node[below] at (A) {$z_0 \in I$};
+            
+            % Draw the perturbed triangle triangle_epsilon (shifted slightly up)
+            \coordinate (Aeps) at (0,0.15);
+            \coordinate (Beps) at (1.2,0.95);
+            \coordinate (Ceps) at (0.5,1.35);
+            
+            \draw[thick, orange, dashed, ->] (Aeps) -- ($(Aeps)!0.55!(Beps)$);
+            \draw[thick, orange, dashed] ($(Aeps)!0.55!(Beps)$) -- (Beps);
+            \draw[thick, orange, dashed, ->] (Beps) -- ($(Beps)!0.55!(Ceps)$);
+            \draw[thick, orange, dashed] ($(Beps)!0.55!(Ceps)$) -- (Ceps);
+            \draw[thick, orange, dashed, ->] (Ceps) -- ($(Ceps)!0.55!(Aeps)$);
+            \draw[thick, orange, dashed] ($(Ceps)!0.55!(Aeps)$) -- (Aeps);
+            \node[orange] at (0.57,1.1) {$\triangle_\epsilon$};
+            
+            \node[below] at (1.2,-0.3) {As $\epsilon \to 0$, $\partial \triangle_\epsilon \to \partial \triangle$};
+        \end{tikzpicture}
+    \end{center}
+    \textbf{Case 3:} If $I$ cuts the triangle then we can split the triangle into smaller triangles and we're done.
+    \begin{center}
+        \begin{tikzpicture}[scale=1.5]
+            % Draw the real axis I
+            \draw[thick, dashed, gray] (-2,0) -- (2,0) node[right] {$I$};
+            \node[below] at (0,-0.1) {$\Im(z)=0$};
+            
+            % Draw Omega^+ region
+            \fill[blue!10] (-2,0) -- (2,0) -- (2,2) -- (-2,2) -- cycle;
+            \node[blue] at (-1.5,1.5) {$\Omega^+$};
+            
+            % Draw Omega^- region
+            \fill[red!10] (-2,0) -- (2,0) -- (2,-2) -- (-2,-2) -- cycle;
+            \node[red] at (-1.5,-1.5) {$\Omega^-$};
+            
+            % Original triangle that crosses I
+            \coordinate (A) at (-0.8,-0.6);
+            \coordinate (B) at (1.2,0.8);
+            \coordinate (C) at (0.3,1.2);
+            
+            % Draw the original triangle outline
+            \draw[thick, black, dashed] (A) -- (B) -- (C) -- cycle;
+            
+            % Find intersection points with I (the real axis at y=0)
+            % Line AB: from (-0.8,-0.6) to (1.2,0.8)
+            % Parametric: (-0.8,-0.6) + t*(2.0,1.4), t such that y=0: -0.6 + 1.4t = 0 => t = 0.6/1.4 = 3/7
+            \coordinate (P1) at ({-0.8 + 3/7*2.0}, 0);
+            
+            % Line AC: from (-0.8,-0.6) to (0.3,1.2)
+            % Parametric: (-0.8,-0.6) + t*(1.1,1.8), t such that y=0: -0.6 + 1.8t = 0 => t = 1/3
+            \coordinate (P2) at ({-0.8 + 1/3*1.1}, 0);
+            
+            % Mark intersection points
+            \fill[black] (P1) circle (1.5pt);
+            \fill[black] (P2) circle (1.5pt);
+            \node[below] at (P1) {$P_1$};
+            \node[below] at (P2) {$P_2$};
+            
+            % Split into triangles
+            % Triangle 1: A, P1, P2 (in Omega^-)
+            \fill[red!30] (A) -- (P1) -- (P2) -- cycle;
+            \draw[thick, red, ->] (A) -- ($(A)!0.55!(P1)$);
+            \draw[thick, red] ($(A)!0.55!(P1)$) -- (P1);
+            \draw[thick, red, ->] (P1) -- ($(P1)!0.55!(P2)$);
+            \draw[thick, red] ($(P1)!0.55!(P2)$) -- (P2);
+            \draw[thick, red, ->] (P2) -- ($(P2)!0.55!(A)$);
+            \draw[thick, red] ($(P2)!0.55!(A)$) -- (A);
+            \node[red] at (-0.2,-0.2) {$\triangle_1$};
+            
+            % Triangle 2: P1, B, C (in Omega^+)
+            \fill[blue!30] (P1) -- (B) -- (C) -- cycle;
+            \draw[thick, blue, ->] (P1) -- ($(P1)!0.55!(B)$);
+            \draw[thick, blue] ($(P1)!0.55!(B)$) -- (B);
+            \draw[thick, blue, ->] (B) -- ($(B)!0.55!(C)$);
+            \draw[thick, blue] ($(B)!0.55!(C)$) -- (C);
+            \draw[thick, blue, ->] (C) -- ($(C)!0.55!(P1)$);
+            \draw[thick, blue] ($(C)!0.55!(P1)$) -- (P1);
+            \node[blue] at (0.8,0.9) {$\triangle_2$};
+            
+            % Triangle 3: P2, P1, C (in Omega^+)
+            \fill[blue!30] (P2) -- (P1) -- (C) -- cycle;
+            \draw[thick, blue, ->] (P2) -- ($(P2)!0.55!(P1)$);
+            \draw[thick, blue] ($(P2)!0.55!(P1)$) -- (P1);
+            \draw[thick, blue, ->] (P1) -- ($(P1)!0.55!(C)$);
+            \draw[thick, blue] ($(P1)!0.55!(C)$) -- (C);
+            \draw[thick, blue, ->] (C) -- ($(C)!0.55!(P2)$);
+            \draw[thick, blue] ($(C)!0.55!(P2)$) -- (P2);
+            \node[blue] at (0.1,0.5) {$\triangle_3$};
+            
+            % Mark vertices
+            \fill (A) circle (1.5pt) node[below left] {$A$};
+            \fill (B) circle (1.5pt) node[above right] {$B$};
+            \fill (C) circle (1.5pt) node[above] {$C$};
+        \end{tikzpicture}
+    \end{center}
+    The triangle is split into smaller triangles, each either entirely in $\Omega^+$ or $\Omega^-$, or with edges on $I$, so we can apply Cases 1 and 2.
+\end{proof}
+\subsection{Schwarz Reflection Principle}
+\begin{thm}
+    Schwarz Reflection Principle: Let $f:\Omega^+\to \C$ be holomorphic and extend continuous to $I$ with $f^+/I\in \R$ then $f^+$ extends analytically to $\Omega$
+\end{thm}
+\begin{proof}
+    Let $f^-:\Omega^-\to \C$ be defined by $f^-(z)=\overline{f^+(\overline{z})}$. We claim $f^-$ is holomorphic on $\Omega^-$, then the previous theorem applies because $f^+=f^-$ on $I.$\\
+    Fix $z_0\in \Omega^-$ then $\overline{z_0}\in \Omega^+$, we know $f^+(\overline{z})=\sum_{n=0}^{\infty}a_n(\overline{z}-\overline{z_0})^n$ for all $\overline{z}\in D(\overline{z_0})$. Thus \[
+    \overline{f^+(\overline{z})}=\sum_{n=0}^\infty \overline{a_n}(\overline{z}-\overline{z_0})^n
+    .\] 
+    We know $\overline{\overline{z}-\overline{z_0}}=z-z_0$ so \[
+    f^-(z)=\overline{f^+(\overline{z})}=\sum\overline{a_n}(z-z_0)^n
+    .\] 
+\end{proof}
+\newpage
+\section{Feb 9}
+\subsection{Meromorphic Functions and Poles}
+\begin{defn}
+    Meromorphic functions are ``determined" by zeros and singularities. \\
+    A point singularity of $f$ is a point $z_0\in \C$ such that $f$ is defined in a neighborhood of $z_0$ but not at $z_0$. \[
+    \mathcal{D}_\delta(z_0)\setminus \{z_0\}
+    .\] 
+\end{defn}
+\begin{eg}
+    $f(z)=\frac{1}{z}$ has a singularity at $z_0=0$.
+\end{eg}
+\begin{rmk}
+    Zeros of a holomorphic $f$ are isolated, unless $f\equiv 0$.
+\end{rmk}
+\begin{thm}
+    (Local Description Near Zeros) Let $f:\underset{open}{\Omega}\to \C$ holomorphic and $f(z_0)=0$, $z_0\in \Omega, f\not \equiv 0$ then $\exists \mathcal{U}\ni z_0$, $g:\mathcal{U}\to \C$ holomorphic and vanishing ($\forall z\in \mathcal{U}, g(z)\neq 0$) $\exists !n>0$ such that $f(z)=(z-z_0)^ng(z)$.   
+\end{thm}
+\begin{proof}
+    We know \[
+    f(z)=\sum_{k=0}^\infty a_k(z-z_0)^k
+    .\] 
+    $f\not \equiv 0$ implies that $n=$ smallest $k$ such that $a_k\neq 0$. We can write $f(z)=(z-z_0)^ng(z)$. 
+\end{proof}
+\begin{defn}
+    Let $n=$ the multiplicity/order of $z_0$. When $n=1$, $z_0$ is called a simple zero. We say $f:\mathcal{D}_\delta(z_0)\setminus \{z_0\}\to \C$ has a pole at $z_0$ if $\frac{1}{f}$ extended by $0$ at $z_0$ is holomorphic in $\mathcal{D}_\epsilon(z_0)$, for some $0<\epsilon<\delta.$ 
+\end{defn}
+\begin{thm}
+    (Local Discontinuity near Poles) Let $f:\Omega\setminus \{z_0\}\to \C$ has a pole at $z_0$ in $\Omega$ then $\exists \mathcal{U}\ni z_0$, $\exists h:\mathcal{U}\xrightarrow{\text{holo}}\C$ nonvanishing then $\exists ! n>0$ such that $f(z)=(z-z_0)^{-n}h(z).$
+\end{thm}
+\begin{proof}
+    Apply previous theorem to $\frac{1}{f}(z)=(z-z_0)^ng(z)$. 
+\end{proof}
+\subsection{Laurent Series and Residues}
+\begin{thm}
+    (Laurent Series Expansion) If $f$ has a pole of order $n$ at $z_0$ then locally \[
+    f(z)=\underbrace{\frac{a_{-n}}{(z-z_0)^n}+\cdots+\frac{\overbrace{a_{-1}}^{\text{residue of $f$ at $z_0$}}}{z-z_0}}_{\text{principal part}}+\underbrace{G(z)}_{ \text{holo part of }f}
+    .\]  where $G(z)$ is holomorphic and nonvanishing near $z_0$.\\
+    Moreover, $ \text{res}_{z_0}(f)=\frac{1}{(n-1)!}\lim_{_{z\to z_0}} \frac{d^{n-1}}{dz^{n-1}}((z-z_0)^nf(z))$
+\end{thm}
+\begin{proof}
+    By theorem 11.6, \[
+        f(z)=(z-z_0)^{-n}h(z)=(z-z_0)^{-n}\sum_{k=0}^\infty b_k(z-z_0)^k=\frac{b_0}{(z-z_0)^n}+\cdots+\frac{b_{n-1}}{(z-z_0)}+\sum_{k\geq n}^\infty b_{k}(z-z_0)^{k-n}
+    .\] 
+    So we have \[
+    f(z)(z-z_0)^n=b_0+b_1(z-z_0)+\cdots + b_{n-1}(z-z_0)^{n-1}+\underbrace{O((z-z_0)^n)}_{\to 0 \text{ as } \frac{d^{n-1}}{dz^{n-1}}}
+    .\] 
+\end{proof}
+\subsection{The Residue Formula}
+\begin{thm}
+    (The Residue Formula) Suppose $f:\Omega \setminus \underbrace{\{z_1,z_2,\cdots,z_n\}}_{poles}\to \C$ is holomorphic. Then for a disk $\overline{\mathcal{D}}\subset \Omega$ containing $z_1,...,z_n$ we have \[
+    \int_{\partial \mathcal{D}}f=2\pi i \sum_{k=1}^n \text{res}_{z_k}(f)
+    .\] 
+\end{thm}
+\begin{proof}
+    Let $\gamma=\partial \mathcal{D}$ be the boundary of the disk $\mathcal{D}$, oriented counterclockwise. For each pole $z_k$, choose a small disk $\mathcal{D}_k$ centered at $z_k$ with radius $\varepsilon_k>0$ small enough so that:
+    \begin{itemize}
+        \item $\overline{\mathcal{D}_k}\subset \mathcal{D}$ for all $k$
+        \item $\overline{\mathcal{D}_k}\cap \overline{\mathcal{D}_j}=\emptyset$ for $k\neq j$
+        \item $f$ is holomorphic on $\overline{\mathcal{D}}\setminus \bigcup_{k=1}^n \mathcal{D}_k$
+    \end{itemize}
+    Let $\gamma_k=\partial \mathcal{D}_k$ be the boundary of each small disk, oriented clockwise (negative orientation). Consider the multiply connected region $\mathcal{D}\setminus \bigcup_{k=1}^n \overline{\mathcal{D}_k}$.
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1.2]
+        % Large disk boundary
+        \draw[thick, ->] (0,0) circle (2.5cm);
+        \node[above] at (0,2.5) {$\gamma = \partial \mathcal{D}$};
+        
+        % Pole 1
+        \filldraw[red] (1,0.8) circle (2pt) node[above right] {$z_1$};
+        \draw[thick, ->, blue] (1,0.8) circle (0.4cm);
+        \node[below left] at (1.3,0.8) {$\gamma_1$};
+        
+        % Pole 2
+        \filldraw[red] (-0.8,1.2) circle (2pt) node[above left] {$z_2$};
+        \draw[thick, ->, blue] (-0.8,1.2) circle (0.35cm);
+        \node[below right] at (-0.5,1.2) {$\gamma_2$};
+        
+        % Pole 3
+        \filldraw[red] (-1,-0.5) circle (2pt) node[below left] {$z_3$};
+        \draw[thick, ->, blue] (-1,-0.5) circle (0.3cm);
+        \node[above right] at (-0.7,-0.5) {$\gamma_3$};
+        
+        % Dots for more poles
+        \filldraw[red] (0.5,-1) circle (2pt) node[below] {$z_n$};
+        \draw[thick, ->, blue] (0.5,-1) circle (0.35cm);
+        \node[above left] at (0.8,-1) {$\gamma_n$};
+        
+        % Label the region
+        \node at (0,0) {$\mathcal{D}$};
+    \end{tikzpicture}
+    \end{center}
+    By Cauchy's theorem for multiply connected regions, the integral of $f$ around the boundary of this region (taking into account orientations) is zero. The boundary consists of $\gamma$ (counterclockwise) and each $\gamma_k$ (clockwise), so:
+    \[
+    \int_{\gamma} f(z)dz + \sum_{k=1}^n \int_{\gamma_k} f(z)dz = 0
+    .\]
+    Note that $\gamma_k$ has clockwise orientation, so reversing it gives:
+    \[
+    \int_{\gamma} f(z)dz = \sum_{k=1}^n \int_{-\gamma_k} f(z)dz
+    .\]
+    where $-\gamma_k$ denotes $\gamma_k$ with counterclockwise orientation.\\
+    Now, for each pole $z_k$, consider its Laurent expansion:
+    \[
+    f(z) = \sum_{j=-\infty}^{\infty} a_j^{(k)}(z-z_k)^j = \frac{a_{-1}^{(k)}}{z-z_k} + \sum_{j\neq -1} a_j^{(k)}(z-z_k)^j
+    .\]
+    where $a_{-1}^{(k)} = \text{res}_{z_k}(f)$.\\
+    For $j \neq -1$, the function $(z-z_k)^j$ has an antiderivative on $\C\setminus\{z_k\}$ (or on all of $\C$ if $j\geq 0$), so by the fundamental theorem of calculus:
+    \[
+    \int_{-\gamma_k} (z-z_k)^j dz = 0 \quad \text{for } j \neq -1
+    .\]
+    For $j=-1$, we compute directly. Parameterize $-\gamma_k$ by $z(t) = z_k + \varepsilon_k e^{it}$ for $t \in [0,2\pi]$:
+    \[
+    \int_{-\gamma_k} \frac{1}{z-z_k} dz = \int_0^{2\pi} \frac{1}{\varepsilon_k e^{it}} \cdot i\varepsilon_k e^{it} dt = \int_0^{2\pi} i dt = 2\pi i
+    .\]
+    Therefore,
+    \[
+    \int_{-\gamma_k} f(z)dz = a_{-1}^{(k)} \cdot 2\pi i = 2\pi i \cdot \text{res}_{z_k}(f)
+    .\]
+    Combining all terms:
+    \[
+    \int_{\partial \mathcal{D}} f(z)dz = \sum_{k=1}^n \int_{-\gamma_k} f(z)dz = 2\pi i \sum_{k=1}^n \text{res}_{z_k}(f)
+    .\]
+\end{proof}
+\newpage
+\section{Feb 11}
+\subsection{Integral Evaluation via Residues}
+\begin{eg}
+    \[
+    \int_{-\infty}^\infty \frac{e^{ax}}{1+e^x}dx=\frac{\pi}{\sin(a \pi)}
+    .\] 
+\end{eg}
+\begin{proof}
+    Let $f(z)=\frac{e^{az}}{1+e^z}$ then we have simple poles at $z:e^z=1$ so $z\in \{...,-\pi i, \pi i, 3\pi i,...\}$. We have the residual for \[
+    \int_{\gamma_1}f+\cdots=\int_{\gamma_R}f(z)\,dz=2\pi i \operatorname{res}_{\pi i}(f)
+    .\] 
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8, x=1.2cm, y=0.6cm]
+            % Axes
+            \draw[->] (-3.5,0) -- (3.5,0) node[right] {$\Re(z)$};
+            \draw[->] (0,-0.5) -- (0,5.5) node[above] {$\Im(z)$};
+            
+            % Rectangle contour (vertices: -R, R, R+2\pi i, -R+2\pi i)
+            \coordinate (A) at (-2.5,0);
+            \coordinate (B) at (2.5,0);
+            \coordinate (C) at (2.5,4);
+            \coordinate (D) at (-2.5,4);
+            
+            \draw[thick, ->] (A) -- ($(A)!0.6!(B)$);
+            \draw[thick] ($(A)!0.6!(B)$) -- (B);
+            \draw[thick, ->] (B) -- ($(B)!0.6!(C)$);
+            \draw[thick] ($(B)!0.6!(C)$) -- (C);
+            \draw[thick, ->] (C) -- ($(C)!0.6!(D)$);
+            \draw[thick] ($(C)!0.6!(D)$) -- (D);
+            \draw[thick, ->] (D) -- ($(D)!0.6!(A)$);
+            \draw[thick] ($(D)!0.6!(A)$) -- (A);
+            
+            % Labels
+            \node[below] at (A) {$-R$};
+            \node[below] at (B) {$R$};
+            \node[above right] at (C) {$R+2\pi i$};
+            \node[above left] at (D) {$-R+2\pi i$};
+            
+            % Side labels: gamma_1 bottom, gamma_2 right, gamma_3 top, gamma_4 left
+            \node[below] at (0,-0.3) {$\gamma_1$};
+            \node[right] at (2.8,2) {$\gamma_2$};
+            \node[above] at (0,4.3) {$\gamma_3$};
+            \node[left] at (-2.8,2) {$\gamma_4$};
+            
+            % Pole at \pi i
+            \fill (0,2) circle (2pt);
+            \node[right] at (0.1,2) {$\pi i$};
+        \end{tikzpicture}
+    \end{center}
+    We have \[
+    \int_{\gamma_1}f(z)dz \xrightarrow{R\to +\infty} \int_{-\infty}^\infty \frac{e^{ax}}{1+e^x}dx=I
+    .\] 
+    On $\gamma_3$, $z = x + 2\pi i$ with $x$ from $R$ to $-R$, so \[
+    \int_{\gamma_3} f(z)\,dz = -\int_{-R}^{R} \frac{e^{a(x+2\pi i)}}{1+e^x}dx = -e^{2\pi a i}\cdot I.
+    \] 
+    As $R\to \infty$, $\int_{\gamma_2}f\to 0$ and $\int_{\gamma_4}f\to 0$. Thus \[
+    (1-e^{2\pi a i})I = 2\pi i \cdot \operatorname{res}_{\pi i}(f) = 2\pi i \cdot (-e^{a\pi i}) = -2\pi i e^{a\pi i},
+    \] 
+    \begin{align*}
+        \left |\int_{\gamma_2}f(z)dz \right |= \left |\int_0^{2\pi} \frac{e^{a(R+iy)}}{1+e^{R+iy}}idy \right |\leq \int_0^{2\pi} \frac{e^{aR}}{e^R+1}dy\xrightarrow{R\to \infty} 0
+    \end{align*}
+    Additionally $\int_{\gamma_4}f\to 0$. 
+    To compute the residue at $\pi i$, we have \[
+    \lim_{z\to \pi i}f(z)(z-\pi i)=\lim_{z\to i\pi}\frac{e^{az}}{\frac{e^z-e^{\pi i}}{z-\pi i}}=\frac{e^{\pi i a}}{e^{\pi i}}
+    .\] 
+    Letting $R\to +\infty$ in the residual formula gives \[
+    I+0+0-e^{2\pi a i}I=-2\pi i e^{a\pi i}
+    .\] 
+    So \[
+    I=-\frac{2\pi i e^{\pi i a}}{1-e^{2\pi a i}}=\frac{\pi}{\sin(a \pi)}
+    .\] 
+\end{proof}
+\subsection{Removable Singularities}
+\begin{defn}
+    Let $f:\Omega\setminus \{z_0\}\to \C$ be holomorphic, if we can extend $f$ analytically to $z_0$ we say that $f$ has a removable singularity at $z_0$. 
+\end{defn}
+\begin{thm}
+    (Riemann's Theorem) Let $f:\Omega\setminus \{z_0\}\to \C$ be holomorphic, if $f$ is bounded near $z_0$ then $z_0$ is a removable singularity. 
+\end{thm}
+\begin{proof}
+    Let $\overline{D}\subset \Omega$ be a disc centered at $z_0$. We want to use Cauchy's formula \[
+    \frac{1}{2\pi i}\int_{\partial D}\frac{f(w)}{w-z}dw = g(z) \text{, for all} z\in D
+    .\] 
+    It suffices to show that $f=g$ on $D\setminus \{z_0\}$ because then $g$ is the desired extension of $f$. \\
+    $F(w,z)$ is jointly continuous on $\partial D \times \overline{D}_{r-\epsilon}(z_0)$ and $\forall w\in \partial D$, $z \mapsto F(w,z)$ is holomorphic on $D$. \\
+    Fix $z\in D\setminus \{z_0\}$ then \[
+    \int_\gamma \frac{f(w)}{w-z}dw=0 \implies \int_{\partial D}\frac{f(w)}{w-z}dw=\int_{C_\epsilon(z_0)}\frac{f(w)}{w-z}dw+\int_{C_\epsilon(z)}\frac{f(w)}{w-z}dw=0+2\pi i f(z)
+    .\] 
+\end{proof}
+\newpage
+\section{Feb 13}
+\subsection{Classification of Singularities}
+\begin{thm}
+    (Riemann) Let $f:\Omega\setminus \{z_0\}\to \C$ has a removable singularity at $z_0$ if and only if bounded near $z_0$. 
+\end{thm}
+\begin{cor}
+    Pole at $z_0$ if and only if $|f|\to +\infty$ as $z\to z_0$
+\end{cor}
+\begin{proof}
+    ($\implies$) Local description near poles implies $f(z)=(z-z_0)^{-n}g(z)$ so $|f|\to +\infty$\\
+    ($\impliedby$) Since $\left | \frac{1}{f}\right | \to 0$, in particular $\frac{1}{f}$ is bounded near $z_0$, Riemann implies $\frac{1}{f}$ has a removable singularity at $z_0.$ 
+\end{proof}
+\begin{thm}
+    (Casorati-Weierstrass) If $f:D_r(z_0)\setminus \{z_0\}\to \C$ is holomorphic with an essential singularity at $z_0$ then the image of $f$ is dense in $\C$.
+\end{thm}
+\begin{proof}
+    If not, $\exists w\in \C$ such that no values of $f$ near $w$, $\exists \delta>0$ s.t. $\forall z$, $|f(z)-w|>\delta.$ \\
+    Consider \[
+    g(z)=\frac{1}{f(z)-w}:D_r(z_0)\setminus \{z_0\}\to \C
+    .\] 
+    Such a $g$ is bounded by $\frac{1}{\delta}$. So $g$ extends halomorphically into $D_r(z_0).$ 
+    \begin{enumerate}
+        \item[(Case 1)] $g(z_0)=0\implies \frac{1}{g}\to +\infty$ so $f(z)-w$ has a pole so $f$ has a pole
+        \item[(Case 2)] $g(z_0)\neq 0\implies \frac{1}{g}$ is well defined and $f$ has a removable singularity. 
+    \end{enumerate}
+\end{proof}
+\begin{thm}
+    (Picard's Theorem) If $f:D_r(z_0)\setminus \{z_0\}\to \C$ is holomorphic with an essential singularity at $z_0$ then the image of $f$ is either $\C$ or $\C$ except for at most one value. 
+\end{thm}
+\subsection{Meromorphic Functions and Behavior at Infinity}
+\begin{defn}
+    Let $\Omega\subset \C$ be open. A function $f$ is called meromorphic on $\Omega$ if $\exists z_1,z_2,...$ without a limit point such that $f$ is holomorphic in $\Omega\setminus \{z_1,z_2,...\}$ and has poles at $z_1,z_2,...$. 
+\end{defn}
+\begin{thm}
+    (Behavior at $+\infty$) Suppose $f$ is holomorphic in a neighborhood of $_\infty$ i.e. $ \{|z|>R\}$ for some $R>0.$ \\
+    Note: $F(z)=f(\frac{1}{z})$ is holomorphic in $D_{ \frac{1}{R}}(0)\setminus \{0\}$. \\
+    We say $f$ has a removable singularity at $\infty$ if $F$ has a removable singularity at $z=0$. 
+\end{thm}
+\begin{eg}
+    $e^z$ has an essential singularity at $+\infty$. 
+\end{eg}
+\begin{rmk}
+    We'll denote $\overline{\C}=\C \cup \{+\infty\}$
+\end{rmk}
+\begin{eg}
+    Examples of meromorphic functions on $\C$
+    \begin{enumerate}
+        \item Rational functions: $\frac{P}{Q}$
+        \item The gamma function: $\Gamma(z)=\int_0^\infty e^{-t}t^{z-1}dt$ (simple poles at $...,-2,-1,0$)
+        \item The Riemann zeta function: $\zeta(s)=\sum_{n=1}^\infty \frac{1}{n^s}$ (simple poles at $s=-1,-2,-3,...$)
+    \end{enumerate}
+\end{eg}
+\newpage
+\section{Feb 16}
+\subsection{Rational Functions via Meromorphy}
+\begin{thm}
+    Suppose $f$ is meromorphic on $\C$ with a removable singularity or a pole at $+\infty$ then $f$ is a rational function.
+\end{thm}
+\begin{proof}
+    Claim: Under these assumptions, $f$ has finitely many poles. \\
+    If not, $z_1,z_2,...$ are poles and this sequence cannot be bounded otherwise it got a limit point. Say $|z_k|\to +\infty$, the neighborhoods of $\infty$ are $ \{|z|>R\}$ so $f$ not holomorphic for any $R>0$ which contradicts that $f$ has a removable singularity at $+\infty$. \\\\
+    For a function $F$ which has a pole at $z=0$ we have \[
+    F(z)=\underbrace{\frac{a_n}{z^n}+...+\frac{a_{-1}}{z}}_{f(z)}+ \underbrace{a_0+a_1z+\cdots}_{g(z)}
+    .\] 
+    Let $z_1,\ldots,z_N$ be the poles of $f$. Near $z_k$, for each $1\leq k \leq N$,
+    \[
+    f(z)=\underbrace{f_k(z)}_{\substack{\text{principal part}\\\text{poly in }\frac{1}{z-z_k}}}+ \underbrace{g_k(z)}_{\text{holomorphic}}.
+    \]
+    Near $\infty$,
+    \[
+    f\!\left(\frac{1}{z}\right)=\underbrace{\tilde{f}_\infty(z)}_{\substack{\text{principal part}\\\text{poly in }\frac{1}{z}}}+ \underbrace{\tilde{g}_\infty(z)}_{\text{holomorphic}}.
+    \] 
+    Consider,
+    \[
+    H(z)=f(z)-\underbrace{\sum_{j=1}^N f_j(z)}_{ \text{rational}}-\underbrace{\tilde{f}_\infty(z)}_{ \text{poly}}
+    .\] 
+    Claim: $H$ is holomorphic and bounded. \\
+    Near $z_k$ \[
+    H=\underbrace{f-f_k}_{\text{holo}}-\sum_{j\neq k} f_j-\underbrace{f_\infty}_{\text{holo}} 
+    .\] 
+    We can show $H$ is bounded as \[
+    H\!\left(\frac{1}{z}\right)= \underbrace{f\!\left(\frac{1}{z}\right)-\tilde{f}_\infty(z)}_{\substack{\tilde{g}_\infty(z)\\\text{bounded near $z=0$}}}- \underbrace{\sum_{j=1}^N f_j\!\left(\frac{1}{z}\right)}_{\substack{\text{poly}\\\text{bounded near $z=0$}}}
+    .\] 
+    So $H(\frac{1}{z})$ is bounded in say $\{|z|<\delta\}$ and $H(z)$ is bounded in $\{|z|>1/\delta\}$, hence $H$ is bounded in $\{|z|\leq 1/\delta\}$. $ dset$
+\end{proof}
+\newpage
+\section{Feb 18}
+\subsection{Argument Principle and Rouche's Theorem}
+\begin{thm}
+    (The Argument Principle) Let $f:\Omega\to \C$ be meromorphic, $\overline{D}\subset \Omega$ be a disk. If If $f$ never vanishes on $\partial D$ nor has nay poles on $\partial D$ then \[
+    \frac{1}{2\pi i}\int_{\partial D}\frac{f'}{f}= \text{\# zeros of $f-$ \# poles of $f$ in $\overline{D}$}
+    .\] 
+\end{thm}
+\begin{proof}
+    If $f$ has zero of order $n$ at $z_0$ then $f(z)=(z-z_0)^ng(z)$ nonvanishing near $z_0$ then \[
+    \frac{f'}{f}(z)=\frac{n}{z-z_0}+\frac{g'}{g}(z)
+    .\] 
+    If $f$ has a pole of order $n$ at $z_0$ we can write $f(z)=(z-z_0)^{-n}h(z)$ then \[
+    \frac{f'}{f}(z)=-\frac{n}{z-z_0}+\frac{h'}{h}(z)
+    .\]  
+    Therefore $\frac{f'}{f}$ has simple poles at zeros and poles of $f$ with residue $ \frac{\text{order}}{-\text{order}}$. The residue formula finishes the proof. 
+\end{proof}
+\begin{thm}
+    Rouche's Theorem: Let $f,g$ be holomorphic in $\Omega\supset \overline{D}$ with $\Omega$ open. If $|f|>|g|$ on $\partial D$ then $f,f+g$ have the same number of zeros in $D$. 
+\end{thm}
+\begin{proof}
+    Let $f_t=f+t\cdot g$ for $t\in [0,1]$ and $n_t=\#$ of zeros of $f_t$ in $D$. 
+    By argument principle we have \[
+    n_t = \frac{1}{2\pi i}\int_{\partial D}\frac{f_t'}{f_t}
+    .\] 
+    $f_t$ never vanishes on $\partial D$. We can conclude \[
+    |f_t|\geq |f|-t|g|\geq |f|-|g|>0
+    .\] 
+    We can show continuity of the integrand by \[
+    \int_0^{2\pi}\underbrace{\frac{f_t'(z_0+re^{i\theta})}{f_t(z_0+re^{i\theta})}rie^{i\theta}}_{H(t,\theta)}d\theta
+    .\] 
+    Then $H(t,\theta)$ is jointly continuous in $(t,\theta)$. So $n_t$ is continuous and discrete so $n_t$ is constant. 
+\end{proof}
+\begin{proof}
+    Third Proof of fundamental Theorem of Algebra. 
+    \[
+    P(z)=\underbrace{a_0+a_1z+\cdots+a_{n-1}z^{n-1}}_{g(z)}+\underbrace{a_nz^n}_{f(z)}
+    .\] 
+    There exist $\R>0$ such that $|g(z)|<|f(z)|$ on $|z|=R$
+\end{proof}
+\subsection{Open Mapping and Maximum Modulus Theorems}
+\begin{thm}
+    (The Open Mapping Theorem) Let $f:\Omega\to \C$ holomorphic, $f$ non-constant then $f$ maps open sets to open sets. 
+\end{thm}
+\begin{proof}
+    Let $w_0=f(z_0)\in f(\Omega)$. We want to show that every $w$ near $w_0$ is also in $f(\Omega)$
+    Fix $w$ near $w_0$ then consider, \[
+        h(z)=f(z)-w=\underbrace{(f(z)-w_0)}_{F(z)}+\underbrace{(w_0-w)}_{G(z)}
+    .\] 
+    Let $\delta>0$ be such that $\overline{D}_\delta(z_0)\subset \Omega$ and $\forall z\in \partial D_\delta(z_0)$, $f(z)\neq w_0$. Otherwise if there exist no such $\delta$ then there exist $(z_n)\to z_0$ such that $f(z_n)=w_0$ for all $n$ then by rigidity $f$ is constant which contradicts the assumption that $f$ is non-constant.
+    Let \[
+        \epsilon=\inf_{\partial D_\delta(z_0)}|f(z)-w_0|>0
+    .\]
+    Now $|G|>|F|$ on $\partial D_\delta(z_0)$ as long as $|w-w_0|<\epsilon$. By Rouche's Theorem, $h=F+G$ has a zero in $\overline{D}_\delta(z_0)$. 
+\end{proof}
+\begin{thm}
+    (The Maximum Modulus Theorem) Let $f:\Omega\to \C$ holomorphic. If $f$ is holomorphic and non-constant then $|f|$ cannot attain a maximum in $\Omega$. 
+\end{thm}
+\begin{proof}
+    AFSOC, $\exists z_0\in \Omega$ such that $|\underbrace{f(z_0)}_{w_0}|=\sup_{\Omega}|f|$ then this contradicts the open mapping theorem because there exist $w$ near $w_0$ with $|w|>|w_0|$ and the value $w$ must be obtained. 
+\end{proof}
+\begin{cor}
+    If $\Omega$ additionally bounded ($\overline{\Omega}$ compact) then $\sup_\Omega |f|=\max_{\partial \Omega}|f|$ 
+\end{cor}
+\newpage
+\section{Feb 20}
+\subsection{Homotopy and Path Independence}
+\begin{defn}
+    Let $\Omega\subset \C$ be a region, two curves in $\Omega$ say with parametrization $\gamma_0,\gamma_1:[a,b]\to \C$ and common endpoints \[
+    \alpha = \gamma_0(a)=\gamma_1(a) \text{ and } \beta = \gamma_0(b)=\gamma_1(b)
+    .\]   
+    are called homotopic if $\forall s\in [0,1]$, $\exists \gamma_s:[a,b]\to \Omega$ such that
+    \begin{enumerate}
+        \item $\gamma_{s=0}=\gamma_0$ and $\gamma_{s=1}=\gamma_1$,
+        \item $\gamma_s(a)=\alpha$ and $\gamma_s(b)=\beta$ for all $s\in[0,1]$,
+        \item the map $(s,t)\mapsto \gamma_s(t)$ is continuous on $[0,1]\times[a,b]$.
+    \end{enumerate}
+    The map $H(s,t)=\gamma_s(t)$ is called a homotopy between $\gamma_0$ and $\gamma_1$.
+    \begin{center}
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            % Path homotopy: curves with fixed endpoints
+            \begin{tikzpicture}[scale=1.1]
+                \draw[gray!60, fill=gray!5] (0,0) .. controls (0.8,1.4) and (2.2,1.6) .. (3,1)
+                    .. controls (3.5,0.6) and (2.8,-0.4) .. (1.5,-0.5)
+                    .. controls (0.3,-0.4) .. cycle;
+                \node[gray!80] at (2.4,0.6) {$\Omega$};
+
+                \coordinate (alpha) at (0.5,0);
+                \coordinate (beta) at (2.6,1);
+
+                % gamma_0: upper arc (solid) - bends up then down
+                \draw[thick] (alpha) .. controls (1.2,1.1) and (2,1.2) .. (beta);
+                \node[above] at (1.5,1.15) {$\gamma_0$};
+
+                % gamma_1: lower arc (solid) - bends down then up
+                \draw[thick] (alpha) .. controls (1,-0.4) and (2,-0.3) .. (beta);
+                \node[below] at (1.5,-0.35) {$\gamma_1$};
+
+                % gamma_s: intermediate curves (dashed)
+                \draw[dashed] (alpha) .. controls (1.1,0.4) and (2,0.5) .. (beta);
+                \draw[dashed] (alpha) .. controls (1.15,0.65) and (2,0.75) .. (beta);
+                \draw[dashed] (alpha) .. controls (1.05,-0.2) and (2,-0.1) .. (beta);
+                \draw[dashed] (alpha) .. controls (1.1,0.1) and (2,0.2) .. (beta);
+                \node at (1.6,0.45) {$\gamma_s$};
+
+                \fill (alpha) circle (2pt);
+                \fill (beta) circle (2pt);
+                \node[below left] at (alpha) {$\alpha$};
+                \node[above right] at (beta) {$\beta$};
+            \end{tikzpicture}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            % Loop homotopy: closed curves
+            \begin{tikzpicture}[scale=1.1]
+                \draw[gray!60, fill=gray!5] (0,0) .. controls (1,1.5) and (3,1.6) .. (3.5,0.8)
+                    .. controls (3.8,0) and (3,-0.8) .. (1.5,-0.9)
+                    .. controls (0,-0.6) .. cycle;
+                \node[gray!80] at (2.6,0.3) {$\Omega$};
+
+                % gamma_0: outer loop (thick solid)
+                \draw[very thick] (1.5,0) ellipse (1.4 and 0.9);
+                \node[below left] at (0.4,-0.5) {$\gamma_0$};
+
+                % gamma_1: inner loop (solid)
+                \draw[thick] (1.5,0) ellipse (0.5 and 0.35);
+                \node at (1.5,0) {$\gamma_1$};
+
+                % gamma_s: intermediate loops (dashed)
+                \draw[dashed] (1.5,0) ellipse (1.1 and 0.7);
+                \draw[dashed] (1.5,0) ellipse (0.8 and 0.55);
+                \draw[dashed] (1.5,0) ellipse (0.65 and 0.45);
+                \node[below] at (1.5,-0.75) {$\gamma_s$};
+            \end{tikzpicture}
+        \end{minipage}
+    \end{center}
+\end{defn}
+\begin{thm}
+    If $f:\Omega\to \C$ be holomorphic, $\gamma_0,\gamma_1$ are two homotopic curves in $\Omega$ then $\int_{\gamma_0}f=\int_{\gamma_1}f$
+\end{thm}
+\begin{proof}
+    Let $H(s,t):[0,1]\times [a,b]\to \Omega$ be a homotopy between $\gamma_0,\gamma_1$. Since $K=H([0,1]\times [a,b])$ is compact in open $\Omega$, $\exists \epsilon>0$ such that $\forall z\in K$, $D_{3\epsilon}(z)\subset \Omega$. Fix such $\epsilon>0$ and take $\delta>0$ such that \[
+    |H(s_1,t_1)-H(s_2,t_2)|<\epsilon \text{ provided that } |(s_1,t_1)-(s_2,t_2)|<2\delta \tag{unif cont of $H$}
+    .\] 
+    Given such $\delta$, it suffices to show \[
+    \int_{\gamma_s}f=\int_{\gamma_{s'}}f \text{ for all } 0\leq s<s'\leq 1 \text{ and } |s-s'|<\delta
+    .\] 
+    Take $a=t_0<t_1<\cdots<t_n<t_{n+1}=b$ such that $|t_{i+1}-t_{i}|<\delta$ for all $i=0,1,\cdots,n$. \\
+    Let's denote $z_i=\gamma_s(t_i)$ and $w_i=\gamma_{s'}(t_i)$. Let $D_i=D_{z_i}(2\epsilon)$. 
+    \begin{claim}
+        \begin{enumerate}
+            \item $z_i,z_{i+1}\in D_i$ holds because $|z_{i+1}-z_i|<\epsilon$ as $z_{i+1}=\gamma_s(t_{i+1})=H(s,t_{i+1})$ and $z_i=\gamma_s(t_i)=H(s,t_i)$. \\
+            \item $w_i,w_{i+1}\in D_i$ holds because $|w_i-z_i|<\epsilon$ so \[
+            |w_{i+1}-z_i|\leq |w_{i+1}-z_{i+1}|+|z_{i+1}-z_i|<\epsilon+\epsilon=2\epsilon
+            .\] 
+            \item $D_0\cup D_1\cup \cdots \cup D_n$ covers $\gamma_s,\gamma_{s'}$ because for $z=\gamma_s(t)$, $t_i\leq t\leq t_{i+1}$, $|z-z_i|=|\gamma_s(t)-\gamma_s(t_i)|\leq \epsilon$ so $z\in D_i$. For $w=\gamma_{s'}(t)$, $|w-z_i|=|\gamma_{s'}(t)-\gamma_s(t_i)|<\epsilon$. 
+        \end{enumerate}
+    \end{claim}
+    \noindent Finally, let $F_i$ be a primitive of $f$ on $D_i$ (exists by Cauchy applied to $D_i$). On $D_i\cap D_{i+1}$, $F_i,F_{i+1}$ are two primitives of the same function $f$ so \[
+    F_{i+1}(w)-F_{i+1}(z)=c_i
+    .\] 
+    where $c_i$ is a constant. 
+    Then \[
+    \gamma_{\gamma_s}f=\int_{a}^{b}f(\gamma_s(t))\gamma_s'(t)dt=\sum_{i=0}^n \int_{t_i}^{t_{i+1}}f(\gamma_s(t))\gamma_s'(t)dt=\sum_{i=0}^n F_{i}(z_{i+1})-F_{i}(z_i)
+    .\] 
+    So 
+    \begin{align*}
+        \int_{\gamma_s}f-\int_{\gamma_{s'}}f&=\sum_{i=0}^n \left [ F_{i}(z_{i+1})-F_{i}(z_i) \right ]-\sum_{i=0}^n \left [ F_{i+1}(w_{i+1})-F_{i+1}(w_i) \right ]\\
+        &=\sum_{i=0}^n \left [ F_{i}(z_{i+1})-F_{i+1}(w_{i+1}) \right ]-\sum_{i=0}^n \left [ F_{i}(z_i)-F_{i+1}(w_i) \right ]\\
+        &=F_0(w_0)-F_0(z_0)+\sum_{i=0}^{n-1} \left [ F_{i}(z_{i+1})-F_{i+1}(w_{i+1}) \right ]-\sum_{i=0}^{n-1} \left [ F_{i}(z_i)-F_{i+1}(w_i) \right ]\\
+        &=\sum_{i=0}^{n-1} \left [ F_{i}(z_{i+1})-F_{i+1}(w_{i+1}) \right ]-\sum_{i=0}^{n-1} \left [ F_{i}(z_i)-F_{i+1}(w_i) \right ]\\
+        &=\sum_{i=0}^{n-1} \left [ F_i(z_{i+1})-F_{i+1}(z_{i})+F_{i+1}(z_i)-F_{i}(w_{i+1}) \right ]\\
+        &=\sum_{i=0}^{n-1}-c_i+c_i=0
+    \end{align*}
+\end{proof}
+\subsection{Simply Connected Regions}
+\begin{defn}
+    A region $\Omega\subset \C$ is simply connected if every two curves in $\Omega$ with common endpoints are homotopic. 
+\end{defn}
+\begin{eg}
+    Examples of simply connected regions:
+    \begin{enumerate}
+        \item Convex Sets
+        \item $\Omega=\C\setminus (-\infty,0]$ 
+    \end{enumerate}
+\end{eg}
+\begin{thm}
+    For all $f$ holomorphic in a simply connected region then for closed $\gamma$
+    \[
+    \int_{\gamma} f=0
+    .\] 
+\end{thm}
+\begin{thm}
+    $f$ holomorphic has a primitive in a simply connected region $\Omega.$ 
+\end{thm}
+\newpage
+\section{Feb 23}
+\subsection{Complex Logarithm}
+\begin{thm}
+    (Construction of Complex Logarithm) Let $\Omega$ be a simply connected region such that $0\notin \Omega$ but $1\in \Omega$. Then there $\exists !$ holomorphic $F$ on $\Omega$ with $F(z)=\log \Omega$ such that 
+    \begin{enumerate}
+        \item $e^{F(z)}=z$ on $\Omega$
+        \item $F(r)=\log r$ $\forall r\in \Omega \cap (1-\delta,1+\delta)$
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    Let $F(z)=\int_{\gamma_z} \frac{dw}{w}$ where $\gamma_z$ is a curve $1\curvearrowright z$ in $\Omega$. This is well defined as it doesn't depend on choice of $\gamma_z$ because $\Omega$ is simply connected. \\
+    Then we know $F'(z)=\frac{1}{z}$. \\
+    Thus 
+    \begin{enumerate}
+        \item $(ze^{-F(z)})'=e^{-F(z)}-ze^{-F(z)} \frac{1}{z}=0$ so $ze^{-F(z)}=1$ at $z=1$. 
+        \item $F(r)=\int_1^r \frac{dt}{t}=\log t \mid_{t=1}^{t=r}=\log r$
+    \end{enumerate}
+\end{proof}
+\begin{eg}
+    $\Omega_0=\C\setminus (-\infty, 0]$
+\end{eg}
+\begin{claim}
+    For $z=re^{i\theta}$ for $|\theta|<\pi$, $\log(z)=\log r+i\theta$, we take the path $1\to r\to z$. So 
+    \[
+    \log z=\int_{\gamma_z} \frac{dw}{w}=\int_1^r \frac{dt}{t}+\int_0^{2\pi} \frac{rie^{it}}{r e^{it}}dt=\log r + i\theta
+    .\] 
+\end{claim}
+\begin{rmk}
+    $\log(z_1z_2)\neq \log z_1+ \log z_2$ is in general false. 
+\end{rmk}
+\begin{thm}
+    For the principle branch 
+    \[
+    \log(1+z)=z-\frac{z^2}{2}+\frac{z^3}{3}-\cdots \tag{For $|z|<1$}
+    .\]  
+\end{thm}
+\begin{proof}
+    $\frac{d}{dz}(\text{LHS}-\text{RHS})=\frac{1}{1+z}-\frac{1}{1+z}=0$ 
+\end{proof}
+\subsection{General Powers and Branches}
+\begin{defn}
+    Given $\alpha\in \C$ we define \[
+    z^\alpha := e^{\alpha \log_\Omega z}
+    .\] 
+\end{defn}
+\begin{eg}
+    We have 
+    \begin{enumerate}
+        \item $1^\alpha =1$
+        \item $ \left( z^{ \frac{1}{n}} \right)^n=z^{ \frac{1}{n}}\cdot z^{ \frac{1}{n}}\cdots z^{ \frac{1}{n}}= \left( e^{ \frac{1}{n}\log z} \right)^n=e^{\log z}=z$
+    \end{enumerate}
+\end{eg}
+\begin{thm}
+    Given $f$ holomorphic, nowhere vanishing there exist $g$ such that  $e^g=f$ 
+\end{thm}
+\begin{proof}
+    Repeat the previous $g'= \frac{f'}{f}$ with $g(z)=\int_{\gamma_z} \frac{f'(w)}{f(w)}dw$
+     
+\end{proof}
+\newpage
+\section{Feb 25}
+\begin{defn}
+    For $f\in L_1$ $(\R\to \C)$ i.e. $||f||_{L_1}=\int_{-\infty}^{+\infty} |f|<\infty$ we define its fourier transform 
+    \[
+        \hat{f}(\zeta)=\int_{-\infty}^{\infty} f(x)e^{-2\pi i t \zeta}dt \tag{$\zeta\in \R$}
+    .\]  
+\end{defn}
+\begin{eg}
+    Some examples of fourier transforms:
+    \begin{enumerate}
+        \item $\widehat{e^{-\pi x^2}}(\zeta)=e^{-\pi \zeta^2}$
+        \item $\widehat{ \frac{1}{\cosh(\pi x)}}(\zeta)= \frac{1}{\cosh(\pi \zeta)}$
+        \item $\widehat{1_{[-1,1]}}(\zeta)= \int_{-1}^1 e^{-2\pi i \zeta t}dt$
+    \end{enumerate}
+\end{eg}
+\begin{lem}
+    Basic Properties of Fourier Transforms:
+    \begin{enumerate}
+        \item $\hat{f}$ is uniformly continuous
+        \item $||\hat{f}||_{\infty}\leq ||f||_{L_1}$
+        \item $\hat{f}(\zeta)\to 0$ as $|\zeta|\to \infty$ 
+    \end{enumerate}
+\end{lem}
+\begin{thm}
+    (Paley-Wiener Theorem) Regularity of $f$ $\iff$ decay of $f^*$
+\end{thm}
+\begin{defn}
+    Given $a>0$, we let $S_a= \{z\in \C: |Im(z)|<a\}$ and 
+    \[
+    \mathcal{F}_a= \left \{f: S_a\to \C, \text{ holo }, \exists C_f, \forall x+iy\in S_a, |f(x+iy)|\leq \frac{C_f}{1+x^2}\right \}
+    .\] 
+    Additionally, $\mathcal{F}=\bigcup_{a>0}\mathcal{F}_a$
+\end{defn}
+\begin{thm}\label{thm:paley-wiener-decay}
+    If $f\in \mathcal{F}_a,$ then $|\hat{f}(\zeta)|\leq C e^{-2\pi b |\zeta|}$, for $\zeta\in \R$ and $\forall b<a$. 
+\end{thm}
+\begin{proof}
+    Fix $\zeta>0$ and $b<a$, we have 
+    \[
+    0=\int_{\gamma_R} f(z)e^{-2\pi i \zeta z}dz=\int_{\gamma_1}+\int_{\gamma_2}+\int_{\gamma_3}+\int_{\gamma_4}
+    .\] 
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2]
+            % Axes
+            \draw[->] (-2.5,0) -- (2.5,0) node[right] {$\Re(z)$};
+            \draw[->] (0,-1.8) -- (0,1.8) node[above] {$\Im(z)$};
+            % Strip boundaries
+            \draw[thick, dashed, blue!60] (-2.5,1.2) -- (2.5,1.2) node[right] {$y=a$};
+            \draw[thick, dashed, blue!60] (-2.5,-1.2) -- (2.5,-1.2) node[right] {$y=-a$};
+            % Rectangle gamma_R = gamma_1 + gamma_2 + gamma_3 + gamma_4 (for zeta>0)
+            \draw[thick, ->] (-2,0) -- (2,0) node[midway, above] {$\gamma_1$};
+            \draw[thick, ->] (2,0) -- (2,-0.8) node[midway, right] {$\gamma_2$};
+            \draw[thick, ->] (2,-0.8) -- (-2,-0.8) node[midway, below] {$\gamma_3$};
+            \draw[thick, ->] (-2,-0.8) -- (-2,0) node[midway, left] {$\gamma_4$};
+            % Vertex labels
+            \node[below left] at (-2,0) {$-R$};
+            \node[below right] at (2,0) {$R$};
+            \node[above] at (0,-0.8) {$y=-b$};
+        \end{tikzpicture}
+    \end{center}
+    Verify that $\int_{\gamma_1}=\hat{f}(\zeta)$ and 
+    \begin{align*}
+        \left |\int_{\gamma_2}\right |=\left |\int_{0}^b f(R-it)e^{-2\pi i \zeta (R-it)}i\,dt\right |\leq \int_{0}^b |f(R-it)|e^{2\pi \zeta b}dt\leq \frac{C_f}{1+R^2}\int_0^b e^{2\pi \zeta b}dt\to 0 \text{ as } R\to \infty
+    \end{align*}
+    Additionally, \[
+        \left |\int_{\gamma_4}\right |\to 0
+    .\]
+    Thus \[
+    \hat{f}(\zeta)=\int_{-\infty}^{\infty} f(t-ib)e^{-2\pi i \zeta (t-ib)}dt
+    .\]
+    and  
+    \[
+    \left | \hat{f}(\zeta)\right | \leq \int_{-\infty}^{\infty} |f(t-ib)|e^{2\pi \zeta b}dt\leq \frac{C_f}{1+b^2}\int_{-\infty}^{\infty} e^{2\pi \zeta b}dt\leq C_f \left( \int_{-\infty}^{\infty} \frac{dt}{1+t^2} \right)\cdot e^{-2\pi b \zeta} \tag{$\zeta>\infty$}
+    .\] 
+    Do same for $\zeta<0$. 
+\end{proof}
+\begin{thm}
+    (Inversion Formula) For $f\in \mathcal{F}_\infty,$ \[
+    f(x)=\int_{-\infty}^\infty \hat{f}(\zeta)e^{2\pi i \zeta x}d\zeta \tag{$x\in \R$}
+    .\] 
+\end{thm}
+\begin{proof}
+    We want to show that $g(x)=\int_{-\infty}^\infty \hat{f}(\zeta)e^{2\pi i \zeta x}d\zeta=f(x)$ on $\R$. \\
+    We can write 
+    \[
+        \int_{0}^\infty \hat{f}(\zeta)e^{2\pi i \zeta x}d\zeta=\int_{ib+\R}\cdots
+    .\] 
+    Rewriting we have 
+    \begin{align*}
+        \int_{0}^\infty \hat{f}(\zeta)e^{2\pi i \zeta x}d\zeta&=\int_0^\infty \left( \int_{-\infty}^\infty f(t-ib)e^{2\pi i \zeta (t-ib)}dt \right) e^{2\pi i \zeta x}d\zeta\\
+        &=\int_{-\infty}^\infty f(t-ib) \left( \underbrace{\int_0^\infty e^{-2\pi \zeta(b+it-ix)} d\zeta }_{ \frac{1}{2\pi (b+i(t-x))}}\right)dt \\
+        &=\frac{1}{2\pi i}\int_{-\infty} \frac{f(t-ib)}{b+i(t-x)}dt\\
+        &= \frac{1}{2\pi i} \int_{\gamma_-} \frac{f(z)}{z-x}dz
+    \end{align*}
+    Similarly for the negative side of the integral we have 
+    \[
+    \int_{-\infty}^0 \cdots = \frac{1}{2\pi i} \int_{\gamma_+} \frac{f(z)}{z-x}dz
+    .\] 
+    Thus we have 
+    \[
+    g(x)= \frac{1}{2\pi i} \left( \int_{\gamma_-}+\int_{\gamma_+} \right)= \frac{1}{2\pi i} \lim_{R\to +\infty} \int_{\gamma_R} \frac{f(z)}{z-x}dz= \text{res}_{z=x} \frac{f(z)}{z-x}=f(x)
+    .\] 
+\end{proof}
+\newpage
+\section{March 9}
+\begin{thm}
+    $f\in \mathcal{F}_a$ iff $|\hat{f}(\zeta)|\leq C e^{-2\pi b |\zeta|}$, for $\zeta\in \R$ and $\forall b<a$. 
+\end{thm}
+\begin{proof}
+    We've shown the forward direction in Theorem~\ref{thm:paley-wiener-decay}
+\end{proof}
+\begin{thm}
+    If $f:\R\to \C$ continuous with $|f(x)|\leq \frac{C_f}{1+x^2}$ for all $x\in \R$ and $\hat{f}\in L_1$ then Fourier Inversion Formula holds.
+\end{thm}
+\begin{proof}
+    Shown on the homework. 
+\end{proof}
+\begin{thm}
+    If $|\hat{f}(\zeta)|\leq Ce^{-2\pi a |\zeta|}$, $\zeta\in \R$ and $\forall a>0$ then $f$ extends analytically to $S_a= \{|\Im(z)|<a\}$. 
+\end{thm}
+\begin{proof}
+    Let \[
+        f_n(z)=\int_{-n}^n \hat{f}(\zeta)e^{2\pi i \zeta z}d\zeta
+    .\] 
+    Fix $b<a$ then 
+    \[
+    \tilde{f}(z)=\int_{-\infty}^\infty \hat{f}(\zeta)e^{2\pi i \zeta z}d\zeta \text{ is well defined in } S_b
+    .\] 
+    By Fourier Inversion $\tilde{f}|_\R=f$, it remains to show $f_n$ converges uniformly to $\tilde{f}$ on $S_b$. 
+    \begin{align*}
+        \left
+    \end{align*}
+\end{proof}
+\end{document}
