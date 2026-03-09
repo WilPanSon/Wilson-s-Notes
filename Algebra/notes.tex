@@ -1201,18 +1201,25 @@ Conjugation is a specific action of $G$ on itself.
 \begin{defn}
     Let $\mathcal{C}$ be a category and $c,d$ objects then a cone over $c,d$ is a diagram
     \begin{center}
-        \begin{tikzcd}
-            & e \arrow[dl, "\alpha"] \arrow[dr, "\beta"] \\
-            c & & d
-        \end{tikzcd}
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \textbf{Cone 1}
+            \begin{tikzcd}
+                & e \arrow[dl, "\alpha"] \arrow[dr, "\beta"] \\
+                c & & d
+            \end{tikzcd}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \textbf{Cone 2}
+            \begin{tikzcd}
+                & e' \arrow[dl, "\alpha'"'] \arrow[dr, "\beta'"'] \\
+                c & & d
+            \end{tikzcd}
+        \end{minipage}
     \end{center}
-    A cone over $c,d$ is a product of $c,d$ iff for all cones 
-    \begin{center}
-        \begin{tikzcd}
-            & e' \arrow[dl, "\alpha'"'] \arrow[dr, "\beta'"'] \\
-            c & & d
-        \end{tikzcd}
-    \end{center}
+    A cone over $c,d$ is a product of $c,d$ iff for all cones
     there is a unique $\phi: e' \to e$ such that the diagram
     \begin{center}
         \begin{tikzcd}
@@ -1237,6 +1244,6 @@ Conjugation is a specific action of $G$ on itself.
 \end{rec}
 \begin{lem}
     Given $\mathcal{C}$ and objects $c,d$ make a new category whose objects are the cones over $c,d$. \\
-    
+
 \end{lem}
 \end{document}
