@@ -1306,11 +1306,13 @@ is a coproduct of $c,d$ iff for all cocones
     \[
     M_1 \oplus M_2 = \{(m_1,m_2): m_i\in M_i\}
     .\] 
-    Define $i:M_1\to M_1 \oplus M_2$ by $i(m_1)=(m_1,0)$ and $j:M_2\to M_1 \oplus M_2$ by $j(m_2)=(0,m_2)$. 
-    We have 
-    \[
-    \rho(m_1,m_2)=\rho((m_1,0)+(0,m_2))=\rho(m_1,0)+\rho(0,m_2)=\psi(m_1)+\psi(m_2)
-    .\]  
-    
+    Define $i:M_1\to M_1 \oplus M_2$ by $i(m_1)=(m_1,0)$ and $j:M_2\to M_1 \oplus M_2$ by $j(m_2)=(0,m_2)$. For any $R$-module $N$ and homomorphisms $\psi_1:M_1\to N$, $\psi_2:M_2\to N$, there is a unique $\rho:M_1\oplus M_2\to N$ such that the diagram
+    \begin{center}
+        \begin{tikzcd}
+            M_1 \arrow[d, "i"] \arrow[rd, "\psi_1"'] & M_2 \arrow[d, "j"] \arrow[ld, "\psi_2"] \\
+            M_1 \oplus M_2 \arrow[r, "\rho", dashed] & N
+        \end{tikzcd}
+    \end{center}
+    commutes ($\rho \circ i = \psi_1$ and $\rho \circ j = \psi_2$). We have $\rho(m_1,m_2)=\rho((m_1,0)+(0,m_2))=\psi_1(m_1)+\psi_2(m_2)$.
 \end{defn}
 \end{document}
