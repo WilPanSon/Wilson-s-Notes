@@ -1295,8 +1295,8 @@ is a coproduct of $c,d$ iff for all cocones
     Sets: Let $X,Y,Z$ be sets then define $X\cup Y=(X \times \{0\}) \cup (Y \times \{1\})$. Define $i:x \mapsto (x,0)$ and $j:y \mapsto (y,1)$. Then the coproduct is $h(x,0)=f(x)$ and $h(y,1)=g(y)$.
     \begin{center}
         \begin{tikzcd}
-            X \arrow[r, "i"] & X\cup Y \arrow[d, "h", dashed] \\
-            Y \arrow[ru, "j"'] & Z
+            X \arrow[r, "i"] \arrow[rd, "f"'] & X\cup Y \arrow[d, "h", dashed] \\
+            Y \arrow[u, "j"] \arrow[ru, "g"] & Z
         \end{tikzcd}
     \end{center}
     such that $h(i(x))=f(x)$ and $h(j(y))=g(y)$.
