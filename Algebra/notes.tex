@@ -1256,7 +1256,14 @@ Conjugation is a specific action of $G$ on itself.
             \end{tikzcd}
         \end{minipage}
     \end{center}
-    Drawing the arrow from 
+    Drawing the arrow from cone 1 to cone 2 we have 
+    \begin{center}
+        \begin{tikzcd}
+            & e \arrow[dl, "\alpha"] \arrow[dr, "\beta"] \arrow[d, "\phi", dashed] \\
+            c & e' \arrow[l, "\alpha'"'] \arrow[r, "\beta'"'] & d
+        \end{tikzcd}
+    \end{center}
+    such that $\alpha \circ \phi = \alpha'$ and $\beta \circ \phi = \beta'$.
     Being a product of $c,d$ is equivalent to being a terminal object in category of cones over $c,d$
 \end{lem}
 \end{document}
