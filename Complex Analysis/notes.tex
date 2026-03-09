@@ -1977,7 +1977,8 @@ We have \[
     Rewriting we have 
     \begin{align*}
         \int_{0}^\infty \hat{f}(\zeta)e^{2\pi i \zeta x}d\zeta&=\int_0^\infty \left( \int_{-\infty}^\infty f(t-ib)e^{2\pi i \zeta (t-ib)}dt \right) e^{2\pi i \zeta x}d\zeta\\
-        &=\int_{-\infty}^\infty f(t-ib) \left( \underbrace{\int_0^\infty e^{-2\pi \zeta(b+it-ix)} d\zeta }_{ \frac{1}{2\pi (b+i(t-x))}}\right)dt 
+        &=\int_{-\infty}^\infty f(t-ib) \left( \underbrace{\int_0^\infty e^{-2\pi \zeta(b+it-ix)} d\zeta }_{ \frac{1}{2\pi (b+i(t-x))}}\right)dt \\
+        &=\frac{1}{2\pi i}\int_{-\infty}
     \end{align*}
 \end{proof}
 \newpage
