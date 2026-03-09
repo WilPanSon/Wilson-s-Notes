@@ -1395,7 +1395,7 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     Thus 
     \begin{align*}
         |H|&\leq 3 + {3k \choose t+1}{n-3k \choose k-t-1}\\
-        &\leq 3+\sum_{t+1\leq \ell }{j \choose \ell}{n-j \choose k-\ell}\\
+        &\leq 3+\sum_{t+1\leq \ell \leq k \leq j \leq 3k}{j \choose \ell}{n-j \choose k-\ell}\\
         &\leq C_{k,t}{n \choose k-t-1}<{n-t \choose k-t}
     \end{align*}
 \end{proof}
