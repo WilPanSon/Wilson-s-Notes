@@ -1274,16 +1274,14 @@ Conjugation is a specific action of $G$ on itself.
             & e
         \end{tikzcd}
     \end{center}
-is a coproduct of $c,d$ iff for all cocones 
-\begin{center}
-    \begin{tikzcd}
-        c' \arrow[dr, "\alpha'"'] & & d' \arrow[dl, "\beta'"'] \\
-        & e'
-    \end{tikzcd}
-\end{center}
-there is a unique $\phi: e \to e'$ such that the diagram
-\begin{center}
-    \begin{tikzcd}
-        c & e \arrow[l, "\alpha"] \arrow[r, "\beta"'] & d \\
+is a coproduct of $c,d$ iff for all cocones
+    \begin{center}
+        \begin{tikzcd}
+            c \arrow[dr, "\alpha"'] \arrow[drr, "\alpha'"'] & & d \arrow[dl, "\beta"] \arrow[dll, "\beta'"] \\
+            & e \arrow[d, "\phi", dashed] & \\
+            & e' &
+        \end{tikzcd}
+    \end{center}
+    there is a unique $\phi: e \to e'$ such that the diagram commutes (i.e.\ $\alpha' \circ \phi = \alpha$ and $\beta' \circ \phi = \beta$).
 \end{defn}
 \end{document}
