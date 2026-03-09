@@ -1223,15 +1223,13 @@ Conjugation is a specific action of $G$ on itself.
     commutes (i.e.\ $\alpha \circ \phi = \alpha'$ and $\beta \circ \phi = \beta'$). 
 \end{defn}
 \begin{eg}
-        Groups: Let $G_1,G_2,H$ be groups and $\rho:H\to G_1\times G_2$ by $\rho(h)=(\phi(h),\psi(h))$ and $\pi_1(g_1,g_2)=g_1$ and $\pi_2(g_1,g_2)=g_2$. 
-        \begin{center}
-            \begin{tikzcd}
-                H \arrow[r, "\rho"] & G_1\times G_2 \\
-                & \pi_1 \arrow[u, "\pi_1"] \arrow[u, "\pi_2"']
-            \end{tikzcd}
-        \end{center}
-        The diagram commutes because $\pi_1(\rho(h))=\pi_1(\phi(h),\psi(h))=\phi(h)$ and $\pi_2(\rho(h))=\pi_2(\phi(h),\psi(h))=\psi(h)$. \\
-        The cone is a product of $G_1$ and $G_2$ because for any cone 
-        \begin{center}
+    Groups: Let $G_1,G_2,H$ be groups and $\phi:H\to G_1$, $\psi:H\to G_2$ homomorphisms. The product cone is $(G_1\times G_2, \pi_1, \pi_2)$ where $\pi_1(g_1,g_2)=g_1$ and $\pi_2(g_1,g_2)=g_2$. The unique $\rho:H\to G_1\times G_2$ with $\rho(h)=(\phi(h),\psi(h))$ makes the diagram
+    \begin{center}
+        \begin{tikzcd}
+            & H \arrow[dl, "\phi"'] \arrow[dr, "\psi"] \arrow[d, "\rho", dashed] \\
+            G_1 & G_1\times G_2 \arrow[l, "\pi_1"] \arrow[r, "\pi_2"'] & G_2
+        \end{tikzcd}
+    \end{center}
+    commute ($\pi_1\circ\rho=\phi$ and $\pi_2\circ\rho=\psi$).
 \end{eg}
 \end{document}
