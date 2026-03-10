@@ -1092,7 +1092,18 @@ For any $a,b,c \geq 0$ with $a+b=p$ and $a+c=q$, we obtain the lower bound
     \end{itemize}
 \end{rmk}
 \begin{thm}
-    Given $c\in \R^n,A\in \R^{m\times n},b\in \R^m,G\in \R^{p\times n},h\in \R^p$ then 
+    Given $c\in \R^n,A\in \R^{m\times n},b\in \R^m,G\in \R^{p\times n},h\in \R^p$ then for the primal LP 
+    \[
+    \min_{x\in \R^n} c^T x \text{ subject to } Ax=b, Gx\leq h
+    .\] 
+    Then the dual LP is 
+    \[
+    \max_{y\in \R^m,z\in \R^p} b^T y \text{ subject to } A^T y + G^T z = c, y\geq 0, z\geq 0
+    .\] 
+    Then we have the following weak duality theorem:
+    \[
+    \min_{x\in \R^n} c^T x \geq \max_{y\in \R^m,z\in \R^p} b^T y
+    .\] 
 \end{thm}
 \end{document}
     
