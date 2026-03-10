@@ -1078,24 +1078,12 @@ For any $a,b,c \geq 0$ with $a+b=p$ and $a+c=q$, we obtain the lower bound
 \begin{center}
     \textbf{Primal LP} \hfill \textbf{Dual LP}
 \end{center}
-\begin{center}
-    \begin{minipage}{0.48\textwidth}
-        \begin{align*}
-            \min_{x,y} \quad & px + qy \\
-            \text{subject to } \quad & x + y \geq 2 \\
-            & x, y \geq 0
-        \end{align*}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.48\textwidth}
-        \begin{align*}
-            \max_{a,b,c} \quad & 2a \\
-            \text{subject to } \quad & a + b = p \\
-            & a + c = q \\
-            & a, b, c \geq 0
-        \end{align*}
-    \end{minipage}
-\end{center}
+\begin{align*}
+    \min_{x,y} \quad & px + qy & \qquad \qquad & \max_{a,b,c} \quad & 2a \\
+    \text{subject to } \quad & x + y \geq 2 & & \text{subject to } \quad & a + b = p \\
+    & x, y \geq 0 & & & a + c = q \\
+    & & & & a, b, c \geq 0
+\end{align*}
 \begin{rmk}
     In this example, we have 
     \begin{itemize}
