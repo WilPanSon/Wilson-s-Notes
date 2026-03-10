@@ -1106,7 +1106,9 @@ For any $a,b,c \geq 0$ with $a+b=p$ and $a+c=q$, we obtain the lower bound
     \begin{align*}
         u^T(Ax-b)+v^T(Gx-h)&\leq 0 \\
         u^TAx-u^Tb+v^TGx-v^Th&\leq 0 \\
-        \left( u^T \right)
+        (u^T A + v^T G)x &\leq u^T b + v^T h \\
+        (A^T u + G^T v)^T x &\leq b^T u + h^T v \\
+        (-A^T u - G^T v)^T x &\geq -b^T u - h^T v
     \end{align*}
 \end{proof}
 \end{document}
