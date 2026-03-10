@@ -1069,5 +1069,39 @@ f(y)\geq f(x^*)+\inner{0}{y-x^*}\implies 0\in \partial f(x^*)
     .\] 
 \end{defn}
 
+\subsection{Primal and Dual LP: An Example}
+For any $a,b,c \geq 0$ with $a+b=p$ and $a+c=q$, we have
+\[
+    \min_{x,y} px + qy \geq 2a \quad \text{subject to } x+y \geq 2,\; x,y \geq 0
+\]
+\textbf{What's the best we can do?} Maximize our lower bound over all possible $a,b,c$:
+\begin{center}
+    \textbf{Primal LP} \hfill \textbf{Dual LP}
+\end{center}
+\begin{center}
+    \begin{minipage}{0.48\textwidth}
+        \begin{align*}
+            \min_{x,y} \quad & px + qy \\
+            \text{subject to } \quad & x + y \geq 2 \\
+            & x, y \geq 0
+        \end{align*}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \begin{align*}
+            \max_{a,b,c} \quad & 2a \\
+            \text{subject to } \quad & a + b = p \\
+            & a + c = q \\
+            & a, b, c \geq 0
+        \end{align*}
+    \end{minipage}
+\end{center}
+\begin{rmk}
+    \begin{itemize}
+        \item The number of dual variables equals the number of primal constraints (3 in this example).
+        \item Weak duality: $\min_{x,y} px + qy \geq \max_{a,b,c} 2a$.
+    \end{itemize}
+\end{rmk}
+
 \end{document}
     
