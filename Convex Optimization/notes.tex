@@ -1070,11 +1070,11 @@ f(y)\geq f(x^*)+\inner{0}{y-x^*}\implies 0\in \partial f(x^*)
 \end{defn}
 
 \subsection{Primal and Dual LP: An Example}
-For any $a,b,c \geq 0$ with $a+b=p$ and $a+c=q$, we have
+For any $a,b,c \geq 0$ with $a+b=p$ and $a+c=q$, we obtain the lower bound
 \[
-    \min_{x,y} px + qy \geq 2a \quad \text{subject to } x+y \geq 2,\; x,y \geq 0
+    \min_{x,y} \{ px + qy : x+y \geq 2,\; x,y \geq 0 \} \geq 2a
 \]
-\textbf{What's the best we can do?} Maximize our lower bound over all possible $a,b,c$:
+\textbf{What's the best we can do?} Maximize our lower bound over all feasible $a,b,c$:
 \begin{center}
     \textbf{Primal LP} \hfill \textbf{Dual LP}
 \end{center}
