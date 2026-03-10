@@ -1910,16 +1910,19 @@ We have \[
 \begin{thm}
     (Paley-Wiener Theorem) Regularity of $f$ $\iff$ decay of $f^*$
 \end{thm}
+
 \begin{defn}
-    Given $a>0$, we let $S_a= \{z\in \C: |Im(z)|<a\}$ and 
+    Given $a>0$, we let $S_a= \{z\in \C: |\Im(z)|<a\}$ and 
     \[
     \mathcal{F}_a= \left \{f: S_a\to \C, \text{ holo }, \exists C_f, \forall x+iy\in S_a, |f(x+iy)|\leq \frac{C_f}{1+x^2}\right \}
     .\] 
     Additionally, $\mathcal{F}=\bigcup_{a>0}\mathcal{F}_a$
 \end{defn}
+
 \begin{thm}\label{thm:paley-wiener-decay}
     If $f\in \mathcal{F}_a,$ then $|\hat{f}(\zeta)|\leq C e^{-2\pi b |\zeta|}$, for $\zeta\in \R$ and $\forall b<a$. 
 \end{thm}
+
 \begin{proof}
     Fix $\zeta>0$ and $b<a$, we have 
     \[
@@ -1946,17 +1949,21 @@ We have \[
     \end{center}
     Verify that $\int_{\gamma_1}=\hat{f}(\zeta)$ and 
     \begin{align*}
-        \left |\int_{\gamma_2}\right |=\left |\int_{0}^b f(R-it)e^{-2\pi i \zeta (R-it)}i\,dt\right |\leq \int_{0}^b |f(R-it)|e^{2\pi \zeta b}dt\leq \frac{C_f}{1+R^2}\int_0^b e^{2\pi \zeta b}dt\to 0 \text{ as } R\to \infty
+        \left |\int_{\gamma_2}\right |&=\left |\int_{0}^b f(R-it)e^{-2\pi i \zeta (R-it)}(-i)\,dt\right | \\
+        &\leq \int_{0}^b |f(R-it)|e^{-2\pi \zeta t}dt \\
+        &\leq \frac{C_f}{1+R^2}\int_0^b e^{-2\pi \zeta t}dt \to 0 \text{ as } R\to \infty
     \end{align*}
-    Additionally, \[
+    Additionally, 
+    \[
         \left |\int_{\gamma_4}\right |\to 0
     .\]
-    Thus \[
+    Thus 
+    \[
     \hat{f}(\zeta)=\int_{-\infty}^{\infty} f(t-ib)e^{-2\pi i \zeta (t-ib)}dt
     .\]
     and  
     \[
-    \left | \hat{f}(\zeta)\right | \leq \int_{-\infty}^{\infty} |f(t-ib)|e^{2\pi \zeta b}dt\leq \frac{C_f}{1+b^2}\int_{-\infty}^{\infty} e^{2\pi \zeta b}dt\leq C_f \left( \int_{-\infty}^{\infty} \frac{dt}{1+t^2} \right)\cdot e^{-2\pi b \zeta} \tag{$\zeta>\infty$}
+    \left | \hat{f}(\zeta)\right | \leq \int_{-\infty}^{\infty} |f(t-ib)|e^{-2\pi \zeta b}dt \leq \int_{-\infty}^{\infty} \frac{C_f}{1+t^2} e^{-2\pi \zeta b} dt = C_f e^{-2\pi b \zeta} \left( \int_{-\infty}^{\infty} \frac{dt}{1+t^2} \right) \tag{$\zeta>0$}
     .\] 
     Do same for $\zeta<0$. 
 \end{proof}
