@@ -1505,7 +1505,7 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
 \begin{proof}
     Consider a matching of size $\mu$ in $H$ which has $m$ edges. I get a transversal of size $\tau=k\mu$. If $\mu\geq r$, we're done. Otherwise, I get a transversal of size $\tau=k\mu$. There is a vertex $v$ such that $v$ is in $\geq \frac{m}{\tau}\geq \frac{m}{k(r-1)}$ edges. Define a new hypergraph $H'= \{f\setminus v | f\in H, f\ni v\}$. If there is a $r$ petal in $H'$ then we have one in $H$ as we can add $v$ to the core. So
     \[
-    \sun(r,k)\leq k(r-1)\
+    Sun(r,k)\leq k(r-1)Sun(s,k-1)
     .\] 
 \end{proof}
 \end{document}
