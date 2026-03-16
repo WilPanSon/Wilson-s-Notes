@@ -627,7 +627,7 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     We have that $|\triangle_i|\leq \frac{1}{100 \sqrt{\log n\log \log n}}$ and $\E[\triangle_i|\triangle_1,...,\triangle_{i-1}]=0$. \\
     Suppose $\triangle_1,\triangle_2,...,\triangle_\ell\in [-s,s]$ and $\E[\sum_{i=1}^\ell \triangle_i]=0$ then 
     \[
-    \Pr[|\sum_{i=1}^\ell \triangle_i|>K\sqrt{\ell}\]
+    \Pr[|\sum_{i=1}^\ell \triangle_i|>K\sqrt{\ell}\cdot S]\leq 2e^{-\frac{K^2}{4}}
     .\] 
 \end{proof}
 \end{document}
