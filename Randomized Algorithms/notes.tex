@@ -610,6 +610,7 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     .\] 
 \end{rmk}
 \begin{proof}
-    The fix is that if density(subproblem)$\notin [\frac{1}{4}, \frac{3}{4}]$ revert back to using the $O(\log ^2 n)$ solution on this subproblem and all of its descendents. Call this subproblem and its descendents `corrupt nodes'. 
+    The fix is that if density(subproblem)$\notin [\frac{1}{4}, \frac{3}{4}]$ revert back to using the $O(\log ^2 n)$ solution on this subproblem and all of its descendents. Call this subproblem and its descendents `corrupt nodes'. \\
+    Note: THis needs all densities between say $\frac{1}{8}$ and $\frac{7}{8}$.
 \end{proof}
 \end{document}
