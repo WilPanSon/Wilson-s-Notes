@@ -604,6 +604,9 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     \Pr[ \text{ins into subprob changes pivot}]= O \left( \frac{1}{|Cand|} \right)
     .\] 
     This implies the expected cost of insertion is $\tilde{O} \left( \log^{1.5} n \right)$. \\
-    However the algorithm is not an algorithm as $density()$
+    However the algorithm is not an algorithm as density could be as large as 
+    \[
+    \frac{1}{2}+\theta
+    .\] 
 \end{rmk}
 \end{document}
