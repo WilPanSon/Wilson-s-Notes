@@ -598,7 +598,7 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     \begin{claim}
         For any $i \leq t+1$, let $Z_i$ be the number of indices $j$ such that $(*)$ holds. Then $Z_i \geq \Omega(\log n)$ with high probability.
     \end{claim}
-    \textit{Proof of Claim:} $Z_i$ is the sum of $c\log n$ independent 0-1 random variables, each with mean $\geq \frac{1}{10}$. The expected value is $\mu \geq \frac{c\log n}{10}$. By the Chernoff bound, for a sufficiently large constant $c$, the probability that $Z_i < \frac{c\log n}{20}$ is exponentially small ($o(1/n^3)$). Applying a union bound over all pairs $x,y$ and all $i$, this bound holds uniformly with high probability. Let $K = \frac{c}{20}$, so $Z_i \geq K\log n$.
+    \noindent\textit{Proof of Claim:} $Z_i$ is the sum of $c\log n$ independent 0-1 random variables, each with mean $\geq \frac{1}{10}$. The expected value is $\mu \geq \frac{c\log n}{10}$. By the Chernoff bound, for a sufficiently large constant $c$, the probability that $Z_i < \frac{c\log n}{20}$ is exponentially small ($o(1/n^3)$). Applying a union bound over all pairs $x,y$ and all $i$, this bound holds uniformly with high probability. Let $K = \frac{c}{20}$, so $Z_i \geq K\log n$.
 
     \medskip\noindent
     Using the claim, we can now telescope the sum for the lower bound:
