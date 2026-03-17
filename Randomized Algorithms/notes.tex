@@ -596,7 +596,23 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     By independence, the probability that both occur is at least $\frac{1}{e} \left(1 - \frac{1}{\sqrt{e}}\right) \approx 0.14 > \frac{1}{10}$. When this happens, $d(x, S_{i,j}) \geq r_i$ and $d(y, S_{i,j}) \leq r_{i-1}$, so the absolute difference is at least $r_i - r_{i-1}$.
 
     \begin{claim}
-        For any $i \leq t+1$, let $Z_i$ be the number of indices $j$ such that $(*)$ holds. Then $Z_i \geq \Omega(\
+        For any $i \leq t+1$, let $Z_i$ be the number of indices $j$ such that $(*)$ holds. Then $Z_i \geq \Omega(\log n)$ with high probability.
+    \end{claim}
+    \textit{Proof of Claim:} $Z_i$ is the sum of $c\log n$ independent 0-1 random variables, each with mean $\geq \frac{1}{10}$. The expected value is $\mu \geq \frac{c\log n}{10}$. By the Chernoff bound, for a sufficiently large constant $c$, the probability that $Z_i < \frac{c\log n}{20}$ is exponentially small ($o(1/n^3)$). Applying a union bound over all pairs $x,y$ and all $i$, this bound holds uniformly with high probability. Let $K = \frac{c}{20}$, so $Z_i \geq K\log n$.
+
+    \medskip\noindent
+    Using the claim, we can now telescope the sum for the lower bound:
+    \begin{align*}
+        d_{\ell_1}(\phi(x),\phi(y)) &= \sum_{i=1}^{\log n}\sum_{j=1}^{c\log n} \left| d(x,S_{i,j}) - d(y,S_{i,j}) \right| \\
+        &\geq \sum_{i=1}^{t+1} \sum_{j : (*)\text{ holds}} (r_i - r_{i-1}) \\
+        &\geq \sum_{i=1}^{t+1} (K\log n) (r_i - r_{i-1}) \\
+        &= K\log n \sum_{i=1}^{t+1} (r_i - r_{i-1}) \\
+        &= K\log n (r_{t+1} - r_0) \\
+        &= K\log n \frac{d(x,y)}{3} \\
+        &= \Omega(\log n) d(x,y)
+    .\end{align*}
+    This completes the proof of the lower bound, showing the overall distortion is bounded by $O(\log n)$.
+\end{proof}
 \newpage
 \section{March 16}
 \begin{thm}
