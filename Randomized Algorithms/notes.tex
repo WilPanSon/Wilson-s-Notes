@@ -765,6 +765,13 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     .\] 
 \end{proof}
 \begin{eg}
-    
+    Consider the game 
+    \begin{enumerate}
+        \item Start at $n$
+        \item On each step, go left with prob $\frac{2}{3}$ and right with prob $\frac{1}{3}$
+        \item Stop when you get to $0$
+    \end{enumerate}
+    Let $S=\#$ steps until you get to $0$. What is $\E[S]$. \\
+    Let $P_i=$ position at step $i$ and define $X_i=P_i+\frac{1}{3}i$. 
 \end{eg}
 \end{document}
