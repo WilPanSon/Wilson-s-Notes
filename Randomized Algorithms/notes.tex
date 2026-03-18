@@ -649,7 +649,7 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     Say that $w\in X$ `cuts' $(x,y)$ at level $i$ if we look through $\pi_1,...$, the first of $ \{center_i(x),center_i(y)\}$ to appear is $w$ implies $w$ cuts $(x,y)$ and the elements are non-equal. \\
     Let $w_1,w_2,...,w_n$ be elements of $X$ sorted by distance from $w_i$ to $ \{x,y\}$. 
     \[
-    *\leq \sum_{j=1}^{n}\sum_{i=0}^{2\log n}\int_{r=2^{i-1}}^{2^i}\Pr[w_j\text{ cuts } (x,y) \text{ at level } i|B_i=r]\cdot 2^{i-1}dr
+    *\leq \sum_{j=1}^{n}\sum_{i=0}^{2\log n}\int_{r=2^{i-1}}^{2^i}\Pr[w_j\text{ cuts } (x,y) \text{ at level } i|B_i=r]dr
     .\] 
 \end{proof}
 \newpage
