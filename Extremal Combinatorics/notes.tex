@@ -1593,7 +1593,7 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
 \begin{proof}
     By induction on $n$, let $d_F<\infty$ be VC-dim of $F$. Now to show $\forall A, t_F(A)\leq \sum_{j=0}^{d_F}{|A| \choose j}$. WLOG, let $A=[n]$, $t_F(A)=|F_{[n]}|$ where $F_{[n]}=\{f\cap [n] | f\in F\}$. Define 
     \[
-    F_0= \{\}
+    F_0= \{f\in F | f\in F_{[n]}\}
     .\] 
 \end{proof}
 \end{document}
