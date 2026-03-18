@@ -1598,6 +1598,9 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     We have \[
     |F_{[n]}|=|F_0|+|F_1|=|F_0\cup F_1|+|F_0\cap F_1|
     .\] 
-    and $F_0\cup F_1=F_{[n-1]}$. 
+    and $F_0\cup F_1=F_{[n-1]}$. By induction we have 
+    \[
+    |F_{[n]}|\leq \sum_{j=0}^d {n-1 \choose j}+|F_0\cap F_1|
+    .\] 
 \end{proof}
 \end{document}
