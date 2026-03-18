@@ -657,7 +657,7 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
         \item $w_j$ has to appear before $w_1,...,w_{j-1}$ and this occurs with probability $\frac{1}{j}$
     \end{enumerate}
     So we can bound the probability as \[
-    \leq \sum_{j=1}^n \int_{d(w_j,x)}^{d(w_j,y)} \frac{1}{j}dz=\sum_{j=1}^n \frac{1}{j}\left( d(w_j,y)-d(w_j,x) \right)\leq 
+    \leq \sum_{j=1}^n \int_{d(w_j,x)}^{d(w_j,y)} \frac{1}{j}dz=\sum_{j=1}^n \frac{1}{j}\left( d(w_j,y)-d(w_j,x) \right)\leq d(x,y) O(\log n) 
     .\] 
 \end{proof}
 \newpage
