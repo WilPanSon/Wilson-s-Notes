@@ -750,8 +750,11 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
 \end{thm}
 \begin{proof}
     Define $\Delta_i=X_i-X_{i-1}$, wewant to show that $\E[\sum \delta_i]=0$. Define $\Delta_i^+= \begin{cases}
-        \Delta_i & \text{if } \Delta_i>0 \\
-        0 & \text{if } \Delta_i\leq 0
-    \end{cases}$
+        \Delta_i & \text{if } \Delta_i\geq0 \\
+        0 & \text{if } \Delta_i< 0
+    \end{cases}$ and $\Delta_i^-= \begin{cases}
+        \Delta_i & \text{if } \Delta_i< 0 \\
+        0 & \text{if } \Delta_i\geq 0
+    \end{cases}$ and note that $\Delta_i=\Delta_i^+-\Delta_i^-$.
 \end{proof}
 \end{document}
