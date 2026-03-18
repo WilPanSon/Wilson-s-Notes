@@ -584,7 +584,7 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
             |d(x,S_{i,j}) - d(y,S_{i,j})| \geq r_i - r_{i-1} \tag{$*$}
         .\]
     \end{lem}
-    \textit{Proof of Lemma:} To satisfy $(*)$, it is sufficient for $S_{i,j}$ to miss the open ball $B^\circ(x,r_i)$ and hit the closed ball $B(y,r_{i-1})$.
+    \noindent\textit{Proof of Lemma:} To satisfy $(*)$, it is sufficient for $S_{i,j}$ to miss the open ball $B^\circ(x,r_i)$ and hit the closed ball $B(y,r_{i-1})$.
     Since $r_i \leq \frac{d(x,y)}{3}$ and $r_{i-1} \leq \frac{d(x,y)}{3}$, the distance between the centers of these two balls is $d(x,y) \geq r_i + r_{i-1} + \frac{1}{3}d(x,y)$. Thus, $B^\circ(x,r_i)$ and $B(y,r_{i-1})$ are completely disjoint, making hitting and missing them completely independent events.
     \begin{itemize}
         \item \textbf{Miss Event:} $\Pr[S_{i,j} \cap B^\circ(x,r_i) = \emptyset] = \left(1 - \frac{1}{2^i}\right)^{|B^\circ(x,r_i)|} \geq \left(1 - \frac{1}{2^i}\right)^{2^i} \approx \frac{1}{e}$.
