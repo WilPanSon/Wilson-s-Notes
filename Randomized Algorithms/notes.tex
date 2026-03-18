@@ -642,8 +642,9 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     Property: $\E[d_T(\phi(x),\phi(y))]\leq O(\log n)d(x,y)$\\
     To prove this property, $x:=\phi(x), y:=\phi(y)$,we can trivially say $d_T(x,y)\leq O( \text{largest edge weight along path})$. This is upper bounded by $\sum_{i=0}^{2\log n} 2^{i+1} \mathbb{I}[center_i(x)\neq center_i(y)]$. Taking the expectation we get 
     \begin{align*}
-        \E[d_T(x,y)]\leq \sum_{i=0}^{2\log n} \int_{r=2^{i-1}}^{2^i} \Pr[B_i=r]\Pr[center_i(x)\neq center_i(y)|B_i=r]dr
-        .\] 
+        \E[d_T(x,y)]&\leq \sum_{i=0}^{2\log n} \int_{r=2^{i-1}}^{2^i} \Pr[B_i=r]\Pr[center_i(x)\neq center_i(y)|B_i=r]dr\\
+        &=
+        
     \end{align*}
 \end{proof}
 \newpage
