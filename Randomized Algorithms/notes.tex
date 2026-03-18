@@ -612,8 +612,13 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
 \end{proof}
 \newpage
 \section{March 10: Metric Embedding Day 2}
-\begin{defn}
+\begin{defn}[Tree Metric]
+    Let $(V,d)$ be a metric space. A tree metric is defined by a tree $T = (V_T, E_T)$ with non-negative edge weights, such that $V \subseteq V_T$. The tree distance $d_T(x,y)$ between any two nodes $x,y \in V$ is the sum of the edge weights along the unique simple path connecting them in $T$. 
     
+    We say $T$ embeds $(V,d)$ with distortion $\alpha \geq 1$ if for all $x,y \in V$:
+    \[
+        d(x,y) \leq d_T(x,y) \leq \alpha d(x,y)
+    .\]
 \end{defn}
 \begin{thm}
     Let $(X,d)$ be $n$ point space. Suppose $\forall x\neq y\in X$, $d(x,y)\in [1,n^2]$. We will embed $X$ into a tree metric $(T,d_T)$
