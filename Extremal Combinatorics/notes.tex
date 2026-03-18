@@ -1591,6 +1591,9 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     This implies there exist two cases for any $X,F$, either $t_F(n)=2^n$ for all $n$ or $\exists d$ such that $t_F(n)=O(n^d)$
 \end{thm}
 \begin{proof}
-    By induction on $n$, let $d_F<\infty$ be VC-dim of $F$. Now to show $\forall A, t_F(A)\leq \sum_{j=0}^{d_F}{|A| \choose j}$. WLOG, let $A=[n]$, $t_F(A)=|F_{[n]}|$ where $F_{[n]}=\{f\cap [n] | f\in F\}$.
+    By induction on $n$, let $d_F<\infty$ be VC-dim of $F$. Now to show $\forall A, t_F(A)\leq \sum_{j=0}^{d_F}{|A| \choose j}$. WLOG, let $A=[n]$, $t_F(A)=|F_{[n]}|$ where $F_{[n]}=\{f\cap [n] | f\in F\}$. Define 
+    \[
+    F_0= \{\}
+    .\] 
 \end{proof}
 \end{document}
