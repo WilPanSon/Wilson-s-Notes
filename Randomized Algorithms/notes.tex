@@ -569,8 +569,7 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
 \end{rmk}
 
 \begin{proof}
-    Fix $x,y\in X$. For any $z \in X$ and $r \geq 0$, let $B(z,r) = \{w\in X \mid d(z,w) \leq r\}$ be the closed ball, and let $B^\circ(z,r) = \{w\in X \mid d(z,w) < r\}$ be the open ball.
-
+    Fix $x,y\in X$. For any $z \in X$ and $r \geq 0$, let $B(z,r) = \{w\in X \mid d(z,w) \leq r\}$ be the closed ball, and let $B^\circ(z,r) = \{w\in X \mid d(z,w) < r\}$ be the open ball.\\
     For each $i$, define $\rho_i(x) = \inf\{r \mid |B(x,r)| \geq 2^i\}$. By definition, the open ball is strictly smaller than $2^i$, so $|B^\circ(x,\rho_i(x))| < 2^i$, while the closed ball satisfies $|B(x,\rho_i(x))| \geq 2^i$.
 
     Define $r_i = \max(\rho_i(x), \rho_i(y))$. Without loss of generality, assume $r_i = \rho_i(x)$. This gives us two critical observations:
