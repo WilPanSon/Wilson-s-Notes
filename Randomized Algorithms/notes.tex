@@ -636,6 +636,8 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
         \item Pick uniformly random $\beta\in [1,2)$ and define $\beta_i:=2^{i-1}\beta$ and for each $x\in X$ and $i=0,...,2\log n$ and define $center_i(x):=$ first $\pi_j$ to satisfy $d(x,\pi_j)\leq \beta_i$
         \item Construct as follows: Each node represents sets of elements with root at level $2\log n+1=$ all of $X$. For each node $w$ at level $i+1$, if node $>1$ element, group $w$'s elements $z$ by $center_i(z)$. Edges from level $i+1$ to level $i$ has weight $2^{i+10}$
     \end{enumerate}
+    Analysis:\\
+    We claim: For $x,y\in X$, 
 \end{proof}
 \newpage
 \section{March 16}
