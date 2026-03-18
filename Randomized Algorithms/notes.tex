@@ -644,7 +644,7 @@ Therefore, the inequalities must be equalities, and the Cycle Algorithm is optim
     \begin{align*}
         \E[d_T(x,y)]&\leq \sum_{i=0}^{2\log n} \int_{r=2^{i-1}}^{2^i} \Pr[B_i=r]\Pr[center_i(x)\neq center_i(y)|B_i=r]\cdot 2^{i-1}dr\\
         &=\sum_{i=0}^{2\log n} \int_{r=2^{i-1}}^{2^i} \frac{1}{2^{i-1}}\Pr[center_i(x)\neq center_i(y)|B_i=r]\cdot 2^{i-1}dr\\
-        &=\sum_{i=0}^{2\log n} \frac{1}{2^{i-1}}\Pr[center_i(x)\neq center_i(y)|B_i=r]\cdot 2^{i-1}dr
+        &=\sum_{i=0}^{2\log n} \frac{1}{2^{i-1}}\Pr[center_i(x)\neq center_i(y)|B_i=r]dr
     \end{align*}
 \end{proof}
 \newpage
