@@ -1499,7 +1499,10 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     So if $0\notin CH(x_{i_1},...,x_{i_{d+1}})$ for any choice of $i_1,...,i_{d+1}$, all choices of $d+1$, $H_i$'s intersect. By Helly, all $H_i$'s intersect. There exist $u, u\cdot x_i>1$ for $i=1,...,M$. But this separates all $x_i$ from $0$ to a hyperplane, contradicting that $0\in CH(x_1,...,x_m)$. 
 \end{proof}
 \newpage
-\section{March 13}
+\section{Matchings, sunflowers, and kernels (Mar 13)}
+
+\subsection{Hall, K\H{o}nig, and maximal matchings}
+
 \begin{thm}
     Hall's Theroem: For a bipartite graph on $(A,B)$ 
     \begin{enumerate}
@@ -1519,6 +1522,9 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
 \begin{proof}
     Consider a maximal matching ($\mu$ edges). If $\mu\geq k$ we're otherwise $\tau=\mu<k$. Some vertex is min transversal intersecting $\frac{m}{\tau}>k$ edges. 
 \end{proof}
+
+\subsection{Sunflowers and the sunflower lemma}
+
 \begin{defn}
     $H$ is a $k$-uniform hypergraph. A sunflower with $r$ petals is a collection $f_1,...,f_r\in H$ such that $\exists k$ such that each $f_i$ is $f_i'\cup k$ for some $f_i'$ with $f_i'\cap f_j'=\emptyset$ for $i\neq j$.
 \end{defn}
@@ -1553,7 +1559,10 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     There are at most $m_{t,k}=k! t^k$ edges in any kernel for the hitting set problem with parameter $t$. 
 \end{eg}
 \newpage
-\section{March 16}
+\section{Uniform convergence for rectangles: symmetrization and growth (Mar 16)}
+
+\subsection{Setup and symmetrization}
+
 \begin{thm}
     Let $X = [0,1]^2$, and let $F$ be a family of axis-parallel rectangles. Let $S_n = \{X_1, \dots, X_n\}$ be a set of i.i.d. points randomly sampled from $X$. Define the true measure and the empirical measure respectively as:
     \[
@@ -1595,6 +1604,8 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     \]
     Multiplying by 2 yields the lemma.
 \end{proof}
+
+\subsection{Proof: growth function and Hoeffding}
 
 \begin{proof}[Proof of Main Theorem]
     To prove the main result, we want to bound $\Pr\left( \sup_{f \in F} |\hat{\mu}_n(f) - \mu(f)| > \epsilon \right)$. We start with the one-sided version bounded by our symmetrization lemma:
