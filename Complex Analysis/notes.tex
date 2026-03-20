@@ -2280,11 +2280,15 @@ Given $U,V\subset \C$, when $\exists f:U \to V$ bijective holomorphic.\\
 \begin{proof}[Mantel's Theorem Proof]
     Fix $K\subset \Omega$, $3r<d(K,\partial \Omega)$, for $z,w\in K, |z-w|<r$
     \[
-    |f(z)-f(w)|= \left | \frac{1}{2\pi i} \int_{\partial D_r(z)} f(\zeta) \left [\frac{1}{\zeta-z}-\frac{1}{\zeta-w} \right ] d\zeta \right |
+    |f(z)-f(w)|= \left | \frac{1}{2\pi i} \int_{\partial D_r(z)} f(\zeta) \left [\frac{1}{\zeta-z}-\frac{1}{\zeta-w} \right ] d\zeta \right | \tag{$*$}
     .\] 
     We have 
     \[
     \left |\frac{1}{\zeta-z}-\frac{1}{\zeta-w} \right |=\frac{|w-z|}{|\zeta-w||\zeta-w|}<\frac{|w-z|}{r\cdot 2r}
+    .\] 
+    So we can upper bound by 
+    \[
+    
     .\] 
 \end{proof}
 \end{document}
