@@ -1174,12 +1174,12 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
 \begin{rmk}
     Same holds for $A\subset P$ for any $n$-term arithmetic progression $P$. 
 \end{rmk}
-
-\subsection{The corner theorem and Behrend-type bounds}
-
 \begin{thm}
     Szemeredi Theorem (1974): $\forall \alpha>0, \forall k$ if $n\geq n_0(\alpha, k)$ then $|A|\geq \alpha n\implies A$ contains a $k$-term arithmetic progression. 
 \end{thm}
+
+\subsection{The corner theorem}
+
 \begin{thm}
     Corner Theorem: $\forall \beta>0$ and $A\subset [n]^2$ with $|A|\geq \beta n^2$ and $n\geq n_0(\beta)$ then $A$ contains a ``corner'' which is a set of the form $(x,y),(x+d,y),(x,y+d)$ with $d\neq 0$
 \end{thm}
@@ -1198,6 +1198,9 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     By triangle removal the number of $\triangle$'s in $G$ is at least $\delta(\beta) n^3$. \\
     The number of non-degenerate $\triangle$'s is $\geq \delta n^3-n^2>0$. The intersection points of a non-degenerate $\triangle$ form a corner. 
 \end{proof}
+
+\subsection{Lower bounds: greedy and Behrend}
+
 \begin{thm}
     Construction of such a set by Greedy Algorithm: \[
     \{m: \text{all digits of $m$ in base 3 are 0 or 1}\}
