@@ -1708,8 +1708,8 @@ is a coproduct of $c,d$ iff for all cocones
     Let $F_1,F_2:\mathcal{C}\to \mathcal{D}$. A natural transformation from $F_1\to F_2$ is a family $v=(v_c)$, for $c$ object of $\mathcal{C}$,  $F_1c\xrightarrow{v_c} F_2c$ in $\mathcal{D}$ such that for all $c\xrightarrow{\alpha} c'$
     \[
     \begin{tikzcd}
-        F_1c \arrow[r, "v_c"] \arrow[rd, "F_1\alpha"'] & F_2c \arrow[d, "F_2\alpha"] \\
-        & F_2c'
+        F_1c \arrow[r, "v_c"] \arrow[d, "F_1\alpha"'] & F_2c \arrow[d, "F_2\alpha"] \\
+        F_1c' \arrow[r, "v_{c'}"'] & F_2c'
     \end{tikzcd}
     \]
     commutes. 
