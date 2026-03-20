@@ -1218,13 +1218,19 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     Let $d=c\sqrt{\log N}$. Given $N$ choose $d$ such that we minimize $2^d n d$. 
 \end{proof}
 \newpage
-\section{(Feb 20)}
+\section{Regularity applications: $K_{t,t,t}$, counting $F$-free graphs, and $3$-graphs (Feb 20)}
+
+\subsection{Embedding $K_{t,t,t}$ from regular triples}
+
 \begin{thm}
     Sligth Generalization of Triangle Counting Lemma: If $X,Y,Z$ are disjoint subsets of $V(G), (X,Y),(X,Z),(Y,Z)$ are $\epsilon$-regular then $G$ contains $K_{t,t,t}$, $d(X,Y),d(X,Z),d(Y,Z)\geq \alpha$ and $\epsilon<\epsilon_0(\alpha, t).$ 
 \end{thm}
 \begin{proof}
     Sketch: Embed one vertex at a time. Originally no vertices are embedded, $X_0=X,Y_0=Y,Z_0=Z$. Pick some unembedded vertex $v$ of $G$, say $v$ needs to be embedded in $X$. Pick $x\in X_i$ such that $N_Y(x),N_Z(x)$ are large. 
 \end{proof}
+
+\subsection{Erd\H{o}s--Stone for chromatic number $3$}
+
 \begin{thm}
     Erdos Stone Theorem for graphs $F$ with $\mathcal{F}=3$, (i.e. $ex(n,F)= \left( \frac{1}{2}+o(1) \right)n^2$)
 \end{thm}
@@ -1239,6 +1245,9 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     .\] 
     In the regularity, we can choose the lower bound on number of parts, and so we can ensure $k\to \infty$ with $|V(G)|$. 
 \end{proof}
+
+\subsection{Counting $F$-free graphs (chromatic number $3$)}
+
 \begin{thm}
     Let $F$ be a graph with $\mathcal(F)=3$ then the number of $F$-free graphs on $[n]$ is 
     \[
@@ -1271,6 +1280,9 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     2^{(1/4+o(1))n^2}\cdot 2^{H(\epsilon)n^2}\cdot 2^{n M(\epsilon)}M'(\epsilon)
     .\] 
 \end{proof}
+
+\subsection{$3$-uniform hypergraph regularity (definition)}
+
 \begin{defn}
     Hypergraph Regularity Lemma: For $H\subseteq {[n] \choose 3}$ is a 3-uniform hypergraph with $\epsilon$-regularity. Triples $(X,Y,Z)$ with $X,Y,Z\subseteq V$ is $\epsilon$-regular if \[
     \left |\frac{e(X,Y,Z)}{|X||Y||Z|}-\frac{e(X',Y',Z')}{|X'||Y'||Z'|} \right | \leq \epsilon
