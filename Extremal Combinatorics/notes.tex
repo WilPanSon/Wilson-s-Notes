@@ -1529,16 +1529,16 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     \]
 \end{theorem}
 
-\begin{remark}
+\begin{rmk}
     If we fix a specific point set $S_n$, there are at most $n^4$ different ways to partition the points using axis-parallel rectangles. However, this configuration depends entirely on the specific realization of the point set.
-\end{remark}
+\end{rmk}
 
-\begin{lemma}[Symmetrization]
+\begin{lem}[Symmetrization]
     Assume $n \geq 2/\epsilon^2$. Let $S'_n = \{Y_1, \dots, Y_n\}$ be an independent "ghost" sequence of i.i.d. samples, and let $\hat{\mu}'_n(f)$ be its empirical measure. Then:
     \[
         \Pr\left[ \underbrace{\sup_{f \in F} (\mu(f) - \hat{\mu}_n(f)) > \epsilon}_{\text{event } E} \right] \leq 2 \Pr\left[ \sup_{f \in F} (\hat{\mu}'_n(f) - \hat{\mu}_n(f)) > \frac{\epsilon}{2} \right]
     \]
-\end{lemma}
+\end{lem}
 
 \begin{proof}
     Suppose event $E$ occurs. We can choose some $f_E \in F$ witnessing this event, meaning $\mu(f_E) - \hat{\mu}_n(f_E) > \epsilon$. Because the ghost sample $S'_n$ is independent of $S_n$, $\hat{\mu}'_n(f_E)$ has expected value $\mu(f_E)$ and variance bounded by $1/(4n)$. 
