@@ -1586,32 +1586,59 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
 \end{proof}
 \newpage
 \section{March 18}
-\begin{defn}
-    The VC dimension of $F$ is $d_F=\max \{d | \exists A, |A|=d, |F_A|=2^{|A|}\}$
-\end{defn}
-\begin{thm}
-    Saver-Shelah Theorem: 
+\begin{definition}
+    Let $F$ be a family of subsets of a domain $X$. The \textbf{Vapnik-Chervonenkis (VC) dimension} of $F$, denoted $d_F$, is the size of the largest set shattered by $F$:
     \[
-    t_F(n)\leq \sum_{j=0}^{d_F} {n \choose j}
-    .\] 
-    This implies there exist two cases for any $X,F$, either $t_F(n)=2^n$ for all $n$ or $\exists d$ such that $t_F(n)=O(n^d)$
-\end{thm}
+        d_F = \max \{d \mid \exists A \subseteq X, |A| = d, \text{ and } |F_A| = 2^{|A|}\}
+    \]
+    where $F_A = \{f \cap A \mid f \in F\}$ is the restriction of $F$ to $A$.
+\end{definition}
+
+\begin{theorem}[Sauer-Shelah Lemma]
+    Let $F$ be a family of subsets with finite VC dimension $d_F = d$. Let $t_F(n)$ denote the maximum number of subsets of any $n$-element set that can be formed by intersecting it with elements of $F$. Then:
+    \[
+        t_F(n) \leq \sum_{j=0}^{d} \binom{n}{j}
+    \]
+    This implies a fundamental dichotomy for any concept class $F$: either $t_F(n) = 2^n$ for all $n$ (if $d_F = \infty$), or there exists a finite $d$ such that $t_F(n) = O(n^d)$.
+\end{theorem}
+
 \begin{proof}
-    By induction on $n$, let $d_F<\infty$ be VC-dim of $F$. Now to show $\forall A, t_F(A)\leq \sum_{j=0}^{d_F}{|A| \choose j}$. WLOG, let $A=[n]$, $t_F(A)=|F_{[n]}|$ where $F_{[n]}=\{f\cap [n] | f\in F\}$. Define 
+    We proceed by induction on $n$. Let $d_F = d < \infty$ be the VC dimension of $F$. We want to show that for any set $A$ of size $n$, $t_F(A) \leq \sum_{j=0}^{d} \binom{|A|}{j}$. 
+    
+    Without loss of generality, let $A = [n] = \{1, 2, \dots, n\}$. Let $F_{[n]} = \{f \cap [n] \mid f \in F\}$. By definition, $t_F(A) = |F_{[n]}|$. 
+    
+    To run the induction, we split $F_{[n]}$ by analyzing the elements with and without the element $n$. Define the projection onto the first $n-1$ elements:
     \[
-    F_0= \{f\in F | f\in F_{[n]}\} \text{ and } F_1= \{f\in F_{[n-1]}|f\cup \{n\}\in F_{[n]}\}
-    .\] 
-    We have \[
-    |F_{[n]}|=|F_0|+|F_1|=|F_0\cup F_1|+|F_0\cap F_1|
-    .\] 
-    and $F_0\cup F_1=F_{[n-1]}$. By induction we have 
+        F_0 = \{S \setminus \{n\} \mid S \in F_{[n]}\}
+    \]
+    Note that $F_0$ is exactly $F_{[n-1]}$, the restriction of the family to the first $n-1$ elements. Next, define the set of "twins" where both the subset with $n$ and without $n$ are present in $F_{[n]}$:
     \[
-    |F_{[n]}|\leq \sum_{j=0}^d {n-1 \choose j}+|F_0\cap F_1|
-    .\] 
-    We have $d_{F_0\cap F_1}\leq d_{F_{[n]}}-1\leq d_F-1$. \\
-    Since for any $A\subseteq [n-1]$ shattered by $F_0\cap F_1$, $A\cup \{n\}$ is shattered by $F_{[n]}$. So 
+        F_1 = \{S \in F_{[n-1]} \mid S \in F_{[n]} \text{ and } S \cup \{n\} \in F_{[n]}\}
+    \]
+    By construction, the size of our original family is the sum of these two sizes:
     \[
-    |F_0\cap F_1|\leq \sum_{j=0}^{d} {n-1 \choose j}+\sum_{j=-1}^{d-1}{n-1 \choose j}=\sum_{j=0}^{d}{n\choose j}
-    .\] 
+        |F_{[n]}| = |F_0| + |F_1| = |F_{[n-1]}| + |F_1|
+    \]
+    By the induction hypothesis, since the VC dimension of $F_{[n-1]}$ is at most $d$, we have:
+    \[
+        |F_{[n-1]}| \leq \sum_{j=0}^d \binom{n-1}{j}
+    \]
+    Now consider the VC dimension of $F_1$. If $F_1$ shatters a subset $B \subseteq [n-1]$, then by the definition of $F_1$, both the elements of $F_1$ and those same elements unioned with $\{n\}$ exist in $F_{[n]}$. Therefore, $F_{[n]}$ shatters $B \cup \{n\}$. 
+    
+    This implies that the VC dimension of $F_1$ must be strictly less than the VC dimension of $F_{[n]}$. Hence, $d_{F_1} \leq d - 1$. Applying the induction hypothesis to $F_1$ yields:
+    \[
+        |F_1| \leq \sum_{j=0}^{d-1} \binom{n-1}{j}
+    \]
+    Adding these two bounds together, we get:
+    \[
+        |F_{[n]}| \leq \sum_{j=0}^{d} \binom{n-1}{j} + \sum_{j=0}^{d-1} \binom{n-1}{j}
+    \]
+    To combine these sums, we re-index the second sum to start at $j=1$ (since $\binom{n-1}{-1} = 0$) and apply Pascal's identity, $\binom{n-1}{j} + \binom{n-1}{j-1} = \binom{n}{j}$:
+    \begin{align*}
+        |F_{[n]}| &\leq \binom{n-1}{0} + \sum_{j=1}^{d} \left[ \binom{n-1}{j} + \binom{n-1}{j-1} \right] \\
+        &= \binom{n}{0} + \sum_{j=1}^{d} \binom{n}{j} \\
+        &= \sum_{j=0}^{d} \binom{n}{j}
+    \end{align*}
+    This completes the induction.
 \end{proof}
 \end{document}
