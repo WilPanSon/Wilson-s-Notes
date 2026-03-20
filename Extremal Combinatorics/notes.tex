@@ -1347,6 +1347,9 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     1\geq \E[|A \cap F|]=\sum_{A\in \mathcal{F}}\Pr[A\in \mathcal{A}]=\sum_{A\in \mathcal{F}} \frac{1}{{n \choose |A|}}\geq \frac{|\mathcal{F}|}{{n \choose \floor{n/2}}}
     .\] 
 \end{proof}
+
+\subsection{Intersecting families}
+
 \begin{defn}
     Family $\mathcal{F}\subset 2^{[n]}$ is intersecting if $\forall A,B\in \mathcal{F}$, $A\cap B\neq \emptyset$. 
 \end{defn}
@@ -1429,6 +1432,9 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
         &\leq C_{k,t}{n \choose k-t-1}<{n-t \choose k-t}
     \end{align*}
 \end{proof}
+
+\subsection{Affine dependence and Radon's theorem}
+
 \begin{defn}
     Affine Dependence: Given $p_1,...,p_n\in \R^d$, they are affinely dependent iff $p_1-p_n,p_2-p_n,...,p_{n-1}-p_n$ are linearly dependent iff $\exists a_1,...,a_{n-1}$ such that 
     \[
