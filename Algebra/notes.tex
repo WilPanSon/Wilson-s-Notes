@@ -1744,6 +1744,18 @@ is a coproduct of $c,d$ iff for all cocones
     Universal Property of Products: 
 \end{rec}
 \begin{thm}
-    If $G$ is a right adjoint of some $F$ then $G$ preserves products. i.e. if  
+    If $G$ is a right adjoint of some $F$ then $G$ preserves products. If $d\xrightarrow{\pi_1} d_1$ and $d\xrightarrow{\pi_2} d_2$ exhibits $d=d_1\times d_2$ in $\mathcal{D}$, then
+    \[
+    \begin{tikzcd}
+        & d \arrow[dl, "\pi_1"'] \arrow[dr, "\pi_2"] & \\
+        d_1 & & d_2
+    \end{tikzcd}
+    \qquad\Longrightarrow\qquad
+    \begin{tikzcd}
+        & Gd \arrow[dl, "G\pi_1"'] \arrow[dr, "G\pi_2"] & \\
+        Gd_1 & & Gd_2
+    \end{tikzcd}
+    \]
+    and $Gd$ is a product of $Gd_1$ and $Gd_2$ in $\mathcal{C}$ (so $Gd\simeq Gd_1\times Gd_2$).
 \end{thm}
 \end{document}
