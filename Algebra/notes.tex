@@ -1725,9 +1725,19 @@ is a coproduct of $c,d$ iff for all cocones
 \begin{defn}
     Let $F:\mathcal{C}\to\mathcal{D}$ and $G:\mathcal{D}\to \mathcal{C}$ with $\mathcal{C,D}$ categories and $F,G$ functors. An adjunction between $F$ and $G$ is a family of bijections $v_{cd}:Hom_{\mathcal{D}}(Fc,d)\simeq Hom_{\mathcal{C}}(c,Gd)$ for objects $c$ of $\mathcal{C}, d$ of $\mathcal{D}$ such that 
     \begin{enumerate}
-        \item 
+        \item Naturality in $c$: If $y=\delta(F\alpha)$ commutes then $y^*=\delta^*\alpha$ commutes. 
+        \[
+        \begin{tikzcd}
+            Fc_1 \arrow[r, "F\alpha"] \arrow[dr, "y"'] & Fc_2 \arrow[d, "\delta"] \\
+            & d
+        \end{tikzcd}
+        \qquad\Longrightarrow\qquad
+        \begin{tikzcd}
+            c_1 \arrow[r, "\alpha"] \arrow[dr, "y^*"'] & c_2 \arrow[d, "\delta^*"] \\
+            & Gd
+        \end{tikzcd}
+        \]
     \end{enumerate}
 \end{defn}
-
 
 \end{document}
