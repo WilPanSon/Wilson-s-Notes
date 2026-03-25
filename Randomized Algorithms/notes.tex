@@ -806,7 +806,7 @@ h(k),\; h(k)+1,\; h(k)+2,\; \ldots \pmod m
 in order until finding an empty slot, and place $k$ there.
 
 \medskip
-\noindent\textbf{Search.} To search for $k$, probe the same sequence starting at $h(k)$ until either finding $k$ or hitting an empty slot (then $k$ is absent).
+\noindent\textbf{Query.} To search for $k$, probe the same sequence starting at $h(k)$ until either finding $k$ or hitting an empty slot (then $k$ is absent).
 \begin{thm}
     Knuth 62': Suppose we fill hash table to $(1-\frac{1}{x})$ load then the expected insertion time is $O \left( x^2 \right)$. 
 \end{thm}
