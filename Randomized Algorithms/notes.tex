@@ -807,11 +807,4 @@ in order until finding an empty slot, and place $k$ there.
 
 \medskip
 \noindent\textbf{Search.} To search for $k$, probe the same sequence starting at $h(k)$ until either finding $k$ or hitting an empty slot (then $k$ is absent).
-
-\medskip
-\noindent\textbf{Load.} Write $\alpha=n/m$ for the load factor. Analysis usually assumes $\alpha$ is bounded away from $1$ (often $\alpha\leq 1-\varepsilon$ for constant $\varepsilon>0$) so that the table is not full and the walk terminates.
-
-\medskip
-\noindent\textbf{Clusters.} Keys occupying consecutive occupied slots form \emph{runs} or \emph{clusters}. Linear probing tends to lengthen clusters on collision; the main analytic quantity is the length of the probe sequence (number of slots examined) for an operation.
-
 \end{document}
