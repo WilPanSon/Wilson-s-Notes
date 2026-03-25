@@ -1796,4 +1796,66 @@ Recall: $ex(n,K_{s,t})\leq c_{s,t}n^{2-\frac{1}{s}}+o(n)$. We will see that $ex(
     Auxillary Hypergraph: Consider a $t(n,r,1)$ design $B$ on $[n]$. Define a hypergraph $H$ as follows $V(H)= \binom{[n]}{t}$. Edges of $H$ are as follows: For each $r$-subset of $[n]$, we define an edge of $H$ consisting of all $t$-subsets of this $r$-subset contains. \\
     In $H$, $B$ correpsonds to a perfect matching. 
 \end{lem}
+\section*{Day 22: The R\"odl Nibble}
+
+\textbf{Theorem (R\"odl Nibble Formulation)} \\
+For all $r, k \in \mathbb{N}$ and $\alpha > 0$, there exist $\delta > 0$ and $d_0 \in \mathbb{N}$ such that for all $D \ge d_0$, if $H$ is an $r$-uniform hypergraph on $[n]$ satisfying the following conditions:
+\begin{itemize}
+    \item \textbf{Typical Degrees:} For all but $\delta n$ vertices $v \in V(H)$, $\text{deg}(v) = D(1 \pm \delta)$.
+    \item \textbf{Max Degree:} For all $v \in V(H)$, $\text{deg}(v) \le kD$.
+    \item \textbf{Co-Degrees:} For all $u, v \in V(H)$, $\text{deg}(u, v) \le \delta D$.
+\end{itemize}
+Then, $H$ contains a covering with $\le (1 + \alpha)\frac{n}{r}$ edges.
+
+\hrulefill
+
+\subsection*{Proof Sketch}
+
+\textbf{1. The Nibble Lemma (Single Step)} \\
+The proof relies on a lemma that starts with the same conditions but asserts that there exists a "nibble" of edges $E'$ such that $|E'| = \frac{\varepsilon n}{r}(1 \pm \delta')$. 
+
+\begin{itemize}
+    \item \textbf{The Idea:} Take a small, random sprinkling of edges, delete the vertices they cover, and repeat the process on the surviving hypergraph. 
+    \item \textbf{Quantifiers for the Lemma:} $\forall r, k, \varepsilon > 0, \delta' > 0$, there exist $\delta > 0$ and $d_0$ such that for all $D > d_0$, the nibble properties hold.
+\end{itemize}
+
+Choose $E'$ randomly by including each $e \in E(H)$ independently with probability $p = \frac{\varepsilon}{D}$. We expect $\varepsilon$ edges to cover any given vertex. Define the set of surviving vertices as:
+$$V' = V \setminus \bigcup_{e \in E'} e$$
+
+The probability of a vertex surviving is roughly:
+$$(1 - p)^D = \left(1 - \frac{\varepsilon}{D}\right)^D \approx e^{-\varepsilon}$$
+
+Thus, we expect the number of surviving vertices to be $|V'| = e^{-\varepsilon}n(1 \pm \delta')$. Furthermore, for all but $\delta'|V'|$ vertices, the degree in the surviving induced hypergraph $H[V']$ will be:
+$$\text{deg}_{H[V']}(v) = De^{-\varepsilon(r-1)}(1 \pm \delta')$$
+\textit{(Reasoning: A vertex needs none of the other $r-1$ vertices in any of its incident edges to be chosen for those edges to survive, which happens with probability roughly $e^{-\varepsilon(r-1)}$.)}
+
+\textbf{2. The Iterative Process} \\
+We apply the lemma repeatedly. We choose $\varepsilon > 0$ to be small, then set $\delta = \delta_t$ small, and cascade down to $\delta_{t-1}, \delta_{t-2}, \dots, \delta_1$ being extremely small.
+
+\begin{itemize}
+    \item \textbf{Round 1:} We obtain $V_1$ and $E_1$ with:
+    $$|V_1| = e^{-\varepsilon}n(1 \pm \delta_1)$$
+    $$|E_1| = \frac{\varepsilon|V|}{r}(1 \pm \delta_1)$$
+    
+    \item \textbf{Round 2:} The outputs carry $1 \pm \delta_2$ errors, giving:
+    $$|V_2| = e^{-2\varepsilon}n(1 \pm \delta_1)(1 \pm \delta_2)$$
+    $$|E_2| = \frac{\varepsilon|V_1|}{r}(1 \pm \delta_2)$$
+    
+    \item \textbf{Round $j$:} Generally, at the $j$-th step, we accumulate a product of $(1 \pm \delta_i)$ error terms:
+    $$|E_j| = \frac{\varepsilon|V_{j-1}|}{r}(1 \pm \delta_j)$$
+\end{itemize}
+
+By choosing our $\delta_i$ sequence carefully, we can bound the accumulated product such that $\prod_{i \le t}(1 \pm \delta_i) \subseteq 1 \pm 4\delta$. This simplifies our terms at step $j$ to:
+$$|V_j| = e^{-j\varepsilon}(1 \pm 4\delta)$$
+$$|E_j| = \frac{\varepsilon e^{-(j-1)\varepsilon}n}{r}(1 \pm 4\delta)$$
+
+\textbf{3. Bounding the Total Edges} \\
+After $t$ iterations, the number of remaining vertices is $|V_t| = e^{-t\varepsilon}n(1 \pm 4\delta)$. The total number of edges taken for our covering is the sum over all rounds:
+$$\sum_{j=1}^t |E_j| = (1 \pm 4\delta)\frac{n}{r}\sum_{j=1}^t \varepsilon e^{-(j-1)\varepsilon}$$
+
+We can upper-bound this geometric sum:
+$$\sum_{j=1}^t |E_j| \le (1 \pm 4\delta)\frac{n\varepsilon}{r}\left(\frac{1}{1 - e^{-\varepsilon}}\right)$$
+
+Since $\frac{\varepsilon}{1 - e^{-\varepsilon}} \rightarrow 1$ as $\varepsilon \rightarrow 0$, we can absorb this limit into a slightly larger error term, giving us the final bound on our covering:
+$$\sum_{j=1}^t |E_j| \le (1 \pm 5\delta)\frac{n}{r}$$
 \end{document}
