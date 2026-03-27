@@ -1886,7 +1886,7 @@ $$\sum_{j=1}^t |E_j| \le (1 \pm 5\delta)\frac{n}{r}$$
     \begin{align*}
         Var(|V'|)&=\E[|V'|^2]-\E[|V'|]^2\\
         &= \E \left[ \sum_{u,v}\mathbbm{1}_{u,v\in V'} \right]-\sum_{u,v}\Pr[u\in V']\Pr[v\in V']\\
-        &\leq \E \left [\sum_{codeg(u,v)\geq 1} \mathbbm{1}_{u,v\in V'} \right ]-
+        &\leq \E \left [\sum_{codeg(u,v)\geq 1} \mathbbm{1}_{u,v\in V'} \right ]-\sum_{codeg(u,v)\geq 1}\Pr[u\in V']\Pr[v\in V']
     \end{align*}
     The number of such $u,v$ is at most $nD(1\pm \delta)(r-1)$ (didn't include bad vertices but they are small in number) and 
     \[
