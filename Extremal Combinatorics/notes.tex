@@ -1826,7 +1826,7 @@ $$V' = V \setminus \bigcup_{e \in E'} e$$
 The probability of a vertex surviving is roughly:
 $$(1 - p)^D = \left(1 - \frac{\varepsilon}{D}\right)^D \approx e^{-\varepsilon}$$
 
-Thus, we expect the number of surviving vertices to be $|V'| = e^{-\varepsilon}n(1 \pm \delta')$. Furthermore, for all but $\delta'|V'|$ vertices, the degree in the surviving induced hypergraph $H[V']$ will be:
+Thus, we expect the number of surviving vertices to be $|V'| = e^{-\varepsilon}n(1 \pm \delta')$. Furthermore, for all but $\delta'n$ vertices, the degree in the surviving induced hypergraph $H[V']$ will be:
 $$\text{deg}_{H[V']}(v) = De^{-\varepsilon(r-1)}(1 \pm \delta')$$
 \textit{(Reasoning: A vertex needs none of the other $r-1$ vertices in any of its incident edges to be chosen for those edges to survive, which happens with probability roughly $e^{-\varepsilon(r-1)}$.)}
 
