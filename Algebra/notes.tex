@@ -1948,10 +1948,10 @@ is a coproduct of $c,d$ iff for all cocones
     By exactness, $im(\alpha)\cap im(\beta)=\ker(\beta)\cap im(\gamma)=0$. Given $b\in B$, $b=(b-\gamma\beta b)+\underbrace{\gamma \beta b}_{im(\gamma)}$. The first term is in $im(\alpha)$ as $\beta(b-\gamma\beta b)=\beta b - \beta \gamma \beta b=\beta b - \beta b=0$. 
 \end{lem}
 \begin{defn}
-    An $R$-module $M$ is projective iff for every surjective homomorphism $\pi:B\to C$ and every homomorphism $f:M\to C$, there exists a homomorphism $g:M\to B$ such that $\pi\circ g=f$ (equivalently, the diagram
+    An $R$-module $M$ is projective iff for every surjective homomorphism $\pi:B\twoheadrightarrow C$ and every homomorphism $\alpha:M\to C$, there exists a homomorphism $g:M\to B$ such that $\pi\circ g=\alpha$ (equivalently, the diagram
     \[
     \begin{tikzcd}
-        & M \arrow[dl, "g"', dashed] \arrow[d, "f"] \\
+        & M \arrow[dl, "g"', dashed] \arrow[d, "\alpha"] \\
         B \arrow[r, "\pi", two heads] & C
     \end{tikzcd}
     \]
