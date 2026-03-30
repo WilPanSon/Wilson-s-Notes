@@ -1923,71 +1923,90 @@ is a coproduct of $c,d$ iff for all cocones
 \end{thm}
 \newpage
 \section{Lecture 29: Projective Modules}
-\subsection{Extension Fields}
+\subsection{Module Extensions and Projective Modules}
+
 \begin{prop}
-    Given $R$-modules $A,C$, find $B$ where $A\leq B$ and $\frac{B}{A}\simeq C$ This is equivalent to fitting $B$ into the exact sequence 
-    \[
-    0\to A \to B \to C \to 0
-    .\] 
-    An answer would be $B=A\oplus C$ as $A\simeq A\oplus 0$ so 
-    \[
-    \frac{A \oplus C}{A \oplus 0}\simeq C
-    .\] 
+    Given $R$-modules $A$ and $C$, the ``extension problem'' asks us to find a module $B$ where $A \leq B$ and $B/A \simeq C$. This is equivalent to fitting $B$ into the short exact sequence 
+    $$
+    0 \to A \to B \to C \to 0.
+    $$ 
+    A trivial answer is always $B = A \oplus C$, since $A \simeq A \oplus 0$, giving 
+    $$
+    \frac{A \oplus C}{A \oplus 0} \simeq C.
+    $$ 
 \end{prop}
+
 \begin{eg}
-    $R=\Z$ and $A=C=C_2$ (cyclic order $2$) then $B=C_2 \oplus C_2$ or $B=C_4$. 
+    Let $R = \mathbb{Z}$ and $A = C = C_2$ (the cyclic group of order $2$). Then $B$ can be the trivial extension $C_2 \oplus C_2$, or the non-trivial extension $B = C_4$. 
 \end{eg}
+
 \begin{defn}
-    Let $0\to A\xrightarrow{\alpha} B \xrightarrow{\beta} C\to 0$ be exact sequence of $R$-modules. This sequence splits iff there is $\gamma:C\to B$ such that $\beta \circ \gamma = 1_C$. 
+    Let $0 \to A \xrightarrow{\alpha} B \xrightarrow{\beta} C \to 0$ be a short exact sequence of $R$-modules. This sequence \textbf{splits} if and only if there is a homomorphism $\gamma: C \to B$ such that $\beta \circ \gamma = 1_C$. 
 \end{defn}
+
 \begin{eg}
-    If $0\to A\to A\oplus C \to C\to 0$ with $\alpha:a\mapsto (a,0)$ and $\beta:(a,c)\mapsto c$ then $\gamma:C\to A\oplus C$ by $\gamma:c\mapsto (0,c)$ splits the sequence. In fact this is the only way a sequence splits. 
+    Consider the trivial exact sequence $0 \to A \xrightarrow{\alpha} A \oplus C \xrightarrow{\beta} C \to 0$ with $\alpha: a \mapsto (a,0)$ and $\beta: (a,c) \mapsto c$. Then the map $\gamma: C \to A \oplus C$ given by $\gamma: c \mapsto (0,c)$ splits the sequence. Up to isomorphism, this is the only way a sequence splits. 
 \end{eg}
+
 \begin{lem}
-    More precisely, if $\gamma:C\to B$ splits $0\to A\xrightarrow{\alpha} B \xrightarrow{\beta} C\to 0$ then $im(\beta)$ and $im(\gamma)$ are complemenetary submodules $im(\alpha) \simeq A$ and $im(\gamma)\simeq C$. So $B\simeq A\oplus C$.\\
-    By exactness, $im(\alpha)\cap im(\beta)=\ker(\beta)\cap im(\gamma)=0$. Given $b\in B$, $b=(b-\gamma\beta b)+\underbrace{\gamma \beta b}_{im(\gamma)}$. The first term is in $im(\alpha)$ as $\beta(b-\gamma\beta b)=\beta b - \beta \gamma \beta b=\beta b - \beta b=0$. 
+    More precisely, if $\gamma: C \to B$ splits the sequence $0 \to A \xrightarrow{\alpha} B \xrightarrow{\beta} C \to 0$, then $\operatorname{im}(\alpha)$ and $\operatorname{im}(\gamma)$ are complementary submodules in $B$, with $\operatorname{im}(\alpha) \simeq A$ and $\operatorname{im}(\gamma) \simeq C$. Thus, $B \simeq A \oplus C$.
+    
+    \begin{proof}
+        By exactness, $\operatorname{im}(\alpha) = \ker(\beta)$. Because $\beta \circ \gamma = 1_C$, we have $\operatorname{im}(\alpha) \cap \operatorname{im}(\gamma) = \ker(\beta) \cap \operatorname{im}(\gamma) = 0$. 
+        
+        Given any $b \in B$, we can write it as $b = (b - \gamma\beta b) + \underbrace{\gamma\beta b}_{\in \operatorname{im}(\gamma)}$. The first term is in $\operatorname{im}(\alpha)$ because applying $\beta$ gives:
+        $$
+        \beta(b - \gamma\beta b) = \beta b - \beta\gamma\beta b = \beta b - 1_C(\beta b) = 0.
+        $$
+        Therefore, $B = \operatorname{im}(\alpha) \oplus \operatorname{im}(\gamma) \simeq A \oplus C$.
+    \end{proof}
 \end{lem}
+
 \begin{defn}
-    An $R$-module $M$ is projective iff for every surjective homomorphism $\pi:B\twoheadrightarrow C$ and every homomorphism $\alpha:M\to C$, there exists a homomorphism $g:M\to B$ such that $\pi\circ g=\alpha$ (equivalently, the diagram
-    \[
+    An $R$-module $M$ is \textbf{projective} if and only if for every surjective homomorphism $\pi: B \twoheadrightarrow C$ and every homomorphism $\alpha: M \to C$, there exists a homomorphism $g: M \to B$ such that $\pi \circ g = \alpha$. Equivalently, the following diagram commutes:
+    $$
     \begin{tikzcd}
         & M \arrow[dl, "g"', dashed] \arrow[d, "\alpha"] \\
         B \arrow[r, "\pi", two heads] & C
     \end{tikzcd}
-    \]
-    commutes).
+    $$
 \end{defn}
+
 \begin{lem}
-    TFAE for $R$-module $M$:
+    The following are equivalent (TFAE) for an $R$-module $M$:
     \begin{enumerate}
-        \item $M$ is projective 
-        \item If $A\to B\to C$ exact then $Hom(M,A)\to Hom(M,B)\to Hom(M,C)$ is exact. 
-        \item For any short exact sequence $0\to K\to N\to M\to 0$, the sequence splits
-        \item There is a module $N$ such that $M\oplus N$ is free
+        \item $M$ is projective.
+        \item The functor $\operatorname{Hom}_R(M, -)$ is exact. (i.e., for any short exact sequence $0 \to A \to B \to C \to 0$, the induced sequence $0 \to \operatorname{Hom}(M,A) \to \operatorname{Hom}(M,B) \to \operatorname{Hom}(M,C) \to 0$ is exact).
+        \item Every short exact sequence $0 \to K \to N \to M \to 0$ ending in $M$ splits.
+        \item There exists an $R$-module $N$ such that $M \oplus N$ is a free module.
     \end{enumerate}
 \end{lem}
+
 \begin{proof}
-    To show $(1)\implies (4)$, let $X$ be the underlying set of $M$ and let $F=Free_R(X)$ with the natural surjection $\pi:F\twoheadrightarrow M$. Applying $(1)$ to $\pi$ and $1_M:M\to M$, there exists $i:M\to F$ such that $\pi\circ i=1_M$:
-    \[
+    \textbf{$(1) \implies (4)$}: Let $X$ be the underlying set of $M$ and let $F = \operatorname{Free}_R(X)$ with the natural surjection $\pi: F \twoheadrightarrow M$. Applying $(1)$ to $\pi$ and $1_M: M \to M$, there exists $i: M \to F$ such that $\pi \circ i = 1_M$:
+    $$
     \begin{tikzcd}
-        M \arrow[rr, "{\mathrm{id}_M}"] \arrow[dr, "i"'] & & M \\
+        M \arrow[rr, "1_M"] \arrow[dr, "i"'] & & M \\
         & F \arrow[ur, "\pi"', two heads] &
     \end{tikzcd}
-    \]
-    Let $N=\ker(\pi)$ and argue that $i[M]$ and $N$ are complementary in $F$. $i[M]\simeq M$ and $F\simeq i[M]\oplus N\simeq M\oplus N$. \\
-    To show $(4)\implies (1)$, suppose $M\oplus N$ is free.
-    \[
-        \begin{tikzcd}
-            & M  \arrow[d, "{\alpha}"] \\
-            B \arrow[r, "\pi", two heads] & C
-        \end{tikzcd}
-        \]
-    \[
+    $$
+    Let $N = \ker(\pi)$. By the splitting lemma (Lemma 1), $i(M)$ and $N$ are complementary in $F$. Since $i(M) \simeq M$, we get $F \simeq i(M) \oplus N \simeq M \oplus N$. \\
+
+    \textbf{$(4) \implies (1)$}: Suppose $M \oplus N$ is free. We want to show $M$ is projective. Suppose we are given $B \xrightarrow{\pi} C \to 0$ and $\alpha: M \to C$.
+    $$
     \begin{tikzcd}
-        & M\oplus N \arrow[dl, "\beta"', dashed] \arrow[d, "{\overline{\alpha}}"] \\
+        & M \oplus N \arrow[dl, "\beta"', dashed] \arrow[d, "\overline{\alpha}"] \\
         B \arrow[r, "\pi", two heads] & C
     \end{tikzcd}
-    \]
-    Let $X$ be a basis of $M\oplus N$. For each $b\in X$, choose $f(b)\in B$ so that $\pi f(b)=\overline{\alpha}(b)$. Let $M\oplus N\xrightarrow{\beta} B$ be the unique homomorphism such that $\beta(b)=f(b)$ for all $b\in X$. By choice of $f$, $\pi \beta(b)=\overline{\alpha}(b)$ for all $b\in X$. As $X$ generates $M\oplus N$, $\pi \beta = \overline{\alpha}.$ 
+    $$
+    Define $\overline{\alpha}: M \oplus N \to C$ by $\overline{\alpha}(m, n) = \alpha(m)$. Let $X$ be a basis of the free module $M \oplus N$. For each $x \in X$, the map $\pi$ is surjective, so we can choose $f(x) \in B$ such that $\pi(f(x)) = \overline{\alpha}(x)$. 
+    
+    Because $M \oplus N$ is free on $X$, there is a unique homomorphism $\beta: M \oplus N \to B$ extending $f$, meaning $\beta(x) = f(x)$ for all $x \in X$. By choice of $f$, $\pi \beta(x) = \overline{\alpha}(x)$ for all basis elements. Since $X$ generates $M \oplus N$, we have $\pi \circ \beta = \overline{\alpha}$. 
+    
+    Finally, define $g: M \to B$ by $g(m) = \beta(m, 0)$. Then for any $m \in M$:
+    $$
+    \pi(g(m)) = \pi(\beta(m, 0)) = \overline{\alpha}(m, 0) = \alpha(m).
+    $$
+    Thus, $g$ is the required lift, proving $M$ is projective.
 \end{proof}
 \end{document}  
