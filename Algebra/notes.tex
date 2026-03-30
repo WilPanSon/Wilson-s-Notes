@@ -1977,6 +1977,12 @@ is a coproduct of $c,d$ iff for all cocones
     Let $N=\ker(\pi)$ and argue that $i[M]$ and $N$ are complementary in $F$. $i[M]\simeq M$ and $F\simeq i[M]\oplus N\simeq M\oplus N$. \\
     To show $(4)\implies (1)$, suppose $M\oplus N$ is free and fix $\pi:B\twoheadrightarrow C$ and $\alpha:M\to C$. Define $\overline{\alpha}:M\oplus N\to C$ by $\overline{\alpha}(m,n)=\alpha(m)$. Since $M\oplus N$ is free, it is projective, so there exists $\overline{g}:M\oplus N\to B$ with $\pi\circ\overline{g}=\overline{\alpha}$:
     \[
+        \begin{tikzcd}
+            & M\oplus N \arrow[dl, "\beta"', dashed] \arrow[d, "{\overline{\alpha}}"] \\
+            B \arrow[r, "\pi", two heads] & C
+        \end{tikzcd}
+        \]
+    \[
     \begin{tikzcd}
         & M\oplus N \arrow[dl, "\beta"', dashed] \arrow[d, "{\overline{\alpha}}"] \\
         B \arrow[r, "\pi", two heads] & C
