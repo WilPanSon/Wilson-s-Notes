@@ -1141,7 +1141,8 @@ Conjugation is a specific action of $G$ on itself.
     $X \left( \frac{x}{s} \right)=\psi(r)\psi(s)^{-1}$
 \end{proof}
 \newpage
-\section{Lecture 19: (Feb 25)}
+\section{Lecture 19: Polynomial Rings over UFDs (Feb 25)}
+\subsection{Gauss's Lemma and $R[x]$ as a UFD}
 \begin{thm}
     $R$ UFD $\implies R[x]$ UFD
 \end{thm}
@@ -1197,7 +1198,8 @@ Conjugation is a specific action of $G$ on itself.
     So $v_1...v_n,v_1',...,v_m'$ are associates in $R$ and using $R$ being UFD. By lemma 19.8, $g,g'$ are irreducible in $F[x]$. 
 \end{proof}
 \newpage
-\section{Lecture 20: (Mar 2)}
+\section{Lecture 20: Products and Coproducts in Categories (Mar 2)}
+\subsection{Universal Constructions: Products and Coproducts}
 \begin{defn}
     Let $\mathcal{C}$ be a category and $c,d$ objects then a cone over $c,d$ is a diagram
     \begin{center}
@@ -1324,7 +1326,8 @@ is a coproduct of $c,d$ iff for all cocones
     commutes ($\rho \circ \pi_1 = \psi_1$ and $\rho \circ \pi_2 = \psi_2$). We have $\rho(n)=\rho(\psi_1(n),\psi_2(n))=(\psi_1(n),0)+(0,\psi_2(n))$.
 \end{defn}
 \newpage
-\section{March 11}
+\section{Lecture 21: Free Modules and Bilinear Maps (Mar 11)}
+\subsection{Free Modules and Universal Properties}
 \begin{lem}
     Fix $R$-module, $M$ and $N$ consider Hom$_R(M,N)= \{\phi:M\to N:\phi R- \text{linear}\}$. This forms an $R$-module.  
 \end{lem}
@@ -1355,6 +1358,7 @@ is a coproduct of $c,d$ iff for all cocones
 \begin{lem}
     If $B$ is such a set, $M\simeq Free_R(B)$
 \end{lem}
+\subsection{Bilinear Maps and Tensor Motivation}
 \begin{defn}
     Let $M,N,P$ be $R$-modules. A function $\phi:M\times N\to P$ is $R$-bilinear if 
     \begin{enumerate}
@@ -1387,7 +1391,7 @@ is a coproduct of $c,d$ iff for all cocones
     $\Hom_R(M,\Hom_R(N,P))\simeq \text{bilinear maps from } M\times N \to P\simeq \Hom_R(M\otimes N, P)$
 \end{thm}
 \newpage
-\section{March 11}
+\section{Lecture 22: Tensor Product Construction (Mar 11, continued)}
 \subsection{Goal and Preliminaries}
 
 \begin{rmk}[Note on Bilinearity]
@@ -1503,7 +1507,8 @@ is a coproduct of $c,d$ iff for all cocones
     \end{enumerate}
 \end{proof}
 \newpage
-\section{March 16}
+\section{Lecture 23: Cyclic Modules and PID Structure (Mar 16)}
+\subsection{Cyclic Modules and Direct Summands}
 \begin{defn}
     An $R$-module $M$ is cyclic iff there exist $m$ such that $M=Rm$
 \end{defn}
@@ -1549,6 +1554,7 @@ is a coproduct of $c,d$ iff for all cocones
     \sum_{i=1}^n \lambda_i x_i\mapsto (\lambda_1,...,\lambda_n)
     .\] 
 \end{lem}
+\subsection{Torsion, Rank, and the Structure Theorem}
 \begin{defn}
     Let $R$ be ID, $M$ $R$-module, $m\in M$ is a torsion element if there is $r\neq 0$ such that $rm=0$. 
 \end{defn}
@@ -1592,7 +1598,8 @@ is a coproduct of $c,d$ iff for all cocones
     \noindent There is a basis $z_1,...,z_n$ of $N$ and there are nonzero nonunit $c_1,...,c_m$ such that $c_i$ divides $c_{i+1}$ and $c_1z_1,...,c_mz_m$ forms a basis of $M$. 
 \end{proof}
 \newpage
-\section{March 18}
+\section{Lecture 24: Submodules of Free Modules over PIDs (Mar 18)}
+\subsection{Diagonalization and Basis Structure}
 \begin{thm}
     Let $R$ be a principal ideal domain (PID) and $M$ be a finitely generated $R$-module. Then 
     \[
@@ -1662,7 +1669,8 @@ is a coproduct of $c,d$ iff for all cocones
     It remains only to show that $d_1 \mid d_2$. Define a homomorphism $f: N \to R$ by mapping $z_1 \mapsto 1$, $z_2 \mapsto 1$, and $z_i \mapsto 0$ for $i > 2$. We evaluate $f(M)$: $f(d_1 z_1) = d_1$ and $f(d_2 z_2) = d_2$, so the ideal $f(M)$ contains both $d_1$ and $d_2$, meaning $f(M) = (d_1, d_2)$. Because $(d_1) = \psi(M)$ is maximal among such ideals, and $(d_1) \subseteq (d_1, d_2) = f(M)$, we must have $(d_1) = (d_1, d_2)$. This implies $d_2 \in (d_1)$, so $d_1 \mid d_2$. This completes the proof.
 \end{proof}
 \newpage
-\section{March 20}
+\section{Lecture 25: Structure Theorem and Adjoint Functors (Mar 20)}
+\subsection{Decomposition of Finitely Generated Modules}
 \begin{thm}
     Let $F$ be a finitely genereated module over PID $R$ say $F=Rf_1+\cdots+Rf_t, f_i\in F$. Define $\pi:R^t\to F$ by $\pi:(\lambda_1,...,\lambda_t)\mapsto \sum_{i_=1}^t \lambda_i t_i$. $\pi$ is a surjective homomorphism so \[
     F\simeq \frac{N}{\ker(\pi)} 
@@ -1718,7 +1726,8 @@ is a coproduct of $c,d$ iff for all cocones
     $\mathcal{C}$ category then $\mathcal{C}^{op}$ is the category with the same objects but with the arrows reversed. 
 \end{defn}
 \newpage
-\section{Mar 23}
+\section{Lecture 26: Adjunctions and Tensor--Hom (Mar 23)}
+\subsection{Adjunction Definitions and Naturality}
 \begin{rmk}
     If $Fc\xrightarrow{\alpha} d$ (in $\mathcal{D}$) write $\alpha^*$ for $v_{cd}(\alpha)$ and if $c\xrightarrow{\beta}Gd$ (in $\mathcal{C}$) write $\beta_*$ for $v_{cd}^{-1}(\beta)$. 
 \end{rmk}
@@ -1768,7 +1777,8 @@ is a coproduct of $c,d$ iff for all cocones
     Fixing $N$, this gives adjunction between $-\otimes N$ and $Hom(N,-)$
 \end{lem}
 \newpage
-\section{Mar 25}
+\section{Lecture 27: Noetherian Modules and Integrality (Mar 25)}
+\subsection{Noetherian Conditions and Closure Properties}
 \begin{rec}
     If $R$ PID and $M$ finitely generated $R$-module then 
     \[
@@ -1847,11 +1857,13 @@ is a coproduct of $c,d$ iff for all cocones
     R[a]\simeq \frac{R[x]}{(\ker(\phi))}
     .\] 
 \end{thm}
+\subsection{Integral Elements over Subrings}
 \begin{defn}
     Let $R\leq S$, let $a\in S$ with $a$ integral over $R$ if there is monic $f\in R[x], f(a)=0$. 
 \end{defn}
 \newpage
-\section{Mar 27}
+\section{Lecture 28: Integrality and Flat Modules (Mar 27)}
+\subsection{Integrality Criteria and Consequences}
 \begin{rec}
     For $R,S$ where $R\leq S$ then for $s\in S$, $R[s]= \{s^i | i\in \N\}$. 
 \end{rec}
@@ -1885,6 +1897,7 @@ is a coproduct of $c,d$ iff for all cocones
 \begin{proof}
     Let $s,t$ both be integral over $R$. I claim that all $u\in R[s,t]$ are integral over $R$. In particular, $s+t, st$ are integral over $R$. We have $R[s],R[t]$ both finitely generated $R$-modules, say $R[s]= R$-span of $ \{a_1,...,a_k\}$ and $R[t]= R$-span of $ \{b_1,...,b_l\}$. Let $R[s,t]= R$-span of $ \{a_ib_j | i\leq k, j\leq l\}$. Now $R[s,t]$ is finitely generated $R$-module and faithful. 
 \end{proof}
+\subsection{Flat Modules}
 \begin{rec}
     View $-\otimes N$ as a functor from $M$ to $M\otimes N$. If $\alpha\xrightarrow{\alpha} M_2$ then $M_1\otimes N\xrightarrow{\alpha\otimes N} M_2 \otimes N$ by $\alpha\otimes N \left( \sum_{i=1}^n m_i \otimes n_i \right)=\sum_{i=1}^s \alpha m_i \otimes n_i$. 
 \end{rec}
