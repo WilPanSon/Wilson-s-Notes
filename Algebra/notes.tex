@@ -1967,12 +1967,13 @@ is a coproduct of $c,d$ iff for all cocones
     \end{enumerate}
 \end{lem}
 \begin{proof}
-    To show $(1)\implies (4)$, for any module, if $X=$ underlying set of $M$ and free module on $X$, $F$ we have 
+    To show $(1)\implies (4)$, let $X$ be the underlying set of $M$ and let $F=\mathrm{Free}_R(X)$ with the natural surjection $\pi:F\twoheadrightarrow M$. Applying $(1)$ to $\pi$ and $1_M:M\to M$, there exists $i:M\to F$ such that $\pi\circ i=1_M$:
     \[
     \begin{tikzcd}
-        & F \arrow[dl, "i"', dashed] \arrow[d, "f"] \\
-        M \arrow[r, "\pi", two heads] & X
+        M \arrow[rr, "1_M"] \arrow[dr, "i"'] & & M \\
+        & F \arrow[ur, "\pi"', two heads] &
     \end{tikzcd}
     \]
+    Thus $\pi$ splits, $M$ is isomorphic to a direct summand of $F$, and with $N=\ker(\pi)$ we have $M\oplus N\cong F$, which is free.
 \end{proof}
 \end{document}  
