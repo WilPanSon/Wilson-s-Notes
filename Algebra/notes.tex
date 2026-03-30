@@ -1970,11 +1970,18 @@ is a coproduct of $c,d$ iff for all cocones
     To show $(1)\implies (4)$, let $X$ be the underlying set of $M$ and let $F=Free_R(X)$ with the natural surjection $\pi:F\twoheadrightarrow M$. Applying $(1)$ to $\pi$ and $1_M:M\to M$, there exists $i:M\to F$ such that $\pi\circ i=1_M$:
     \[
     \begin{tikzcd}
-        M \arrow[rr, "1_M"] \arrow[dr, "i"'] & & M \\
+        M \arrow[rr, "{\mathrm{id}_M}"] \arrow[dr, "i"'] & & M \\
         & F \arrow[ur, "\pi"', two heads] &
     \end{tikzcd}
     \]
     Let $N=\ker(\pi)$ and argue that $i[M]$ and $N$ are complementary in $F$. $i[M]\simeq M$ and $F\simeq i[M]\oplus N\simeq M\oplus N$. \\
-    To show $(4)\implies (1)$ 
+    To show $(4)\implies (1)$, suppose $M\oplus N$ is free and fix $\pi:B\twoheadrightarrow C$ and $\alpha:M\to C$. Define $\overline{\alpha}:M\oplus N\to C$ by $\overline{\alpha}(m,n)=\alpha(m)$. Since $M\oplus N$ is free, it is projective, so there exists $\overline{g}:M\oplus N\to B$ with $\pi\circ\overline{g}=\overline{\alpha}$:
+    \[
+    \begin{tikzcd}
+        & M\oplus N \arrow[dl, "{\overline{g}}"', dashed] \arrow[d, "{\overline{\alpha}}"] \\
+        B \arrow[r, "\pi", two heads] & C
+    \end{tikzcd}
+    \]
+    Let $g=\overline{g}\circ \iota_M$ where $\iota_M:M\to M\oplus N$ is $m\mapsto (m,0)$. Then $\pi\circ g=\alpha$.
 \end{proof}
 \end{document}  
