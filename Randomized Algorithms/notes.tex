@@ -856,6 +856,6 @@ The time to query elements is at most $\arg\min_S ((\# \text{elements besides $u
     This can be done in $ \left( 1+\frac{1}{\log n} \right)nw+O(n\log \log n)-n\log n$ bits.
 \end{thm}
 \begin{proof}
-    To save $\approx n\log n$ bits, we use quotienting by pretending each element looks like $a+b$ where $|a|=\log m$ bits and $|b|=w-\log m$ bits for $m= \frac{n}{ \text{bin size}}$. $a$ is randomized so we can just use this as our hash table. So go to bucket $a$ and store only $b.$ However the issue is we don't know how to randomize $a$. The solution is to think of each elements as pairs $(a,b)$. Let $h$ be a hash function mapping $b\to$ random number in $[m]$. Define $\pi_i(a,b)\to(a\oplus h(b),b)$. This is invertible 
+    To save $\approx n\log n$ bits, we use quotienting by pretending each element looks like $a+b$ where $|a|=\log m$ bits and $|b|=w-\log m$ bits for $m= \frac{n}{ \text{bin size}}$. $a$ is randomized so we can just use this as our hash table. So go to bucket $a$ and store only $b.$ However the issue is we don't know how to randomize $a$. The solution is to think of each elements as pairs $(a,b)$. Let $h$ be a hash function mapping $b\to$ random number in $[m]$. Define $\pi_i(a,b)\to(a\oplus h(b),b)$. This is invertible and $a\oplus h(b)$ is a uniformly random 
 \end{proof}
 \end{document}
