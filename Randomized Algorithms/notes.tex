@@ -859,7 +859,7 @@ The time to query elements is at most $\arg\min_S ((\# \text{elements besides $u
     To save $\approx n\log n$ bits, we use quotienting by pretending each element looks like $a+b$ where $|a|=\log m$ bits and $|b|=w-\log m$ bits for $m= \frac{n}{ \text{bin size}}$. $a$ is randomized so we can just use this as our hash table. So go to bucket $a$ and store only $b.$ However the issue is we don't know how to randomize $a$. The solution is to think of each elements as pairs $(a,b)$. Let $h$ be a hash function mapping $b\to$ random number in $[m]$. Define $\pi_i(a,b)\to(a\oplus h(b),b)$. \\
     Observe this is invertible and $a\oplus h(b)$ is a uniformly random bin. So $\E[\# \text{elements in } j]= \text{bin size}$. Additionally, the number of elements in bin $j$ is the sum of independent $0-1$ random variables. Calling the elements $(x_1,y_1),...$ we have 
     \[
-    \# \text{elements in bin } j=\sum_y \mathbb{I}[ \text{some element $(x_i,y_i)$ have $y_i=y$ and x}
+    \# \text{elements in bin } j=\sum_y \mathbb{I}[ \text{some element $(x_i,y_i)$ have $y_i=y$ and $x_i\oplus $}
     .\] 
 \end{proof}
 \end{document}
