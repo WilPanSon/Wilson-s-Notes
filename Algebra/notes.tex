@@ -2091,6 +2091,9 @@ is a coproduct of $c,d$ iff for all cocones
     If $l/k$, $\alpha_1,...,\alpha_n\in l$ and $\alpha_i$ algebraic over $k$ then $[k(\alpha_1,...,\alpha_n):k[<\infty$. 
 \end{lem}
 \begin{proof}
-    By induction for $n=2$, $\alpha_1,\alpha_2$ algebraic over $k$ implies $\alpha_2$ is algebraic over $k(\alpha_1)$. So $[k(\alpha_1,\alpha_2):k(\alpha_1)]\leq [k(\alpha_2):k]$. 
+    By induction for $n=2$, $\alpha_1,\alpha_2$ algebraic over $k$ implies $\alpha_2$ is algebraic over $k(\alpha_1)$. So $[k(\alpha_1,\alpha_2):k(\alpha_1)]\leq [k(\alpha_2):k]$. So by induction hypothesis, 
+    \[
+    [k(\alpha_1,...,\alpha_n):k]\leq \prod_{i=1}^n [k(\alpha_i):k]<\infty.
+    .\] 
 \end{proof}
 \end{document}  
