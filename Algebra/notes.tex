@@ -2181,17 +2181,49 @@ is a coproduct of $c,d$ iff for all cocones
 \end{defn}
 \newpage
 \begin{thm}
-    If $[l:k]<\infty$ then $|Aut(l/k)|\leq [l:k]$
-\end{thm}
-\begin{thm}
     Let $l/k$ be a finite field extension (so $[l:k] < \infty$). Let $\Omega$ be an algebraically closed field, and let $\phi: k \to \Omega$ be a field monomorphism (embedding). There exists at least one monomorphism $\psi: l \to \Omega$ such that $\psi|_k = \phi$. The total number of such extensions $\psi$ is exactly equal to the separable degree $[l:k]_s$. Consequently, the number of extensions is always less than or equal to $[l:k]$.
 \end{thm}
+
 \begin{proof}
-    We'll show by induction on $[l:k]$.\\
-    (Base Case) $[l:k]=1$ then $l=k$\\
-    (Inductive Step) If $[l:k]>1$, choose $a\in l\setminus k$ we have $k\subseteq k(a)\subseteq l$. As $[k(a):k]>1$ and $[l:k]=[l:k(a)][k(a):k]$ so $[l:k(a)]<[l:k]$. \\\\
-    Claim: There are at most $[k(a):k]$ extensions of $\phi$ to an embedding $\phi':k(a)\to k$. \\
-    To show this, let $m=$ minimal polynomial of $a/k$, $[k(a):k]=\deg(m), \overline{m}=\phi(m)\in k[x]$. For any $\phi'$ extending $\phi$ we have $m(a)=0$ implying $\overline{m}(\phi'(a))=0$. So $\phi'(a)$ can only be a root of $\overline{m}$, $\deg(\overline{m})=[k(a):k]$. Also $\phi':k(a)\to k$ is determined by $\phi$ and $\phi'(a)$. By IH, every MM $\phi':k(a)\to k$ has at most $[l:k(a)]$ extensions to a MM from $l$ to $k$. 
+    We will show this by induction on the degree $n = [l:k]$.
+
+    \textbf{Base Case:} If $[l:k] = 1$, then $l = k$. The only extension of $\phi: k \to \Omega$ to $l$ is $\phi$ itself. Thus, there is exactly $1$ extension, and $1 \leq 1$. The base case holds.
+
+    \textbf{Inductive Step:} Assume the claim holds for all finite extensions of degree less than $n$, and let $[l:k] = n > 1$.
+
+    Choose an element $a \in l \setminus k$. We then have the tower of fields $k \subsetneq k(a) \subseteq l$. Because $a \notin k$, we know $[k(a):k] > 1$. By the Tower Law, $[l:k] = [l:k(a)][k(a):k]$, which implies $[l:k(a)] < [l:k]$.
+
+    \textit{Claim: There are at most $[k(a):k]$ extensions of $\phi$ to an embedding $\phi': k(a) \to \Omega$.}
+
+    To show this, let $m(x) \in k[x]$ be the minimal polynomial of $a$ over $k$, so $\deg(m) = [k(a):k]$. Let $\overline{m}(x) \in \Omega[x]$ be the polynomial obtained by applying $\phi$ to the coefficients of $m(x)$.
+
+    For any embedding $\phi'$ extending $\phi$, we have $m(a) = 0$, which implies that $\overline{m}(\phi'(a)) = 0$. Therefore, $\phi'(a)$ must be a root of $\overline{m}(x)$ in $\Omega$. Because $\Omega$ is a field, the polynomial $\overline{m}(x)$ can have at most $\deg(\overline{m}) = \deg(m) = [k(a):k]$ distinct roots in $\Omega$.
+
+    Since an embedding $\phi': k(a) \to \Omega$ that extends $\phi$ is entirely determined by the value of $\phi'(a)$, there are at most $[k(a):k]$ such extensions $\phi'$.
+
+    Now, by our induction hypothesis, because $[l:k(a)] < [l:k]$, each such embedding $\phi': k(a) \to \Omega$ can be extended to an embedding $\psi: l \to \Omega$ in at most $[l:k(a)]$ ways.
+
+    Multiplying the maximum number of choices at each step, the total number of extensions $\psi: l \to \Omega$ of $\phi$ is at most:
+    $$[k(a):k] \times [l:k(a)] = [l:k]$$
+    This completes the induction step and the proof.
+\end{proof}
+
+\begin{thm}
+    If $[l:k]<\infty$ then $|Aut(l/k)|\leq [l:k]$
+\end{thm}
+
+\begin{proof}
+    Let $\overline{l}$ be an algebraic closure of $l$ (and thus also an algebraic closure of $k$).
+
+    By definition, the automorphism group $Aut(l/k)$ consists of all field isomorphisms $\sigma: l \to l$ that fix $k$ pointwise (i.e., $\sigma|_k = \text{id}_k$).
+
+    Because $l \subseteq \overline{l}$, any such automorphism $\sigma \in Aut(l/k)$ can be viewed as an embedding from $l$ into $\overline{l}$ that extends the identity map $\text{id}_k: k \to \overline{l}$. Therefore, $Aut(l/k)$ is simply a subset of the set of all embeddings $\psi: l \to \overline{l}$ that extend $\text{id}_k$.
+
+    By the Extension of Monomorphisms theorem (setting $\Omega = \overline{l}$ and $\phi = \text{id}_k$), the total number of such embeddings $\psi$ is at most $[l:k]$.
+
+    Because $Aut(l/k)$ is a subset of these embeddings, it immediately follows that:
+    $$|Aut(l/k)| \leq [l:k]$$
+    This completes the proof.
 \end{proof}
 \begin{defn}
     An extension $l/k$ is normal if 
