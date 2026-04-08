@@ -949,7 +949,7 @@ We'll denote the wheels by the set $W\subseteq \{0,1,...,\ell\}$ with $|W|=n$. F
 \begin{proof}
     Define $F= \{i\in [\ell]|(W+i)\cap T=\emptyset\}$ then we can say $\Pr[T \text{ valid}]=\Pr[|F|=0]$.
     \[
-    \E[|F|]=\sum_{i=1}^\ell \Pr[]
+    \E[|F|]=\sum_{i=1}^\ell \Pr[(F-i)\cap W=\emptyset]
     .\] 
 \end{proof}
 \begin{proof}
