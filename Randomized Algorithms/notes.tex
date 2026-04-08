@@ -928,7 +928,8 @@ We'll denote the wheels by the set $W\subseteq \{0,1,...,\ell\}$ with $|W|=n$. F
 \begin{proof}
     \textbf{Step 1:} Let $T_0$ be the track where we include each pillar, $i\in [2\ell]$ with probability $\frac{\log n}{n}$. \\
     \textbf{Step 2:} Define $F= \{i\in [2\ell] | (W+i)\cap T_0=\emptyset\}$. \\
-    Suppose for simplicity that $0\in W$, define $T=T_0\cup F$, observe that $T$ is valid. By linearity, 
+    Suppose for simplicity that $0\in W$, define $T=T_0\cup F$, observe that $T$ is valid. 
+    \\By linearity, 
     \[
     \E[|T|]=\underbrace{\E[|T_0|]}_{2\ell \frac{\log n}{n}}+\E[|F|]
     .\] 
