@@ -976,5 +976,9 @@ We'll denote the wheels by the set $W\subseteq \{0,1,...,\ell\}$ with $|W|=n$. F
         \Pr[|f-\E[f]|\geq kC\sqrt{m}]\leq 2e^{-\frac{k^2}{3}}
         .\] 
     \end{rec}
+    Applying Mcdiarmid's with $m=\Theta(n)$ and $C=\theta(\ln n)$ we have 
+    \[
+    \Pr[f=0]\leq \Pr[|f-\E[f]\geq n^{0.9}]
+    .\] 
 \end{proof}
 \end{document}
