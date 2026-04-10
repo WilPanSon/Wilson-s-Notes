@@ -2155,17 +2155,18 @@ is a coproduct of $c,d$ iff for all cocones
 \end{thm}
 \begin{proof}
     By induction on $[l_1:k_1]$. \\
-    (Base Case) $[l_1:k_1]=1\implies l_1=k_1$ so $f_1$ splits in $k_1[x]$ and similarly for $f_2,k_2$ as $\rho$ is IM. So $l_2=k_2$ and take $\tau=\rho.$\\
-    (Induction Step) Let $[l_1:k_1]=n>1$ and $l_1/k_1$ is sfe of $k_1$ for $f_1$, so there must be a root $\alpha$ of $f_1$ with $\alpha\in l_1\setminus k_1$. Let $\overline{n}=[k_1(\alpha_1):k_1]>1$ as $\alpha_1\notin k_1$. \\
-    We have 
+    (Base Case) $[l_1:k_1]=1\implies l_1=k_1$, so $f_1$ splits completely in $k_1[x]$, and similarly for $f_2$ in $k_2[x]$ as $\rho$ is an isomorphism. So $l_2=k_2$, and we can simply take $\tau=\rho$. \\
+    (Induction Step) Let $[l_1:k_1]=n>1$. Since $l_1$ is the splitting field extension of $k_1$ for $f_1$, there must be a root $\alpha_1$ of $f_1$ with $\alpha_1\in l_1\setminus k_1$. Let $\overline{n}=[k_1(\alpha_1):k_1]>1$ (since $\alpha_1\notin k_1$). \\
+    By the Tower Law, we have 
     \[
     [l_1:k_1]=[l_1:k_1(\alpha_1)][k_1(\alpha_1):k_1]\implies [l_1:k_1(\alpha_1)]<n
     .\] 
-    Let $m_1=$ minimal polynomial of $\alpha_1/k_1$ $(\deg(m_1)=\overline{n})$. As $f_1(\alpha_1)=0, m_1|f_1$ in $k_1[x]$. \\
-    Define $m_2=\rho(m_1)$ then $m_2$ is monic polynomial in $k_2[x]$ and $m_2|f_2$. As $f_2$ splits in $l_2[x]$, $m_2$ splits in $l_2[x]$ so there is $\alpha_2\in l_2$ such that $m_2(\alpha_2)=0$. \\
-    By previous lemma, there is IM $\rho^+:k_1(\alpha_1)\to k_2(\alpha_2)$ such that $\rho^+|_{k_1}=\rho$ and $\rho^+(\alpha_1)=\alpha_2.$\\
-    As $[l_1:k_1(\alpha_1)]<n$, $l_1/k_1(\alpha_1)$ sfe for $f_1$, $l_1/k_1(\alpha_1)$ also a sfe for $f_1$. By IH, there is IM $\tau:l_1\to l_2$ with $\tau|_{k_1(\alpha_1)}=\rho^+$. So $\tau|_{k_1}=\rho$ and $\tau(\alpha_1)=\alpha_2$. \\
-    $\rho^+(f_1)=f_2, l_2/k_2(\alpha_2)$ sfe for $f_2$. By IH, there is $\tau:l_1\to l_2$ IM with $\tau|_{k_1(\alpha_1)}=\rho^+$ so $\tau|_{k_1}=\rho$. 
+    Let $m_1$ be the minimal polynomial of $\alpha_1$ over $k_1$ ($\deg(m_1)=\overline{n}$). Because $f_1(\alpha_1)=0$, it follows that $m_1|f_1$ in $k_1[x]$. \\
+    Define $m_2=\rho(m_1)$. Then $m_2$ is a monic irreducible polynomial in $k_2[x]$ and $m_2|f_2$. Because $f_2$ splits completely in $l_2[x]$, $m_2$ must also split in $l_2[x]$, so there exists a root $\alpha_2\in l_2$ such that $m_2(\alpha_2)=0$. \\
+    By the previous lemma, there is an isomorphism $\rho^+:k_1(\alpha_1)\to k_2(\alpha_2)$ such that $\rho^+|_{k_1}=\rho$ and $\rho^+(\alpha_1)=\alpha_2.$\\
+    Notice that $l_1/k_1(\alpha_1)$ is a splitting field extension for $f_1$, and $l_2/k_2(\alpha_2)$ is a splitting field extension for $f_2$. Furthermore, the extended isomorphism maps the polynomials correctly: $\rho^+(f_1)=f_2$. \\
+    Because the degree of the remaining extension is strictly smaller ($[l_1:k_1(\alpha_1)]<n$), we can apply the induction hypothesis to $\rho^+$. By the induction hypothesis, there is an isomorphism $\tau:l_1\to l_2$ such that $\tau|_{k_1(\alpha_1)}=\rho^+$. \\
+    Finally, because $\tau$ restricts to $\rho^+$ on $k_1(\alpha_1)$, and $\rho^+$ restricts to $\rho$ on $k_1$, it follows that $\tau|_{k_1}=\rho$.
 \end{proof}
 \begin{defn}
     Let $l/k$ be field extension. $Aut(l/k)= \{r\in Aut(l): r|_k=1_k\}$
