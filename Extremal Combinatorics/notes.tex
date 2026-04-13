@@ -2023,7 +2023,7 @@ $$\sum_{j=1}^t |E_j| \le (1 \pm 5\delta)\frac{n}{r}$$
     We have $\lambda_2=\max_{x\perp 1}\frac{x^T Ax}{x^Tx}$ and we have $\lambda_*=\max_{x\perp 1}\frac{||Ax||}{||x||}$ as $\frac{x^T AA x^T}{||x||^2}=\frac{x^T A^2 x}{||x||^2}$. \\
     We want to find an upper bound 
     \[
-    \lambda_*\leq \max_{x\perp 1}
+    \lambda_*\leq \max_{x\perp 1}\frac{x^T A x}{x^Tx}
     .\] 
     Write $P$ for the transition matrix of $G\oplus H$, $P=\frac{1}{d^2}$ adjacency matrix. \\
     Let $A,B$ be the adjacency matrix of blue and red edges respectively. Then $P=BAB$.  
