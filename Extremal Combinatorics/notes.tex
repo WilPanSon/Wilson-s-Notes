@@ -2030,8 +2030,9 @@ $$\sum_{j=1}^t |E_j| \le (1 \pm 5\delta)\frac{n}{r}$$
     We decompose candidate $x$ as $x=x_\perp+x_c$ where $x_c$ is constant on each copy and $x_\perp$ is perpendicular to $1$ on $H$. \\
     We have 
     \[
-    x_\perp^T BABx_\perp = x_\perp ^T BA(x_\perp^TB)^T\leq ||Bx_\perp||||Bx_\perp||
+    x_\perp^T BABx_\perp = x_\perp ^T BA(x_\perp^TB)^T\leq ||Bx_\perp||||Bx_\perp||\leq \lambda_*^2(B)||x_\perp||^2
     .\] 
+    We drop the $A$ as it's the permutation matrix. 
 \end{proof}
 \begin{thm}
     Given starting point, we can construct arbitrarily large $d^2$-regular vertices with $\lambda_*<\frac{d^2}{2}$.
