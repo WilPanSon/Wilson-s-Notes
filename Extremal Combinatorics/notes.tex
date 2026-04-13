@@ -2028,6 +2028,10 @@ $$\sum_{j=1}^t |E_j| \le (1 \pm 5\delta)\frac{n}{r}$$
     Write $P$ for the transition matrix of $G\oplus H$, $P=\frac{1}{d^2}$ adjacency matrix. \\
     Let $A,B$ be the adjacency matrix of blue and red edges respectively. Then $P=BAB$. But $B$ is $\frac{1}{d}$ adjacency matrix of red edges. \\
     We decompose candidate $x$ as $x=x_\perp+x_c$ where $x_c$ is constant on each copy of $H$ and $x_\perp$ is perpendicular to $1$ on $H$. \\
+    We can rewrite 
+    \[
+    x^T P x=(x_\perp+)
+    .\] 
     We have 
     \[
     x_\perp^T BABx_\perp = x_\perp ^T BA(x_\perp^TB)^T\leq ||Bx_\perp||||Bx_\perp||\leq \lambda_*^2(B)||x_\perp||^2
