@@ -2026,7 +2026,8 @@ $$\sum_{j=1}^t |E_j| \le (1 \pm 5\delta)\frac{n}{r}$$
     \lambda_*\leq \max_{x\perp 1}\frac{x^T A x}{x^Tx}
     .\] 
     Write $P$ for the transition matrix of $G\oplus H$, $P=\frac{1}{d^2}$ adjacency matrix. \\
-    Let $A,B$ be the adjacency matrix of blue and red edges respectively. Then $P=BAB$.  
+    Let $A,B$ be the adjacency matrix of blue and red edges respectively. Then $P=BAB$. But $B$ is $\frac{1}{d}$ adjacency matrix of red edges. \\
+    We decompose candidate $x$ as $x=x_\perp+x_c$ where $x_c$ is constant on each copy  
 \end{proof}
 \begin{thm}
     Given starting point, we can construct arbitrarily large $d^2$-regular vertices with $\lambda_*<\frac{d^2}{2}$.
