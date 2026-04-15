@@ -869,30 +869,20 @@ The time to query elements is at most $\arg\min_S ((\# \text{elements besides $u
         \node[anchor=west] at (-1.5, 4.5) {\LARGE Train Track Problem};
             \draw[thick] (-1.5, 4.1) -- (9.5, 4.1);
         
-            % Track and Gap
             \draw[thick] (-1.5, 0) -- (5.8, 0);
             \draw[thick] (7.2, 0) -- (8.5, 0);
             
-            % Pit lines
             \draw[thick] (5.8, 0) -- (5.8, -1.5);
             \draw[thick] (7.2, 0) -- (7.2, -1.5);
             
-            % Gap dimension \ell
             \draw[thick, |<->|] (5.8, -1.2) -- node[below] {\Large $\ell$} (7.2, -1.2);
         
-            % Train Car Body
             \draw[thick] (0, 0.4) rectangle (6.5, 2.5);
-        
-            % Wheels (radius = 0.2)
             \def\r{0.2}
-            % Left Bogie
             \draw[thick] (0.5, \r) circle (\r);
             \draw[thick] (2.0, \r) circle (\r);
-            % Right Bogie
             \draw[thick] (4.5, \r) circle (\r);
             \draw[thick] (6.0, \r) circle (\r);
-        
-            % Dashed vertical lines inside the car
             \draw[dashed, thick] (1.25, 2.5) -- (1.25, 0.4); 
             \draw[dashed, thick] (3.25, 2.5) -- (3.25, 0.4); 
             \draw[dashed, thick] (5.25, 2.5) -- (5.25, 0.4); 
