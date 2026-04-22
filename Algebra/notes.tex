@@ -1891,8 +1891,8 @@ is a coproduct of $c,d$ iff for all cocones
     $(1)\implies (2)$: There exist $n\geq 1$ and $c_0,\dots,c_{n-1}\in R$ such that $s^n=\sum_{i<n}c_is^i$. By induction, for all $m\geq n$, $s^m$ lies in the $R$-span of $\{s^i : i<n\}$. Hence $R[s]=\sum_{i<n}Rs^i$ is finitely generated as an $R$-module.\\
     $(2)\implies (3)$: Take $M=R[s]$. It is finitely generated as an $R$-module, and it is a faithful $R[s]$-module (since $1\in R[s]$, if $r\in R[s]$ annihilates all of $R[s]$, then $r\cdot 1=r=0$).
 \end{proof}
-\begin{thm}
-    Cayley-Hamilton: Real $n\times n$ matrix $A$ and $p(\lambda)=\det(\lambda I_n-A)$ say $p(\lambda)=\lambda^n+\sum_{i<n}r_i \lambda^i$ then $p(A)=0$.
+\begin{thm}[Cayley--Hamilton]
+    Let $A$ be an $n\times n$ matrix over a commutative ring and let $p(\lambda)=\det(\lambda I_n-A)=\lambda^n+\sum_{i<n}r_i \lambda^i$ be its characteristic polynomial. Then $p(A)=0$.
 \end{thm}
 \begin{proof}
     To show $(3)\implies (1)$, let $M$ be faithful $R[s]$-module with generating set $m_1,...,m_n$. For each $j$, $sm_j=\sum_{i=1}^n a_{i,j}m_{i}$ for some $a_{i,j}\in R$. Let $A=(a_{i,j})$ and $p(\lambda)=\det(\lambda I -A)\in R[\lambda]$. By Cayley-Hamilton, $p(A)=0$, verify $p(s)m_j=0$ for all $j$. As $m_j$'s generate $M$, $p(s)M=0$ for all $m\in M$. As $M$ faithful, $p(s)=0$
