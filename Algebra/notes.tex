@@ -1888,8 +1888,8 @@ is a coproduct of $c,d$ iff for all cocones
     \end{enumerate}
 \end{lem}
 \begin{proof}
-    To show $(1)\implies (2)$, there are $n$ and $c_0,...,c_{n-1}\in R$ such that $s^n=\sum_{i<n}c_is^i$. By induction, for all $m\geq n$, $s^m\in R$-span of $ \{s^i | i<m\}$. \\
-    To show $(2)\implies (3)$, $R[s]$ is faithful $R[S]$-module and finitely generated $R$-module. 
+    $(1)\implies (2)$: There exist $n\geq 1$ and $c_0,\dots,c_{n-1}\in R$ such that $s^n=\sum_{i<n}c_is^i$. By induction, for all $m\geq n$, $s^m$ lies in the $R$-span of $\{s^i : i<n\}$. Hence $R[s]=\sum_{i<n}Rs^i$ is finitely generated as an $R$-module.\\
+    $(2)\implies (3)$: Take $M=R[s]$. It is finitely generated as an $R$-module, and it is a faithful $R[s]$-module (since $1\in R[s]$, if $r\in R[s]$ annihilates all of $R[s]$, then $r\cdot 1=r=0$).
 \end{proof}
 \begin{thm}
     Cayley-Hamilton: Real $n\times n$ matrix $A$ and $p(\lambda)=\det(\lambda I_n-A)$ say $p(\lambda)=\lambda^n+\sum_{i<n}r_i \lambda^i$ then $p(A)=0$.
