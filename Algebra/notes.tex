@@ -1158,21 +1158,20 @@ Conjugation is a specific action of $G$ on itself.
     As $R$ ID for nonzero, $f,g\in R[x]$, $\deg(fg)=\deg(f)+\deg(g)$
 \end{rmk}
 \begin{defn}
-    Let $f\in R[x]$ with $f=0$, $f$ is primitive iff there is no prime $p\in R$ such that $p | f$ in $R[x]$
+    Let $f\in R[x]$ with $f\neq 0$. Then $f$ is \textbf{primitive} iff there is no prime $p\in R$ such that $p | f$ in $R[x]$ (i.e.\ $p$ divides every coefficient of $f$).
 \end{defn}
 \begin{rmk}
-    Informally, the $\gcd$ of the coefficients of $f$ is 1. 
+    Informally, the $\gcd$ of the coefficients of $f$ is a unit.
 \end{rmk}
-\begin{lem}
-    (Gauss's Lemma) If $f,g\in R[x]$ both primitive then $fg$ is primitive. 
+\begin{lem}[Gauss's Lemma]
+    If $f,g\in R[x]$ are both primitive, then $fg$ is primitive. 
 \end{lem}
 \begin{proof}
-    Suppose not, and let $p$ be prime in $R$ such that $p|fg$. As $p$ prime, $P=(p)$ is prime ideal so $R/P$ is ID. Let $\phi:R\to R/P$ quotient map. \\
-    Define $\phi^*:R[x]\to R/P[x]$ by \[
-        \phi^* \left( \sum_{i=0}^n a_ix^i \right)=\sum_{i=0}^n \phi(a_i)x^i
-    .\]
-    $\phi^*$ is homomorphism. So $\phi^*(fg)=\phi(f)\phi(g)$ but $\phi^*(fg)=0$ as $p | fg$. \\
-    As $R/P$ ID, $\frac{R}{P}[x]$ is ID so $\phi^*(f)=0$ or $\phi^*(g)=0$. So $p|f$ or $p|g$ so a contradiction. 
+    Suppose not, and let $p$ be prime in $R$ such that $p\mid fg$ in $R[x]$. Since $p$ is prime, $P=(p)$ is a prime ideal, so $R/P$ is an integral domain. Let $\phi:R\to R/P$ be the quotient map, and define $\phi^*:R[x]\to (R/P)[x]$ by
+    \[
+        \phi^* \left( \sum_{i=0}^n a_ix^i \right)=\sum_{i=0}^n \phi(a_i)x^i.
+    \]
+    $\phi^*$ is a ring homomorphism, so $\phi^*(fg)=\phi^*(f)\phi^*(g)$. But $\phi^*(fg)=0$ since $p\mid fg$. Since $(R/P)[x]$ is an integral domain, $\phi^*(f)=0$ or $\phi^*(g)=0$, i.e.\ $p\mid f$ or $p\mid g$, contradicting primitivity.
 \end{proof}
 \begin{lem}
     Let $f\in R[x]$, $f\neq 0$. Then there are $C\in R$, $g\in R[x]$, $g$ primitive and $f=Cg$
