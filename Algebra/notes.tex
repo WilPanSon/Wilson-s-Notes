@@ -134,14 +134,11 @@ The equivalence classes under the relation $\sim$ partition the set $X$. These c
 \begin{proof}[Proof (McKay's Proof)]
     Let $X$ be the set of $p$-tuples of elements of $G$ whose product is the identity:
     \[ X = \{(g_1, \dots, g_p) \in G^p : g_1 g_2 \cdots g_p = 1\}. \]
-    Notice that $g_p$ is uniquely determined by the first $p-1$ elements ($g_p = (g_1 \cdots g_{p-1})^{-1}$), so $|X| = |G|^{p-1}$. Since $p \mid |G|$, we have $p \mid |X|$. \\
+    Notice that $g_p$ is uniquely determined by the first $p-1$ elements via $g_p = (g_1 \cdots g_{p-1})^{-1}$, so $|X| = |G|^{p-1}$. Since $p \mid |G|$ and $p-1 \geq 1$, we have $p \mid |X|$. \\
     Let $\Z_p$ (cyclic group of order $p$) act on $X$ by cyclic shift:
     \[ \sigma \cdot (g_1, g_2, \dots, g_p) = (g_2, g_3, \dots, g_p, g_1). \]
-    This is a valid action because if $g_1 \cdots g_p = 1$, then $g_1 (g_2 \cdots g_p) = 1 \implies g_2 \cdots g_p = g_1^{-1}$, so $(g_2 \cdots g_p) g_1 = g_1^{-1} g_1 = 1$.\\
-    By the Lemma, $|X| \equiv |X^{\Z_p}| \pmod{p}$.
-    Fixed points are tuples $(a, a, \dots, a)$ such that $a^p = 1$.
-    Since $(1, \dots, 1) \in X^{\Z_p}$, the set of fixed points is non-empty. Since $p$ divides $|X|$ and $p$ divides the congruence $|X| - |X^{\Z_p}|$, $p$ must divide $|X^{\Z_p}|$.
-    Therefore, there are at least $p$ fixed points. There must exist some $a \neq 1$ such that $a^p = 1$.
+    This is a valid action because if $g_1 \cdots g_p = 1$, then $g_2 \cdots g_p = g_1^{-1}$, so $(g_2 \cdots g_p) g_1 = g_1^{-1} g_1 = 1$, which shows the shifted tuple is still in $X$.\\
+    By the Lemma, $|X| \equiv |X^{\Z_p}| \pmod{p}$. Fixed points are exactly tuples $(a, a, \dots, a)$ such that $a^p = 1$. Since $(1, 1, \dots, 1) \in X^{\Z_p}$, the set of fixed points is non-empty. Since $p \mid |X|$ and $|X| \equiv |X^{\Z_p}| \pmod p$, we have $p \mid |X^{\Z_p}|$. Therefore $|X^{\Z_p}| \geq p$, so there must exist some $a \neq 1$ with $a^p = 1$; this element has order exactly $p$.
 \end{proof}
 
 \subsection{Conjugation}
