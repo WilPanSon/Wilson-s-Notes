@@ -2553,17 +2553,20 @@ In all cases, $K\subseteq K(\omega)\subseteq K(\omega,\alpha)$, where $\Aut(K(\o
     Let $a\in k$ with $k$ field and $l/k$ sfe for $x^n-a$ then $x^n-a=\prod_{i=1}^n (x-\alpha_i)$ with $\alpha_i\in l$ distinct. 
 \end{thm}
 \begin{proof}
-    We have $ \left( \frac{\alpha_i}{\alpha_1} \right)^n=1$ so $\mathcal{L}\in l$ with $\mathcal{L}$ primitive $n$-th root of $1$. We can assume $\alpha_i=\alpha \mathcal{L}^i$ for $\alpha^n=a$. We can write $l=k(\alpha,\mathcal{L})$ and $l/k$ galois. 
+    Let $\alpha_1$ be any root of $x^n-a$ in $l$. For any other root $\alpha_i$, we have $(\alpha_i/\alpha_1)^n=a/a=1$, so $\alpha_i/\alpha_1$ is an $n$-th root of unity in $l$. Hence there is a primitive $n$-th root of unity $\zeta\in l$, and we can enumerate the roots as $\alpha_i=\alpha\zeta^i$ for $0\leq i<n$, where $\alpha$ is one chosen root with $\alpha^n=a$. Thus $l=k(\alpha,\zeta)$, and $l/k$ is Galois (the sfe of a separable polynomial).
     \begin{claim}
-        $\Aut(l/k)$ solvable.
+        $\Aut(l/k)$ is solvable.
         \begin{proof}
-            $k\subseteq k(\mathcal{L})\subseteq k(\alpha,\mathcal{L})=l$. We have $k(\mathcal{L})/k$ galois (sfe for $x^n-1=\prod_{i=1}^n (x-\mathcal{L}^i)$. $\Aut(k(\mathcal{L})/k)$ abelian. \\
-            Consider $\Aut(k(\alpha,\mathcal{L})/k(\mathcal{L})$. If $\sigma\in \Aut(k(\alpha,\mathcal{L})/k(\mathcal{L})$, then $\sigma(\alpha)^n=\sigma(\alpha^n)=r(a)=a$ so $\sigma(\alpha)=\alpha \mathcal{L}^i$ for some $i$. So $\Aut(k(\alpha,\mathcal{L})/k(\mathcal{L}))$ is abelian. \\
-            By FTOGT, 
+            Consider the tower $k\subseteq k(\zeta)\subseteq k(\alpha,\zeta)=l$.
+            \begin{itemize}
+                \item $k(\zeta)/k$ is Galois (it is the sfe for $x^n-1=\prod_{i=0}^{n-1}(x-\zeta^i)$). For any $\sigma\in\Aut(k(\zeta)/k)$, $\sigma(\zeta)=\zeta^j$ for some $j$ coprime to $n$, so $\Aut(k(\zeta)/k)$ embeds in $(\Z/n\Z)^*$ and is abelian.
+                \item Consider $\Aut(k(\alpha,\zeta)/k(\zeta))$. If $\sigma$ is in this group, then $\sigma(\alpha)^n=\sigma(\alpha^n)=\sigma(a)=a$, so $\sigma(\alpha)=\alpha\zeta^i$ for some $i$. Thus $\sigma$ is determined by $i$, and $\Aut(k(\alpha,\zeta)/k(\zeta))$ embeds in $\Z/n\Z$, hence is abelian.
+            \end{itemize}
+            Since $k(\zeta)/k$ is Galois, by the Fundamental Theorem of Galois Theory $\Aut(l/k(\zeta))\normal \Aut(l/k)$ and
             \[
-            \frac{\Aut(l/k)}{\Aut(l/k(\mathcal{L})}\simeq \Aut(k(\mathcal{L})/k)
-            .\]
-            Since $\Aut(l/k(\mathcal{L})$ and $\Aut(k(\mathcal{L})/k)$ are abelian, $\Aut(l/k)$ is solvable. 
+            \frac{\Aut(l/k)}{\Aut(l/k(\zeta))}\simeq \Aut(k(\zeta)/k).
+            \]
+            Since both $\Aut(l/k(\zeta))$ and $\Aut(k(\zeta)/k)$ are abelian, $\Aut(l/k)$ is solvable.
         \end{proof}
     \end{claim}
 \end{proof}
