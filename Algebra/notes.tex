@@ -1578,17 +1578,17 @@ is a coproduct of $c,d$ iff for all cocones
 \begin{defn}
     $R$ ID, $M$ torsion free $R$-module. $M$ has rank $n$ iff $n=\max \{|I|:I\subseteq M, I \text{ independent}\}$. 
 \end{defn}
-\begin{thm}
-    Let $R$ be PID and let $M$ be a finitely generated $R$-module. Then $M$ is isomorphic to 
+\begin{thm}[Structure Theorem -- Invariant Factor Form]
+    Let $R$ be a PID and let $M$ be a finitely generated $R$-module. Then $M$ is isomorphic to 
     \[
-    \frac{R}{(c_1)}\oplus \cdots \oplus \frac{R}{(c_n)}
-    .\] 
-    for $c_i$'s are nonzero nonunit elements of $R$ and $c_i$ divides $c_{i+1}$
+    \frac{R}{(c_1)}\oplus \cdots \oplus \frac{R}{(c_n)}\oplus R^t,
+    \]
+    where $t\geq 0$, each $c_i\in R$ is a nonzero nonunit, and $c_i\mid c_{i+1}$ for $1\leq i< n$.
     Moreover:
     \begin{enumerate}
-        \item $t$ unique
-        \item $n$ unique
-        \item ideals $(c_i)$ are unique equivalently, $c_i$'s are unique up to associates. 
+        \item The free rank $t$ is unique.
+        \item The number $n$ of invariant factors is unique.
+        \item The ideals $(c_i)$ are unique; equivalently, the $c_i$ are unique up to associates. 
     \end{enumerate}
 \end{thm}
 
