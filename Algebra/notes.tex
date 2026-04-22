@@ -459,16 +459,17 @@ Conjugation is a specific action of $G$ on itself.
 \end{thm}
 \subsection{Free Groups}
 \begin{eg}
-    Consider $\Z=(\mathbb{Z},+)$, $1$ is a generator $\Z=\gen{1}$. The universal property of $\Z$, 1. For any group $G$ and any $g\in G,$ there is a unique homomorphism $\phi:\Z\to G$ and $\phi(1)=g$. 
+    Consider $\Z=(\mathbb{Z},+)$. The element $1$ is a generator: $\Z=\gen{1}$. The \textbf{universal property of $\Z$} states: for any group $G$ and any $g\in G,$ there is a unique homomorphism $\phi:\Z\to G$ such that $\phi(1)=g$. 
     \begin{proof}
-        If $\phi$ exist let $\phi(n)=g^n$ then $\phi$ is a homomorphism. 
+        Define $\phi(n)=g^n$; this is a homomorphism. Uniqueness follows because any homomorphism $\phi$ with $\phi(1)=g$ must satisfy $\phi(n)=\phi(1)^n=g^n$. 
     \end{proof}
-    \noindent $g$ is free because whatever $1$ is mapped to in the homomorphism it won't mess you up compared to a finite group. 
+    \noindent Intuitively, $1$ is ``free'' because there are no relations it must satisfy: whatever $g$ we map $1$ to, the assignment extends consistently to all of $\Z$.
 \end{eg}
 \begin{defn}
-    $F$ is a free group on $2$ element if \begin{enumerate}
-        \item There exist $a,b\in F$, $F=\gen{a,b}$
-        \item For all $G,$ all $g,h\in G$ there is a unique homomorphism $\phi:F\to G$ such that $\phi(a)=g$ and $\phi(b)=h$. 
+    $F$ is a \textbf{free group on $2$ elements} if
+    \begin{enumerate}
+        \item There exist $a,b\in F$ with $F=\gen{a,b}$.
+        \item For every group $G$ and all $g,h\in G,$ there is a unique homomorphism $\phi:F\to G$ such that $\phi(a)=g$ and $\phi(b)=h$. 
     \end{enumerate}
 \end{defn}
 \newpage
