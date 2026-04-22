@@ -397,13 +397,14 @@ Conjugation is a specific action of $G$ on itself.
     \end{enumerate}
 \end{proof}
 \begin{defn}
-    Given $G$, the derived series of $G$ is given by $G_0'=G$ and $G_{i+1}'=[G_i',G_i']$ for $i\geq 0$.
+    Given $G$, the \textbf{derived series} of $G$ is given by $G^{(0)}=G$ and $G^{(i+1)}=[G^{(i)},G^{(i)}]$ for $i\geq 0$.
 \end{defn}
 \begin{thm}
-    $G$ is solvable iff there is $n$ such that $G_n'=\{1\}$.
+    $G$ is solvable iff there exists $n\geq 0$ such that $G^{(n)}=\{1\}$.
     \begin{proof}
-        For the backwards direction, by construction $G_i'/G_{i+1}'$ is abelian. Let $H_j=G_{n-j}$.
-        For the forward direction, let $\gen{H_j : 0\leq j \leq n}$ be a subnormal series in $G$, $H_{j+1}/H_j$ abelian. Show by induction that $G_i'\leq H_{n-i}$ for all $i.$
+        For the backward direction, note that by construction $G^{(i)}/G^{(i+1)}$ is abelian. Setting $H_j=G^{(n-j)}$ yields a subnormal series $\{1\}=H_0\leq H_1\leq\cdots\leq H_n=G$ with abelian factors, so $G$ is solvable.
+        
+        For the forward direction, let $\gen{H_j : 0\leq j \leq n}$ be a subnormal series in $G$ with $H_{j+1}/H_j$ abelian. We show by induction on $i$ that $G^{(i)}\leq H_{n-i}$: for $i=0$, $G^{(0)}=G=H_n$. Assuming $G^{(i)}\leq H_{n-i}$, since $H_{n-i}/H_{n-i-1}$ is abelian, $[H_{n-i},H_{n-i}]\leq H_{n-i-1}$, so $G^{(i+1)}=[G^{(i)},G^{(i)}]\leq [H_{n-i},H_{n-i}]\leq H_{n-i-1}$. Hence $G^{(n)}\leq H_0=\{1\}$.
     \end{proof}
 \end{thm}
 \begin{thm}
