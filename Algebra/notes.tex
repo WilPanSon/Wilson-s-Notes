@@ -2578,22 +2578,24 @@ In all cases, $K\subseteq K(\omega)\subseteq K(\omega,\alpha)$, where $\Aut(K(\o
     \end{enumerate}
 \end{eg}
 \begin{proof}
-    Goal: $f\in k[x]$ solvable by radical and $l/k$ sfe then $\Aut(l/k)$ solvable. \\
-    Subgoal: Show that if $l/k$ radical then there is $l'/l$ such that 
+    \textbf{Goal:} If $f\in k[x]$ is solvable by radicals and $l/k$ is the sfe for $f$, then $\Aut(l/k)$ is solvable.\\
+    \textbf{Subgoal:} If $l_2/k$ is a radical extension, then there exists $l_3\supseteq l_2$ such that 
     \begin{enumerate}
-        \item $l'/k$ Galois 
-        \item $\Aut(l'/k)$ solvable 
-        \item $l'/k$ radical 
+        \item $l_3/k$ is Galois,
+        \item $\Aut(l_3/k)$ is solvable,
+        \item $l_3/k$ is radical.
     \end{enumerate}
-    To show the subgoal implies the goal. By definition we have $k\subseteq l_1\subseteq l_2$ where $l_1/k$ sfe for $f$ and $l_2/k$ radical. By subgoal, we have $k\subseteq l_1\subseteq l_2\subseteq l_3$ with $l_3/k$ galois and $\Aut(l_3/k)$ solvable. $l_3/k$ Galois, $l$ intermediate, $l/k$ Galois so by FTOGT, $\Aut(l_1/k)\simeq \frac{\Aut(l_3/k)}{\Aut(l_3/l_1)}$. Since $\Aut(l_3/k)$ solvable, $\Aut(l_1/k)$ solvable. \\\\
-    To show the subgoal, by induction on the number of steps in extension $l/k$. \\
-    (Base Case) $l=k(\alpha)$ where $\alpha^n=a\in k$. Let $l'/l$ sfe for $x^n-1$, so $l'=l(\mathcal{L})$ with $\mathcal{L}$ primitive $n$-th root of $1$. $l'=l(\mathcal{L})=k(\alpha,\mathcal{L})$ sfe for $x^n-a$, hence $l'/k$ Galois. \\
-    (Inductive Step) $l=l_0(\beta)$ where $\beta^n=b\in l_0$ and $l_0/k$ radical extension of $k$ satisfying IH. \\
-    Fix $h\in k[x]$ such that $l_0'/k$ sfe for $h$. Let $b_1=b,...,b_t$ be orbit fo $b$ under action of $\Aut(l_0'/k)$. Let 
+    \textbf{Subgoal $\implies$ Goal.} By hypothesis, we have $k\subseteq l_1\subseteq l_2$ with $l_1/k$ the sfe for $f$ and $l_2/k$ radical. By the subgoal, extend to $k\subseteq l_1\subseteq l_2\subseteq l_3$ with $l_3/k$ Galois and $\Aut(l_3/k)$ solvable. Since $l_3/k$ is Galois with intermediate field $l_1$ and $l_1/k$ is Galois (being an sfe of a separable polynomial), by the Fundamental Theorem $\Aut(l_1/k)\simeq \Aut(l_3/k)/\Aut(l_3/l_1)$. Quotients of solvable groups are solvable, so $\Aut(l_1/k)$ is solvable.\\\\
+    \textbf{Proof of Subgoal.} We proceed by induction on the number of steps in the radical tower $l_2/k$.\\
+    (Base Case) $l_2=k(\alpha)$ where $\alpha^n=a\in k$. Let $l_3/l_2$ be the sfe for $x^n-1$, so $l_3=l_2(\zeta)$ with $\zeta$ a primitive $n$-th root of $1$. Then $l_3=k(\alpha,\zeta)$ is the sfe over $k$ of $x^n-a$, hence $l_3/k$ is Galois, is radical (we have $k\subseteq k(\zeta)\subseteq k(\zeta,\alpha)$), and $\Aut(l_3/k)$ is solvable by the previous argument.\\
+    (Inductive Step) Suppose $l_2=l_2^{(0)}(\beta)$ where $\beta^n=b\in l_2^{(0)}$ and $l_2^{(0)}/k$ is a radical extension satisfying the IH: there is $l_3^{(0)}\supseteq l_2^{(0)}$ with $l_3^{(0)}/k$ Galois, $\Aut(l_3^{(0)}/k)$ solvable, and $l_3^{(0)}/k$ radical. Fix $h\in k[x]$ such that $l_3^{(0)}/k$ is the sfe for $h$. Let $b_1=b,b_2,\dots,b_t$ be the orbit of $b$ under $\Aut(l_3^{(0)}/k)$, and set
     \[
-    f=\prod_{i=1}^t(x^n-b_i)
-    .\] 
-    Notice every $\sigma\in \Aut(l_0'/k)$ permutes $x^n-b_i$ so $f\in k[x]$. \\
-    $l'=$ sfe of $l_0'$ for $f'=$ sfe of $k$ for $f\in k[x]$. As we saw $\Aut(l'/l_0')$ solvable. By FTOGT $\Aut(l'/k)$ solvable. 
+    f=\prod_{i=1}^t(x^n-b_i).
+    \]
+    Every $\sigma\in \Aut(l_3^{(0)}/k)$ permutes the factors $x^n-b_i$, so the coefficients of $f$ are $\Aut(l_3^{(0)}/k)$-invariant, i.e.\ $f\in k[x]$. Let $l_3$ be the sfe of $l_3^{(0)}$ for $f$; equivalently, $l_3$ is the sfe of $k$ for $hf$. Then $l_3/k$ is Galois and contains $l_2$. The extension $l_3/l_3^{(0)}$ is a tower of extensions by $n$-th roots, so it is radical and $\Aut(l_3/l_3^{(0)})$ is solvable. By the Fundamental Theorem of Galois Theory,
+    \[
+    \Aut(l_3^{(0)}/k)\simeq \Aut(l_3/k)/\Aut(l_3/l_3^{(0)}),
+    \]
+    so $\Aut(l_3/k)$ is an extension of a solvable group by a solvable group, hence solvable. Also $l_3/k$ is radical (by concatenating the radical towers for $l_3^{(0)}/k$ and $l_3/l_3^{(0)}$).
 \end{proof}
 \end{document}  
