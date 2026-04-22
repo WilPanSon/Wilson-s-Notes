@@ -639,25 +639,25 @@ Conjugation is a specific action of $G$ on itself.
     Given poset $\mathbb{P}$, make "poset category" with objects the elements of $\mathbb{P}$. There is only one morphism $a\to b$ if $a\leq b$ and no morphism if $a\not\leq b$.
 \end{eg}
 \begin{defn}
-    Let $\mathcal{C}$ be a category. An object is an initial if for all object $b$ there is a exactly one arrow $a\to b.$
+    Let $\mathcal{C}$ be a category. An object $a$ is \textbf{initial} if for every object $b$ there is exactly one arrow $a\to b$.
 \end{defn}
 \begin{defn}
-    An arrow $a \xrightarrow{f} b$ in $\mathcal{C}$ is an isomorphism iff there is another $b \xrightarrow{f} a$ such that $gf=1_b$ and $fg=1_a$.
+    An arrow $a \xrightarrow{f} b$ in $\mathcal{C}$ is an \textbf{isomorphism} iff there exists $b \xrightarrow{g} a$ such that $gf=1_a$ and $fg=1_b$.
 \end{defn}
 \begin{lem}
-    If $a,b$ are initial objects in $\mathcal{C}$ they are uniquely isomorphic.
+    If $a,b$ are initial objects in $\mathcal{C}$, they are uniquely isomorphic.
 \end{lem}
 \begin{proof}
-    Let $a \xrightarrow{f} b$ and $b \xrightarrow{g} a$ be unique arrows from $a$ to $b$ and $b$ to $a$ respectively. Then we have $a \xrightarrow{gf} a$ and $b \xrightarrow{fg}$ so $gf=1_a$ and $fg=1_b$. 
+    Let $a \xrightarrow{f} b$ and $b \xrightarrow{g} a$ be the unique arrows. Then $gf:a\to a$ and $fg:b\to b$. Since $a$ is initial, there is only one arrow $a\to a$, namely $1_a$, so $gf=1_a$. Similarly $fg=1_b$. 
 \end{proof}
 \begin{defn}
-    Object $b$ is terminal iff for all $a$ there is a unique $a\to b$ iff $b$ is initial in $\mathcal{C}^{op}$
+    An object $b$ is \textbf{terminal} iff for every $a$ there is a unique arrow $a\to b$, equivalently, $b$ is initial in $\mathcal{C}^{op}$.
 \end{defn}
 \begin{lem}
-    Two terminal objects are uniquely isomorphic. 
+    Any two terminal objects are uniquely isomorphic. 
 \end{lem}
 \begin{defn}
-    Let $\mathcal{C}$ and $\mathcal{D}$ be categories. A functor from $\mathcal{C}$ to $\mathcal{D}$ is $\mathcal{C} \xrightarrow{F} \mathcal{D}$. Assign to each object $a$ of  $\mathcal{C}$ an object $F(a)$ of $\mathcal{D}$. For each arrow $a \xrightarrow{f} b$ there is an arrow $F(a)\xrightarrow{F(f)} F(b)$ with $f(1_a)=1_{F(a)}$. Additionally, $F(gf)=F(g)F(f)$
+    Let $\mathcal{C}$ and $\mathcal{D}$ be categories. A \textbf{functor} $F:\mathcal{C} \to \mathcal{D}$ assigns to each object $a$ of $\mathcal{C}$ an object $F(a)$ of $\mathcal{D}$, and to each arrow $a \xrightarrow{f} b$ an arrow $F(a)\xrightarrow{F(f)} F(b)$, such that $F(1_a)=1_{F(a)}$ and $F(gf)=F(g)F(f)$ whenever $g\circ f$ is defined.
 \end{defn}
 \newpage
 \section{Lecture 12: Ring Theory (Feb 8)}
