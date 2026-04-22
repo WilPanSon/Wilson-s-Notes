@@ -2057,18 +2057,18 @@ is a coproduct of $c,d$ iff for all cocones
     \begin{enumerate}
         \item If $\alpha$ is transcendental over $k$, consider $e_\alpha:k[x]\to l$ by $e_\alpha:f\mapsto f(\alpha)$ and as $e_\alpha$ homomorphism and $\alpha$ transcendental, $\ker(e_\alpha)=0$ so $im(e_\alpha)\simeq k[x]$. So $f(\alpha)$ corresponds with $f$. 
         \item If $\alpha$ is algebraic over $k$, consider same homomorphism, $im(e_\alpha)=k[\alpha].$ \\
-        As $\alpha$ is algebraic, $\ker(e_\alpha)\neq 0$, by first isomorphism then 
+        Since $\alpha$ is algebraic, $\ker(e_\alpha)\neq 0$; by the First Isomorphism Theorem,
         \[
-        im(e_\alpha)\simeq \frac{k[x]}{\ker(e_\alpha)}
-        .\] 
-        $k[\alpha]$ is subring of $l$ so $k[\alpha]$ integral domain. So $\ker(e_\alpha)$ is a nonzero prime ideal of the PID $k[x]$. So 
+        \im(e_\alpha)\simeq \frac{k[x]}{\ker(e_\alpha)}.
+        \]
+        Since $k[\alpha]$ is a subring of the field $l$, it is an integral domain, so $\ker(e_\alpha)$ is a nonzero prime ideal of the PID $k[x]$. Therefore:
         \begin{enumerate}
-            \item $\ker(e_\alpha)=(f)$ for unique monic $f\in k[x]$
-            \item $f$ is prime and irreducible
-            \item $(f)$ is maximal ideal 
-            \item $k[x]$ is a field so $k[\alpha]=k(\alpha)$
-            \item Let $m_\alpha$ (minimal polynomial of $\alpha/k$) be unique monic generator of $\ker(e_\alpha)=(m_\alpha)$. Let $\deg(m_\alpha)=n$, so $k(\alpha)\simeq \frac{k[x]}{(m_\alpha)}$ and $f(\alpha)$ corresponding with $f+(m_\alpha)$. For any $f\in k[x]$, division gives us $f=m_\alpha q+r$ unique where $r=\sum_{i<n} c_ix^i$ and $c_i\in k$. So $f+(m_\alpha)=r+(m_\alpha)$, $r$ is unique. 
-            \item $1,\alpha,...,\alpha^{n-1}$ form a basis for $k(\alpha)$ as a vector space over $k$. $[k(\alpha):k]=n=\deg(m_\alpha)$
+            \item $\ker(e_\alpha)=(f)$ for a unique monic $f\in k[x]$.
+            \item $f$ is prime and hence irreducible.
+            \item $(f)$ is a maximal ideal.
+            \item $k[x]/(f)$ is a field, so $k[\alpha]=k(\alpha)$.
+            \item Let $m_\alpha$ (the \emph{minimal polynomial of $\alpha$ over $k$}) be the unique monic generator $\ker(e_\alpha)=(m_\alpha)$, and let $n=\deg(m_\alpha)$. Then $k(\alpha)\simeq k[x]/(m_\alpha)$, with $f(\alpha)$ corresponding to $f+(m_\alpha)$. For any $f\in k[x]$, division gives a unique representation $f=m_\alpha q+r$ with $r=\sum_{i<n} c_ix^i$, $c_i\in k$; so $f+(m_\alpha)=r+(m_\alpha)$ with $r$ unique.
+            \item $1,\alpha,\dots,\alpha^{n-1}$ form a basis for $k(\alpha)$ as a $k$-vector space; in particular $[k(\alpha):k]=n=\deg(m_\alpha)$.
         \end{enumerate}
     \end{enumerate}
 \end{prop}
