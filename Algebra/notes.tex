@@ -1680,10 +1680,11 @@ is a coproduct of $c,d$ iff for all cocones
 \section{Lecture 25: Structure Theorem and Adjoint Functors (Mar 20)}
 \subsection{Decomposition of Finitely Generated Modules}
 \begin{thm}
-    Let $F$ be a finitely genereated module over PID $R$ say $F=Rf_1+\cdots+Rf_t, f_i\in F$. Define $\pi:R^t\to F$ by $\pi:(\lambda_1,...,\lambda_t)\mapsto \sum_{i_=1}^t \lambda_i t_i$. $\pi$ is a surjective homomorphism so \[
-    F\simeq \frac{N}{\ker(\pi)} 
-    .\] 
-    We have $N, M$ having rank $t$ and $s$.  
+    Let $F$ be a finitely generated module over a PID $R$, say $F=Rf_1+\cdots+Rf_t$ with $f_i\in F$. Define $\pi:R^t\to F$ by $\pi:(\lambda_1,\dots,\lambda_t)\mapsto \sum_{i=1}^t \lambda_i f_i$. Then $\pi$ is a surjective homomorphism, so
+    \[
+    F\simeq \frac{R^t}{\ker(\pi)}.
+    \]
+    Setting $N=R^t$ (of rank $t$) and $M=\ker(\pi)$ (a submodule of $N$, hence free of some rank $s\leq t$ by the submodule theorem), we get $F\simeq N/M$.
 \end{thm}
 \begin{thm}
     Let $R$ be a PID, $M$ be a finitely generated $R$-module. Then $M$ is isomorphic to 
