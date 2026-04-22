@@ -1851,20 +1851,20 @@ is a coproduct of $c,d$ iff for all cocones
     An $R$-module $M$ is faithful if for all $r\in R$, if $rm=0$ for all $m\in M$ then $r=0$
 \end{defn}
 \begin{rmk}
-    If $R\leq S$ then 
+    If $R\leq S$, then
     \begin{enumerate}
-        \item $S$ can be viewed as an $R$-module 
-        \item $S$ is faithful as $rs=0$ for all $s\in S$ implies $r_1=0$ so $r=0$
+        \item $S$ can be viewed as an $R$-module.
+        \item $S$ is faithful as an $R$-module: if $rs=0$ for all $s\in S$, then in particular $r\cdot 1_S=0$, so $r=0$.
     \end{enumerate}
 \end{rmk}
 \begin{lem}
-    Suppose $R\leq S$ and $a\in S$, the least subring of $S\supseteq R\cup \{a\}= \{f(a):f\in R[x]\}$ (write $R[a]$ for this) 
+    Suppose $R\leq S$ and $a\in S$. The least subring of $S$ containing $R\cup \{a\}$ equals $\{f(a): f\in R[x]\}$; we denote it $R[a]$.
 \end{lem}
 \begin{thm}
-    If $\phi$ HM and $im(\phi)=R[a]$ so
+    The evaluation map $\phi:R[x]\to S$, $\phi(f)=f(a)$, is a ring homomorphism with image $R[a]$, so
     \[
-    R[a]\simeq \frac{R[x]}{(\ker(\phi))}
-    .\] 
+    R[a]\simeq \frac{R[x]}{\ker(\phi)}.
+    \]
 \end{thm}
 \subsection{Integral Elements over Subrings}
 \begin{defn}
