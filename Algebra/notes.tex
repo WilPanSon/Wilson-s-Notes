@@ -1185,24 +1185,22 @@ Conjugation is a specific action of $G$ on itself.
 \begin{lem}
     Let $f\in R[x]$ be irreducible with $\deg f>0$. Then $f$ irreducible in $F[x]$
 \end{lem}
-\begin{proof}
-    Proof of Theorem 19.1:\\
-    To show existence of factorization: Let $f\in R[x]$ nonzero and nonunit. Write $f=cg$ where $c\in R$ and $g\in R[x]$ primitive. If $C$ nonunit (in $R$), use $R$ being UFD to write $c=r_1...r_n$ with $r_i$ irreducible in $R$. \\
-    Note: $r_i$ still irreducible in $R[x]$. \\
-    We have $g\in R[x]\implies g\in F[x]$. If $\deg(g)>0$ then $g$ is not a unit and using $F[x]$ is UFD to write \[
-    g=h_1...h_n \text{ where } h_i\in F[x], h_i \text{ irreducible in } F[x]
-    .\] 
-    Find $a_i\neq 0$ in $F$ such that $H_i=a_ih_i\in R[x]$ primitive. \\
-    Note: $H_i$ irreducible in $F[x].$ \\
-    So we can write 
+\begin{proof}[Proof of Theorem 19.1 ($R$ UFD $\implies R[x]$ UFD)]
+    \textbf{Existence of factorization.} Let $f\in R[x]$ be nonzero and not a unit. Write $f=cg$ where $c\in R$ and $g\in R[x]$ is primitive. If $c$ is a nonunit in $R$, use that $R$ is a UFD to write $c=r_1\cdots r_n$ with each $r_i$ irreducible in $R$; each $r_i$ remains irreducible in $R[x]$. \\
+    Next, view $g\in F[x]$. If $\deg(g)>0$, then $g$ is a nonunit in $F[x]$, and since $F[x]$ is a UFD we can write
     \[
-    \prod_{i=1}^n H_i=\left ( \prod_{i=1}^n a_i \right ) \left( \prod_{i=1}^n h_i \right)=\left ( \prod_{i=1}^n a_i \right ) g
-    .\] 
-    Let $\prod a_i= \frac{A}{B}$ for $A,B\in R$ and $A,B\neq 0$. Then $B(\prod H_i)=Ag$. Argue that $A,B$ must be associates so $\prod a_i$ unit of $R$ and WLOG $\prod a_i=1$. \\\\
-    To show uniqueness of factorization: \\
-    Suppose $f=r_1...r_n g_1...g_s=r_1'...r_m' g_1'...g_s'$ for $r_i,r_i'\in R$ irreducible and $g_i,g_i'\in R[x]$ irreducible and $\deg(g_i),\deg(g_i')>0$ for all $i$. \\
-    As $g_i,g_i'$ are primitive, $g_1...g_s$ and $g_1'...g_s'$ are primitive. \\
-    So $v_1...v_n,v_1',...,v_m'$ are associates in $R$ and using $R$ being UFD. By lemma 19.8, $g,g'$ are irreducible in $F[x]$. 
+    g=h_1\cdots h_k \text{ where } h_i\in F[x] \text{ is irreducible in } F[x].
+    \]
+    Find $a_i\in F^*$ such that $H_i=a_ih_i\in R[x]$ is primitive; then each $H_i$ is also irreducible in $F[x]$. We have
+    \[
+    \prod_{i=1}^k H_i=\left(\prod_{i=1}^k a_i\right) g.
+    \]
+    Write $\prod a_i=A/B$ with $A,B\in R$, $B\neq 0$, so $B\prod_i H_i=Ag$. Since the $H_i$ are primitive, so is $\prod_i H_i$ (Gauss); since $g$ is primitive, comparing contents shows $A$ and $B$ are associates, so $\prod a_i\in R^\times$. WLOG $\prod a_i=1$, giving $g=\prod H_i$ as a product of irreducibles in $R[x]$. \\\\
+    \textbf{Uniqueness of factorization.} Suppose
+    \[
+    f=r_1\cdots r_n\, g_1\cdots g_s=r'_1\cdots r'_m\, g'_1\cdots g'_{s'}
+    \]
+    with $r_i,r'_j\in R$ irreducible and $g_i,g'_j\in R[x]$ irreducible with $\deg(g_i),\deg(g'_j)>0$. Since each $g_i$ (resp.\ $g'_j$) is primitive, so are $\prod g_i$ and $\prod g'_j$. Equating contents shows $r_1\cdots r_n$ and $r'_1\cdots r'_m$ are associates in $R$; since $R$ is a UFD, $n=m$ and the $r_i$ match the $r'_j$ (up to reorder and units). Each $g_i$ is irreducible in $F[x]$ (Lemma 19.8), and $F[x]$ is a UFD, so $s=s'$ and the $g_i$ match the $g'_j$ up to reorder and units in $F^*$; combined with primitivity this forces the units to lie in $R^\times$, so they match up to associates in $R[x]$.
 \end{proof}
 \newpage
 \section{Lecture 20: Products and Coproducts in Categories (Mar 2)}
