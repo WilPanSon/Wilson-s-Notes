@@ -1312,23 +1312,26 @@ is a coproduct of $c,d$ iff for all cocones
     Let $M_1,M_2$ be $R$-modules. Define 
     \[
     M_1 \oplus M_2 = \{(m_1,m_2): m_i\in M_i\}
-    .\] 
-    Define $i:M_1\to M_1 \oplus M_2$ by $i(m_1)=(m_1,0)$ and $j:M_2\to M_1 \oplus M_2$ by $j(m_2)=(0,m_2)$. For any $R$-module $N$ and homomorphisms $\psi_1:M_1\to N$, $\psi_2:M_2\to N$, there is a unique $\rho:M_1\oplus M_2\to N$ such that the diagram
+    \]
+    with componentwise operations.
+
+    \textbf{Coproduct structure.} Define inclusions $i:M_1\to M_1 \oplus M_2$ by $i(m_1)=(m_1,0)$ and $j:M_2\to M_1 \oplus M_2$ by $j(m_2)=(0,m_2)$. For any $R$-module $N$ and homomorphisms $\psi_1:M_1\to N$, $\psi_2:M_2\to N$, there is a unique $\rho:M_1\oplus M_2\to N$ such that the diagram
     \begin{center}
         \begin{tikzcd}
-            M_1 \arrow[d, "i"] \arrow[rd, "\psi_1"'] & M_2 \arrow[d, "j"] \arrow[ld, "\psi_2"] \\
+            M_1 \arrow[d, "i"'] \arrow[rd, "\psi_1"] & & M_2 \arrow[d, "j"] \arrow[ld, "\psi_2"'] \\
             M_1 \oplus M_2 \arrow[r, "\rho", dashed] & N
         \end{tikzcd}
     \end{center}
-    commutes ($\rho \circ i = \psi_1$ and $\rho \circ j = \psi_2$). We have $\rho(m_1,m_2)=\rho((m_1,0)+(0,m_2))=\psi_1(m_1)+\psi_2(m_2)$.\\\\
-    For the coproducts, $\pi_1:M_1 \oplus M_2\to M_1$ by $\pi_1(m_1,m_2)=m_1$ and $\pi_2:M_1 \oplus M_2\to M_2$ by $\pi_2(m_1,m_2)=m_2$. For any $R$-module $N$ and homomorphisms $\psi_1:N\to M_1$, $\psi_2:N\to M_2$, there is a unique $\rho:N\to M_1 \oplus M_2$ such that the diagram
+    commutes ($\rho \circ i = \psi_1$ and $\rho \circ j = \psi_2$). Explicitly, $\rho(m_1,m_2)=\psi_1(m_1)+\psi_2(m_2)$.\\
+
+    \textbf{Product structure.} Define projections $\pi_1:M_1 \oplus M_2\to M_1$ by $\pi_1(m_1,m_2)=m_1$ and $\pi_2:M_1 \oplus M_2\to M_2$ by $\pi_2(m_1,m_2)=m_2$. For any $R$-module $N$ and homomorphisms $\psi_1:N\to M_1$, $\psi_2:N\to M_2$, there is a unique $\rho:N\to M_1 \oplus M_2$ such that the diagram
     \begin{center}
         \begin{tikzcd}
-            N \arrow[d, "\psi_1"] \arrow[rd, "\psi_2"'] & M_1 \arrow[d, "\pi_1"] \arrow[ld, "\pi_2"] \\
-            M_1 \oplus M_2 \arrow[r, "\rho", dashed] & N
+            & N \arrow[dl, "\psi_1"'] \arrow[dr, "\psi_2"] \arrow[d, "\rho", dashed] & \\
+            M_1 & M_1 \oplus M_2 \arrow[l, "\pi_1"] \arrow[r, "\pi_2"'] & M_2
         \end{tikzcd}
     \end{center}
-    commutes ($\rho \circ \pi_1 = \psi_1$ and $\rho \circ \pi_2 = \psi_2$). We have $\rho(n)=\rho(\psi_1(n),\psi_2(n))=(\psi_1(n),0)+(0,\psi_2(n))$.
+    commutes ($\pi_1\circ\rho = \psi_1$ and $\pi_2\circ\rho = \psi_2$). Explicitly, $\rho(n)=(\psi_1(n),\psi_2(n))$. Thus for finitely many $R$-modules, the direct sum $M_1\oplus M_2$ is simultaneously the product and the coproduct.
 \end{defn}
 \newpage
 \section{Lecture 21: Free Modules and Bilinear Maps (Mar 11)}
