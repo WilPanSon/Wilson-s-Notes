@@ -2290,23 +2290,23 @@ is a coproduct of $c,d$ iff for all cocones
 \newpage
 \section{Lecture 34: Field Extensions}
 \begin{defn}
-    $k'$ is an intermediate field of $l/k$ if $k\subseteq k'\subseteq l$. 
+    $k'$ is an \textbf{intermediate field} of $l/k$ if $k\subseteq k'\subseteq l$. 
 \end{defn}
 \begin{lem}
-    $Aut(l/k')\leq Aut(l/k)\leq Aut(l)$
+    If $k\subseteq k'\subseteq l$, then $\Aut(l/k')\leq \Aut(l/k)\leq \Aut(l)$.
 \end{lem}
 \begin{defn}
-    If $H\leq Aut(l)$, $l$ field then 
+    If $H\leq \Aut(l)$ and $l$ is a field, then
     \[
-    Fix(H)= \{a\in l: \rho(a)=a \text{ for all } \rho\in H\}
-    .\] 
+    \Fix(H)= \{a\in l: \sigma(a)=a \text{ for all } \sigma\in H\}.
+    \]
 \end{defn}
 \begin{lem}
     The following are true:
     \begin{enumerate}
-        \item $Fix(H)$ is subfield of $l$
-        \item If $H\leq Aut(l/k)$ then $Fix(H)$ is an intermediate field. 
-        \item $k\leq k'\leq l \implies Aut(l/k')\leq Aut(l/h)$. 
+        \item $\Fix(H)$ is a subfield of $l$.
+        \item If $H\leq \Aut(l/k)$, then $\Fix(H)$ is an intermediate field of $l/k$.
+        \item $k\leq k'\leq l \implies \Aut(l/k')\leq \Aut(l/k)$.
     \end{enumerate}
 \end{lem}
 \begin{defn}
