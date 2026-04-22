@@ -2072,20 +2072,25 @@ is a coproduct of $c,d$ iff for all cocones
         \end{enumerate}
     \end{enumerate}
 \end{prop}
-\begin{thm}
-    Let $k_1,k_2,k_3$ be fields with $k_1\subseteq k_2\subseteq k_3$, let $B\subseteq k_3$ be a basis for $k_3$ as a vector space over $k_2$ and let $A\subseteq k_2$ be a bsais for $k_2$ as a vector space over $k_1$. Then $ AB=\{ab: a\in A, b\in B\}$ are pairwise distinct ($a_1b_1=a_2b_2\iff a_1=a_2,b_1=b_2$) and form a basis for $k_3$ as a vector space over $k_1$. So $[k_3:k_1]=[k_3:k_2][k_2:k_1]$.  
+\begin{thm}[Tower Law]
+    Let $k_1,k_2,k_3$ be fields with $k_1\subseteq k_2\subseteq k_3$. Let $B\subseteq k_3$ be a basis for $k_3$ as a $k_2$-vector space, and $A\subseteq k_2$ a basis for $k_2$ as a $k_1$-vector space. Then the products $AB=\{ab: a\in A, b\in B\}$ are pairwise distinct (i.e.\ $a_1b_1=a_2b_2\iff a_1=a_2\text{ and }b_1=b_2$), and form a basis for $k_3$ as a $k_1$-vector space. In particular, $[k_3:k_1]=[k_3:k_2]\cdot [k_2:k_1]$.
 \end{thm}
 \begin{proof}
-    To show $AB$ spans $k_3$, let $c\in k_3$ and express 
+    \textbf{Spanning.} Let $c\in k_3$. Since $B$ spans $k_3$ over $k_2$, write
     \[
-    c=\sum_{i=1}^t \lambda_i b_i \tag{$\lambda_i\in k_2,b_i\in B$}
-    .\] 
-    We can decompose this further by using basis for $k_2$ 
+    c=\sum_{i=1}^t \lambda_i b_i, \quad \lambda_i\in k_2,\ b_i\in B.
+    \]
+    Since $A$ spans $k_2$ over $k_1$, we can further decompose
     \[
-    \lambda_i = \sum_{j=1}^{s_i} \mu_{i,j} a_{i,j} \tag{$\mu_{i,j}\in k_1,a_{i,j}\in A$}
-    .\] 
-    We get $c\in k_1$-span of $AB$. \\
-    To show independence, 
+    \lambda_i = \sum_{j=1}^{s_i} \mu_{i,j} a_{i,j}, \quad \mu_{i,j}\in k_1,\ a_{i,j}\in A.
+    \]
+    Substituting, $c=\sum_{i,j}\mu_{i,j}(a_{i,j}b_i)$ lies in the $k_1$-span of $AB$.\\
+    \textbf{Linear independence.} Suppose $\sum_{a\in A,\,b\in B}\mu_{a,b}(ab)=0$ with $\mu_{a,b}\in k_1$ (finitely many nonzero). Group by $b$:
+    \[
+    \sum_{b\in B}\underbrace{\left(\sum_{a\in A}\mu_{a,b}\, a\right)}_{\in\, k_2}\cdot b=0.
+    \]
+    Since $B$ is $k_2$-linearly independent, each inner sum $\sum_{a}\mu_{a,b}a=0$ in $k_2$. Since $A$ is $k_1$-linearly independent, each $\mu_{a,b}=0$.\\
+    In particular, the multiplication map $A\times B\to AB$ is injective, so $|AB|=|A||B|$.
 \end{proof}
 \begin{rmk}
     We have $[k(x):k]$ is infinite so if $[l:k]<\infty$ then for all $\alpha\in l$, $k\leq k(\alpha)\leq l$, $[k(\alpha):k]<\infty$. So $\alpha$ is algebraic over $k$. 
