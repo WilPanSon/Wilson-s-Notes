@@ -1317,9 +1317,9 @@ is a coproduct of $c,d$ iff for all cocones
 
     \textbf{Coproduct structure.} Define inclusions $i:M_1\to M_1 \oplus M_2$ by $i(m_1)=(m_1,0)$ and $j:M_2\to M_1 \oplus M_2$ by $j(m_2)=(0,m_2)$. For any $R$-module $N$ and homomorphisms $\psi_1:M_1\to N$, $\psi_2:M_2\to N$, there is a unique $\rho:M_1\oplus M_2\to N$ such that the diagram
     \begin{center}
-        \begin{tikzcd}
-            M_1 \arrow[d, "i"'] \arrow[rd, "\psi_1"] & & M_2 \arrow[d, "j"] \arrow[ld, "\psi_2"'] \\
-            M_1 \oplus M_2 \arrow[r, "\rho", dashed] & N
+        \begin{tikzcd}[column sep=large]
+            M_1 \arrow[dr, "i"'] \arrow[drr, "\psi_1", bend left=20] & M_2 \arrow[d, "j"] \arrow[dr, "\psi_2"'] & \\
+            & M_1 \oplus M_2 \arrow[r, "\rho"', dashed] & N
         \end{tikzcd}
     \end{center}
     commutes ($\rho \circ i = \psi_1$ and $\rho \circ j = \psi_2$). Explicitly, $\rho(m_1,m_2)=\psi_1(m_1)+\psi_2(m_2)$.\\
