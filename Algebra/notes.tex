@@ -615,12 +615,13 @@ Conjugation is a specific action of $G$ on itself.
 \begin{defn}
     A category $\mathcal{C}$ consists of the following data:
     \begin{enumerate}
-        \item A collection of objects $Ob(\mathcal{C})$
-        \item A collection of morphisms $Mor(\mathcal{C})$
-        \item For each morphism $f$, there are objects $\dom(f)$ and $\cod(f)$ such that $dom(f)\to cod(f)$ is a morphism in $Mor(\mathcal{C})$
-        \item A composition operation $Mor(\mathcal{C})\times Mor(\mathcal{C})\to Mor(\mathcal{C})$
-        \item An identity morphism $1_A:A\to A$ for each object $A\in Ob(\mathcal{C})$
+        \item A collection of objects $\operatorname{Ob}(\mathcal{C})$.
+        \item A collection of morphisms $\operatorname{Mor}(\mathcal{C})$.
+        \item For each morphism $f$, objects $\operatorname{dom}(f)$ and $\operatorname{cod}(f)$ with $f:\operatorname{dom}(f)\to \operatorname{cod}(f)$.
+        \item A partial composition operation: for composable $f,g\in \operatorname{Mor}(\mathcal{C})$ (i.e.\ $\operatorname{cod}(f)=\operatorname{dom}(g)$), a morphism $g\circ f\in \operatorname{Mor}(\mathcal{C})$.
+        \item An identity morphism $1_A:A\to A$ for each object $A\in \operatorname{Ob}(\mathcal{C})$.
     \end{enumerate}
+    These satisfy the usual unit and associativity laws (see lemma below).
 \end{defn}
 \begin{lem}
     The following are true:
