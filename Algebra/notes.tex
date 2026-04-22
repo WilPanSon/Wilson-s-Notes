@@ -2183,16 +2183,19 @@ is a coproduct of $c,d$ iff for all cocones
     Finally, because $\tau$ restricts to $\rho^+$ on $k_1(\alpha_1)$, and $\rho^+$ restricts to $\rho$ on $k_1$, it follows that $\tau|_{k_1}=\rho$.
 \end{proof}
 \begin{defn}
-    Let $l/k$ be field extension. $Aut(l/k)= \{r\in Aut(l): r|_k=1_k\}$
+    Let $l/k$ be a field extension. Define
+    \[
+    \Aut(l/k)=\{\sigma\in \Aut(l): \sigma|_k=1_k\}.
+    \]
 \end{defn}
 \begin{lem}
-    If $[l:k]<\infty$ then $|Aut(l/k)|\leq [l:k]$. 
+    If $[l:k]<\infty$, then $|\Aut(l/k)|\leq [l:k]$. 
 \end{lem}
 \begin{lem}
-    If $\rho\in Aut(l/k)$, if $\beta\in l$ and $g\in k[x]$ with $g(\beta)=0$ then $g(\rho(\beta))=0.$
+    If $\sigma\in \Aut(l/k)$, $\beta\in l$, and $g\in k[x]$ with $g(\beta)=0$, then $g(\sigma(\beta))=0$.
 \end{lem}
 \begin{defn}
-    Let $l/k$ be field extension then $l/k$ algebraic if every $\alpha\in l$ is algebraic over $k$
+    A field extension $l/k$ is \textbf{algebraic} if every $\alpha\in l$ is algebraic over $k$.
 \end{defn}
 \newpage
 \section{Lecture 33: Normal Extensions}
