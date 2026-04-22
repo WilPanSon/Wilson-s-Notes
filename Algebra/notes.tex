@@ -389,8 +389,11 @@ Conjugation is a specific action of $G$ on itself.
         We can let $H'_i=K\cap H_i$ for $0\leq i \leq t$ and we need to verify $\gen{H'_i : 0\leq i \leq t}$ is a solvable series in $K$.
         \item Let $\gen{H_i : 0\leq i \leq t}$ be a series in $G$ such that $[H_{i+1},H_{i+1}]\leq H_i$ for all $0\leq i \leq t-1$. \\
         Let $H_i'=\phi_N[H_i]=H_iN/N$. Verify it is solvable. 
-        \item The forward direction is trivial by (1) and (2). For the reverse direction, $N$ solvable and $G/N$ solvable $\gen{N_i : 0\leq i \leq s}$ subnormal in $N$ and $N_{i+1}/N_i$ abelian and similar for $\gen{H_j N/N : 0\leq j \leq t}$ subnormal in $G/N$ and $(H_{j+1} N/N)_{j+1}/(H_j N/N)$ abelian. We know $H_{j+1}\normal H_{j}$ and $[H_{j+1}, H_{j+1}]\leq H_j$ for all $0\leq j \leq t-1$. 
-        So $N_0=1 \normal N_1 \cdots \normal N_s=N=H_0\normal H_1 \cdots \normal H_t=G$.
+        \item The forward direction follows from (1) and (2). For the reverse direction, assume $N$ solvable and $G/N$ solvable. Then there is a subnormal series $\gen{N_i : 0\leq i \leq s}$ in $N$ with each $N_{i+1}/N_i$ abelian, and a subnormal series $\gen{\overline{H_j} : 0\leq j \leq t}$ in $G/N$ with each $\overline{H_{j+1}}/\overline{H_j}$ abelian. By the correspondence theorem, each $\overline{H_j}$ corresponds to a subgroup $H_j$ of $G$ with $N\leq H_j$, and $H_j\normal H_{j+1}$ with $H_{j+1}/H_j\cong \overline{H_{j+1}}/\overline{H_j}$ abelian. Concatenating gives
+        \[
+        \{1\}=N_0\normal N_1 \normal \cdots \normal N_s=N=H_0\normal H_1 \normal \cdots \normal H_t=G
+        \]
+        as a subnormal series with abelian factors.
     \end{enumerate}
 \end{proof}
 \begin{defn}
